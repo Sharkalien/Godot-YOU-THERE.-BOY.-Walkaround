@@ -15,22 +15,24 @@ func movement():
 	movementSmooth()
 	
 	# Controls player right and left animation sprites using arrow keys.
-	if Input.is_action_pressed("ui_right"):
-		$AnimationPlayer.play("run" + facing)
-		$Sprite.flip_h = false
-	elif Input.is_action_pressed("ui_left"):
-		$AnimationPlayer.play("run" + facing)
-		$Sprite.flip_h = true
-	if Input.is_action_pressed("ui_up"):
-		if facing != "Back":
-			facing = "Back";
-		$AnimationPlayer.play("run" + facing)
-	elif Input.is_action_pressed("ui_down"):
-		if facing != "Front":
-			facing = "Front";
-		$AnimationPlayer.play("run" + facing) 
-	if Input.is_action_pressed("ui_right") && Input.is_action_pressed("ui_left") || Input.is_action_pressed("ui_up") && Input.is_action_pressed("ui_down"):
-		$AnimationPlayer.play("still" + facing)
+	if !(Input.is_action_pressed("ui_left") && Input.is_action_pressed("ui_right")):
+		if Input.is_action_pressed("ui_right"):
+			$AnimationPlayer.play("run" + facing)
+			$Sprite.flip_h = false
+		elif Input.is_action_pressed("ui_left"):
+			$AnimationPlayer.play("run" + facing)
+			$Sprite.flip_h = true
+	if !(Input.is_action_pressed("ui_up") && Input.is_action_pressed("ui_down")):
+		if Input.is_action_pressed("ui_up"):
+			if facing != "Back":
+				facing = "Back";
+			$AnimationPlayer.play("run" + facing)
+		elif Input.is_action_pressed("ui_down"):
+			if facing != "Front":
+				facing = "Front";
+			$AnimationPlayer.play("run" + facing) 
+#	if Input.is_action_pressed("ui_right") && Input.is_action_pressed("ui_left") || Input.is_action_pressed("ui_up") && Input.is_action_pressed("ui_down"):
+#		$AnimationPlayer.play("still" + facing)
 
 func movementSmooth():
 	var input_vector = Vector2.ZERO
