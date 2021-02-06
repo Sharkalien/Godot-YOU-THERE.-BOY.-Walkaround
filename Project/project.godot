@@ -105,6 +105,12 @@ mouse_move={
  ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="player"
+2d_physics/layer_2="kernelsprite"
+2d_physics/layer_3="interactable"
+
 [rendering]
 
 quality/driver/driver_name="GLES2"
