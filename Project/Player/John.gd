@@ -14,7 +14,7 @@ func _physics_process(_delta):
 
 func movement():
 	movementSmooth()
-	mouseMovement()
+#	mouseMovement()
 	
 	# Controls player right and left animation sprites using arrow keys.
 	if !(Input.is_action_pressed("ui_left") && Input.is_action_pressed("ui_right")):
@@ -52,15 +52,15 @@ func movementSmooth():
 # Currently unfinished and wildy dysfunctional.
 # Please refer to 
 # https://www.youtube.com/watch?v=5bxys-Zo_jk&list=PLllc6qRBTEefSTIsPZVqhhuGNMc-5kOS6&index=16
-func _input(event):
-	if event.is_action_pressed("mouse_move"):
-		last_mouse_pos = get_viewport().get_mouse_position()
-
-func mouseMovement():
-	if last_mouse_pos:
-		var direction_vector = (last_mouse_pos - global_position)
-		
-		if direction_vector.length() < 10:
-			return 
-		
-		move_and_slide(direction_vector.normalized() * MAX_SPEED)
+#func _input(event):
+#	if event.is_action_pressed("mouse_move"):
+#		last_mouse_pos = get_viewport().get_mouse_position()
+#
+#func mouseMovement():
+#	if last_mouse_pos:
+#		var direction_vector = (last_mouse_pos - global_position)
+#
+#		if direction_vector.length() < 10:
+#			return 
+#
+#		move_and_slide(direction_vector.normalized() * MAX_SPEED)
