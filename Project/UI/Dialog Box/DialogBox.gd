@@ -18,6 +18,7 @@ func _process(_delta):
 
 func load_dialog():
 	if dialog_index < dialog.size():
+		$Body_NinePatchRect/AnimationPlayer.play("Open")
 		$Body_NinePatchRect/MarginContainer/RichTextLabel.bbcode_text = dialog[dialog_index]
 		$Body_NinePatchRect/MarginContainer/RichTextLabel.percent_visible = 0
 		$Body_NinePatchRect/MarginContainer/RichTextLabel/Tween.interpolate_property(
@@ -26,5 +27,7 @@ func load_dialog():
 		)
 		$Body_NinePatchRect/MarginContainer/RichTextLabel/Tween.start()
 	else:
+		$Body_NinePatchRect/AnimationPlayer.play_backwards("Open")
 		queue_free()
 	dialog_index += 1
+	

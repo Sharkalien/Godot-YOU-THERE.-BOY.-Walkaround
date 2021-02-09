@@ -47,6 +47,7 @@ texture = ExtResource( 3 )
 
 [node name="John" parent="PlayerRoot" instance=ExtResource( 1 )]
 position = Vector2( 286, 240 )
+collision_mask = 0
 
 [node name="Anchor" type="Position2D" parent="PlayerRoot"]
 script = ExtResource( 5 )
