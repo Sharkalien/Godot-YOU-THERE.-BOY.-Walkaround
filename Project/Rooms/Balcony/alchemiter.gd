@@ -3,7 +3,7 @@ extends Area2D
 var dialog = load("res://UI/Dialog Box/DialogBox.gd").new()
 
 func _on_AlchemiterArea2D_mouse_entered()->void:
-	Input.set_custom_mouse_cursor(load("res://UI/cursor_select.png"),Input.CURSOR_ARROW,Vector2(14, 4))
+	Input.set_custom_mouse_cursor(load("res://UI/cursor_select.png"),Input.CURSOR_ARROW,Vector2(14, 0))
 
 
 func _on_AlchemiterArea2D_mouse_exited()->void:

@@ -85,6 +85,7 @@ drag_margin_bottom = 0.01
 [node name="rail" type="Sprite" parent="."]
 position = Vector2( 360, 307 )
 texture = ExtResource( 4 )
+
 [connection signal="input_event" from="Alchemiter/AlchemiterArea2D" to="Alchemiter/AlchemiterArea2D" method="_on_AlchemiterArea2D_input_event"]
 [connection signal="mouse_entered" from="Alchemiter/AlchemiterArea2D" to="Alchemiter/AlchemiterArea2D" method="_on_AlchemiterArea2D_mouse_entered"]
 [connection signal="mouse_exited" from="Alchemiter/AlchemiterArea2D" to="Alchemiter/AlchemiterArea2D" method="_on_AlchemiterArea2D_mouse_exited"]
