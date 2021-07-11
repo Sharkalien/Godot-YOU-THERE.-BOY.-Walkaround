@@ -28,6 +28,7 @@ func load_dialog():
 		$Body_NinePatchRect/MarginContainer/RichTextLabel/Tween.start()
 	else:
 		$Body_NinePatchRect/AnimationPlayer.play_backwards("Open")
+		yield()
 		queue_free()
 	dialog_index += 1
 	

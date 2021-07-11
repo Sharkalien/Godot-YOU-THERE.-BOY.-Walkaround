@@ -4,7 +4,7 @@
 [ext_resource path="res://Player/John.gd" type="Script" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
-height = 70.8419
+height = 66.0
 
 [sub_resource type="Animation" id=2]
 resource_name = "runBack"
@@ -76,17 +76,14 @@ tracks/0/keys = {
 
 [node name="John" type="KinematicBody2D"]
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0, -96 )
+position = Vector2( 1, -107 )
 texture = ExtResource( 1 )
 hframes = 14
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -2, 0 )
+position = Vector2( -3, -10 )
 rotation = -1.5708
 shape = SubResource( 1 )
 
