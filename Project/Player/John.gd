@@ -23,24 +23,25 @@ func movement():
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION)
 	
 	# Controls player right and left animation sprites using velocity.
-	if (velocity.x != 0):
-		if (velocity.x > 0):
-			$AnimationPlayer.play("run" + facing)
-			$Sprite.flip_h = false
-		elif (velocity.x < 0):
-			$AnimationPlayer.play("run" + facing)
-			$Sprite.flip_h = true
-	if (velocity.y != 0):
-		if (velocity.y < 0):
-			if facing != "Back":
-				facing = "Back";
-			$AnimationPlayer.play("run" + facing)
-		elif (velocity.y > 0):
-			if facing != "Front":
-				facing = "Front";
-			$AnimationPlayer.play("run" + facing) 
-	if (velocity == Vector2.ZERO):
+	if (!Input.is_action_pressed("ui_left") && !Input.is_action_pressed("ui_right") && !Input.is_action_pressed("ui_up") && !Input.is_action_pressed("ui_down") && velocity == Vector2.ZERO):
 		$AnimationPlayer.play("still" + facing)
+	else:
+		if !(Input.is_action_pressed("ui_left") && Input.is_action_pressed("ui_right")) || (velocity.x != 0 && last_mouse_pos != null):
+			if Input.is_action_pressed("ui_right") || (velocity.x > 0 && last_mouse_pos != null):
+				$AnimationPlayer.play("run" + facing)
+				$Sprite.flip_h = false
+			elif Input.is_action_pressed("ui_left") || (velocity.x < 0 && last_mouse_pos != null):
+				$AnimationPlayer.play("run" + facing)
+				$Sprite.flip_h = true
+		if !(Input.is_action_pressed("ui_up") && Input.is_action_pressed("ui_down")) || (velocity.y != 0 && last_mouse_pos != null):
+			if Input.is_action_pressed("ui_up") || (velocity.y < 0 && last_mouse_pos != null):
+				if facing != "Back":
+					facing = "Back";
+				$AnimationPlayer.play("run" + facing)
+			elif Input.is_action_pressed("ui_down") || (velocity.y > 0 && last_mouse_pos != null):
+				if facing != "Front":
+					facing = "Front";
+				$AnimationPlayer.play("run" + facing) 
 
 func keyMovement():
 	var input_vector = Vector2.ZERO
