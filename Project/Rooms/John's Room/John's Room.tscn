@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Rooms/John's Room/room.png" type="Texture" id=1]
 [ext_resource path="res://Rooms/John's Room/roomBed.png" type="Texture" id=2]
-[ext_resource path="res://Player/John.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Rooms/John's Room/roomDesk.png" type="Texture" id=4]
 [ext_resource path="res://Rooms/John's Room/roomDresser.png" type="Texture" id=5]
 [ext_resource path="res://Rooms/John's Room/roomPosters.png" type="Texture" id=6]
