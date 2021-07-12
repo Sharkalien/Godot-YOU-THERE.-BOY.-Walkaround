@@ -33,7 +33,7 @@ __meta__ = {
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Alchemiter"]
 position = Vector2( 369, -132 )
-polygon = PoolVector2Array( 55, 421, 430, 229, 51, 79, -315, 247 )
+polygon = PoolVector2Array( 55, 421, 489, 199, 51, 79, -315, 247 )
 
 [node name="AlchemiterArea2D" type="Area2D" parent="Alchemiter"]
 collision_layer = 4
