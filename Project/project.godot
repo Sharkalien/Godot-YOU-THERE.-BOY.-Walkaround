@@ -28,7 +28,7 @@ Global="*res://Scripts/Global.gd"
 
 [debug]
 
-settings/fps/force_fps=24
+settings/fps/force_fps=25
 
 [display]
 

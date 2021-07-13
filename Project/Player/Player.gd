@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 export var launchPos = Vector2.ZERO
 
-const ACCELERATION = 100
+const ACCELERATION = 40
 const MAX_SPEED = 400
 const FRICTION = 600
 
