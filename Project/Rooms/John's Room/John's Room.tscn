@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Rooms/John's Room/room.png" type="Texture" id=1]
 [ext_resource path="res://Rooms/John's Room/roomBed.png" type="Texture" id=2]
-[ext_resource path="res://Player/John.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Rooms/John's Room/roomDesk.png" type="Texture" id=4]
 [ext_resource path="res://Rooms/John's Room/roomDresser.png" type="Texture" id=5]
 [ext_resource path="res://Rooms/John's Room/roomPosters.png" type="Texture" id=6]
 [ext_resource path="res://Rooms/John's Room/roomLathe.png" type="Texture" id=7]
+[ext_resource path="res://Scripts/Interactable.gd" type="Script" id=8]
 
 [node name="John\'s Room" type="Node2D"]
 
@@ -36,6 +37,19 @@ texture = ExtResource( 6 )
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="YSort/Room"]
 polygon = PoolVector2Array( 445, 689, 312, 630, 303, 554, 1043, 673, 960, 887 )
+
+[node name="DoorArea2D" type="Area2D" parent="YSort"]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource( 8 )
+command = "> WAIT GO BACK OUT HERE BOY."
+width = 260
+isWarp = true
+dialogOrScene = "res://Rooms/Balcony/Balcony.tscn"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/DoorArea2D"]
+position = Vector2( 26.1846, 9.72942 )
+polygon = PoolVector2Array( -15.6012, -329.544, -14.174, -0.971975, -69.7947, 21.5856, -70.4247, 10.5613, -139.98, -20.5646, -138.288, -280.703 )
 
 [node name="Bed" type="StaticBody2D" parent="YSort"]
 position = Vector2( 274, -153 )
@@ -95,9 +109,15 @@ position = Vector2( -3, 82 )
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/John"]
 position = Vector2( 18, -100 )
-remote_path = NodePath("../../Camera2D")
+remote_path = NodePath("../../../Camera2D")
 
-[node name="Camera2D" type="Camera2D" parent="YSort"]
+[node name="UI" type="Node2D" parent="."]
+
+[node name="Commands" type="Node2D" parent="UI"]
+
+[node name="Dialogs" type="Node2D" parent="UI"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 15, -18 )
 current = true
 limit_left = -450
@@ -113,3 +133,7 @@ drag_margin_bottom = 0.1
 __meta__ = {
 "_edit_group_": true
 }
+
+[connection signal="input_event" from="YSort/DoorArea2D" to="YSort/DoorArea2D" method="_on_input_event"]
+[connection signal="mouse_entered" from="YSort/DoorArea2D" to="YSort/DoorArea2D" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="YSort/DoorArea2D" to="YSort/DoorArea2D" method="_on_mouse_exited"]

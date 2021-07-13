@@ -1,6 +1,8 @@
 extends KinematicBody2D
 
-const ACCELERATION = 40
+export var launchPos = Vector2.ZERO
+
+const ACCELERATION = 100
 const MAX_SPEED = 400
 const FRICTION = 600
 
@@ -9,13 +11,20 @@ var velocity = Vector2.ZERO
 var facing = "Front";
 var last_mouse_pos = null
 
+func _ready():
+	if (!Global.fading):
+		global_position = launchPos;
+
 func _physics_process(_delta):
 	movement()
 	velocity = move_and_slide(velocity)
 
 func movement():
-	keyMovement()
-	mouseMovement()
+	if (Global.fading):
+		direction = Vector2.ZERO;
+	else:
+		keyMovement()
+		mouseMovement()
 	
 	if (direction != Vector2.ZERO):
 		velocity = velocity.move_toward(direction * MAX_SPEED, ACCELERATION)
@@ -53,15 +62,13 @@ func keyMovement():
 	
 	if input_vector != Vector2.ZERO:
 		last_mouse_pos = null;
-	else:
-		$AnimationPlayer.play("still" + facing)
-		velocity = velocity.move_toward(Vector2.ZERO, FRICTION)
 
 # Moves character to where mouse clicked. 
 # Please refer to 
 # https://www.youtube.com/watch?v=5bxys-Zo_jk&list=PLllc6qRBTEefSTIsPZVqhhuGNMc-5kOS6&index=16
 func _input(event):
-	if event.is_action_pressed("mouse_move"):
+	if Global.mouseMove && event.is_action_pressed("mouse_move"):
+		Global.remove_commands();
 		last_mouse_pos = get_global_mouse_position()
 
 func mouseMovement():
