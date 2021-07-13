@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-const ACCELERATION = 100
+const ACCELERATION = 40
 const MAX_SPEED = 400
 const FRICTION = 600
 
@@ -22,26 +22,25 @@ func movement():
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION)
 	
-	# Controls player right and left animation sprites using velocity.
-	if (!Input.is_action_pressed("ui_left") && !Input.is_action_pressed("ui_right") && !Input.is_action_pressed("ui_up") && !Input.is_action_pressed("ui_down") && velocity == Vector2.ZERO):
-		$AnimationPlayer.play("still" + facing)
-	else:
-		if !(Input.is_action_pressed("ui_left") && Input.is_action_pressed("ui_right")) || (velocity.x != 0 && last_mouse_pos != null):
-			if Input.is_action_pressed("ui_right") || (velocity.x > 0 && last_mouse_pos != null):
-				$AnimationPlayer.play("run" + facing)
-				$Sprite.flip_h = false
-			elif Input.is_action_pressed("ui_left") || (velocity.x < 0 && last_mouse_pos != null):
-				$AnimationPlayer.play("run" + facing)
-				$Sprite.flip_h = true
-		if !(Input.is_action_pressed("ui_up") && Input.is_action_pressed("ui_down")) || (velocity.y != 0 && last_mouse_pos != null):
-			if Input.is_action_pressed("ui_up") || (velocity.y < 0 && last_mouse_pos != null):
-				if facing != "Back":
-					facing = "Back";
-				$AnimationPlayer.play("run" + facing)
-			elif Input.is_action_pressed("ui_down") || (velocity.y > 0 && last_mouse_pos != null):
-				if facing != "Front":
-					facing = "Front";
-				$AnimationPlayer.play("run" + facing) 
+	# Controls player right and left animation sprites using arrow keys.
+	if !(Input.is_action_pressed("ui_left") && Input.is_action_pressed("ui_right")):
+		if Input.is_action_pressed("ui_right"):
+			$AnimationPlayer.play("run" + facing)
+			$Sprite.flip_h = false
+		elif Input.is_action_pressed("ui_left"):
+			$AnimationPlayer.play("run" + facing)
+			$Sprite.flip_h = true
+	if !(Input.is_action_pressed("ui_up") && Input.is_action_pressed("ui_down")):
+		if Input.is_action_pressed("ui_up"):
+			if facing != "Back":
+				facing = "Back";
+			$AnimationPlayer.play("run" + facing)
+		elif Input.is_action_pressed("ui_down"):
+			if facing != "Front":
+				facing = "Front";
+			$AnimationPlayer.play("run" + facing) 
+#	if Input.is_action_pressed("ui_right") && Input.is_action_pressed("ui_left") || Input.is_action_pressed("ui_up") && Input.is_action_pressed("ui_down"):
+#		$AnimationPlayer.play("still" + facing)
 
 func keyMovement():
 	var input_vector = Vector2.ZERO
@@ -53,6 +52,9 @@ func keyMovement():
 	
 	if input_vector != Vector2.ZERO:
 		last_mouse_pos = null;
+	else:
+		$AnimationPlayer.play("still" + facing)
+		velocity = velocity.move_toward(Vector2.ZERO, FRICTION)
 
 # Moves character to where mouse clicked. 
 # Please refer to 
