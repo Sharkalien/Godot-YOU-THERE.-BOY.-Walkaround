@@ -24,6 +24,19 @@ polygon = PoolVector2Array( 1061, 192, 359, 531, -359, 214, -279, 183, -235, 202
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="balcony"]
 polygon = PoolVector2Array( -48, 117, 56, 114, 360, -66, 818, 72, 1063, 183, 1549, 108, 1466, -753, 530, -802, -31, -802 )
 
+[node name="DoorArea2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource( 6 )
+command = "> BOY, OPEN THIS DOOR AND WALK THROUGH IT."
+width = 370
+isWarp = true
+dialogOrScene = "res://Rooms/John's Room/John's Room.tscn"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DoorArea2D"]
+position = Vector2( 26.1846, 9.72942 )
+polygon = PoolVector2Array( 116.839, -404.849, 116.815, 64.2706, -55.5676, 149.337, -62.8719, 146.153, -63.9346, -315.729 )
+
 [node name="Alchemiter" type="StaticBody2D" parent="."]
 position = Vector2( 188, 38 )
 collision_layer = 4
@@ -54,8 +67,9 @@ position = Vector2( 369, -132 )
 texture = ExtResource( 3 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 300, 325 )
+position = Vector2( 150, 250 )
 collision_mask = 0
+launchPos = Vector2( 300, 325 )
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 position = Vector2( -5, -85 )
@@ -72,7 +86,7 @@ texture = ExtResource( 4 )
 [node name="Dialogs" type="Node2D" parent="UI"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 295, 240 )
+position = Vector2( 145, 165 )
 current = true
 process_mode = 0
 limit_left = -311
@@ -89,6 +103,9 @@ drag_margin_top = 0.05
 drag_margin_right = 0.05
 drag_margin_bottom = 0.05
 
+[connection signal="input_event" from="DoorArea2D" to="DoorArea2D" method="_on_input_event"]
+[connection signal="mouse_entered" from="DoorArea2D" to="DoorArea2D" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="DoorArea2D" to="DoorArea2D" method="_on_mouse_exited"]
 [connection signal="input_event" from="Alchemiter/AlchemiterArea2D" to="Alchemiter/AlchemiterArea2D" method="_on_input_event"]
 [connection signal="mouse_entered" from="Alchemiter/AlchemiterArea2D" to="Alchemiter/AlchemiterArea2D" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Alchemiter/AlchemiterArea2D" to="Alchemiter/AlchemiterArea2D" method="_on_mouse_exited"]

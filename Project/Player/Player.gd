@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+export var launchPos = Vector2.ZERO
+
 const ACCELERATION = 100
 const MAX_SPEED = 400
 const FRICTION = 600
@@ -9,13 +11,20 @@ var velocity = Vector2.ZERO
 var facing = "Front";
 var last_mouse_pos = null
 
+func _ready():
+	if (!Global.fading):
+		global_position = launchPos;
+
 func _physics_process(_delta):
 	movement()
 	velocity = move_and_slide(velocity)
 
 func movement():
-	keyMovement()
-	mouseMovement()
+	if (Global.fading):
+		direction = Vector2.ZERO;
+	else:
+		keyMovement()
+		mouseMovement()
 	
 	if (direction != Vector2.ZERO):
 		velocity = velocity.move_toward(direction * MAX_SPEED, ACCELERATION)

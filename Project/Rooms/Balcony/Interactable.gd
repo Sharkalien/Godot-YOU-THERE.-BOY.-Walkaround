@@ -1,6 +1,6 @@
 extends Area2D
 
-export var command = "";
+export (String, MULTILINE) var command = "";
 export var width = 552;
 
 export var isWarp = false;
@@ -9,16 +9,18 @@ export (String, MULTILINE) var dialogOrScene = "";
 var commandBox = load("res://UI/Command Box/Command_Player.tscn")
 
 func _on_mouse_entered()->void:
-	Global.hoverNodes.append(self);
+	if (!Global.fading):
+		Global.hoverNodes.append(self);
 
 func _on_mouse_exited()->void:
-	Global.hoverNodes.erase(self);
+	if (!Global.fading):
+		Global.hoverNodes.erase(self);
 	
 func _exit_tree():
 	Global.hoverNodes.erase(self);
 
 func _on_input_event(viewport, event, _shape_idx):
-	if (Global.commandsNode && !Global.dialogOpen && event is InputEventMouseButton && event.button_index == 1 && event.pressed == true):
+	if (Global.commandsNode && !Global.dialogOpen && !Global.fading && event is InputEventMouseButton && event.button_index == 1 && event.pressed == true):
 		var commandBoxInstance = commandBox.instance();
 		Global.remove_commands();
 		Global.commandsNode.add_child(commandBoxInstance);

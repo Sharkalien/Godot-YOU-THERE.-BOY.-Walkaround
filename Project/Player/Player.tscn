@@ -76,6 +76,7 @@ tracks/0/keys = {
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
+launchPos = Vector2( 300, 325 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 1, -107 )

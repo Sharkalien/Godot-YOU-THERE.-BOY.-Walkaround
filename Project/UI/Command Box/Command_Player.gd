@@ -36,7 +36,7 @@ func _on_gui_input(event):
 	if (event is InputEventMouseButton && event.button_index == 1 && event.pressed == true):
 		Global.remove_commands();
 		if (isWarp):
-			pass;
+			Global.fadeto_scene(dialogOrScene);
 		else:
 			var dialogBoxInstance = dialogBox.instance();
 			Global.dialogsNode.add_child(dialogBoxInstance);
