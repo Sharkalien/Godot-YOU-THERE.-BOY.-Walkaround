@@ -19,10 +19,10 @@ position = Vector2( 392, -35 )
 texture = ExtResource( 2 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="balcony"]
-polygon = PoolVector2Array( 1061, 192, 359, 531, -359, 214, -279, 183, -235, 202, -46, 117, -5, -776, -715, -795, -726, 889, 1480, 935, 1484, 93 )
+polygon = PoolVector2Array( 1080, 184, 351, 538, -352, 216, -280, 181, -229, 204, -50, 116, -5, -776, -715, -795, -726, 889, 1480, 935, 1484, 93 )
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="balcony"]
-polygon = PoolVector2Array( -48, 117, 56, 114, 360, -66, 818, 72, 1063, 183, 1549, 108, 1466, -753, 530, -802, -31, -802 )
+polygon = PoolVector2Array( -50, 116, 56, 114, 360, -66, 818, 71, 1116, 207, 1549, 108, 1466, -753, 530, -802, -31, -802 )
 
 [node name="DoorArea2D" type="Area2D" parent="."]
 collision_layer = 4
@@ -69,7 +69,6 @@ texture = ExtResource( 3 )
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 150, 250 )
 collision_mask = 0
-launchPos = Vector2( 300, 325 )
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 position = Vector2( -5, -85 )
