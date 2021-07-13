@@ -2,7 +2,7 @@
 
 [ext_resource path="res://UI/Dialog Box/9patch_dialog.png" type="Texture" id=1]
 [ext_resource path="res://UI/Dialog Box/courbd.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://UI/Dialog Box/DialogBox.gd" type="Script" id=3]
+[ext_resource path="res://UI/Dialog Box/Dialog_Player.gd" type="Script" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 14
@@ -54,11 +54,11 @@ tracks/3/keys = {
 }
 
 [node name="Dialog_Player" type="Node2D"]
+script = ExtResource( 3 )
 
 [node name="DialogBox" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -98,16 +98,10 @@ margin_bottom = 12.0
 custom_fonts/normal_font = SubResource( 1 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
-bbcode_text = "The ALCHEMITER created the APPLE, or the tree that sprouted it rather, right on time to save you from destruction. You're not sure if you can say the same for your neighborhood though.
-
-You wonder what happened to your DAD?"
-text = "The ALCHEMITER created the APPLE, or the tree that sprouted it rather, right on time to save you from destruction. You're not sure if you can say the same for your neighborhood though.
-
-You wonder what happened to your DAD?"
 scroll_active = false
-
-[node name="Tween" type="Tween" parent="DialogBox/Body_NinePatchRect/MarginContainer/RichTextLabel"]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="DialogBox/Body_NinePatchRect"]
 autoplay = "Open"
 anims/Open = SubResource( 2 )
+
+[connection signal="animation_finished" from="DialogBox/Body_NinePatchRect/AnimationPlayer" to="." method="_on_animation_finished"]
