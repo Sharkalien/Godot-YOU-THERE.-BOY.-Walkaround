@@ -1,0 +1,91 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Rooms/Living Room/livingRoom.png" type="Texture" id=1]
+[ext_resource path="res://Rooms/Living Room/livingQuin1.png" type="Texture" id=3]
+[ext_resource path="res://Rooms/Living Room/livingQuin5.png" type="Texture" id=4]
+[ext_resource path="res://Rooms/Living Room/livingQuin3.png" type="Texture" id=5]
+[ext_resource path="res://Rooms/Living Room/livingQuin2.png" type="Texture" id=6]
+[ext_resource path="res://Rooms/Living Room/livingQuin4.png" type="Texture" id=7]
+[ext_resource path="res://Rooms/Living Room/livingCouch.png" type="Texture" id=8]
+[ext_resource path="res://Rooms/Living Room/livingCruxtruder.png" type="Texture" id=9]
+[ext_resource path="res://Rooms/Living Room/livingFireplace.png" type="Texture" id=10]
+[ext_resource path="res://Rooms/Living Room/livingLid.png" type="Texture" id=11]
+[ext_resource path="res://Rooms/Living Room/livingHead.png" type="Texture" id=12]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="LivingRoom" type="StaticBody2D" parent="YSort"]
+
+[node name="Room" type="Sprite" parent="YSort/LivingRoom"]
+position = Vector2( 314, -239 )
+texture = ExtResource( 1 )
+
+[node name="livingQuin1" type="Sprite" parent="YSort/LivingRoom"]
+position = Vector2( 101, -773 )
+texture = ExtResource( 3 )
+
+[node name="livingQuin2" type="Sprite" parent="YSort/LivingRoom"]
+position = Vector2( 476, -722 )
+texture = ExtResource( 6 )
+
+[node name="livingQuin3" type="Sprite" parent="YSort/LivingRoom"]
+position = Vector2( 941, -221 )
+texture = ExtResource( 5 )
+
+[node name="livingQuin4" type="Sprite" parent="YSort/LivingRoom"]
+position = Vector2( 476, -207 )
+texture = ExtResource( 7 )
+
+[node name="livingQuin5" type="Sprite" parent="YSort/LivingRoom"]
+position = Vector2( -231, -181 )
+texture = ExtResource( 4 )
+
+[node name="Couch" type="StaticBody2D" parent="YSort"]
+position = Vector2( 548, 31 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="YSort/Couch"]
+texture = ExtResource( 8 )
+
+[node name="Cruxtruder" type="StaticBody2D" parent="YSort"]
+position = Vector2( 76, 276 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="YSort/Cruxtruder"]
+texture = ExtResource( 9 )
+
+[node name="FireplaceShelf" type="StaticBody2D" parent="YSort"]
+position = Vector2( -179, 52 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="YSort/FireplaceShelf"]
+position = Vector2( 0, -208 )
+texture = ExtResource( 10 )
+
+[node name="ShipTable" type="StaticBody2D" parent="YSort"]
+position = Vector2( 255, 223 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="YSort/ShipTable"]
+position = Vector2( 0, -64 )
+texture = ExtResource( 11 )
+
+[node name="HarlequinHead" type="StaticBody2D" parent="YSort"]
+position = Vector2( 499, 325 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="YSort/HarlequinHead"]
+position = Vector2( 0, -28 )
+texture = ExtResource( 12 )
