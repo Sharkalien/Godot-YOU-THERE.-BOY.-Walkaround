@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-const ACCELERATION = 100
+const ACCELERATION = 40
 const MAX_SPEED = 400
 const FRICTION = 600
 
@@ -53,6 +53,9 @@ func keyMovement():
 	
 	if input_vector != Vector2.ZERO:
 		last_mouse_pos = null;
+	else:
+		$AnimationPlayer.play("still" + facing)
+		velocity = velocity.move_toward(Vector2.ZERO, FRICTION)
 
 # Moves character to where mouse clicked. 
 # Please refer to 
