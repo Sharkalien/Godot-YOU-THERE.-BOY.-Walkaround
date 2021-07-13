@@ -7,7 +7,7 @@
 [ext_resource path="res://Rooms/John's Room/roomDresser.png" type="Texture" id=5]
 [ext_resource path="res://Rooms/John's Room/roomPosters.png" type="Texture" id=6]
 [ext_resource path="res://Rooms/John's Room/roomLathe.png" type="Texture" id=7]
-[ext_resource path="res://Rooms/Balcony/Interactable.gd" type="Script" id=8]
+[ext_resource path="res://Scripts/Interactable.gd" type="Script" id=8]
 
 [node name="John\'s Room" type="Node2D"]
 

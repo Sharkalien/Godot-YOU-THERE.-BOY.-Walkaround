@@ -4,7 +4,7 @@
 [ext_resource path="res://Rooms/Balcony/balcony.png" type="Texture" id=2]
 [ext_resource path="res://Rooms/Balcony/balcAlchemiter.png" type="Texture" id=3]
 [ext_resource path="res://Rooms/Balcony/balcRail.png" type="Texture" id=4]
-[ext_resource path="res://Rooms/Balcony/Interactable.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/Interactable.gd" type="Script" id=6]
 
 [node name="Balcony" type="Node2D"]
 
