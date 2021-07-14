@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Rooms/John's Room/room.png" type="Texture" id=1]
 [ext_resource path="res://Rooms/John's Room/roomBed.png" type="Texture" id=2]
@@ -9,8 +9,10 @@
 [ext_resource path="res://Rooms/John's Room/roomLathe.png" type="Texture" id=7]
 [ext_resource path="res://Scripts/Interactable.gd" type="Script" id=8]
 [ext_resource path="res://UI/UI.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scripts/Room.gd" type="Script" id=10]
 
 [node name="John\'s Room" type="Node2D"]
+script = ExtResource( 10 )
 
 [node name="YSort" type="YSort" parent="."]
 

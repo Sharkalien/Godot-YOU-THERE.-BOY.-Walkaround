@@ -30,8 +30,8 @@ func _process(_delta):
 	if (Global.dialogsNode && !Global.dialogOpen && !Global.fading && selected && Input.is_action_just_pressed("click")):
 		Global.remove_commands();
 		if (Global.muteAudio):
-			Global.muteAudio = false;
+			Global.mute_audio(false);
 			$AudioBox/Sprite.texture = texOn;
 		else:
-			Global.muteAudio = true;
+			Global.mute_audio(true);
 			$AudioBox/Sprite.texture = texMute;

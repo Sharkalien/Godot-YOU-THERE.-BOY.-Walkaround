@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Rooms/Living Room/livingRoom.png" type="Texture" id=1]
 [ext_resource path="res://UI/UI.tscn" type="PackedScene" id=2]
@@ -12,8 +12,10 @@
 [ext_resource path="res://Rooms/Living Room/livingFireplace.png" type="Texture" id=10]
 [ext_resource path="res://Rooms/Living Room/livingLid.png" type="Texture" id=11]
 [ext_resource path="res://Rooms/Living Room/livingHead.png" type="Texture" id=12]
+[ext_resource path="res://Scripts/Room.gd" type="Script" id=13]
 
-[node name="Node2D" type="Node2D"]
+[node name="Living Room" type="Node2D"]
+script = ExtResource( 13 )
 
 [node name="YSort" type="YSort" parent="."]
 
