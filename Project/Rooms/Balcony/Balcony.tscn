@@ -33,6 +33,7 @@ command = "> BOY, OPEN THIS DOOR AND WALK THROUGH IT."
 width = 370
 isWarp = true
 dialogOrScene = "res://Rooms/John's Room/John's Room.tscn"
+warpPos = Vector2( -3, 82 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DoorArea2D"]
 position = Vector2( 26.1846, 9.72942 )
@@ -68,7 +69,7 @@ position = Vector2( 369, -132 )
 texture = ExtResource( 3 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 150, 250 )
+position = Vector2( 300, 325 )
 collision_mask = 0
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
@@ -82,7 +83,7 @@ texture = ExtResource( 4 )
 [node name="UI" parent="." instance=ExtResource( 5 )]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 145, 165 )
+position = Vector2( 295, 240 )
 current = true
 process_mode = 0
 limit_left = -311

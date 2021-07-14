@@ -5,6 +5,7 @@ export var width = 552;
 
 export var isWarp = false;
 export (String, MULTILINE) var dialogOrScene = "";
+export var warpPos = Vector2.ZERO;
 
 var selected = false;
 
@@ -39,4 +40,5 @@ func _process(_delta):
 		commandBoxInstance.get_node("CommandBox").rect_size.x = width;
 		commandBoxInstance.get_node("CommandBox/NinePatchRect/MarginContainer/RichTextLabel").bbcode_text = "";
 		commandBoxInstance.isWarp = isWarp;
+		commandBoxInstance.warpPos = warpPos;
 		commandBoxInstance.dialogOrScene = dialogOrScene;

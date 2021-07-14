@@ -47,6 +47,7 @@ command = "> WAIT GO BACK OUT HERE BOY."
 width = 260
 isWarp = true
 dialogOrScene = "res://Rooms/Balcony/Balcony.tscn"
+warpPos = Vector2( 150, 250 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/DoorArea2D"]
 position = Vector2( 26.1846, 9.72942 )
@@ -105,10 +106,10 @@ texture = ExtResource( 5 )
 position = Vector2( 1, -62 )
 polygon = PoolVector2Array( -143.773, 72.4672, -14.7734, 137.467, -5.77344, 137.467, 142.227, 61.4672, 1, 4 )
 
-[node name="John" parent="YSort" instance=ExtResource( 3 )]
+[node name="Player" parent="YSort" instance=ExtResource( 3 )]
 position = Vector2( -3, 82 )
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/John"]
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Player"]
 position = Vector2( 18, -100 )
 remote_path = NodePath("../../../Camera2D")
 

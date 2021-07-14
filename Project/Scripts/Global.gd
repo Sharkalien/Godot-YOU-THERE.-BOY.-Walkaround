@@ -18,6 +18,7 @@ var dialogOpen = false;
 var fadeScene = "";
 var fading = false;
 var fadedOut = false;
+var warpPos = Vector2.ZERO;
 
 var muteAudio = false;
 
@@ -32,13 +33,16 @@ func _ready():
 
 func init_nodes():
 	playerNode = currentScene.get_node_or_null("Player");
+	if (!playerNode):
+		playerNode = currentScene.get_node_or_null("YSort/Player");
 	cameraNode = currentScene.get_node_or_null("Camera2D");
 	commandsNode = currentScene.get_node_or_null("UI/Commands");
 	dialogsNode = currentScene.get_node_or_null("UI/Dialogs");
 	
-func fadeto_scene(path):
+func fadeto_scene(path, pos):
 	fading = true;
 	fadeScene = path;
+	warpPos = pos;
 	var time = 0.3;
 	tweenNode.interpolate_property(self,"color", Color(1,1,1,1), Color(0,0,0,1), time, Tween.TRANS_LINEAR, Tween.EASE_OUT);
 	tweenNode.start();
@@ -84,6 +88,8 @@ func _deferred_goto_scene(path):
 	get_tree().set_current_scene(currentScene);
 	
 	init_nodes();
+	if (playerNode):
+		playerNode.global_position = warpPos;
 
 func _process(_delta):
 	if (hoverNodes.size() > 0 && mouseHover == false && !dialogOpen):

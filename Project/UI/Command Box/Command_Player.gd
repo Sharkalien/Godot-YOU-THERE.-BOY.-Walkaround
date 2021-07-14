@@ -9,6 +9,7 @@ var color = "#ffffff"
 
 var isWarp = false;
 var dialogOrScene = "";
+var warpPos = Vector2.ZERO;
 
 var dialogBox = load("res://UI/Dialog Box/Dialog_Player.tscn")
 
@@ -42,7 +43,7 @@ func _on_gui_input(event):
 	if (!Global.dialogOpen && !Global.fading && event is InputEventMouseButton && event.button_index == 1 && event.pressed == true):
 		Global.remove_commands();
 		if (isWarp):
-			Global.fadeto_scene(dialogOrScene);
+			Global.fadeto_scene(dialogOrScene, warpPos);
 		elif (Global.dialogsNode):
 			var dialogBoxInstance = dialogBox.instance();
 			Global.dialogsNode.add_child(dialogBoxInstance);

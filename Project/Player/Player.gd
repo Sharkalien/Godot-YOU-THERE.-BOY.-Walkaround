@@ -1,7 +1,5 @@
 extends KinematicBody2D
 
-export var launchPos = Vector2.ZERO
-
 const ACCELERATION = 100
 const MAX_SPEED = 400
 const FRICTION = 600
@@ -10,10 +8,6 @@ var direction = Vector2.ZERO
 var velocity = Vector2.ZERO
 var facing = "Front";
 var last_mouse_pos = null
-
-func _ready():
-	if (!Global.fading):
-		global_position = launchPos;
 
 func _physics_process(_delta):
 	movement()
