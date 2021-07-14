@@ -19,6 +19,8 @@ var fadeScene = "";
 var fading = false;
 var fadedOut = false;
 
+var muteAudio = false;
+
 func _ready():
 	var root = get_tree().get_root();
 	currentScene = root.get_child(root.get_child_count() - 1);

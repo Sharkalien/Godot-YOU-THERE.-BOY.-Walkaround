@@ -21,6 +21,5 @@ __meta__ = {
 position = Vector2( 28, 14 )
 texture = ExtResource( 2 )
 
-[connection signal="gui_input" from="ControlsBox" to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="ControlsBox" to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="ControlsBox" to="." method="_on_mouse_exited"]

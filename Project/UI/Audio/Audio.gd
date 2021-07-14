@@ -1,10 +1,15 @@
 extends Node2D
 
-var dialog = "To walk around, use the mouse, arrow keys, or WASD keys. Click on\nvarious objects to open command menus for them!\n\nGodot programming by Sharkalien and Axollyon (abyssalLotl).\nBased on \"[S] YOU THERE. BOY.\" from Homestuck (page 253).";
-
 var selected = false;
 
-var dialogBox = load("res://UI/Dialog Box/Dialog_Player.tscn")
+var texOn = load("res://UI/Audio/audio_on.png")
+var texMute = load("res://UI/Audio/audio_mute.png")
+	
+func _ready():
+	if (Global.muteAudio):
+		$AudioBox/Sprite.texture = texMute;
+	else:
+		$AudioBox/Sprite.texture = texOn;
 	
 func _on_mouse_entered()->void:
 	if (!Global.fading):
@@ -24,6 +29,9 @@ func _process(_delta):
 	global_position = -cTrans.get_origin() / cTrans.get_scale()
 	if (Global.dialogsNode && !Global.dialogOpen && !Global.fading && selected && Input.is_action_just_pressed("click")):
 		Global.remove_commands();
-		var dialogBoxInstance = dialogBox.instance();
-		Global.dialogsNode.add_child(dialogBoxInstance);
-		dialogBoxInstance.dialog = dialog;
+		if (Global.muteAudio):
+			Global.muteAudio = false;
+			$AudioBox/Sprite.texture = texOn;
+		else:
+			Global.muteAudio = true;
+			$AudioBox/Sprite.texture = texMute;
