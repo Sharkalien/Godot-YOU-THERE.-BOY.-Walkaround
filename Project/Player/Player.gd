@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 export var launchPos = Vector2.ZERO
 
-const ACCELERATION = 40
+const ACCELERATION = 100
 const MAX_SPEED = 400
 const FRICTION = 600
 
@@ -39,9 +39,11 @@ func movement():
 			if Input.is_action_pressed("ui_right") || (velocity.x > 0 && last_mouse_pos != null):
 				$AnimationPlayer.play("run" + facing)
 				$Sprite.flip_h = false
+				$PlayerArea2D.scale.x = 1;
 			elif Input.is_action_pressed("ui_left") || (velocity.x < 0 && last_mouse_pos != null):
 				$AnimationPlayer.play("run" + facing)
 				$Sprite.flip_h = true
+				$PlayerArea2D.scale.x = -1;
 		if !(Input.is_action_pressed("ui_up") && Input.is_action_pressed("ui_down")) || (velocity.y != 0 && last_mouse_pos != null):
 			if Input.is_action_pressed("ui_up") || (velocity.y < 0 && last_mouse_pos != null):
 				if facing != "Back":
