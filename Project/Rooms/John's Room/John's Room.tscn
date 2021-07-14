@@ -137,6 +137,5 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[connection signal="input_event" from="YSort/DoorArea2D" to="YSort/DoorArea2D" method="_on_input_event"]
 [connection signal="mouse_entered" from="YSort/DoorArea2D" to="YSort/DoorArea2D" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="YSort/DoorArea2D" to="YSort/DoorArea2D" method="_on_mouse_exited"]
