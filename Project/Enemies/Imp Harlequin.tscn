@@ -6,7 +6,7 @@
 radius = 14.0
 height = 90.0
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "Attack"
 length = 0.72
 loop = true
@@ -24,7 +24,7 @@ tracks/0/keys = {
 "values": [ 6, 7, 8, 9, 10, 11, 12, 13, 14 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=3]
 resource_name = "Damaged"
 length = 0.3
 loop = true
@@ -54,8 +54,7 @@ tracks/1/keys = {
 "values": [ Vector2( 0, -90 ), Vector2( 2, -92 ), Vector2( -3, -97 ), Vector2( -5, -91 ), Vector2( 2, -94 ), Vector2( -5, -101 ), Vector2( 1, -93 ), Vector2( 6, -98 ) ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "Idle"
+[sub_resource type="Animation" id=4]
 length = 0.72
 loop = true
 step = 0.04
@@ -72,8 +71,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5 ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "Scurry"
+[sub_resource type="Animation" id=5]
 length = 0.133333
 loop = true
 step = 0.0333333
@@ -108,7 +106,6 @@ tracks/1/keys = {
 position = Vector2( 0, -90 )
 texture = ExtResource( 1 )
 hframes = 15
-frame = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -10, 0 )
@@ -116,7 +113,8 @@ rotation = -1.5708
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Attack = SubResource( 3 )
-anims/Damaged = SubResource( 5 )
-anims/Idle = SubResource( 2 )
-anims/Scurry = SubResource( 4 )
+autoplay = "Idle"
+anims/Attack = SubResource( 2 )
+anims/Damaged = SubResource( 3 )
+anims/Idle = SubResource( 4 )
+anims/Scurry = SubResource( 5 )
