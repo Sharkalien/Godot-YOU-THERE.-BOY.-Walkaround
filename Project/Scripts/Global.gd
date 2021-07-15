@@ -49,7 +49,7 @@ func init_nodes():
 	commandsNode = currentScene.get_node_or_null("UI/Commands");
 	dialogsNode = currentScene.get_node_or_null("UI/Dialogs");
 	
-	if (audioNode.stream != currentScene.bgmTrack):
+	if ("bgmTrack" in currentScene && audioNode.stream != currentScene.bgmTrack):
 		audioNode.stream = currentScene.bgmTrack;
 		audioNode.play();
 	
