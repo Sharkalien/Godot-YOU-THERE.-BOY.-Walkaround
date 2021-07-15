@@ -9,7 +9,8 @@ var cameraNode;
 var commandsNode;
 var dialogsNode;
 
-var tweenNode
+var tweenNode;
+var audioNode;
 
 var mouseMove = true;
 var mouseHover = false;
@@ -18,25 +19,44 @@ var dialogOpen = false;
 var fadeScene = "";
 var fading = false;
 var fadedOut = false;
+var warpPos = Vector2.ZERO;
+
+var muteAudio = false;
+var masterBus;
 
 func _ready():
+	tweenNode = Tween.new();
+	add_child(tweenNode);
+	tweenNode.connect("tween_completed", self, "_on_tween_completed");
+	
+	audioNode = AudioStreamPlayer.new();
+	add_child(audioNode);
+	masterBus = AudioServer.get_bus_index("Master");
+	
 	var root = get_tree().get_root();
 	currentScene = root.get_child(root.get_child_count() - 1);
 	init_nodes();
 	
-	tweenNode = Tween.new();
-	add_child(tweenNode);
-	tweenNode.connect("tween_completed", self, "_on_tween_completed");
+func mute_audio(mute):
+	muteAudio = mute;
+	AudioServer.set_bus_mute(masterBus, mute);
 
 func init_nodes():
 	playerNode = currentScene.get_node_or_null("Player");
+	if (!playerNode):
+		playerNode = currentScene.get_node_or_null("YSort/Player");
 	cameraNode = currentScene.get_node_or_null("Camera2D");
 	commandsNode = currentScene.get_node_or_null("UI/Commands");
 	dialogsNode = currentScene.get_node_or_null("UI/Dialogs");
 	
-func fadeto_scene(path):
+	if (audioNode.stream != currentScene.bgmTrack):
+		audioNode.stream = currentScene.bgmTrack;
+		audioNode.play();
+	
+func fadeto_scene(path, pos):
 	fading = true;
 	fadeScene = path;
+	warpPos = pos;
 	var time = 0.3;
 	tweenNode.interpolate_property(self,"color", Color(1,1,1,1), Color(0,0,0,1), time, Tween.TRANS_LINEAR, Tween.EASE_OUT);
 	tweenNode.start();
@@ -82,6 +102,8 @@ func _deferred_goto_scene(path):
 	get_tree().set_current_scene(currentScene);
 	
 	init_nodes();
+	if (playerNode):
+		playerNode.global_position = warpPos;
 
 func _process(_delta):
 	if (hoverNodes.size() > 0 && mouseHover == false && !dialogOpen):

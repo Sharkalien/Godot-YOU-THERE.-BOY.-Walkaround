@@ -9,6 +9,7 @@ var color = "#ffffff"
 
 var isWarp = false;
 var dialogOrScene = "";
+var warpPos = Vector2.ZERO;
 
 var dialogBox = load("res://UI/Dialog Box/Dialog_Player.tscn")
 
@@ -20,24 +21,30 @@ func _process(_delta):
 	if (timer < command.length() + 2):
 		timer += 2;
 	label.bbcode_text = "[color=" + color + "]" + typed + "[/color]";
+	if (Global.fading || Global.dialogOpen):
+		color = "#ffffff";
 	
 func _on_mouse_entered()->void:
-	Global.hoverNodes.append(self);
-	color = "#a0a0a0";
+	if (!Global.fading):
+		Global.hoverNodes.append(self);
+		if (!Global.dialogOpen):
+			color = "#a0a0a0";
 	
 func _on_mouse_exited()->void:
-	Global.hoverNodes.erase(self);
-	color = "#ffffff";
+	if (!Global.fading):
+		Global.hoverNodes.erase(self);
+		if (!Global.dialogOpen):
+			color = "#ffffff";
 	
 func _exit_tree():
 	Global.hoverNodes.erase(self);
 
 func _on_gui_input(event):
-	if (event is InputEventMouseButton && event.button_index == 1 && event.pressed == true):
+	if (!Global.dialogOpen && !Global.fading && event is InputEventMouseButton && event.button_index == 1 && event.pressed == true):
 		Global.remove_commands();
 		if (isWarp):
-			Global.fadeto_scene(dialogOrScene);
-		else:
+			Global.fadeto_scene(dialogOrScene, warpPos);
+		elif (Global.dialogsNode):
 			var dialogBoxInstance = dialogBox.instance();
 			Global.dialogsNode.add_child(dialogBoxInstance);
 			dialogBoxInstance.dialog = dialogOrScene;
