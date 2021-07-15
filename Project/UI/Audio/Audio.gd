@@ -27,6 +27,12 @@ func _exit_tree():
 func _process(_delta):
 	var cTrans = get_canvas_transform()
 	global_position = -cTrans.get_origin() / cTrans.get_scale()
+	
+	if (Global.dialogOpen):
+		$AudioBox/Sprite.modulate.a = 0.5;
+	else:
+		$AudioBox/Sprite.modulate.a = 1;
+	
 	if (Global.dialogsNode && !Global.dialogOpen && !Global.fading && selected && Input.is_action_just_pressed("click")):
 		Global.remove_commands();
 		if (Global.muteAudio):
