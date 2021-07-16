@@ -10,7 +10,9 @@ var color = "#ffffff"
 var isWarp = false;
 var dialogOrScene = "";
 var warpPos = Vector2.ZERO;
+var zoomImage;
 
+var imageBox = load("res://UI/Zoom Image/Zoom_Image.tscn")
 var dialogBox = load("res://UI/Dialog Box/Dialog_Player.tscn")
 
 func _ready():
@@ -44,6 +46,10 @@ func _on_gui_input(event):
 		Global.remove_commands();
 		if (isWarp):
 			Global.fadeto_scene(dialogOrScene, warpPos);
+		elif (zoomImage && Global.imagesNode):
+			var imageBoxInstance = imageBox.instance();
+			Global.imagesNode.add_child(imageBoxInstance);
+			imageBoxInstance.dialog = dialogOrScene;
 		elif (Global.dialogsNode):
 			var dialogBoxInstance = dialogBox.instance();
 			Global.dialogsNode.add_child(dialogBoxInstance);
