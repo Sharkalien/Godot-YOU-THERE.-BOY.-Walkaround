@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Rooms/Bathroom/bathRoom.png" type="Texture" id=1]
+[ext_resource path="res://Rooms/Bathroom/bathPath.png" type="Texture" id=2]
+[ext_resource path="res://Rooms/Bathroom/bathTub.png" type="Texture" id=3]
+
+[node name="Bathroom" type="Node2D"]
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Room" type="StaticBody2D" parent="YSort"]
+position = Vector2( -248, -332 )
+
+[node name="Sprite" type="Sprite" parent="YSort/Room"]
+texture = ExtResource( 1 )
+centered = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Room"]
+polygon = PoolVector2Array( 44, 594, 524, 814, 854, 650, 615, 546, 495, 585, 139, 595, 190, 440, 397, 336, 740, 425, 1090, 550, 971, 872, 160, 921, -63, 590 )
+
+[node name="Bathtub" type="StaticBody2D" parent="YSort"]
+position = Vector2( 82, 360 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="YSort/Bathtub"]
+position = Vector2( 0, -96 )
+texture = ExtResource( 3 )
+
+[node name="bathPath" type="Sprite" parent="YSort"]
+position = Vector2( 255, 348 )
+texture = ExtResource( 2 )

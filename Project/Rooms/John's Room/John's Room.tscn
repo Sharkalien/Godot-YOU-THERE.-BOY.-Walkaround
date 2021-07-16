@@ -123,6 +123,7 @@ current = true
 limit_left = -450
 limit_right = 1540
 limit_bottom = 558
+limit_smoothed = true
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 smoothing_enabled = true
