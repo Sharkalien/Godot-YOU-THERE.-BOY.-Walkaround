@@ -1,0 +1,73 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Rooms/Study/studyRoom.png" type="Texture" id=1]
+[ext_resource path="res://Rooms/Study/studySafe.png" type="Texture" id=2]
+[ext_resource path="res://Rooms/Study/studyDesk.png" type="Texture" id=3]
+[ext_resource path="res://Rooms/refs/dadStudyref.png" type="Texture" id=4]
+[ext_resource path="res://Rooms/Study/studyPiano.png" type="Texture" id=5]
+
+[node name="Study" type="Node2D"]
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Room" type="StaticBody2D" parent="YSort"]
+position = Vector2( 304, -312 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="YSort/Room"]
+position = Vector2( 0, 528 )
+texture = ExtResource( 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Room"]
+visible = false
+polygon = PoolVector2Array( -537, 793, -476, 764, 23, 997, 282, 871, 685, 659, 316, 516, -58, 395, -385, 529, -698, 667, -656, 688, -705, 713, -540, 790, -546, 863, -842, 763, -790, 109, -38, -71, 827, 148, 791, 904, 75, 1108, -540, 864 )
+
+[node name="Desk" type="StaticBody2D" parent="YSort"]
+position = Vector2( 233, 670 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="YSort/Desk"]
+position = Vector2( 0, -264 )
+texture = ExtResource( 3 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Desk"]
+polygon = PoolVector2Array( -233, -161, 53, -32, 177, -23, 212, -61, 209, -109, 87.5271, -152.625, 87, -188, 13, -216, -41.8058, -199.073, -114, -225 )
+
+[node name="Safe" type="StaticBody2D" parent="YSort"]
+position = Vector2( 654, 366 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="YSort/Safe"]
+position = Vector2( 144, -152 )
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Safe"]
+polygon = PoolVector2Array( 122, 58, 0, 3, 161, -72, 286, -21 )
+
+[node name="Piano" type="StaticBody2D" parent="YSort"]
+position = Vector2( 190, -82 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="YSort/Piano"]
+position = Vector2( 0, 80 )
+texture = ExtResource( 5 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Piano"]
+polygon = PoolVector2Array( -168, 256, -64, 294, 144, 201, 49, 169 )
+
+[node name="dadStudyref" type="Sprite" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0.498039 )
+position = Vector2( 303, 215 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}

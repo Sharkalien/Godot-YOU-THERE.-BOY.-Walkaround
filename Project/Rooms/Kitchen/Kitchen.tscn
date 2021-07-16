@@ -1,0 +1,134 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Rooms/Kitchen/kitchRoom.png" type="Texture" id=1]
+[ext_resource path="res://Rooms/Kitchen/kitchCounter.png" type="Texture" id=2]
+[ext_resource path="res://Rooms/Kitchen/kitchCabinets.png" type="Texture" id=3]
+[ext_resource path="res://Rooms/Kitchen/kitchHutch.png" type="Texture" id=4]
+[ext_resource path="res://Rooms/Kitchen/kitchFridge.png" type="Texture" id=5]
+[ext_resource path="res://Rooms/Kitchen/kitchTable.png" type="Texture" id=6]
+[ext_resource path="res://Rooms/Kitchen/kitchBowl.png" type="Texture" id=7]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=8]
+
+[node name="Kitchen" type="Node2D"]
+
+[node name="Background" type="ColorRect" parent="."]
+margin_left = -784.0
+margin_top = -636.0
+margin_right = 975.0
+margin_bottom = 585.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Room" type="StaticBody2D" parent="YSort"]
+position = Vector2( 19, -521 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite" parent="YSort/Room"]
+position = Vector2( 63, 534 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Room"]
+polygon = PoolVector2Array( 86, 1003, -259, 1018, -880, 1031, -895, 154, 13, -127, 1081, 156, 951, 877, 86, 1003, 289, 906, 750, 664, 350, 514, 3, 401, -635, 673 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Fridge" type="StaticBody2D" parent="YSort"]
+position = Vector2( -63, -340 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="YSort/Fridge"]
+position = Vector2( 0, 144 )
+texture = ExtResource( 5 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Fridge"]
+polygon = PoolVector2Array( -123, 300, -15, 347, 123, 282, -1, 241 )
+
+[node name="Bowl" type="StaticBody2D" parent="YSort"]
+position = Vector2( -25, 19 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="YSort/Bowl"]
+position = Vector2( 0, 2 )
+texture = ExtResource( 7 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Bowl"]
+position = Vector2( 0, -8 )
+polygon = PoolVector2Array( 6, 14, -2, 26, -17, 36, -26, 39, -43, 39, -56, 32, -66, 24, -69.1412, 16.6705, -68, 11, -63, 4, -52, -2, -37, -4, -17, -3, -7, 2, 3, 5 )
+
+[node name="Hutch" type="StaticBody2D" parent="YSort"]
+position = Vector2( 585, 67 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="YSort/Hutch"]
+position = Vector2( 0, -147 )
+texture = ExtResource( 4 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Hutch"]
+position = Vector2( 0, -3 )
+polygon = PoolVector2Array( 96, 123, 158, 89, -90, -29, -142, 4 )
+
+[node name="Cabinets" type="Sprite" parent="YSort"]
+position = Vector2( -373, -244 )
+texture = ExtResource( 3 )
+
+[node name="Counter" type="StaticBody2D" parent="YSort"]
+position = Vector2( -368, 7 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="YSort/Counter"]
+position = Vector2( 0, 40 )
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Counter"]
+position = Vector2( 0, 40 )
+polygon = PoolVector2Array( 245, -48, 43.573, 45.5498, 12, 91, -24, 76, 131, 162, 13, 216, -246, 103, 139, -94 )
+
+[node name="Table" type="StaticBody2D" parent="YSort"]
+position = Vector2( -151, 452 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="YSort/Table"]
+position = Vector2( 0, -228 )
+texture = ExtResource( 6 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Table"]
+polygon = PoolVector2Array( 216, 8, 308, 1, 320, -39, 319, -57, 299, -79, 264, -92, 202, -109, 189, -133, -85, -245, -192, -187 )
+
+[node name="Player" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 348, 310 )
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Player"]
+position = Vector2( -12, -94 )
+remote_path = NodePath("../../../Camera2D")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 336, 216 )
+current = true
+limit_left = -650
+limit_top = -520
+limit_right = 821
+limit_bottom = 545
+limit_smoothed = true
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true

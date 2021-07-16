@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Rooms/Bathroom/bathRoom.png" type="Texture" id=1]
-[ext_resource path="res://Rooms/Bathroom/bathPath.png" type="Texture" id=2]
+[ext_resource path="res://UI/arrow.png" type="Texture" id=2]
 [ext_resource path="res://Rooms/Bathroom/bathTub.png" type="Texture" id=3]
+[ext_resource path="res://Rooms/Bathroom/bathRug.png" type="Texture" id=4]
+[ext_resource path="res://Rooms/Bathroom/bathToilet.png" type="Texture" id=5]
 
 [node name="Bathroom" type="Node2D"]
 
@@ -10,16 +12,23 @@
 
 [node name="Room" type="StaticBody2D" parent="YSort"]
 position = Vector2( -248, -332 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="Sprite" type="Sprite" parent="YSort/Room"]
+[node name="RoomSprite" type="Sprite" parent="YSort/Room"]
 texture = ExtResource( 1 )
 centered = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Room"]
 polygon = PoolVector2Array( 44, 594, 524, 814, 854, 650, 615, 546, 495, 585, 139, 595, 190, 440, 397, 336, 740, 425, 1090, 550, 971, 872, 160, 921, -63, 590 )
 
+[node name="ClownRug" type="Sprite" parent="YSort/Room"]
+position = Vector2( 508, 604 )
+texture = ExtResource( 4 )
+
 [node name="Bathtub" type="StaticBody2D" parent="YSort"]
-position = Vector2( 82, 360 )
+position = Vector2( 62, 349 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -28,6 +37,23 @@ __meta__ = {
 position = Vector2( 0, -96 )
 texture = ExtResource( 3 )
 
-[node name="bathPath" type="Sprite" parent="YSort"]
-position = Vector2( 255, 348 )
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Bathtub"]
+polygon = PoolVector2Array( 93, 75, 147, 67, 210, 49, 244, 3, 244, -23, 218, -65, 183, -97, -98, -208, -243, -87 )
+
+[node name="Toilet" type="StaticBody2D" parent="YSort"]
+position = Vector2( 240, 133 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="YSort/Toilet"]
+position = Vector2( 0, -92 )
+texture = ExtResource( 5 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Toilet"]
+visible = false
+polygon = PoolVector2Array( 97, 90, 132, 64, 125, 7, -95, -36, -126, 20, -33, 103 )
+
+[node name="Arrow" type="Sprite" parent="."]
+position = Vector2( 537, 449 )
 texture = ExtResource( 2 )
