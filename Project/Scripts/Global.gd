@@ -14,7 +14,10 @@ var audioNode;
 
 var mouseMove = true;
 var mouseHover = false;
+
 var dialogOpen = false;
+var dialogDone = false;
+var dialogClosing = false;
 
 var fadeScene = "";
 var fading = false;
@@ -49,7 +52,7 @@ func init_nodes():
 	commandsNode = currentScene.get_node_or_null("UI/Commands");
 	dialogsNode = currentScene.get_node_or_null("UI/Dialogs");
 	
-	if (audioNode.stream != currentScene.bgmTrack):
+	if ("bgmTrack" in currentScene && audioNode.stream != currentScene.bgmTrack):
 		audioNode.stream = currentScene.bgmTrack;
 		audioNode.play();
 	
@@ -106,20 +109,20 @@ func _deferred_goto_scene(path):
 		playerNode.global_position = warpPos;
 
 func _process(_delta):
-	if (hoverNodes.size() > 0 && mouseHover == false && !dialogOpen):
-		mouseHover = true;
-		Input.set_custom_mouse_cursor(load("res://UI/cursor_select.png"),Input.CURSOR_ARROW,Vector2(14, 0))
-	elif (dialogOpen || (hoverNodes.size() == 0 && mouseHover == true)):
-		mouseHover = false;
-		Input.set_custom_mouse_cursor(load("res://UI/cursor.png"))
-		
 	dialogOpen = false;
 	if (dialogsNode):
 		var cTrans = get_canvas_transform()
 		var pos = -cTrans.get_origin() / cTrans.get_scale()
 		dialogsNode.global_position = pos;
-		if (dialogsNode.get_child_count() > 0):
+		if (dialogsNode.get_child_count() > 0 && dialogsNode.get_child(0).free == false):
 			dialogOpen = true;
+	
+	if ((hoverNodes.size() > 0 && mouseHover == false && !dialogOpen) || (dialogOpen && dialogDone)):
+		mouseHover = true;
+		Input.set_custom_mouse_cursor(load("res://UI/cursor_select.png"),Input.CURSOR_ARROW,Vector2(14, 0))
+	elif (dialogOpen || (hoverNodes.size() == 0 && mouseHover == true)):
+		mouseHover = false;
+		Input.set_custom_mouse_cursor(load("res://UI/cursor.png"))
 	
 	mouseMove = !mouseHover && !dialogOpen && !fading;
 		

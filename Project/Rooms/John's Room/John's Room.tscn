@@ -45,11 +45,11 @@ polygon = PoolVector2Array( 445, 689, 312, 630, 303, 554, 1043, 673, 960, 887 )
 collision_layer = 4
 collision_mask = 4
 script = ExtResource( 8 )
-command = "> WAIT GO BACK OUT HERE BOY."
-width = 260
+command = "> GO OUT OF THE DOOR THAT IS NOT HERE."
+width = 340
 isWarp = true
-dialogOrScene = "res://Rooms/Balcony/Balcony.tscn"
-warpPos = Vector2( 150, 250 )
+dialogOrScene = "res://Rooms/Living Room/Living Room.tscn"
+warpPos = Vector2( 110, -510 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/DoorArea2D"]
 position = Vector2( 26.1846, 9.72942 )

@@ -21,5 +21,7 @@ __meta__ = {
 position = Vector2( 20, 15 )
 texture = ExtResource( 1 )
 
+[node name="Tween" type="Tween" parent="."]
+
 [connection signal="mouse_entered" from="AudioBox" to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="AudioBox" to="." method="_on_mouse_exited"]

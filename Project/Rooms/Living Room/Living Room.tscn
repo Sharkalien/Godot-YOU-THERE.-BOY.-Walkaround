@@ -20,6 +20,16 @@
 [node name="Living Room" type="Node2D"]
 script = ExtResource( 13 )
 
+[node name="Background" type="ColorRect" parent="."]
+margin_left = -725.0
+margin_top = -1287.0
+margin_right = 1258.0
+margin_bottom = 782.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="YSort" type="YSort" parent="."]
 
 [node name="LivingRoom" type="StaticBody2D" parent="YSort"]
@@ -143,6 +153,19 @@ __meta__ = {
 position = Vector2( 0, -40 )
 texture = ExtResource( 16 )
 
+[node name="JohnsRoomDoor" type="Area2D" parent="YSort"]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource( 15 )
+command = "> BOY, GO IN HERE."
+width = 200
+isWarp = true
+dialogOrScene = "res://Rooms/John's Room/John's Room.tscn"
+warpPos = Vector2( 4, 240 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/JohnsRoomDoor"]
+polygon = PoolVector2Array( -113.625, -888, 14.875, -908.125, 15.4813, -575.107, -108.691, -535.821, -114.584, -537.645 )
+
 [node name="Player" parent="YSort" instance=ExtResource( 14 )]
 position = Vector2( 30, -527 )
 
@@ -173,10 +196,15 @@ collision_layer = 4
 collision_mask = 4
 script = ExtResource( 15 )
 command = "> WAIT GO BACK OUT HERE BOY."
-width = 230
+width = 260
 isWarp = true
 dialogOrScene = "res://Rooms/Balcony/Balcony.tscn"
 warpPos = Vector2( 150, 250 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BalconyDoor"]
 polygon = PoolVector2Array( -346, -361, -183, -414, -183, -836, -346, -806 )
+
+[connection signal="mouse_entered" from="YSort/JohnsRoomDoor" to="YSort/JohnsRoomDoor" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="YSort/JohnsRoomDoor" to="YSort/JohnsRoomDoor" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="BalconyDoor" to="BalconyDoor" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="BalconyDoor" to="BalconyDoor" method="_on_mouse_exited"]

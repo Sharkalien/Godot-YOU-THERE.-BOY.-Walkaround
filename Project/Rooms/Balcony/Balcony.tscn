@@ -36,8 +36,8 @@ script = ExtResource( 6 )
 command = "> BOY, OPEN THIS DOOR AND WALK THROUGH IT."
 width = 370
 isWarp = true
-dialogOrScene = "res://Rooms/John's Room/John's Room.tscn"
-warpPos = Vector2( -3, 82 )
+dialogOrScene = "res://Rooms/Living Room/Living Room.tscn"
+warpPos = Vector2( 70, -450 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DoorArea2D"]
 position = Vector2( 26.1846, 9.72942 )
