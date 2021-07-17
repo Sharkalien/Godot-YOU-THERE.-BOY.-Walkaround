@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Rooms/Backyard/backYard.png" type="Texture" id=1]
 [ext_resource path="res://Rooms/Backyard/backyardTree.png" type="Texture" id=2]
@@ -7,28 +7,40 @@
 [ext_resource path="res://Rooms/Backyard/backyardSwing.png" type="Texture" id=5]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scripts/Room.gd" type="Script" id=7]
-[ext_resource path="res://Rooms/refs/backYardref.png" type="Texture" id=8]
+[ext_resource path="res://Rooms/Backyard/backyardSparks (1).png" type="Texture" id=8]
 [ext_resource path="res://Rooms/Backyard/Rockwell-ExtraBold.otf" type="DynamicFontData" id=9]
 [ext_resource path="res://Rooms/Backyard/backyardCables.png" type="Texture" id=10]
 [ext_resource path="res://Rooms/Backyard/backyardGauge.png" type="Texture" id=11]
+[ext_resource path="res://UI/UI.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Rooms/Backyard/backyardSparks (3).png" type="Texture" id=13]
+[ext_resource path="res://Rooms/Backyard/backyardSparks (4).png" type="Texture" id=14]
+[ext_resource path="res://Rooms/Backyard/backyardSparks (2).png" type="Texture" id=15]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 22
 extra_spacing_char = -1
 extra_spacing_space = -3
 font_data = ExtResource( 9 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 size = 35
 extra_spacing_char = -1
 extra_spacing_space = -6
 font_data = ExtResource( 9 )
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=3]
 size = 35
 extra_spacing_char = -1
 extra_spacing_space = -3
 font_data = ExtResource( 9 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 8 ), ExtResource( 15 ), ExtResource( 13 ), ExtResource( 14 ), null, null, null, null, null ],
+"loop": true,
+"name": "default",
+"speed": 10.0
+} ]
 
 [node name="Backyard" type="Node2D"]
 script = ExtResource( 7 )
@@ -59,7 +71,7 @@ margin_top = -1953.39
 margin_right = -2075.23
 margin_bottom = -1925.39
 rect_rotation = 89.9999
-custom_fonts/normal_font = SubResource( 2 )
+custom_fonts/normal_font = SubResource( 1 )
 custom_colors/default_color = Color( 0.360784, 0.235294, 0.0745098, 1 )
 text = "Shift+T"
 fit_content_height = true
@@ -77,7 +89,7 @@ margin_top = -2231.39
 margin_right = -5506.23
 margin_bottom = -2188.39
 rect_rotation = 14.694
-custom_fonts/normal_font = SubResource( 3 )
+custom_fonts/normal_font = SubResource( 2 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 text = "----- ..--- ....- ----. .---- ...--"
 fit_content_height = true
@@ -94,7 +106,7 @@ margin_left = -4219.23
 margin_top = -4188.39
 margin_right = -3752.23
 margin_bottom = -4145.39
-custom_fonts/normal_font = SubResource( 1 )
+custom_fonts/normal_font = SubResource( 3 )
 custom_colors/default_color = Color( 1, 1, 1, 1 )
 text = "this is not SAFE"
 fit_content_height = true
@@ -112,7 +124,7 @@ margin_top = -4068.39
 margin_right = -1736.23
 margin_bottom = -4025.39
 rect_rotation = 180.779
-custom_fonts/normal_font = SubResource( 1 )
+custom_fonts/normal_font = SubResource( 3 )
 custom_colors/default_color = Color( 1, 1, 1, 1 )
 text = "Gankra Was Not Here"
 fit_content_height = true
@@ -171,9 +183,6 @@ polygon = PoolVector2Array( -392, -9, -396, -5, -396, 2, -393, 7, -372, 6, -202,
 
 [node name="Powergauge" type="StaticBody2D" parent="YSort"]
 position = Vector2( -152, -174 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="gauge" type="Sprite" parent="YSort/Powergauge"]
 position = Vector2( 0, 96 )
@@ -183,8 +192,11 @@ texture = ExtResource( 11 )
 position = Vector2( 14, 231 )
 texture = ExtResource( 10 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Powergauge"]
-polygon = PoolVector2Array( 70, 561, 303, 353, 73, -109, -158, -26, -116, 443 )
+[node name="AnimatedSprite" type="AnimatedSprite" parent="YSort/Powergauge/gauge/cables"]
+position = Vector2( -108, 97 )
+frames = SubResource( 4 )
+frame = 6
+playing = true
 
 [node name="Player" parent="YSort" instance=ExtResource( 6 )]
 position = Vector2( 332, 367 )
@@ -206,13 +218,4 @@ drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 smoothing_enabled = true
 
-[node name="backYardref" type="Sprite" parent="."]
-visible = false
-modulate = Color( 1, 1, 1, 0.584314 )
-position = Vector2( -1751, -2183 )
-scale = Vector2( 1.25, 1.25 )
-texture = ExtResource( 8 )
-centered = false
-__meta__ = {
-"_edit_lock_": true
-}
+[node name="UI" parent="." instance=ExtResource( 12 )]
