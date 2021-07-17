@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Balcony/balcony.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Scripts/Interactable.gd" type="Script" id=6]
 [ext_resource path="res://Scripts/Room.gd" type="Script" id=7]
 [ext_resource path="res://Audio/Songs/wind.wav" type="AudioStream" id=8]
+[ext_resource path="res://Rooms/Zooms/bathroomYard.jpg" type="Texture" id=9]
 
 [node name="Balcony" type="Node2D"]
 script = ExtResource( 7 )
@@ -64,6 +65,7 @@ dialogOrScene = "Testing testing 123 eat my assssss
 
 aaaaaaaaaaaaaaaaa
 super FUCKING mario"
+zoomImage = ExtResource( 9 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Alchemiter/AlchemiterArea2D"]
 polygon = PoolVector2Array( 425, 288, 798, 99, 798, 2, 648, -72, 645, -113.148, 622, -145.148, 568, -182.148, 496, -203.148, 442, -208.148, 347, -204.148, 254, -169.148, 204, -118.148, 205, -554.266, 158, -555.266, 134, -538.266, 125, -519.266, 103, -527.266, 34.6, -532.266, 23.6, -517.266, 30.6, -503.266, 10.6, -501.266, -8.39999, -508.266, -19.4, -493.266, -6.39999, -482.266, -64.4, -480.266, -63.4, -473.266, 8.60001, -469.266, 18.6, -454.266, 38.6, -448.266, 43.6, -430.266, 51.6, -431.266, 59.6, -453.266, 61.6, -469.266, 70.6, -469.266, 67.6, -490.266, 73.6, -502.266, 94.6, -503.266, 92.6, -210.139, 101.6, -196.139, 114.6, -195.139, 159.6, -214.139, 158.6, -123.139, 120.6, -125.139, 92.6, -117.139, 84.6, -99.1388, 83.6, 4.86124, 52.6, 19.8612, 54.6, 115.861 )

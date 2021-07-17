@@ -8,6 +8,7 @@ var playerNode;
 var cameraNode;
 var commandsNode;
 var dialogsNode;
+var imagesNode;
 
 var tweenNode;
 var audioNode;
@@ -50,6 +51,7 @@ func init_nodes():
 		playerNode = currentScene.get_node_or_null("YSort/Player");
 	cameraNode = currentScene.get_node_or_null("Camera2D");
 	commandsNode = currentScene.get_node_or_null("UI/Commands");
+	imagesNode = currentScene.get_node_or_null("UI/Images");
 	dialogsNode = currentScene.get_node_or_null("UI/Dialogs");
 	
 	if ("bgmTrack" in currentScene && audioNode.stream != currentScene.bgmTrack):

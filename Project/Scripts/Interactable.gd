@@ -6,6 +6,7 @@ export var width = 552;
 export var isWarp = false;
 export (String, MULTILINE) var dialogOrScene = "";
 export var warpPos = Vector2.ZERO;
+export (Texture) var zoomImage;
 
 var selected = false;
 
@@ -42,3 +43,4 @@ func _process(_delta):
 		commandBoxInstance.isWarp = isWarp;
 		commandBoxInstance.warpPos = warpPos;
 		commandBoxInstance.dialogOrScene = dialogOrScene;
+		commandBoxInstance.zoomImage = zoomImage;
