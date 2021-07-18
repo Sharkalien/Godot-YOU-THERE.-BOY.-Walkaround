@@ -15,8 +15,6 @@ func _ready():
 	animPlayer.play("Open")
 
 func _process(_delta):
-	var cTrans = get_canvas_transform()
-	global_position = -cTrans.get_origin() / cTrans.get_scale()
 	if (!Global.dialogClosing && !free):
 		if (timer < dialog.length() + 2):
 			timer += 2;
