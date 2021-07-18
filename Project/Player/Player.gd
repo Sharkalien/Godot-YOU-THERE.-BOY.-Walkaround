@@ -14,7 +14,7 @@ func _physics_process(_delta):
 	velocity = move_and_slide(velocity)
 
 func movement():
-	if (Global.fading):
+	if (Global.fading || Global.imageOpen):
 		direction = Vector2.ZERO;
 	else:
 		keyMovement()

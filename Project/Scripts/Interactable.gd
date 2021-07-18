@@ -26,7 +26,7 @@ func _exit_tree():
 	Global.hoverNodes.erase(self);	
 	
 func _process(_delta):
-	if (Global.commandsNode && !Global.dialogOpen && !Global.fading && selected && Input.is_action_just_pressed("click")):
+	if (Global.commandsNode && !Global.dialogOpen && !Global.imageOpen && !Global.fading && selected && Input.is_action_just_pressed("click")):
 		var commandBoxInstance = commandBox.instance();
 		Global.remove_commands();
 		Global.commandsNode.add_child(commandBoxInstance);
