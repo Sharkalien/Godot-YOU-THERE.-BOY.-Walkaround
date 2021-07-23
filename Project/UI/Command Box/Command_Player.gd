@@ -50,6 +50,7 @@ func _on_gui_input(event):
 			var imageBoxInstance = imageBox.instance();
 			Global.imagesNode.add_child(imageBoxInstance);
 			imageBoxInstance.dialog = dialogOrScene;
+			imageBoxInstance.get_node("ImageBox/Sprite").texture = zoomImage; 
 		elif (Global.dialogsNode):
 			var dialogBoxInstance = dialogBox.instance();
 			Global.dialogsNode.add_child(dialogBoxInstance);

@@ -16,6 +16,7 @@ var audioNode;
 var mouseMove = true;
 var mouseHover = false;
 
+var imageOpen = false;
 var dialogOpen = false;
 var dialogDone = false;
 var dialogClosing = false;
@@ -118,6 +119,10 @@ func _process(_delta):
 		dialogsNode.global_position = pos;
 		if (dialogsNode.get_child_count() > 0 && dialogsNode.get_child(0).free == false):
 			dialogOpen = true;
+	imageOpen = false;
+	if (imagesNode):
+		if (imagesNode.get_child_count() > 0):
+			imageOpen = true;
 	
 	if ((hoverNodes.size() > 0 && mouseHover == false && !dialogOpen) || (dialogOpen && dialogDone)):
 		mouseHover = true;

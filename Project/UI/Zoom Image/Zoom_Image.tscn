@@ -1,6 +1,5 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Rooms/Zooms/bathroomYard.jpg" type="Texture" id=1]
 [ext_resource path="res://UI/Zoom Image/Zoom_Image.gd" type="Script" id=2]
 
 [node name="Zoom Image" type="Node2D"]
@@ -17,7 +16,6 @@ __meta__ = {
 
 [node name="Sprite" type="Sprite" parent="ImageBox"]
 position = Vector2( 325, 225 )
-texture = ExtResource( 1 )
 
 [connection signal="mouse_entered" from="ImageBox" to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="ImageBox" to="." method="_on_mouse_exited"]

@@ -40,7 +40,7 @@ func _process(_delta):
 		$Tween.interpolate_property($AudioBox/Sprite, "modulate", Color(1,1,1,0.5), Color(1,1,1,1), time, Tween.TRANS_LINEAR, Tween.EASE_OUT);
 		$Tween.start();
 	
-	if (Global.dialogsNode && !Global.dialogOpen && !Global.fading && selected && Input.is_action_just_pressed("click")):
+	if (Global.dialogsNode && !Global.dialogOpen && !Global.imageOpen && !Global.fading && selected && Input.is_action_just_pressed("click")):
 		Global.remove_commands();
 		if (Global.muteAudio):
 			Global.mute_audio(false);
