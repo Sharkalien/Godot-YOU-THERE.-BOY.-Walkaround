@@ -8,6 +8,15 @@
 
 [node name="Bathroom" type="Node2D"]
 
+[node name="Background" type="ColorRect" parent="."]
+margin_left = -1434.0
+margin_top = -920.0
+margin_right = 2209.0
+margin_bottom = 1348.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Room" type="StaticBody2D" parent="YSort"]
@@ -28,16 +37,17 @@ position = Vector2( 508, 604 )
 texture = ExtResource( 4 )
 
 [node name="Bathtub" type="StaticBody2D" parent="YSort"]
-position = Vector2( 62, 349 )
+position = Vector2( 269, 353 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Sprite" type="Sprite" parent="YSort/Bathtub"]
-position = Vector2( 0, -96 )
+position = Vector2( -206.9, -100.1 )
 texture = ExtResource( 3 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Bathtub"]
+position = Vector2( -206.9, -4.10001 )
 polygon = PoolVector2Array( 93, 75, 147, 67, 210, 49, 244, 3, 244, -23, 218, -65, 183, -97, -98, -208, -243, -87 )
 
 [node name="Toilet" type="StaticBody2D" parent="YSort"]

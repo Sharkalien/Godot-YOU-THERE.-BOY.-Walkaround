@@ -21,10 +21,10 @@
 script = ExtResource( 13 )
 
 [node name="Background" type="ColorRect" parent="."]
-margin_left = -725.0
-margin_top = -1287.0
-margin_right = 1258.0
-margin_bottom = 782.0
+margin_left = -1663.0
+margin_top = -1362.0
+margin_right = 2301.0
+margin_bottom = 929.0
 mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
@@ -75,7 +75,7 @@ position = Vector2( -210, 1292 )
 polygon = PoolVector2Array( 200, -76, 756, 129, 793, 46, 811, 35, 504, -374, 197, -462 )
 
 [node name="Couch" type="StaticBody2D" parent="YSort"]
-position = Vector2( 548, 95 )
+position = Vector2( 551, 95 )
 __meta__ = {
 "_edit_group_": true
 }

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/backyardSparks (8).png-a90b5a733d7235aa9ac7583c3109f737.stex"
+path="res://.import/sparks_7.png-be99de02ac603af4ec3595d5287b3a63.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Rooms/Backyard/backyardSparks (8).png"
-dest_files=[ "res://.import/backyardSparks (8).png-a90b5a733d7235aa9ac7583c3109f737.stex" ]
+source_file="res://Rooms/Backyard/sparks_7.png"
+dest_files=[ "res://.import/sparks_7.png-be99de02ac603af4ec3595d5287b3a63.stex" ]
 
 [params]
 

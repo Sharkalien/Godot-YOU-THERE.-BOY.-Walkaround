@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Rooms/John's Room/room.png" type="Texture" id=1]
 [ext_resource path="res://Rooms/John's Room/roomBed.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Scripts/Interactable.gd" type="Script" id=8]
 [ext_resource path="res://UI/UI.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scripts/Room.gd" type="Script" id=10]
+[ext_resource path="res://Rooms/John's Room/roomWiseguy.png" type="Texture" id=11]
 
 [node name="John\'s Room" type="Node2D"]
 script = ExtResource( 10 )
@@ -107,6 +108,16 @@ texture = ExtResource( 5 )
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Dresser"]
 position = Vector2( 1, -62 )
 polygon = PoolVector2Array( -143.773, 72.4672, -14.7734, 137.467, -5.77344, 137.467, 142.227, 61.4672, 1, 4 )
+
+[node name="Wiseguy" type="StaticBody2D" parent="YSort"]
+position = Vector2( 821, 287 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="YSort/Wiseguy"]
+position = Vector2( 12, -4 )
+texture = ExtResource( 11 )
 
 [node name="Player" parent="YSort" instance=ExtResource( 3 )]
 position = Vector2( -3, 82 )

@@ -6,6 +6,15 @@
 
 [node name="Hallway" type="Node2D"]
 
+[node name="Background" type="ColorRect" parent="."]
+margin_left = -1518.0
+margin_top = -1048.0
+margin_right = 2322.0
+margin_bottom = 1112.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Hall" type="StaticBody2D" parent="."]
 
 [node name="HallSprite" type="Sprite" parent="Hall"]

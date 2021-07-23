@@ -34,7 +34,6 @@ settings/fps/force_fps=25
 
 window/size/width=650
 window/size/height=450
-window/size/resizable=false
 window/size/test_width=650
 window/size/test_height=450
 mouse_cursor/custom_image="res://UI/cursor.png"

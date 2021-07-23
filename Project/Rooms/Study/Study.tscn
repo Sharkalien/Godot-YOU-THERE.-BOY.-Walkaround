@@ -8,6 +8,15 @@
 
 [node name="Study" type="Node2D"]
 
+[node name="Background" type="ColorRect" parent="."]
+margin_left = -1498.0
+margin_top = -936.0
+margin_right = 2342.0
+margin_bottom = 1224.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Room" type="StaticBody2D" parent="YSort"]

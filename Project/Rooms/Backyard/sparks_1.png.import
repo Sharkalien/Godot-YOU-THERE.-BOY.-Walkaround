@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bathPath.png-7ed6cf5aa72143a4d00c2500b6bae48c.stex"
+path="res://.import/sparks_1.png-4f790e02f9523515f16f4db310a252d1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Rooms/Bathroom/bathPath.png"
-dest_files=[ "res://.import/bathPath.png-7ed6cf5aa72143a4d00c2500b6bae48c.stex" ]
+source_file="res://Rooms/Backyard/sparks_1.png"
+dest_files=[ "res://.import/sparks_1.png-4f790e02f9523515f16f4db310a252d1.stex" ]
 
 [params]
 

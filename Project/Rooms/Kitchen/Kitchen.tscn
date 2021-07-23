@@ -12,10 +12,10 @@
 [node name="Kitchen" type="Node2D"]
 
 [node name="Background" type="ColorRect" parent="."]
-margin_left = -784.0
-margin_top = -636.0
-margin_right = 975.0
-margin_bottom = 585.0
+margin_left = -1703.0
+margin_top = -1081.0
+margin_right = 2137.0
+margin_bottom = 1079.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -25,22 +25,15 @@ __meta__ = {
 [node name="Room" type="StaticBody2D" parent="YSort"]
 position = Vector2( 19, -521 )
 __meta__ = {
-"_edit_group_": true,
-"_edit_lock_": true
+"_edit_group_": true
 }
 
 [node name="Sprite" type="Sprite" parent="YSort/Room"]
 position = Vector2( 63, 534 )
 texture = ExtResource( 1 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Room"]
-polygon = PoolVector2Array( 86, 1003, -259, 1018, -880, 1031, -895, 154, 13, -127, 1081, 156, 951, 877, 86, 1003, 289, 906, 750, 664, 350, 514, 3, 401, -635, 673 )
-__meta__ = {
-"_edit_lock_": true
-}
+polygon = PoolVector2Array( 86, 1003, -259, 1018, -880, 1031, -895, 154, 13, -127, 1081, 156, 951, 877, 86, 1003, 289, 906, 750, 664, 350, 514, 143.709, 446.822, 82, 473, 41, 462, 45.7047, 414.907, 3, 401, -635, 673 )
 
 [node name="Fridge" type="StaticBody2D" parent="YSort"]
 position = Vector2( -63, -340 )
