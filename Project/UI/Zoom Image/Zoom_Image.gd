@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 var dialog = "";
 
@@ -22,9 +22,6 @@ func _exit_tree():
 	Global.hoverNodes.erase(self);
 
 func _process(_delta):
-	var cTrans = get_canvas_transform()
-	global_position = -cTrans.get_origin() / cTrans.get_scale()
-	
 	if (Global.dialogsNode && !Global.dialogOpen && !Global.fading && selected && Input.is_action_just_pressed("click")):
 		Global.remove_commands();
 		dialogBoxInstance = dialogBox.instance();

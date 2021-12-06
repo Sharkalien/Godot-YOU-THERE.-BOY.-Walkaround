@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 var dialog = "To walk around, use the mouse, arrow keys, or WASD keys. Click on\nvarious objects to open command menus for them!\n\nGodot programming by Sharkalien and Axollyon (abyssalLotl).\nBased on \"[S] YOU THERE. BOY.\" from Homestuck (page 253).";
 
@@ -22,17 +22,15 @@ func _exit_tree():
 	Global.hoverNodes.erase(self);
 
 func _process(_delta):
-	var cTrans = get_canvas_transform()
-	global_position = -cTrans.get_origin() / cTrans.get_scale()
 	
 	var time = 0.2;
 	if (Global.dialogOpen && !Global.dialogDone && !Global.dialogClosing && !faded):
 		faded = true;
-		$Tween.interpolate_property($ControlsBox/Sprite, "modulate", Color(1,1,1,1), Color(1,1,1,0.5), time, Tween.TRANS_LINEAR, Tween.EASE_OUT);
+		$Tween.interpolate_property($Sprite, "modulate", Color(1,1,1,1), Color(1,1,1,0.5), time, Tween.TRANS_LINEAR, Tween.EASE_OUT);
 		$Tween.start();
 	elif (Global.dialogOpen && Global.dialogClosing && faded):
 		faded = false;
-		$Tween.interpolate_property($ControlsBox/Sprite, "modulate", Color(1,1,1,0.5), Color(1,1,1,1), time, Tween.TRANS_LINEAR, Tween.EASE_OUT);
+		$Tween.interpolate_property($Sprite, "modulate", Color(1,1,1,0.5), Color(1,1,1,1), time, Tween.TRANS_LINEAR, Tween.EASE_OUT);
 		$Tween.start();
 	
 	if (Global.dialogsNode && !Global.dialogOpen && !Global.imageOpen && !Global.fading && selected && Input.is_action_just_pressed("click")):

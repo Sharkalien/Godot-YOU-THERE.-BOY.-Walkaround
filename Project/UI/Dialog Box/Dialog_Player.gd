@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 var label;
 var animPlayer;
@@ -10,8 +10,8 @@ var timer = 0;
 var free = false;
 
 func _ready():
-	label = get_node("DialogBox/Body_NinePatchRect/MarginContainer/RichTextLabel");
-	animPlayer = get_node("DialogBox/Body_NinePatchRect/AnimationPlayer");
+	label = get_node("CenterContainer/Body_NinePatchRect/MarginContainer/RichTextLabel");
+	animPlayer = get_node("CenterContainer/Body_NinePatchRect/AnimationPlayer");
 	animPlayer.play("Open")
 
 func _process(_delta):

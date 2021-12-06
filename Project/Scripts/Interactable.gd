@@ -1,7 +1,7 @@
 extends Area2D
 
 export (String, MULTILINE) var command = "";
-export var width = 552;
+export var width = 552; # there's probably a better way to get the width of a command that's automagic
 
 export var isWarp = false;
 export (String, MULTILINE) var dialogOrScene = "";
@@ -36,6 +36,7 @@ func _process(_delta):
 		var right = (-cTrans.get_origin() / cScale + get_viewport().size / cScale).x;
 		if (click.x + width > right):
 			click.x = right - width;
+		# OOPS I SORT OF BROKE THE MATHS FOR THIS MY BAD G
 		commandBoxInstance.global_position = click;
 		commandBoxInstance.command = command;
 		commandBoxInstance.get_node("CommandBox").rect_size.x = width;
