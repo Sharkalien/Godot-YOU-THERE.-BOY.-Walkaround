@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 var label;
 
@@ -16,7 +16,7 @@ var imageBox = load("res://UI/Zoom Image/Zoom_Image.tscn")
 var dialogBox = load("res://UI/Dialog Box/Dialog_Player.tscn")
 
 func _ready():
-	label = get_node("CommandBox/NinePatchRect/MarginContainer/RichTextLabel");
+	label = get_node("NinePatchRect/MarginContainer/RichTextLabel");
 	
 func _process(_delta):
 	typed = command.left(timer);

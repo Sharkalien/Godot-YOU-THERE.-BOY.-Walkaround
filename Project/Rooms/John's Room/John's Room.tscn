@@ -145,6 +145,3 @@ drag_margin_bottom = 0.1
 __meta__ = {
 "_edit_group_": true
 }
-
-[connection signal="mouse_entered" from="YSort/DoorArea2D" to="YSort/DoorArea2D" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="YSort/DoorArea2D" to="YSort/DoorArea2D" method="_on_mouse_exited"]

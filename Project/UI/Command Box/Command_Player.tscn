@@ -1,28 +1,23 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://UI/Dialog Box/courbd.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://UI/Command Box/9patchrect_command.png" type="Texture" id=2]
-[ext_resource path="res://UI/Command Box/9patchrect dialog ref.png" type="Texture" id=3]
 [ext_resource path="res://UI/Command Box/Command_Player.gd" type="Script" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 14
 font_data = ExtResource( 1 )
 
-[node name="Command_Player" type="Node2D"]
-z_index = 1
-z_as_relative = false
-script = ExtResource( 4 )
-
-[node name="CommandBox" type="Control" parent="."]
+[node name="CommandBox" type="Control"]
 margin_top = -16.0
 margin_right = 552.0
 margin_bottom = 17.0
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="NinePatchRect" type="NinePatchRect" parent="CommandBox"]
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 2 )
@@ -34,7 +29,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MarginContainer" type="MarginContainer" parent="CommandBox/NinePatchRect"]
+[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 15.0
@@ -46,7 +41,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CommandBox/NinePatchRect/MarginContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="NinePatchRect/MarginContainer"]
 margin_right = 522.0
 margin_bottom = 16.0
 mouse_filter = 2
@@ -56,11 +51,6 @@ bbcode_text = "> THIS LARGE PLATFORM, GOOD GRIEF"
 text = "> THIS LARGE PLATFORM, GOOD GRIEF"
 scroll_active = false
 
-[node name="Sprite" type="Sprite" parent="."]
-visible = false
-position = Vector2( 110, 17 )
-texture = ExtResource( 3 )
-
-[connection signal="gui_input" from="CommandBox" to="." method="_on_gui_input"]
-[connection signal="mouse_entered" from="CommandBox" to="." method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="CommandBox" to="." method="_on_mouse_exited"]
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

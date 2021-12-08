@@ -203,8 +203,3 @@ warpPos = Vector2( 150, 250 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BalconyDoor"]
 polygon = PoolVector2Array( -346, -361, -183, -414, -183, -836, -346, -806 )
-
-[connection signal="mouse_entered" from="YSort/JohnsRoomDoor" to="YSort/JohnsRoomDoor" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="YSort/JohnsRoomDoor" to="YSort/JohnsRoomDoor" method="_on_mouse_exited"]
-[connection signal="mouse_entered" from="BalconyDoor" to="BalconyDoor" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="BalconyDoor" to="BalconyDoor" method="_on_mouse_exited"]

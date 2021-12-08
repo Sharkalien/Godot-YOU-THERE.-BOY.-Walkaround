@@ -75,8 +75,8 @@ margin_top = -1953.39
 margin_right = -2075.23
 margin_bottom = -1925.39
 rect_rotation = 89.9999
+custom_colors/default_color = Color( 0.356863, 0.227451, 0.0431373, 1 )
 custom_fonts/normal_font = SubResource( 1 )
-custom_colors/default_color = Color( 0.360784, 0.235294, 0.0745098, 1 )
 text = "Shift+T"
 fit_content_height = true
 __meta__ = {
@@ -93,8 +93,8 @@ margin_top = -2231.39
 margin_right = -5506.23
 margin_bottom = -2188.39
 rect_rotation = 14.694
-custom_fonts/normal_font = SubResource( 2 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = SubResource( 2 )
 text = "----- ..--- ....- ----. .---- ...--"
 fit_content_height = true
 __meta__ = {
@@ -110,8 +110,8 @@ margin_left = -4219.23
 margin_top = -4188.39
 margin_right = -3752.23
 margin_bottom = -4145.39
-custom_fonts/normal_font = SubResource( 3 )
 custom_colors/default_color = Color( 1, 1, 1, 1 )
+custom_fonts/normal_font = SubResource( 3 )
 text = "this is not SAFE"
 fit_content_height = true
 __meta__ = {
@@ -128,8 +128,8 @@ margin_top = -4068.39
 margin_right = -1736.23
 margin_bottom = -4025.39
 rect_rotation = 180.779
-custom_fonts/normal_font = SubResource( 3 )
 custom_colors/default_color = Color( 1, 1, 1, 1 )
+custom_fonts/normal_font = SubResource( 3 )
 text = "Gankra Was Not Here"
 fit_content_height = true
 __meta__ = {
@@ -137,6 +137,7 @@ __meta__ = {
 }
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Yard"]
+visible = false
 polygon = PoolVector2Array( 354, 2670, 356, 2697, 399, 2799, 443, 2889, 533, 2943, 682, 2919, 734, 2895, 965, 2898, 1075, 2941, 1192, 2979, 1306, 2971, 1409, 3001, 1421, 3030, 1422, 3043, 1383, 3078, 1348, 3098, 1340, 3099, 1264, 3140, 974, 3145, 966, 3149, 898, 3147, 778, 3130, 752, 3141, 585, 3259, 578, 3268, 567, 3274, 155, 3340, 8, 3332, -91, 3327, -295, 3349, -357, 3295, -369, 3281, -392, 3275, -557, 3253, -679, 3250, -779, 3319, -844, 3325, -1078, 3376, -1271, 3184, -1285, 3134, -1216, 3059, -1160, 3014, -1117, 2983, -1069, 2953, -1002, 2929, -812, 2910, -705, 2840, -672, 2818, -626, 2770, -598, 2747, -621, 2669, -656, 2604, -622, 2581, -643, 2498, -673, 2432, -687, 2410, -706, 2400, -885, 2391, -918, 2390, -948, 2378, -964, 2362, -992, 2348, -1019, 2337, -1052, 2332, -1086, 2329, -1145, 2319, -1190, 2314, -1216, 2288, -1272, 2279, -1404, 2267, -1519, 2265, -1607, 2307, -1669, 2314, -1744, 2299, -1767, 2298, -1812, 2240, -1838, 2228, -2005, 2205, -2025, 2139, -2032, 2130, -2052, 2122, -2087, 2121, -2128, 2093, -2161, 2075, -2167, 2054, -2126, 2026, -2107, 2002, -2103, 1992, -1983, 1959, -1977, 1961, -1873, 1926, -1864, 1921, -1816, 1918, -1800, 1897, -1786, 1867, -1690, 1846, -1642, 1744, -1916, 1676, -2442, 1912, -2429, 2542, -2385, 4157, 2569, 4138, 2331, 1731, 1335, 2000, 1502, 2010, 1511, 2019, 1621, 2072, 1692, 2117, 1734, 2181, 1657, 2322, 1639, 2329, 1611, 2327, 1555, 2347, 1532, 2351, 1487, 2354, 1416, 2375, 1215, 2421, 1179, 2433, 1146, 2432, 1066, 2413, 983, 2395, 917, 2380, 866, 2376, 845, 2371, 815, 2371, 713, 2409, 695, 2423, 656, 2481, 597, 2555, 510, 2552, 443, 2563, 411, 2571 )
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="YSort/Yard"]
@@ -202,7 +203,7 @@ texture = ExtResource( 10 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="YSort/Powergauge/gauge/cables"]
 position = Vector2( -77, 159 )
 frames = SubResource( 4 )
-frame = 32
+frame = 22
 playing = true
 
 [node name="Player" parent="YSort" instance=ExtResource( 6 )]

@@ -11,6 +11,7 @@
 [ext_resource path="res://Rooms/Zooms/bathroomYard.jpg" type="Texture" id=9]
 
 [node name="Balcony" type="Node2D"]
+position = Vector2( 1, 0 )
 script = ExtResource( 7 )
 bgmTrack = ExtResource( 8 )
 
@@ -105,8 +106,3 @@ drag_margin_left = 0.05
 drag_margin_top = 0.05
 drag_margin_right = 0.05
 drag_margin_bottom = 0.05
-
-[connection signal="mouse_entered" from="DoorArea2D" to="DoorArea2D" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="DoorArea2D" to="DoorArea2D" method="_on_mouse_exited"]
-[connection signal="mouse_entered" from="Alchemiter/AlchemiterArea2D" to="Alchemiter/AlchemiterArea2D" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Alchemiter/AlchemiterArea2D" to="Alchemiter/AlchemiterArea2D" method="_on_mouse_exited"]
