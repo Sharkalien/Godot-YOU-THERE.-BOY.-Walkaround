@@ -12,53 +12,13 @@ font_data = ExtResource( 2 )
 resource_name = "Open"
 length = 0.2
 step = 0.04
-tracks/0/type = "bezier"
-tracks/0/path = NodePath(".:rect_size:x")
-tracks/0/interp = 1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_min_size")
+tracks/0/interp = 0
 tracks/0/loop_wrap = true
 tracks/0/imported = false
-tracks/0/enabled = false
+tracks/0/enabled = true
 tracks/0/keys = {
-"points": PoolRealArray( 60, -0.25, 0, 0.25, 0, 202, -0.25, 0, 0.25, 0, 355, -0.25, 0, 0.25, 0, 508, -0.25, 0, 0.25, 0, 661, -0.25, 0, 0.25, 0, 640, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.04, 0.08, 0.12, 0.16, 0.2 )
-}
-tracks/1/type = "bezier"
-tracks/1/path = NodePath(".:rect_size:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = false
-tracks/1/keys = {
-"points": PoolRealArray( 60, -0.25, 0, 0.25, 0, 89, -0.25, 0, 0.25, 0, 128, -0.25, 0, 0.25, 0, 168, -0.25, 0, 0.25, 0, 206, -0.25, 0, 0.25, 0, 191, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.04, 0.08, 0.12, 0.16, 0.2 )
-}
-tracks/2/type = "bezier"
-tracks/2/path = NodePath(".:rect_position:x")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = false
-tracks/2/keys = {
-"points": PoolRealArray( 290, -0.25, 0, 0.25, 0, 220, -0.25, 0, 0.25, 0, 152, -0.25, 0, 0.25, 0, 74, -0.25, 0, 0.25, 0, -6, -0.25, 0, 0.25, 0, 5, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.04, 0.08, 0.12, 0.16, 0.2 )
-}
-tracks/3/type = "bezier"
-tracks/3/path = NodePath(".:rect_position:y")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = false
-tracks/3/keys = {
-"points": PoolRealArray( 294, -0.25, 0, 0.25, 0, 274, -0.25, 0, 0.25, 0, 254, -0.25, 0, 0.25, 0, 234, -0.25, 0, 0.25, 0, 215, -0.25, 0, 0.25, 0, 222, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.04, 0.08, 0.12, 0.16, 0.2 )
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath(".:rect_min_size")
-tracks/4/interp = 0
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
 "times": PoolRealArray( 0, 0.04, 0.08, 0.12, 0.16, 0.2 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
@@ -77,7 +37,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 202, 89 ) ]
+"values": [ Vector2( 60, 60 ) ]
 }
 
 [node name="DialogBox" type="Control"]
@@ -107,7 +67,7 @@ margin_left = 249.0
 margin_top = 89.0
 margin_right = 309.0
 margin_bottom = 149.0
-rect_min_size = Vector2( 202, 89 )
+rect_min_size = Vector2( 60, 60 )
 texture = ExtResource( 1 )
 patch_margin_left = 30
 patch_margin_top = 30
@@ -133,6 +93,7 @@ margin_bottom = 12.0
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
+text = "YOU THERE. BOY."
 scroll_active = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer/Body_NinePatchRect"]

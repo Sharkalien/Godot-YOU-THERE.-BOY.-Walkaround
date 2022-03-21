@@ -43,7 +43,7 @@ func _process(_delta):
 		var right = (-cTrans.get_origin() / cScale + get_viewport().size / cScale).x;
 		if (click.x + width > right):
 			click.x = right - width;
-		# OOPS I SORT OF BROKE THE MATHS FOR THIS MY BAD G
+		# OOPS I SORT OF BROKE THE MATHS FOR THIS ^ MY BAD G
 		commandBoxInstance.rect_global_position = click;
 		commandBoxInstance.command = command;
 		commandBoxInstance.rect_size.x = width;
