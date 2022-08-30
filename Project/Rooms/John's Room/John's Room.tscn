@@ -51,6 +51,16 @@ width = 340
 isWarp = true
 dialogOrScene = "res://Rooms/Living Room/Living Room.tscn"
 warpPos = Vector2( 110, -510 )
+interactDialog = {
+"command": "> GO OUT OF THE DOOR THAT IS NOT HERE.",
+"dialog": ""
+}
+interactMisc = {
+"isWarp": true,
+"warpPos": Vector2( 110, -510 ),
+"warpScene": "res://Rooms/Living Room/Living Room.tscn",
+"zoomImage": ""
+}
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/DoorArea2D"]
 position = Vector2( 26.1846, 9.72942 )

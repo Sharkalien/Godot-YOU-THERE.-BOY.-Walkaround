@@ -1,12 +1,9 @@
 extends Area2D
 
-export (String, MULTILINE) var command = "";
 export var width = 552; # there's probably a better way to get the width of a command that's automagic
 
-export var isWarp = false;
-export (String, MULTILINE) var dialogOrScene = "";
-export var warpPos = Vector2.ZERO;
-export (Texture) var zoomImage;
+export (Dictionary) var interactDialog = {"command": "", "dialog": ""}
+export (Dictionary) var interactMisc = {"isWarp": false, "warpScene": "", "warpPos": Vector2.ZERO, "zoomImage": ""}
 
 var selected = false;
 
@@ -45,10 +42,11 @@ func _process(_delta):
 			click.x = right - width;
 		# OOPS I SORT OF BROKE THE MATHS FOR THIS ^ MY BAD G
 		commandBoxInstance.rect_global_position = click;
-		commandBoxInstance.command = command;
+		commandBoxInstance.command = interactDialog.command;
+		commandBoxInstance.dialog = interactDialog.dialog;
 		commandBoxInstance.rect_size.x = width;
 		commandBoxInstance.get_node("NinePatchRect/MarginContainer/RichTextLabel").bbcode_text = "";
-		commandBoxInstance.isWarp = isWarp;
-		commandBoxInstance.warpPos = warpPos;
-		commandBoxInstance.dialogOrScene = dialogOrScene;
-		commandBoxInstance.zoomImage = zoomImage;
+		commandBoxInstance.isWarp = interactMisc.isWarp;
+		commandBoxInstance.warpPos = interactMisc.warpPos;
+		commandBoxInstance.warpScene = interactMisc.warpScene;
+		commandBoxInstance.zoomImage = interactMisc.zoomImage;

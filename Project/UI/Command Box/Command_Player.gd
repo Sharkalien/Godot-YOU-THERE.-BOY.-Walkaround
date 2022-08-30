@@ -8,7 +8,8 @@ var timer = 0;
 var color = "#ffffff"
 
 var isWarp = false;
-var dialogOrScene = "";
+var dialog = "";
+var warpScene = ""
 var warpPos = Vector2.ZERO;
 var zoomImage;
 
@@ -45,13 +46,13 @@ func _on_gui_input(event):
 	if (!Global.dialogOpen && !Global.fading && event is InputEventMouseButton && event.button_index == 1 && event.pressed == true):
 		Global.remove_commands();
 		if (isWarp):
-			Global.fadeto_scene(dialogOrScene, warpPos);
+			Global.fadeto_scene(warpScene, warpPos);
 		elif (zoomImage && Global.imagesNode):
 			var imageBoxInstance = imageBox.instance();
 			Global.imagesNode.add_child(imageBoxInstance);
-			imageBoxInstance.dialog = dialogOrScene;
-			imageBoxInstance.get_node("ImageBox").texture = zoomImage; 
+			imageBoxInstance.dialog = dialog;
+			imageBoxInstance.get_node("ImageBox").texture = load(zoomImage); 
 		elif (Global.dialogsNode):
 			var dialogBoxInstance = dialogBox.instance();
 			Global.dialogsNode.add_child(dialogBoxInstance);
-			dialogBoxInstance.dialog = dialogOrScene;
+			dialogBoxInstance.dialog = dialog;

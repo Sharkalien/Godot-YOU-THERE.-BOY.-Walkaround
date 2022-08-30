@@ -21,14 +21,11 @@
 script = ExtResource( 13 )
 
 [node name="Background" type="ColorRect" parent="."]
-margin_left = -1663.0
-margin_top = -1362.0
-margin_right = 2301.0
-margin_bottom = 929.0
+margin_left = -1164.0
+margin_top = -1622.0
+margin_right = 1572.0
+margin_bottom = 816.0
 mouse_filter = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="YSort" type="YSort" parent="."]
 
@@ -157,11 +154,17 @@ texture = ExtResource( 16 )
 collision_layer = 4
 collision_mask = 4
 script = ExtResource( 15 )
-command = "> BOY, GO IN HERE."
 width = 200
-isWarp = true
-dialogOrScene = "res://Rooms/John's Room/John's Room.tscn"
-warpPos = Vector2( 4, 240 )
+interactDialog = {
+"command": "> BOY, GO IN HERE.",
+"dialog": ""
+}
+interactMisc = {
+"isWarp": true,
+"warpPos": Vector2( 4, 240 ),
+"warpScene": "res://Rooms/John's Room/John's Room.tscn",
+"zoomImage": ""
+}
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/JohnsRoomDoor"]
 polygon = PoolVector2Array( -113.625, -888, 14.875, -908.125, 15.4813, -575.107, -108.691, -535.821, -114.584, -537.645 )
@@ -195,11 +198,17 @@ drag_margin_bottom = 0.05
 collision_layer = 4
 collision_mask = 4
 script = ExtResource( 15 )
-command = "> WAIT GO BACK OUT HERE BOY."
 width = 260
-isWarp = true
-dialogOrScene = "res://Rooms/Balcony/Balcony.tscn"
-warpPos = Vector2( 150, 250 )
+interactDialog = {
+"command": "> WAIT GO BACK OUT HERE BOY.",
+"dialog": ""
+}
+interactMisc = {
+"isWarp": true,
+"warpPos": Vector2( 150, 250 ),
+"warpScene": "res://Rooms/Balcony/Balcony.tscn",
+"zoomImage": ""
+}
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BalconyDoor"]
 polygon = PoolVector2Array( -346, -361, -183, -414, -183, -836, -346, -806 )
