@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/mspa_harlequin.mp3-a9186d6a68c1605765f431f87ef24851.mp3str"
+
+[deps]
+
+source_file="res://Audio/Songs/mspa_harlequin.mp3"
+dest_files=[ "res://.import/mspa_harlequin.mp3-a9186d6a68c1605765f431f87ef24851.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

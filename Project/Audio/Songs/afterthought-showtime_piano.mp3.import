@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/afterthought-showtime_piano.mp3-4af93f96febd5e20c5112fb0f5fefb95.mp3str"
+
+[deps]
+
+source_file="res://Audio/Songs/afterthought-showtime_piano.mp3"
+dest_files=[ "res://.import/afterthought-showtime_piano.mp3-4af93f96febd5e20c5112fb0f5fefb95.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
