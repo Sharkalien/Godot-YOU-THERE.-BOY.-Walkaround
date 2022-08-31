@@ -2,8 +2,9 @@ extends Area2D
 
 export var width = 552; # there's probably a better way to get the width of a command that's automagic
 
-export (Dictionary) var interactDialog = {"command": "", "dialog": ""}
-export (Dictionary) var interactMisc = {"isWarp": false, "warpScene": "", "warpPos": Vector2.ZERO, "zoomImage": ""}
+export (Array, Dictionary) var interactDialog = [{"command": "", "dialog": "", "clicks": 0, "isWarp": false, "warpScene": "", "warpPos": Vector2.ZERO, "zoomImage": ""}]
+
+var clicks:int = 0
 
 var selected = false;
 
@@ -41,12 +42,14 @@ func _process(_delta):
 		if (click.x + width > right):
 			click.x = right - width;
 		# OOPS I SORT OF BROKE THE MATHS FOR THIS ^ MY BAD G
+#		clicks = interactDialog[clicks].clicks
 		commandBoxInstance.rect_global_position = click;
-		commandBoxInstance.command = interactDialog.command;
-		commandBoxInstance.dialog = interactDialog.dialog;
-		commandBoxInstance.rect_size.x = width;
+		commandBoxInstance.command = interactDialog[clicks].command;
+		commandBoxInstance.dialog = interactDialog[clicks].dialog;
+#		commandBoxInstance.rect_size.x = commandBoxInstance.label.get_font("font").get_string_size(commandBoxInstance.label.text).x + 50;
 		commandBoxInstance.get_node("NinePatchRect/MarginContainer/RichTextLabel").bbcode_text = "";
-		commandBoxInstance.isWarp = interactMisc.isWarp;
-		commandBoxInstance.warpPos = interactMisc.warpPos;
-		commandBoxInstance.warpScene = interactMisc.warpScene;
-		commandBoxInstance.zoomImage = interactMisc.zoomImage;
+		commandBoxInstance.isWarp = interactDialog[clicks].isWarp;
+		commandBoxInstance.warpPos = interactDialog[clicks].warpPos;
+		commandBoxInstance.warpScene = interactDialog[clicks].warpScene;
+		commandBoxInstance.zoomImage = interactDialog[clicks].zoomImage;
+		width = commandBoxInstance.rect_size.x

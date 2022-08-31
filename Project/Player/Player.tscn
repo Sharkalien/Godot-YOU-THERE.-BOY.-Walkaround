@@ -148,10 +148,26 @@ collision_layer = 4
 collision_mask = 4
 script = ExtResource( 3 )
 width = 200
-interactDialog = {
+interactDialog = [ {
+"clicks": 1,
 "command": "> YOU THERE. BOY.",
-"dialog": "...\\n\\nWhat?"
-}
+"dialog": "...\\n\\nWhat?",
+"isWarp": false,
+"warpPos": Vector2( 0, 0 ),
+"warpScene": "",
+"zoomImage": ""
+}, {
+"clicks": 2,
+"command": "> BOY. LISTEN TO ME, BOY.",
+"dialog": "His name is John, you nincompoop."
+}, {
+}, {
+}, {
+}, {
+}, {
+}, {
+}, {
+} ]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayerArea2D"]
 position = Vector2( 0.0589924, 0 )

@@ -155,16 +155,15 @@ collision_layer = 4
 collision_mask = 4
 script = ExtResource( 15 )
 width = 200
-interactDialog = {
+interactDialog = [ {
+"clicks": 0,
 "command": "> BOY, GO IN HERE.",
-"dialog": ""
-}
-interactMisc = {
+"dialog": "",
 "isWarp": true,
 "warpPos": Vector2( 4, 240 ),
 "warpScene": "res://Rooms/John's Room/John's Room.tscn",
 "zoomImage": ""
-}
+} ]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/JohnsRoomDoor"]
 polygon = PoolVector2Array( -113.625, -888, 14.875, -908.125, 15.4813, -575.107, -108.691, -535.821, -114.584, -537.645 )
@@ -199,16 +198,15 @@ collision_layer = 4
 collision_mask = 4
 script = ExtResource( 15 )
 width = 260
-interactDialog = {
+interactDialog = [ {
+"clicks": 0,
 "command": "> WAIT GO BACK OUT HERE BOY.",
-"dialog": ""
-}
-interactMisc = {
+"dialog": "",
 "isWarp": true,
 "warpPos": Vector2( 150, 250 ),
 "warpScene": "res://Rooms/Balcony/Balcony.tscn",
 "zoomImage": ""
-}
+} ]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BalconyDoor"]
 polygon = PoolVector2Array( -346, -361, -183, -414, -183, -836, -346, -806 )

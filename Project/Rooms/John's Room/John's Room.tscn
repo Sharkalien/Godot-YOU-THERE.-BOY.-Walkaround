@@ -46,21 +46,16 @@ polygon = PoolVector2Array( 445, 689, 312, 630, 303, 554, 1043, 673, 960, 887 )
 collision_layer = 4
 collision_mask = 4
 script = ExtResource( 8 )
-command = "> GO OUT OF THE DOOR THAT IS NOT HERE."
 width = 340
-isWarp = true
-dialogOrScene = "res://Rooms/Living Room/Living Room.tscn"
-warpPos = Vector2( 110, -510 )
-interactDialog = {
+interactDialog = [ {
+"clicks": 0,
 "command": "> GO OUT OF THE DOOR THAT IS NOT HERE.",
-"dialog": ""
-}
-interactMisc = {
+"dialog": "",
 "isWarp": true,
 "warpPos": Vector2( 110, -510 ),
 "warpScene": "res://Rooms/Living Room/Living Room.tscn",
 "zoomImage": ""
-}
+} ]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/DoorArea2D"]
 position = Vector2( 26.1846, 9.72942 )

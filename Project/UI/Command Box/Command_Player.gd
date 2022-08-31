@@ -1,14 +1,16 @@
 extends Control
 
 var label;
+onready var commandBox = get_node(".")
 
 var command = "";
+var dialog = "";
 var typed = "";
 var timer = 0;
 var color = "#ffffff"
+var clicks = 0
 
 var isWarp = false;
-var dialog = "";
 var warpScene = ""
 var warpPos = Vector2.ZERO;
 var zoomImage;
@@ -20,6 +22,8 @@ func _ready():
 	label = get_node("NinePatchRect/MarginContainer/RichTextLabel");
 	
 func _process(_delta):
+	label.text = command
+	commandBox.rect_min_size.x = label.get_font("font").get_string_size(label.text).x + 55
 	typed = command.left(timer);
 	if (timer < command.length() + 2):
 		timer += 2;

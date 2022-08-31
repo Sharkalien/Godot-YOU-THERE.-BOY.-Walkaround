@@ -10,12 +10,9 @@ font_data = ExtResource( 1 )
 
 [node name="CommandBox" type="Control"]
 margin_top = -16.0
-margin_right = 552.0
+margin_right = 40.0
 margin_bottom = 17.0
 script = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 anchor_right = 1.0
@@ -25,30 +22,27 @@ patch_margin_left = 5
 patch_margin_top = 7
 patch_margin_right = 5
 patch_margin_bottom = 7
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="MarginContainer" type="MarginContainer" parent="NinePatchRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 15.0
-margin_top = 9.0
+margin_top = 8.0
 margin_right = -15.0
-margin_bottom = -8.0
+margin_bottom = -9.0
 mouse_filter = 2
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_group_": true
 }
 
 [node name="RichTextLabel" type="RichTextLabel" parent="NinePatchRect/MarginContainer"]
-margin_right = 522.0
+margin_right = 10.0
 margin_bottom = 16.0
 mouse_filter = 2
 custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
-bbcode_text = "> THIS LARGE PLATFORM, GOOD GRIEF"
-text = "> THIS LARGE PLATFORM, GOOD GRIEF"
+bbcode_text = "> YOU THERE. BOY."
+text = "> YOU THERE. BOY."
 scroll_active = false
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
