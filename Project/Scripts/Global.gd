@@ -41,7 +41,7 @@ func _ready():
 	var root = get_tree().get_root();
 	currentScene = root.get_child(root.get_child_count() - 1);
 	init_nodes();
-	
+
 func mute_audio(mute):
 	muteAudio = mute;
 	AudioServer.set_bus_mute(masterBus, mute);
@@ -58,7 +58,7 @@ func init_nodes():
 	if ("bgmTrack" in currentScene && audioNode.stream != currentScene.bgmTrack):
 		audioNode.stream = currentScene.bgmTrack;
 		audioNode.play();
-	
+
 func fadeto_scene(path, pos):
 	fading = true;
 	fadeScene = path;
@@ -78,7 +78,7 @@ func _on_tween_completed(_object, _key):
 			var time = 0.3;
 			tweenNode.interpolate_property(self,"color", Color(0,0,0,1), Color(1,1,1,1), time, Tween.TRANS_LINEAR, Tween.EASE_OUT);
 			tweenNode.start();
-	
+
 func goto_scene(path):
 	# This function will usually be called from a signal callback,
 	# or some other function in the current scene.
@@ -90,7 +90,7 @@ func goto_scene(path):
 	# we can be sure that no code from the current scene is running:
 
 	call_deferred("_deferred_goto_scene", path);
-	
+
 func _deferred_goto_scene(path):
 	# It is now safe to remove the current scene
 	currentScene.free();
@@ -132,7 +132,7 @@ func _process(_delta):
 		Input.set_custom_mouse_cursor(load("res://UI/cursor.png"))
 	
 	mouseMove = !mouseHover && !dialogOpen && !fading;
-		
+
 func remove_commands():
 	if (commandsNode):
 		var count = commandsNode.get_child_count();

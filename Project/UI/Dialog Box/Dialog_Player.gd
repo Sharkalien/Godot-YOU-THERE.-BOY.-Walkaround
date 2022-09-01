@@ -1,7 +1,7 @@
 extends Control
 
-var label;
-var animPlayer;
+onready var label = get_node("CenterContainer/Body_NinePatchRect/MarginContainer/RichTextLabel");
+onready var animPlayer = get_node("CenterContainer/Body_NinePatchRect/AnimationPlayer");
 
 var dialog = "";
 var typed = "";
@@ -10,8 +10,6 @@ var timer = 0;
 var free = false;
 
 func _ready():
-	label = get_node("CenterContainer/Body_NinePatchRect/MarginContainer/RichTextLabel");
-	animPlayer = get_node("CenterContainer/Body_NinePatchRect/AnimationPlayer");
 	animPlayer.play("Open")
 
 func _process(_delta):

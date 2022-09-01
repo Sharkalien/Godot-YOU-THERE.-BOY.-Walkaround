@@ -1,6 +1,6 @@
 extends Control
 
-var label;
+onready var label = get_node("NinePatchRect/MarginContainer/RichTextLabel");
 onready var commandBox = get_node(".")
 
 var command = "";
@@ -18,9 +18,6 @@ var zoomImage;
 var imageBox = load("res://UI/Zoom Image/Zoom_Image.tscn")
 var dialogBox = load("res://UI/Dialog Box/Dialog_Player.tscn")
 
-func _ready():
-	label = get_node("NinePatchRect/MarginContainer/RichTextLabel");
-	
 func _process(_delta):
 	label.text = command
 	commandBox.rect_min_size.x = label.get_font("font").get_string_size(label.text).x + 55
@@ -30,19 +27,19 @@ func _process(_delta):
 	label.bbcode_text = "[color=" + color + "]" + typed + "[/color]";
 	if (Global.fading || Global.dialogOpen):
 		color = "#ffffff";
-	
+
 func _on_mouse_entered()->void:
 	if (!Global.fading):
 		Global.hoverNodes.append(self);
 		if (!Global.dialogOpen):
 			color = "#a0a0a0";
-	
+
 func _on_mouse_exited()->void:
 	if (!Global.fading):
 		Global.hoverNodes.erase(self);
 		if (!Global.dialogOpen):
 			color = "#ffffff";
-	
+
 func _exit_tree():
 	Global.hoverNodes.erase(self);
 

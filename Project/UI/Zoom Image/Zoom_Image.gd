@@ -17,7 +17,7 @@ func _on_mouse_exited()->void:
 	if (!Global.fading):
 		Global.hoverNodes.erase(self);
 		selected = false;
-	
+
 func _exit_tree():
 	Global.hoverNodes.erase(self);
 
@@ -30,4 +30,3 @@ func _process(_delta):
 		
 	if (Global.dialogClosing):
 		queue_free();
-		

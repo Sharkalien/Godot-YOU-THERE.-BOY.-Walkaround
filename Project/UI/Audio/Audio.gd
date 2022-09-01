@@ -12,17 +12,17 @@ func _ready():
 		$AudioBox/Sprite.texture = texMute;
 	else:
 		$AudioBox/Sprite.texture = texOn;
-	
+
 func _on_mouse_entered()->void:
 	if (!Global.fading):
 		Global.hoverNodes.append(self);
 		selected = true;
-	
+
 func _on_mouse_exited()->void:
 	if (!Global.fading):
 		Global.hoverNodes.erase(self);
 		selected = false;
-	
+
 func _exit_tree():
 	Global.hoverNodes.erase(self);
 
