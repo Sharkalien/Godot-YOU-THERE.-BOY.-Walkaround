@@ -47,7 +47,7 @@ func _process(_delta):
 		commandBoxInstance.command = interactDialog[clicks].command;
 		commandBoxInstance.dialog = interactDialog[clicks].dialog;
 #		commandBoxInstance.rect_size.x = commandBoxInstance.label.get_font("font").get_string_size(commandBoxInstance.label.text).x + 50;
-		commandBoxInstance.get_node("NinePatchRect/MarginContainer/RichTextLabel").bbcode_text = "";
+		commandBoxInstance.get_node("MarginContainer/VBoxContainer/RichTextLabel").bbcode_text = "";
 		commandBoxInstance.isWarp = interactDialog[clicks].isWarp;
 		commandBoxInstance.warpPos = interactDialog[clicks].warpPos;
 		commandBoxInstance.warpScene = interactDialog[clicks].warpScene;

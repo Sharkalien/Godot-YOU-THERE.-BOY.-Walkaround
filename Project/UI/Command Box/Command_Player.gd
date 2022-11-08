@@ -1,6 +1,6 @@
 extends Control
 
-onready var label = get_node("NinePatchRect/MarginContainer/RichTextLabel");
+onready var label = get_node("MarginContainer/VBoxContainer/RichTextLabel");
 onready var commandBox = get_node(".")
 
 var command = "";
