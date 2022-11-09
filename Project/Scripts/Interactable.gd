@@ -4,6 +4,8 @@ export var width = 552; # there's probably a better way to get the width of a co
 
 export (Array, Dictionary) var interactDialog = [{"command": "", "dialog": "", "clicks": 0, "isWarp": false, "warpScene": "", "warpPos": Vector2.ZERO, "zoomImage": ""}]
 
+export (bool) var multiCommand = false
+
 var clicks:int = 0
 
 var selected = false;
@@ -46,15 +48,10 @@ func _process(_delta):
 		if (click.x + width > right):
 			click.x = right - width;
 		# OOPS I SORT OF BROKE THE MATHS FOR THIS ^ MY BAD G
-#		clicks = interactDialog[clicks].clicks
+		print(clicks)
 		check_interactable_dict(commandBoxInstance)
 		commandBoxInstance.rect_global_position = click;
-#		commandBoxInstance.command = interactDialog[clicks].command;
-#		commandBoxInstance.dialog = interactDialog[clicks].dialog;
 #		commandBoxInstance.rect_size.x = commandBoxInstance.label.get_font("font").get_string_size(commandBoxInstance.label.text).x + 50;
 		commandBoxInstance.get_node("MarginContainer/VBoxContainer/RichTextLabel").bbcode_text = "";
-#		commandBoxInstance.isWarp = interactDialog[clicks].isWarp;
-#		commandBoxInstance.warpPos = interactDialog[clicks].warpPos;
-#		commandBoxInstance.warpScene = interactDialog[clicks].warpScene;
-#		commandBoxInstance.zoomImage = interactDialog[clicks].zoomImage;
 		width = commandBoxInstance.rect_size.x
+		clicks = interactDialog[clicks].clicks
