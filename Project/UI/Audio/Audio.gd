@@ -27,9 +27,6 @@ func _exit_tree():
 	Global.hoverNodes.erase(self);
 
 func _process(_delta):
-	var cTrans = get_canvas_transform()
-	global_position = -cTrans.get_origin() / cTrans.get_scale()
-	
 	var time = 0.2;
 	if (Global.dialogOpen && !Global.dialogDone && !Global.dialogClosing && !faded):
 		faded = true;

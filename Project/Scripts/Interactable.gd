@@ -7,9 +7,7 @@ export (Array, Dictionary) var interactDialog = [{"command": "", "dialog": "", "
 export (bool) var multiCommand = false
 
 var clicks:int = 0
-
 var selected = false;
-
 var commandBox = load("res://UI/Command Box/Command_Player.tscn")
 
 func _ready():
@@ -51,7 +49,7 @@ func _process(_delta):
 		print(clicks)
 		check_interactable_dict(commandBoxInstance)
 		commandBoxInstance.rect_global_position = click;
-#		commandBoxInstance.rect_size.x = commandBoxInstance.label.get_font("font").get_string_size(commandBoxInstance.label.text).x + 50;
+#		commandBoxInstance.rect_size.x = commandBoxInstance.label.get_font("normal_font").get_string_size(commandBoxInstance.label.text).x + 30;
 		commandBoxInstance.get_node("MarginContainer/VBoxContainer/RichTextLabel").bbcode_text = "";
 		width = commandBoxInstance.rect_size.x
 		clicks = interactDialog[clicks].clicks

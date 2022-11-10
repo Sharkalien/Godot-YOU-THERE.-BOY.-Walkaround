@@ -13,7 +13,8 @@ func _ready():
 	animPlayer.play("Open")
 
 func _process(_delta):
-	dialog = dialog.replace("\\n", "\n")
+#	print(dialog)
+#	dialog = dialog.replace("\\n", "\n")
 	if (!Global.dialogClosing && !free):
 		if (timer < dialog.length() + 2):
 			timer += 2;

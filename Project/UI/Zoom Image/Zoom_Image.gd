@@ -1,11 +1,8 @@
 extends Control
 
 var dialog = "";
-
 var selected = false;
-
 var dialogBoxInstance;
-
 var dialogBox = load("res://UI/Dialog Box/Dialog_Player.tscn")
 	
 func _on_mouse_entered()->void:
