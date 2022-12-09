@@ -72,7 +72,7 @@ polygon = PoolVector2Array( 55, 421, 489, 199, 51, 79, -315, 247 )
 collision_layer = 4
 collision_mask = 4
 script = ExtResource( 6 )
-width = 200
+width = 473
 interactDialog = [ {
 "clicks": 0,
 "command": "> THIS LARGE PLATFORM. GOOD GRIEF, WHAT IS IT BOY?",
@@ -92,6 +92,7 @@ texture = ExtResource( 3 )
 
 [node name="CruxiteArea2D" type="Area2D" parent="Alchemiter"]
 script = ExtResource( 6 )
+width = 200
 interactDialog = [ {
 "clicks": 0,
 "command": "> EXAMINE THE STRANGE BLUE VASE.",

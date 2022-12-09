@@ -20,7 +20,7 @@ var dialogBox = load("res://UI/Dialog Box/Dialog_Player.tscn")
 
 func _process(_delta):
 	label.text = command
-	commandBox.rect_min_size.x = label.get_font("normal_font").get_string_size(label.text).x + 30
+	commandBox.rect_size.x = label.get_font("normal_font").get_string_size(label.text).x + 30
 	typed = command.left(timer);
 	if (timer < command.length() + 2):
 		timer += 2;
