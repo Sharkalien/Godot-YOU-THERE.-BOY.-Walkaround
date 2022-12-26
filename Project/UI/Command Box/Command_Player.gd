@@ -51,9 +51,9 @@ func _on_gui_input(event):
 		elif (zoomImage && Global.imagesNode):
 			var imageBoxInstance = imageBox.instance();
 			Global.imagesNode.add_child(imageBoxInstance);
-			imageBoxInstance.dialog = dialog;
+			imageBoxInstance.dialog = dialog.replace("\\n", "\n");
 			imageBoxInstance.get_node("ImageBox").texture = load(zoomImage); 
 		elif (Global.dialogsNode):
 			var dialogBoxInstance = dialogBox.instance();
 			Global.dialogsNode.add_child(dialogBoxInstance);
-			dialogBoxInstance.dialog = dialog;
+			dialogBoxInstance.dialog = dialog.replace("\\n", "\n");
