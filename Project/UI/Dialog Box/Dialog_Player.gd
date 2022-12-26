@@ -14,7 +14,7 @@ func _ready():
 
 func _process(_delta):
 #	print(dialog)
-#	dialog = dialog.replace("\\n", "\n")
+	dialog = dialog.replace("\\n", "\n")
 	if (!Global.dialogClosing && !free):
 		if (timer < dialog.length() + 2):
 			timer += 2;

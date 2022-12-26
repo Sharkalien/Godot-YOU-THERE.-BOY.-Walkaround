@@ -56,4 +56,4 @@ func _on_gui_input(event):
 		elif (Global.dialogsNode):
 			var dialogBoxInstance = dialogBox.instance();
 			Global.dialogsNode.add_child(dialogBoxInstance);
-			dialogBoxInstance.dialog = dialog.replace("\\n", "\n");
+			dialogBoxInstance.dialog = dialog;
