@@ -49,7 +49,7 @@ script = ExtResource( 8 )
 width = 340
 interactDialog = [ {
 "clicks": 0,
-"command": "> GO OUT OF THE DOOR THAT IS NOT HERE.",
+"command": "GO OUT OF THE DOOR THAT IS NOT HERE.",
 "dialog": "",
 "isWarp": true,
 "warpPos": Vector2( 110, -510 ),

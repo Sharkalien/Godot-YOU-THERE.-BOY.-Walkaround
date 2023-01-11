@@ -20,11 +20,11 @@ var dialogBox = load("res://UI/Dialog Box/Dialog_Player.tscn")
 
 func _process(_delta):
 	label.text = command
-	commandBox.rect_size.x = label.get_font("normal_font").get_string_size(label.text).x + 30
+	commandBox.rect_size.x = label.get_font("normal_font").get_string_size(label.text).x + 46 # plus total margin and "> " :P
 	typed = command.left(timer);
 	if (timer < command.length() + 2):
 		timer += 2;
-	label.bbcode_text = "[color=" + color + "]" + typed + "[/color]";
+	label.bbcode_text = "[color=" + color + "]> " + typed + "[/color]";
 	if (Global.fading || Global.dialogOpen):
 		color = "#ffffff";
 

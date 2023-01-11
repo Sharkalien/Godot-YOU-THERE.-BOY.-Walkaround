@@ -150,7 +150,7 @@ script = ExtResource( 3 )
 width = 200
 interactDialog = [ {
 "clicks": 1,
-"command": "> YOU THERE. BOY.",
+"command": "YOU THERE. BOY.",
 "dialog": "...\\n\\nWhat?",
 "isWarp": false,
 "warpPos": Vector2( 0, 0 ),
@@ -158,39 +158,39 @@ interactDialog = [ {
 "zoomImage": ""
 }, {
 "clicks": 2,
-"command": "> BOY. LISTEN TO ME, BOY.",
+"command": "BOY. LISTEN TO ME, BOY.",
 "dialog": "His name is John, you nincompoop."
 }, {
 "clicks": 3,
-"command": "> BOY WHO IS JOHN. DO AS I SAY.",
+"command": "BOY WHO IS JOHN. DO AS I SAY.",
 "dialog": "What would you like 'BOY WHO IS JOHN' to do?"
 }, {
 "clicks": 4,
-"command": "> OBEY MY COMMANDS, JOHN BOY.",
+"command": "OBEY MY COMMANDS, JOHN BOY.",
 "dialog": "And those commands would be...?"
 }, {
 "clicks": 5,
-"command": "> I WOULD LIKE THE BOY TO INTERACT WITH HIS ENVIRONMENT IN A CONSTRUCTIVE MANNER.",
+"command": "I WOULD LIKE THE BOY TO INTERACT WITH HIS ENVIRONMENT IN A CONSTRUCTIVE MANNER.",
 "dialog": "Maybe you should be a little more specific?"
 }, {
 "clicks": 6,
-"command": "> HAVE THE BOY ASSESS HIS CURRENT SITUATION.",
+"command": "HAVE THE BOY ASSESS HIS CURRENT SITUATION.",
 "dialog": "I'm afraid I can't 'HAVE THE BOY' do that. Tell him to do it yourself!"
 }, {
 "clicks": 7,
-"command": "> VERY WELL.",
+"command": "VERY WELL.",
 "dialog": "...\\n\\nOk."
 }, {
 "clicks": 8,
-"command": "> ==>",
+"command": "==>",
 "dialog": "That instruction does not do anything at the moment!!!"
 }, {
 "clicks": 9,
-"command": "> ==>",
+"command": "==>",
 "dialog": "Sigh. Could you please turn the controls over to a more competent user?"
 }, {
 "clicks": 0,
-"command": "> ASLFSAKLADAK",
+"command": "ASLFSAKLADAK",
 "dialog": "Increasingly sophomoric.\\n\\nAlso, you almost spelled 'SALAD' in there."
 } ]
 

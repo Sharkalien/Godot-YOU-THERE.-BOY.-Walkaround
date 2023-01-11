@@ -60,9 +60,10 @@ __meta__ = {
 }
 
 [node name="Body_NinePatchRect" type="NinePatchRect" parent="CenterContainer"]
-margin_top = 24.0
-margin_right = 640.0
-margin_bottom = 215.0
+margin_left = 249.0
+margin_top = 89.0
+margin_right = 309.0
+margin_bottom = 149.0
 rect_min_size = Vector2( 60, 60 )
 texture = ExtResource( 1 )
 patch_margin_left = 30
@@ -85,14 +86,10 @@ __meta__ = {
 }
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CenterContainer/Body_NinePatchRect/MarginContainer"]
-margin_right = 556.0
-margin_bottom = 143.0
+margin_bottom = 12.0
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
-text = "...
-
-What?"
 scroll_active = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer/Body_NinePatchRect"]

@@ -157,7 +157,7 @@ script = ExtResource( 15 )
 width = 200
 interactDialog = [ {
 "clicks": 0,
-"command": "> BOY, GO IN HERE.",
+"command": "BOY, GO IN HERE.",
 "dialog": "",
 "isWarp": true,
 "warpPos": Vector2( 4, 240 ),
@@ -200,7 +200,7 @@ script = ExtResource( 15 )
 width = 260
 interactDialog = [ {
 "clicks": 0,
-"command": "> WAIT GO BACK OUT HERE BOY.",
+"command": "WAIT GO BACK OUT HERE BOY.",
 "dialog": "",
 "isWarp": true,
 "warpPos": Vector2( 150, 250 ),
