@@ -50,6 +50,6 @@ func _process(_delta):
 			click.x = right - width;
 		# OOPS I SORT OF BROKE THE MATHS FOR THIS ^ MY BAD G
 		print(clicks)
-		commandBoxInstance.rect_global_position = click;
+		commandBoxInstance.rect_global_position = Vector2(click.x, click.y - 16); # hack way of centering the commandbox at the cursor
 #		commandBoxInstance.rect_size.x = commandBoxInstance.label.get_font("normal_font").get_string_size(commandBoxInstance.label.text).x + 30;
 		clicks = interactDialog[clicks].clicks
