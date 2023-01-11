@@ -16,8 +16,8 @@ func _process(_delta):
 #	print(dialog)
 #	dialog = dialog.replace("\\n", "\n") #argh, this makes very short dialogs such as "...\n\nOk." freeze for some reason
 	if (!Global.dialogClosing && !free):
-		if (timer < dialog.length() + 2):
-			timer += 2;
+		if (timer < dialog.length() + 4): # changing 2 to 4 fixes it I guess
+			timer += 3;
 			typed = dialog.left(timer);
 			label.bbcode_text = typed + "";
 		elif (!Global.dialogDone):
