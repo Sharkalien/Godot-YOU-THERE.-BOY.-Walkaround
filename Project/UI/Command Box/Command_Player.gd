@@ -2,6 +2,7 @@ extends Control
 
 onready var label = get_node("MarginContainer/VBoxContainer/RichTextLabel");
 onready var commandBox = get_node(".")
+onready var COMMAND_MARGIN = get_node("MarginContainer/VBoxContainer").margin_left * 2 + label.get_font("normal_font").get_string_size("> ").x # should be 46
 
 var command = "";
 var dialog = "";
@@ -20,7 +21,7 @@ var dialogBox = load("res://UI/Dialog Box/Dialog_Player.tscn")
 
 func _process(_delta):
 	label.text = command
-	commandBox.rect_size.x = label.get_font("normal_font").get_string_size(label.text).x + 46 # plus total margin and "> " :P
+	commandBox.rect_size.x = label.get_font("normal_font").get_string_size(label.text).x + COMMAND_MARGIN
 	typed = command.left(timer);
 	if (timer < command.length() + 2):
 		timer += 2;
