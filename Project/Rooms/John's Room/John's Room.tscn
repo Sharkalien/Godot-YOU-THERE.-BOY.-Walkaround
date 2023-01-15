@@ -17,7 +17,6 @@
 script = ExtResource( 12 )
 command = "GO OUT OF THE DOOR THAT IS NOT HERE."
 dialog = ""
-isWarp = true
 warpScene = "res://Rooms/Living Room/Living Room.tscn"
 warpPos = Vector2( 110, -510 )
 

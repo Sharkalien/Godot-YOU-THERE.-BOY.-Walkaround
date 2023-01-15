@@ -22,7 +22,6 @@
 script = ExtResource( 17 )
 command = "BOY, GO IN HERE."
 dialog = ""
-isWarp = true
 warpScene = "res://Rooms/John's Room/John's Room.tscn"
 warpPos = Vector2( 4, 240 )
 
@@ -30,7 +29,6 @@ warpPos = Vector2( 4, 240 )
 script = ExtResource( 17 )
 command = "WAIT GO BACK OUT HERE BOY."
 dialog = ""
-isWarp = true
 warpScene = "res://Rooms/Balcony/Balcony.tscn"
 warpPos = Vector2( 150, 250 )
 
