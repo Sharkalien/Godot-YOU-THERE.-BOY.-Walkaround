@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Balcony/balcony.png" type="Texture" id=2]
@@ -9,6 +9,40 @@
 [ext_resource path="res://Scripts/Room.gd" type="Script" id=7]
 [ext_resource path="res://Audio/Songs/wind.wav" type="AudioStream" id=8]
 [ext_resource path="res://Rooms/Balcony/balcCruxite.png" type="Texture" id=9]
+[ext_resource path="res://Scripts/Resources/InteractResourceExtra.gd" type="Script" id=10]
+[ext_resource path="res://Scripts/Resources/InteractResource.gd" type="Script" id=12]
+[ext_resource path="res://Rooms/Zooms/bathroomYard.jpg" type="Texture" id=13]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 10 )
+command = "BOY, OPEN THIS DOOR AND WALK THROUGH IT."
+dialog = ""
+isWarp = true
+warpScene = "res://Rooms/Living Room/Living Room.tscn"
+warpPos = Vector2( 70, -450 )
+
+[sub_resource type="Resource" id=2]
+script = ExtResource( 12 )
+command = "THIS LARGE PLATFORM. GOOD GRIEF, WHAT IS IT BOY?"
+dialog = "The ALCHEMITER created the APPLE, or the tree that sprouted it rather, right on time to save you from destruction. You're not sure if you can say the same for your neighborhood though.
+
+You wonder what happened to your DAD?"
+
+[sub_resource type="Resource" id=3]
+script = ExtResource( 12 )
+command = "EXAMINE THE STRANGE BLUE VASE."
+dialog = "It is the piece of CRUXITE you carved with the TOTEM LATHE.
+
+When its contours were scanned, the ALCHEMITER was able to produce that tree. How odd!"
+
+[sub_resource type="Resource" id=4]
+script = ExtResource( 10 )
+command = "PEEK OVER THE RAILING."
+dialog = "Getting close to the railing makes you a little nervous. It's a long way down."
+isWarp = false
+warpScene = ""
+warpPos = Vector2( 0, 0 )
+zoomImage = ExtResource( 13 )
 
 [node name="Balcony" type="Node2D"]
 position = Vector2( 1, 0 )
@@ -43,15 +77,7 @@ collision_layer = 4
 collision_mask = 4
 script = ExtResource( 6 )
 width = 370
-interactDialog = [ {
-"clicks": 0,
-"command": "BOY, OPEN THIS DOOR AND WALK THROUGH IT.",
-"dialog": "",
-"isWarp": true,
-"warpPos": Vector2( 70, -450 ),
-"warpScene": "res://Rooms/Living Room/Living Room.tscn",
-"zoomImage": ""
-} ]
+interactDialog = [ SubResource( 1 ) ]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DoorArea2D"]
 position = Vector2( 26.1846, 9.72942 )
@@ -73,15 +99,7 @@ collision_layer = 4
 collision_mask = 4
 script = ExtResource( 6 )
 width = 473
-interactDialog = [ {
-"clicks": 0,
-"command": "THIS LARGE PLATFORM. GOOD GRIEF, WHAT IS IT BOY?",
-"dialog": "The ALCHEMITER created the APPLE, or the tree that sprouted it rather, right on time to save you from destruction. You're not sure if you can say the same for your neighborhood though.\\n\\nYou wonder what happened to your DAD?",
-"isWarp": false,
-"warpPos": Vector2( 0, 0 ),
-"warpScene": "",
-"zoomImage": ""
-} ]
+interactDialog = [ SubResource( 2 ) ]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Alchemiter/AlchemiterArea2D"]
 polygon = PoolVector2Array( 425, 288, 798, 99, 798, 2, 648, -72, 645, -113.148, 622, -145.148, 568, -182.148, 496, -203.148, 442, -208.148, 347, -204.148, 254, -169.148, 204, -118.148, 205, -554.266, 158, -555.266, 134, -538.266, 125, -519.266, 103, -527.266, 34.6, -532.266, 23.6, -517.266, 30.6, -503.266, 10.6, -501.266, -8.39999, -508.266, -19.4, -493.266, -6.39999, -482.266, -64.4, -480.266, -63.4, -473.266, 8.60001, -469.266, 18.6, -454.266, 38.6, -448.266, 43.6, -430.266, 51.6, -431.266, 59.6, -453.266, 61.6, -469.266, 70.6, -469.266, 67.6, -490.266, 73.6, -502.266, 94.6, -503.266, 92.6, -210.139, 101.6, -196.139, 114.6, -195.139, 159.6, -214.139, 158.6, -123.139, 120.6, -125.139, 92.6, -117.139, 84.6, -99.1388, 83.6, 4.86124, 52.6, 19.8612, 54.6, 115.861 )
@@ -93,15 +111,7 @@ texture = ExtResource( 3 )
 [node name="CruxiteArea2D" type="Area2D" parent="Alchemiter"]
 script = ExtResource( 6 )
 width = 200
-interactDialog = [ {
-"clicks": 0,
-"command": "EXAMINE THE STRANGE BLUE VASE.",
-"dialog": "It is the piece of CRUXITE you carved with the TOTEM LATHE.\\n\\nWhen its contours were scanned, the ALCHEMITER was able to produce that tree. How odd!",
-"isWarp": false,
-"warpPos": Vector2( 0, 0 ),
-"warpScene": "",
-"zoomImage": ""
-} ]
+interactDialog = [ SubResource( 3 ) ]
 
 [node name="BalcCruxite" type="Sprite" parent="Alchemiter/CruxiteArea2D"]
 position = Vector2( 134, -140 )
@@ -122,15 +132,7 @@ remote_path = NodePath("../../Camera2D")
 [node name="RailArea2D" type="Area2D" parent="."]
 position = Vector2( 602, 344 )
 script = ExtResource( 6 )
-interactDialog = [ {
-"clicks": 0,
-"command": "PEEK OVER THE RAILING.",
-"dialog": "Getting close to the railing makes you a little nervous. It's a long way down.",
-"isWarp": false,
-"warpPos": Vector2( 0, 0 ),
-"warpScene": "",
-"zoomImage": "res://Rooms/Zooms/studyView.jpg"
-} ]
+interactDialog = [ SubResource( 4 ) ]
 
 [node name="rail" type="Sprite" parent="RailArea2D"]
 texture = ExtResource( 4 )
@@ -157,3 +159,10 @@ drag_margin_left = 0.05
 drag_margin_top = 0.05
 drag_margin_right = 0.05
 drag_margin_bottom = 0.05
+
+[node name="FromLivingRoomPos" type="Position2D" parent="."]
+position = Vector2( 150, 250 )
+__meta__ = {
+"_edit_lock_": true,
+"_gizmo_extents_": 30.0
+}

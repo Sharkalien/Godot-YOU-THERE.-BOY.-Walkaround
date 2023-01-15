@@ -5,14 +5,14 @@ onready var commandBox = get_node(".")
 onready var COMMAND_MARGIN = get_node("MarginContainer/VBoxContainer").margin_left * 2 + label.get_font("normal_font").get_string_size("> ").x # should be 46
 
 var command = "";
-var dialog = "";
+var dialog = """""";
 var typed = "";
 var timer = 0;
 var color = "#ffffff"
 var clicks = 0
 
 var isWarp = false;
-var warpScene = ""
+var warpScene
 var warpPos = Vector2.ZERO;
 var zoomImage;
 
@@ -52,9 +52,9 @@ func _on_gui_input(event):
 		elif (zoomImage && Global.imagesNode):
 			var imageBoxInstance = imageBox.instance();
 			Global.imagesNode.add_child(imageBoxInstance);
-			imageBoxInstance.dialog = dialog.replace("\\n", "\n");
-			imageBoxInstance.get_node("ImageBox").texture = load(zoomImage); 
+			imageBoxInstance.dialog = dialog;
+			imageBoxInstance.get_node("ImageBox").texture = zoomImage; 
 		elif (Global.dialogsNode):
 			var dialogBoxInstance = dialogBox.instance();
 			Global.dialogsNode.add_child(dialogBoxInstance);
-			dialogBoxInstance.dialog = dialog.replace("\\n", "\n");
+			dialogBoxInstance.dialog = dialog;

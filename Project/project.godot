@@ -8,8 +8,20 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Resource",
+"class": "InteractDialog",
+"language": "GDScript",
+"path": "res://Scripts/Resources/InteractResource.gd"
+}, {
+"base": "InteractDialog",
+"class": "InteractExtra",
+"language": "GDScript",
+"path": "res://Scripts/Resources/InteractResourceExtra.gd"
+} ]
 _global_script_class_icons={
+"InteractDialog": "",
+"InteractExtra": ""
 }
 
 [application]
@@ -38,6 +50,10 @@ window/size/test_width=650
 window/size/test_height=450
 mouse_cursor/custom_image="res://UI/cursor.png"
 window/stretch/aspect="keep"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/imrp/plugin.cfg" )
 
 [importer_defaults]
 

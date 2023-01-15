@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Player/johnWalk.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/Interactable.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/Resources/InteractResource.gd" type="Script" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
 height = 66.0
@@ -123,6 +124,62 @@ tracks/1/keys = {
 "values": [ PoolVector2Array( -45.2853, -93.2425, -35.7609, -112.093, -44.0652, -127.576, -50.2668, -134.199, -59.2345, -157.638, -58.3074, -178.959, -42.9452, -207.83, -38.8398, -195.778, -11.2938, -211.273, 25.1253, -220.013, 58.7632, -217.762, 46.3145, -195.778, 61.2795, -185.978, 69.093, -174.324, 87.1039, -175.648, 74.2201, -156.389, 70.1524, -146.567, 70.2694, -141.902, 77.6945, -139.9, 77.8778, -119.451, 65.8235, -119.145, 51.8436, -103.483, 31.557, -94.8637, 35.5757, -25.6924, 27.5323, -21.6265, 43.0003, -13.4948, 42.4699, -5.71659, 35.0453, -2.18107, 18.6935, -1.9159, 8.52158, -4.27728, 1.98574, 0.998642, -12.4139, 1.8169, -26.5843, -0.566895, -46.3168, -8.18179, -46.8862, -14.6862, -42.6201, -20.7382, -47.4518, -21.9202, -47.6664, -57.5259 ) ]
 }
 
+[sub_resource type="Resource" id=6]
+script = ExtResource( 4 )
+command = "YOU THERE. BOY."
+dialog = "...
+
+What?"
+
+[sub_resource type="Resource" id=7]
+script = ExtResource( 4 )
+command = "BOY. LISTEN TO ME, BOY."
+dialog = "His name is John, you nincompoop."
+
+[sub_resource type="Resource" id=8]
+script = ExtResource( 4 )
+command = "BOY WHO IS JOHN. DO AS I SAY."
+dialog = "What would you like 'BOY WHO IS JOHN' to do?"
+
+[sub_resource type="Resource" id=9]
+script = ExtResource( 4 )
+command = "OBEY MY COMMANDS, JOHN BOY."
+dialog = "And those commands would be...?"
+
+[sub_resource type="Resource" id=10]
+script = ExtResource( 4 )
+command = "I WOULD LIKE THE BOY TO INTERACT WITH HIS ENVIRONMENT IN A CONSTRUCTIVE MANNER."
+dialog = "Maybe you should be a little more specific?"
+
+[sub_resource type="Resource" id=11]
+script = ExtResource( 4 )
+command = "HAVE THE BOY ASSESS HIS CURRENT SITUATION."
+dialog = "I'm afraid I can't 'HAVE THE BOY' do that. Tell him to do it yourself!"
+
+[sub_resource type="Resource" id=12]
+script = ExtResource( 4 )
+command = "VERY WELL."
+dialog = "...
+
+Ok."
+
+[sub_resource type="Resource" id=13]
+script = ExtResource( 4 )
+command = "==>"
+dialog = "That instruction does not do anything at the moment!!!"
+
+[sub_resource type="Resource" id=14]
+script = ExtResource( 4 )
+command = "==>"
+dialog = "Sigh. Could you please turn the controls over to a more competent user?"
+
+[sub_resource type="Resource" id=15]
+script = ExtResource( 4 )
+command = "ASLFSAKLADAK"
+dialog = "Increasingly sophomoric.
+
+Also, you almost spelled 'SALAD' in there."
+
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
 
@@ -148,51 +205,7 @@ collision_layer = 4
 collision_mask = 4
 script = ExtResource( 3 )
 width = 200
-interactDialog = [ {
-"clicks": 1,
-"command": "YOU THERE. BOY.",
-"dialog": "...\\n\\nWhat?",
-"isWarp": false,
-"warpPos": Vector2( 0, 0 ),
-"warpScene": "",
-"zoomImage": ""
-}, {
-"clicks": 2,
-"command": "BOY. LISTEN TO ME, BOY.",
-"dialog": "His name is John, you nincompoop."
-}, {
-"clicks": 3,
-"command": "BOY WHO IS JOHN. DO AS I SAY.",
-"dialog": "What would you like 'BOY WHO IS JOHN' to do?"
-}, {
-"clicks": 4,
-"command": "OBEY MY COMMANDS, JOHN BOY.",
-"dialog": "And those commands would be...?"
-}, {
-"clicks": 5,
-"command": "I WOULD LIKE THE BOY TO INTERACT WITH HIS ENVIRONMENT IN A CONSTRUCTIVE MANNER.",
-"dialog": "Maybe you should be a little more specific?"
-}, {
-"clicks": 6,
-"command": "HAVE THE BOY ASSESS HIS CURRENT SITUATION.",
-"dialog": "I'm afraid I can't 'HAVE THE BOY' do that. Tell him to do it yourself!"
-}, {
-"clicks": 7,
-"command": "VERY WELL.",
-"dialog": "...\\n\\nOk."
-}, {
-"clicks": 8,
-"command": "==>",
-"dialog": "That instruction does not do anything at the moment!!!"
-}, {
-"clicks": 9,
-"command": "==>",
-"dialog": "Sigh. Could you please turn the controls over to a more competent user?"
-}, {
-"clicks": 0,
-"command": "ASLFSAKLADAK",
-"dialog": "Increasingly sophomoric.\\n\\nAlso, you almost spelled 'SALAD' in there."
-} ]
+interactDialog = [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ) ]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayerArea2D"]
 position = Vector2( 0.0589924, 0 )

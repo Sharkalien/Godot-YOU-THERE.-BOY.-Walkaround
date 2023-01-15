@@ -2,7 +2,9 @@ extends Area2D
 
 export var width = 552; # there's probably a better way to get the width of a command that's automagic
 
-export (Array, Dictionary) var interactDialog = [{"command": "", "dialog": "", "clicks": 0, "isWarp": false, "warpScene": "", "warpPos": Vector2.ZERO, "zoomImage": ""}]
+export (Array, Resource) var interactDialog = [Resource] # be sure to load in InteractDialog or InteractExtra
+
+var dict:Dictionary = {"command": "", "dialog": """""", "isWarp": false, "warpScene": null, "warpPos": Vector2.ZERO, "zoomImage": null}
 
 export (bool) var multiCommand = false
 
@@ -30,8 +32,9 @@ func _exit_tree():
 	Global.hoverNodes.erase(self);
 
 func check_interactable_dict(instance):
-	for key in interactDialog[clicks]:
-		instance.set(key, interactDialog[clicks].get(key))
+	for key in dict:
+		if key in interactDialog[clicks]:
+			instance.set(key, interactDialog[clicks].get(key))
 
 func _process(_delta):
 	if (Global.commandsNode && !Global.dialogOpen && !Global.imageOpen && !Global.fading && selected && Input.is_action_just_pressed("click")):
@@ -52,4 +55,4 @@ func _process(_delta):
 		print(clicks)
 		commandBoxInstance.rect_global_position = Vector2(click.x, click.y - 16); # hack way of centering the commandbox at the cursor
 #		commandBoxInstance.rect_size.x = commandBoxInstance.label.get_font("normal_font").get_string_size(commandBoxInstance.label.text).x + 30;
-		clicks = interactDialog[clicks].clicks
+#		clicks = interactDialog[clicks].clicks
