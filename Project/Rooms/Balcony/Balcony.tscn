@@ -17,6 +17,7 @@
 script = ExtResource( 10 )
 command = "BOY, OPEN THIS DOOR AND WALK THROUGH IT."
 dialog = ""
+isWarp = true
 warpScene = "res://Rooms/Living Room/Living Room.tscn"
 warpPos = Vector2( 70, -450 )
 
@@ -38,6 +39,7 @@ When its contours were scanned, the ALCHEMITER was able to produce that tree. Ho
 script = ExtResource( 10 )
 command = "PEEK OVER THE RAILING."
 dialog = "Getting close to the railing makes you a little nervous. It's a long way down."
+isWarp = false
 warpScene = ""
 warpPos = Vector2( 0, 0 )
 zoomImage = ExtResource( 13 )
