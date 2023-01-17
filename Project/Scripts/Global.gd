@@ -111,7 +111,7 @@ func _deferred_goto_scene(path):
 	# Get and set the path of the Position2D node in the scene to warp to
 	var posNode = get_tree().get_current_scene().get_node(posPath)
 	
-	warpPos = Vector2(posNode.position.x, posNode.position.y)
+	warpPos = posNode.get_position()
 	
 	init_nodes();
 	if (playerNode):
