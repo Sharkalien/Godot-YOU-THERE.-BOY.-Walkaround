@@ -8,15 +8,6 @@
 
 [node name="Bathroom" type="Node2D"]
 
-[node name="Background" type="ColorRect" parent="."]
-margin_left = -1434.0
-margin_top = -920.0
-margin_right = 2209.0
-margin_bottom = 1348.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Room" type="StaticBody2D" parent="YSort"]

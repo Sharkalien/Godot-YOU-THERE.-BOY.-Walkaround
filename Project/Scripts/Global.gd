@@ -1,4 +1,4 @@
-extends CanvasModulate
+extends Node
 
 var currentScene = null;
 
@@ -9,6 +9,7 @@ var cameraNode;
 var commandsNode;
 var dialogsNode;
 var imagesNode;
+var fadeNode
 
 var tweenNode;
 var audioNode;
@@ -52,9 +53,10 @@ func init_nodes():
 	if (!playerNode):
 		playerNode = currentScene.get_node_or_null("YSort/Player");
 	cameraNode = currentScene.get_node_or_null("Camera2D");
-	commandsNode = currentScene.get_node_or_null("UI/Commands");
-	imagesNode = currentScene.get_node_or_null("UI/Images");
-	dialogsNode = currentScene.get_node_or_null("UI/Dialogs");
+	commandsNode = Ui.get_node_or_null("Commands");
+	imagesNode = Ui.get_node_or_null("Images");
+	dialogsNode = Ui.get_node_or_null("Dialogs");
+	fadeNode = Ui.get_node_or_null("Fade");
 	
 	if ("bgmTrack" in currentScene && audioNode.stream != currentScene.bgmTrack):
 		audioNode.stream = currentScene.bgmTrack;
@@ -65,7 +67,7 @@ func fadeto_scene(path, pos):
 	fadeScene = path;
 	posPath = pos;
 	var time = 0.3;
-	tweenNode.interpolate_property(self,"color", Color(1,1,1,1), Color(0,0,0,1), time, Tween.TRANS_LINEAR, Tween.EASE_OUT);
+	tweenNode.interpolate_property(fadeNode,"color", Color(0,0,0,0), Color(0,0,0,1), time, Tween.TRANS_LINEAR, Tween.EASE_OUT);
 	tweenNode.start();
 
 func _on_tween_completed(_object, _key):
@@ -77,7 +79,7 @@ func _on_tween_completed(_object, _key):
 			fadedOut = true;
 			goto_scene(fadeScene);
 			var time = 0.3;
-			tweenNode.interpolate_property(self,"color", Color(0,0,0,1), Color(1,1,1,1), time, Tween.TRANS_LINEAR, Tween.EASE_OUT);
+			tweenNode.interpolate_property(fadeNode,"color", Color(0,0,0,1), Color(0,0,0,0), time, Tween.TRANS_LINEAR, Tween.EASE_OUT);
 			tweenNode.start();
 
 func goto_scene(path):

@@ -5,6 +5,12 @@
 
 [node name="UI" type="CanvasLayer"]
 
+[node name="Fade" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 0 )
+
 [node name="Controls" parent="." instance=ExtResource( 1 )]
 margin_left = -65.0
 margin_top = 6.0

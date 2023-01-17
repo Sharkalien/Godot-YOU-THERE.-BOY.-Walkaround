@@ -1,10 +1,9 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Balcony/balcony.png" type="Texture" id=2]
 [ext_resource path="res://Rooms/Balcony/balcAlchemiter.png" type="Texture" id=3]
 [ext_resource path="res://Rooms/Balcony/balcRail.png" type="Texture" id=4]
-[ext_resource path="res://UI/UI.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scripts/Interactable.gd" type="Script" id=6]
 [ext_resource path="res://Scripts/Room.gd" type="Script" id=7]
 [ext_resource path="res://Audio/Songs/wind.wav" type="AudioStream" id=8]
@@ -46,13 +45,6 @@ zoomImage = ExtResource( 13 )
 position = Vector2( 1, 0 )
 script = ExtResource( 7 )
 bgmTrack = ExtResource( 8 )
-
-[node name="Background" type="ColorRect" parent="."]
-margin_left = -767.0
-margin_top = -1019.0
-margin_right = 1991.0
-margin_bottom = 1089.0
-mouse_filter = 2
 
 [node name="balcony" type="StaticBody2D" parent="."]
 position = Vector2( 242, 37 )
@@ -137,8 +129,6 @@ texture = ExtResource( 4 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RailArea2D"]
 polygon = PoolVector2Array( 750, -247, 750, -238, 696.5, -210.8, 696.5, -114.8, 729, -130, 750, -119, 750, -109, -11.9, 258, -363, 95, -373.5, 78.2, -387, 85, -752, -82, -752, -92, -731, -103, -716, -97, -716, -193, -752, -210, -752, -220, -730, -231, -19.1, 98, -8.90002, 100.4, 729, -258 )
-
-[node name="UI" parent="." instance=ExtResource( 5 )]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 295, 240 )
