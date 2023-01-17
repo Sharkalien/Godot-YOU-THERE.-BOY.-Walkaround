@@ -11,7 +11,6 @@ var timer = 0;
 var color = "#ffffff"
 var clicks = 0
 
-var isWarp = false
 var warpScene
 var warpPos = Vector2.ZERO;
 var zoomImage;
@@ -47,7 +46,7 @@ func _exit_tree():
 func _on_gui_input(event):
 	if (!Global.dialogOpen && !Global.fading && event is InputEventMouseButton && event.button_index == 1 && event.pressed == true):
 		Global.remove_commands();
-		if (isWarp):
+		if (warpScene != null && warpScene != ""):
 			Global.fadeto_scene(warpScene, warpPos);
 		elif (zoomImage && Global.imagesNode):
 			var imageBoxInstance = imageBox.instance();

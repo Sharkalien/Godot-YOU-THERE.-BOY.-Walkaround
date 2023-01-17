@@ -99,7 +99,7 @@ func _deferred_goto_scene(path):
 	var s = ResourceLoader.load(path);
 
 	# Instance the new scene.
-	currentScene = s.instance();
+	currentScene = s.instance(); # if you get an error here, make sure the file path to the scene exists and hasn't been changed
 
 	# Add it to the active scene, as child of root.
 	get_tree().get_root().add_child(currentScene);
