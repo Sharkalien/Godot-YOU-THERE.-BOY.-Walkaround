@@ -4,7 +4,7 @@ export var width = 552; # there's probably a better way to get the width of a co
 
 export (Array, Resource) var interactDialog = [Resource] # be sure to load in InteractDialog or InteractExtra
 
-var dict:Dictionary = {"command": "", "dialog": """""", "warpScene": null, "warpPos": Vector2.ZERO, "zoomImage": null}
+var dict:Dictionary = {"command": "", "dialog": """""", "warpScene": null, "warpPos": "", "zoomImage": null}
 
 export (bool) var multiCommand = false
 

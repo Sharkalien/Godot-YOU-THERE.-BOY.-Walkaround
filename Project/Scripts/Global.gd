@@ -24,7 +24,8 @@ var dialogClosing = false;
 var fadeScene = "";
 var fading = false;
 var fadedOut = false;
-var warpPos = Vector2.ZERO;
+var warpPos:Vector2 = Vector2.ZERO;
+var posPath:String
 
 var muteAudio = false;
 var masterBus;
@@ -62,7 +63,7 @@ func init_nodes():
 func fadeto_scene(path, pos):
 	fading = true;
 	fadeScene = path;
-	warpPos = pos;
+	posPath = pos;
 	var time = 0.3;
 	tweenNode.interpolate_property(self,"color", Color(1,1,1,1), Color(0,0,0,1), time, Tween.TRANS_LINEAR, Tween.EASE_OUT);
 	tweenNode.start();
@@ -106,6 +107,11 @@ func _deferred_goto_scene(path):
 
 	# Optionally, to make it compatible with the SceneTree.change_scene() API.
 	get_tree().set_current_scene(currentScene);
+	
+	# Get and set the path of the Position2D node in the scene to warp to
+	var posNode = get_tree().get_current_scene().get_node(posPath)
+	
+	warpPos = Vector2(posNode.position.x, posNode.position.y)
 	
 	init_nodes();
 	if (playerNode):

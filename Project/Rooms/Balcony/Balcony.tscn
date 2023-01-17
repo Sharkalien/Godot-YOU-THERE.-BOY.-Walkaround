@@ -18,7 +18,7 @@ script = ExtResource( 10 )
 command = "BOY, OPEN THIS DOOR AND WALK THROUGH IT."
 dialog = ""
 warpScene = "res://Rooms/Living Room/Living Room.tscn"
-warpPos = Vector2( 70, -450 )
+warpPos = "FromBalconyPos"
 
 [sub_resource type="Resource" id=2]
 script = ExtResource( 12 )
@@ -39,7 +39,7 @@ script = ExtResource( 10 )
 command = "PEEK OVER THE RAILING."
 dialog = "Getting close to the railing makes you a little nervous. It's a long way down."
 warpScene = ""
-warpPos = Vector2( 0, 0 )
+warpPos = ""
 zoomImage = ExtResource( 13 )
 
 [node name="Balcony" type="Node2D"]

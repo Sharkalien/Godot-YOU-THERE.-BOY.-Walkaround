@@ -12,7 +12,7 @@ var color = "#ffffff"
 var clicks = 0
 
 var warpScene
-var warpPos = Vector2.ZERO;
+var warpPos = "";
 var zoomImage;
 
 var imageBox = load("res://UI/Zoom Image/Zoom_Image.tscn")
