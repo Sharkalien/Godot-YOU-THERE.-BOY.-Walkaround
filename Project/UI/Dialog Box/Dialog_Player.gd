@@ -11,9 +11,9 @@ var animDone:bool = false
 func _ready():
 	label.set_percent_visible(0.0)
 	animPlayer.play("Open")
+	call_deferred("set_dialog")
 
 func _process(_delta):
-	label.set_bbcode(dialog)
 	if (!Global.dialogClosing && !free && animDone):
 		if (timer < dialog.length()):
 			timer += 3;
@@ -29,7 +29,10 @@ func _process(_delta):
 				label.set_percent_visible(0.0);
 				animPlayer.play_backwards("Open");
 				Global.dialogClosing = true;
-	
+
+func set_dialog():
+	label.set_bbcode(dialog)
+
 func _on_animation_finished(_anim):
 	animDone = true
 	if (Global.dialogClosing):

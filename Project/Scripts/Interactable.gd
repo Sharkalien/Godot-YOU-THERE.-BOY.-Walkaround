@@ -44,7 +44,6 @@ func _process(_delta):
 		var cTrans = get_viewport_transform();
 		var cScale = cTrans.get_scale();
 		var right = (-cTrans.get_origin() / cScale + get_viewport().size / cScale).x;
-		commandBoxInstance.get_node("MarginContainer/VBoxContainer/RichTextLabel").bbcode_text = "";
 		check_interactable_dict(commandBoxInstance)
 		width = commandBoxInstance.rect_size.x
 		if (click.x + width > right):
