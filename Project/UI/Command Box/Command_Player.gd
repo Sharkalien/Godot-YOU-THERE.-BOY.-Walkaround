@@ -1,15 +1,14 @@
 extends Control
 
-onready var label = get_node("MarginContainer/VBoxContainer/RichTextLabel");
+onready var label:RichTextLabel = get_node("MarginContainer/VBoxContainer/RichTextLabel");
 onready var commandBox = self
 onready var COMMAND_MARGIN = get_node("MarginContainer/VBoxContainer").margin_left * 2 + label.get_font("normal_font").get_string_size("> ").x # should be 46
 
-var command = "";
-var dialog = """""";
-var typed = "";
-var timer = 0;
+var command:String = "";
+var dialog:String = """""";
+var timer:int = 2; # to make "> " visible first
 var color = "#ffffff"
-var clicks = 0
+var clicks:int = 0
 
 var warpScene
 var warpPos = "";
@@ -18,13 +17,14 @@ var zoomImage;
 var imageBox = load("res://UI/Zoom Image/Zoom_Image.tscn")
 var dialogBox = load("res://UI/Dialog Box/Dialog_Player.tscn")
 
+
 func _process(_delta):
-	label.text = command
+	label.set_bbcode(command)
 	commandBox.rect_size.x = label.get_font("normal_font").get_string_size(label.text).x + COMMAND_MARGIN
-	typed = command.left(timer);
+	label.visible_characters = timer;
 	if (timer < command.length() + 2):
 		timer += 2;
-	label.bbcode_text = "[color=" + color + "]> " + typed + "[/color]";
+	label.bbcode_text = "[color=" + color + "]> " + command + "[/color]";
 	if (Global.fading || Global.dialogOpen):
 		color = "#ffffff";
 

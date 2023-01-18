@@ -51,5 +51,5 @@ func _process(_delta):
 			click.x = right - width;
 		# OOPS I SORT OF BROKE THE MATHS FOR THIS ^ MY BAD G
 		print(clicks)
-		commandBoxInstance.rect_global_position = Vector2(click.x, click.y - 16); # hack way of centering the commandbox at the cursor
+		commandBoxInstance.rect_global_position = Vector2(click.x, click.y - 9); # the flash has a particular offset
 #		clicks = interactDialog[clicks].clicks
