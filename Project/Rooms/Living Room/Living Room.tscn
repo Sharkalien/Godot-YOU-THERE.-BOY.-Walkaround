@@ -161,7 +161,6 @@ texture = ExtResource( 16 )
 collision_layer = 4
 collision_mask = 4
 script = ExtResource( 15 )
-width = 200
 interactDialog = [ SubResource( 1 ) ]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/JohnsRoomDoor"]
@@ -195,7 +194,6 @@ editor_draw_limits = true
 collision_layer = 4
 collision_mask = 4
 script = ExtResource( 15 )
-width = 260
 interactDialog = [ SubResource( 2 ) ]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BalconyDoor"]

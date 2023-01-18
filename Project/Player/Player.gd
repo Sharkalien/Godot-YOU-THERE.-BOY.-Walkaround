@@ -70,9 +70,9 @@ func _input(event):
 func mouseMovement():
 	if last_mouse_pos:
 		var input_vector = (last_mouse_pos - global_position)
-
+		
 		if input_vector.length() < 5 || (get_slide_count() > 0 && velocity != Vector2.ZERO):
 			last_mouse_pos = null;
 			return 
-
+		
 		direction = input_vector.normalized();

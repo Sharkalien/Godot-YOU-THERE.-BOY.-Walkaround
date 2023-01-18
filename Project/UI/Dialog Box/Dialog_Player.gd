@@ -14,10 +14,8 @@ func _ready():
 	animPlayer.play("Open")
 
 func _process(_delta):
-#	print(dialog)
-#	dialog = dialog.replace("\\n", "\n") #argh, this makes very short dialogs such as "...\n\nOk." freeze for some reason
 	if (!Global.dialogClosing && !free && animDone):
-		if (timer < dialog.length() + 4): # changing 2 to 4 fixes it I guess
+		if (timer < dialog.length() + 4):
 			timer += 3;
 			typed = dialog.left(timer);
 			label.bbcode_text = typed + "";
@@ -29,8 +27,8 @@ func _process(_delta):
 				timer = dialog.length() + 4;
 				label.bbcode_text = dialog;
 			else:
-				animPlayer.play_backwards("Open");
 				label.bbcode_text = "";
+				animPlayer.play_backwards("Open");
 				Global.dialogClosing = true;
 	
 func _on_animation_finished(_anim):

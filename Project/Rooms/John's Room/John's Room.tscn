@@ -53,7 +53,6 @@ polygon = PoolVector2Array( 445, 689, 312, 630, 303, 554, 1043, 673, 960, 887 )
 collision_layer = 4
 collision_mask = 4
 script = ExtResource( 8 )
-width = 340
 interactDialog = [ SubResource( 1 ) ]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/DoorArea2D"]

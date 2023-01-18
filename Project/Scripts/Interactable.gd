@@ -1,19 +1,17 @@
 extends Area2D
 
-export var width = 552; # there's probably a better way to get the width of a command that's automagic
-
-export (Array, Resource) var interactDialog = [Resource] # be sure to load in InteractDialog or InteractExtra
-
+var width:int; # there's probably a better way to get the width of a command that's automagic
 var dict:Dictionary = {"command": "", "dialog": """""", "warpScene": null, "warpPos": "", "zoomImage": null}
 
+export (Array, Resource) var interactDialog = [Resource] # be sure to load in InteractDialog or InteractExtra
 export (bool) var multiCommand = false
 
 var clicks:int = 0
-var selected = false;
+var selected:bool = false;
 var commandBox = load("res://UI/Command Box/Command_Player.tscn")
 
 func _ready():
-	var interactable = get_node(".")
+	var interactable = self
 	if interactable is Area2D and not null:
 		interactable.connect("mouse_entered", self, "_on_mouse_entered")
 		interactable.connect("mouse_exited", self, "_on_mouse_exited")
@@ -54,5 +52,4 @@ func _process(_delta):
 		# OOPS I SORT OF BROKE THE MATHS FOR THIS ^ MY BAD G
 		print(clicks)
 		commandBoxInstance.rect_global_position = Vector2(click.x, click.y - 16); # hack way of centering the commandbox at the cursor
-#		commandBoxInstance.rect_size.x = commandBoxInstance.label.get_font("normal_font").get_string_size(commandBoxInstance.label.text).x + 30;
 #		clicks = interactDialog[clicks].clicks

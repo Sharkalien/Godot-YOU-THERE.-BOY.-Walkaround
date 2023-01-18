@@ -1,13 +1,14 @@
 extends Control
 
-var dialog = "To walk around, use the mouse, arrow keys, or WASD keys. Click on\nvarious objects to open command menus for them!\n\nGodot programming by Sharkalien and Axollyon (abyssalLotl).\nBased on \"[S] YOU THERE. BOY.\" from Homestuck (page 253).";
+var dialog = """To walk around, use the mouse, arrow keys, or WASD keys. Click on various objects to open command menus for them!
 
-var selected = false;
+Godot programming by Sharkalien and Axollyon (abyssalLotl).
+Based on "[S] YOU THERE. BOY." from Homestuck (page 253).""";
 
 var dialogBox = load("res://UI/Dialog Box/Dialog_Player.tscn")
+var selected:bool = false;
+var faded:bool = false;
 
-var faded = false;
-	
 func _on_mouse_entered()->void:
 	if (!Global.fading):
 		Global.hoverNodes.append(self);
@@ -22,7 +23,6 @@ func _exit_tree():
 	Global.hoverNodes.erase(self);
 
 func _process(_delta):
-	
 	var time = 0.2;
 	if (Global.dialogOpen && !Global.dialogDone && !Global.dialogClosing && !faded):
 		faded = true;

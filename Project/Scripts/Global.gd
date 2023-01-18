@@ -6,30 +6,30 @@ export var hoverNodes = [];
 
 var playerNode;
 var cameraNode;
-var commandsNode;
-var dialogsNode;
-var imagesNode;
-var fadeNode
+onready var commandsNode = Ui.get_node_or_null("Commands");
+onready var dialogsNode = Ui.get_node_or_null("Dialogs");
+onready var imagesNode = Ui.get_node_or_null("Images");
+onready var fadeNode = Ui.get_node_or_null("Fade")
 
 var tweenNode;
 var audioNode;
 
-var mouseMove = true;
-var mouseHover = false;
+var mouseMove:bool = true;
+var mouseHover:bool = false;
 
-var imageOpen = false;
-var dialogOpen = false;
-var dialogDone = false;
-var dialogClosing = false;
+var imageOpen:bool = false;
+var dialogOpen:bool = false;
+var dialogDone:bool = false;
+var dialogClosing:bool = false;
 
-var fadeScene = "";
-var fading = false;
-var fadedOut = false;
+var fadeScene:String = "";
+var fading:bool = false;
+var fadedOut:bool = false;
 var warpPos:Vector2 = Vector2.ZERO;
 var posPath:String
 
-var muteAudio = false;
-var masterBus;
+var muteAudio:bool = false;
+onready var masterBus = AudioServer.get_bus_index("Master");
 
 func _ready():
 	tweenNode = Tween.new();
@@ -38,25 +38,20 @@ func _ready():
 	
 	audioNode = AudioStreamPlayer.new();
 	add_child(audioNode);
-	masterBus = AudioServer.get_bus_index("Master");
 	
 	var root = get_tree().get_root();
 	currentScene = root.get_child(root.get_child_count() - 1);
-	init_nodes();
+	init_player();
 
 func mute_audio(mute):
 	muteAudio = mute;
 	AudioServer.set_bus_mute(masterBus, mute);
 
-func init_nodes():
+func init_player():
 	playerNode = currentScene.get_node_or_null("Player");
 	if (!playerNode):
 		playerNode = currentScene.get_node_or_null("YSort/Player");
 	cameraNode = currentScene.get_node_or_null("Camera2D");
-	commandsNode = Ui.get_node_or_null("Commands");
-	imagesNode = Ui.get_node_or_null("Images");
-	dialogsNode = Ui.get_node_or_null("Dialogs");
-	fadeNode = Ui.get_node_or_null("Fade");
 	
 	if ("bgmTrack" in currentScene && audioNode.stream != currentScene.bgmTrack):
 		audioNode.stream = currentScene.bgmTrack;
@@ -115,16 +110,13 @@ func _deferred_goto_scene(path):
 	
 	warpPos = posNode.get_position()
 	
-	init_nodes();
+	init_player();
 	if (playerNode):
 		playerNode.global_position = warpPos;
 
 func _process(_delta):
 	dialogOpen = false;
 	if (dialogsNode):
-#		var cTrans = get_canvas_transform()
-#		var pos = -cTrans.get_origin() / cTrans.get_scale()
-#		dialogsNode.global_position = pos;
 		if (dialogsNode.get_child_count() > 0 && dialogsNode.get_child(0).free == false):
 			dialogOpen = true;
 	imageOpen = false;

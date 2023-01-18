@@ -1,7 +1,7 @@
 extends Control
 
-var dialog = "";
-var selected = false;
+var dialog:String = """""";
+var selected:bool = false;
 var dialogBoxInstance;
 var dialogBox = load("res://UI/Dialog Box/Dialog_Player.tscn")
 	

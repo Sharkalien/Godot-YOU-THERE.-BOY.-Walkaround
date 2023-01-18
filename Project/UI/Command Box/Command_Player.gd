@@ -1,7 +1,7 @@
 extends Control
 
 onready var label = get_node("MarginContainer/VBoxContainer/RichTextLabel");
-onready var commandBox = get_node(".")
+onready var commandBox = self
 onready var COMMAND_MARGIN = get_node("MarginContainer/VBoxContainer").margin_left * 2 + label.get_font("normal_font").get_string_size("> ").x # should be 46
 
 var command = "";
