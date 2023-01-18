@@ -58,7 +58,9 @@ func _on_gui_input(event):
 			Global.imagesNode.add_child(imageBoxInstance);
 			imageBoxInstance.dialog = dialog;
 			imageBoxInstance.get_node("ImageBox").texture = zoomImage; 
-		elif (Global.dialogsNode):
+		elif ((dialog != """""" && dialog != "" && dialog != null) && Global.dialogsNode):
 			var dialogBoxInstance = dialogBox.instance();
 			Global.dialogsNode.add_child(dialogBoxInstance);
 			dialogBoxInstance.dialog = dialog;
+		else:
+			pass

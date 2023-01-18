@@ -59,8 +59,8 @@ func init_player():
 
 func fadeto_scene(path, pos):
 	fading = true;
-	fadeScene = path;
-	posPath = pos;
+	fadeScene = path; assert(path != "", "warpScene needs a valid filepath!");
+	posPath = pos; assert(pos != "", "warpPos needs a Position2D!");
 	var time = 0.3;
 	tweenNode.interpolate_property(fadeNode,"color", Color(0,0,0,0), Color(0,0,0,1), time, Tween.TRANS_LINEAR, Tween.EASE_OUT);
 	tweenNode.start();
