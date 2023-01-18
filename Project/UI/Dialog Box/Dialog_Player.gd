@@ -1,33 +1,32 @@
 extends Control
 
-onready var label = get_node("CenterContainer/Body_NinePatchRect/MarginContainer/RichTextLabel");
-onready var animPlayer = get_node("CenterContainer/Body_NinePatchRect/AnimationPlayer");
+onready var label:RichTextLabel = get_node("CenterContainer/Body_NinePatchRect/MarginContainer/RichTextLabel");
+onready var animPlayer:AnimationPlayer = get_node("CenterContainer/Body_NinePatchRect/AnimationPlayer");
 
-var dialog = "";
-var typed = "";
-var timer = 0;
-
-var free = false;
-var animDone = false
+var dialog:String = "";
+var timer:int = 0;
+var free:bool = false;
+var animDone:bool = false
 
 func _ready():
+	label.set_percent_visible(0.0)
 	animPlayer.play("Open")
 
 func _process(_delta):
+	label.set_bbcode(dialog)
 	if (!Global.dialogClosing && !free && animDone):
-		if (timer < dialog.length() + 4):
+		if (timer < dialog.length()):
 			timer += 3;
-			typed = dialog.left(timer);
-			label.bbcode_text = typed + "";
+			label.visible_characters = timer;
 		elif (!Global.dialogDone):
 			Global.dialogDone = true;
 			
 		if Input.is_action_just_pressed("click") && timer > 10:
 			if (!Global.dialogDone):
-				timer = dialog.length() + 4;
-				label.bbcode_text = dialog;
+				timer = dialog.length();
+				label.set_percent_visible(1.0);
 			else:
-				label.bbcode_text = "";
+				label.set_percent_visible(0.0);
 				animPlayer.play_backwards("Open");
 				Global.dialogClosing = true;
 	
