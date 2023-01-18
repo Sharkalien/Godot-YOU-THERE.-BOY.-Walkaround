@@ -60,7 +60,7 @@ func init_player():
 func fadeto_scene(path, pos):
 	fading = true;
 	fadeScene = path;
-	posPath = pos; assert(pos != "", "warpPos needs a Position2D!");
+	posPath = pos; assert(pos != "", "warpPos needs the name of a Position2D!");
 	var time = 0.3;
 	tweenNode.interpolate_property(fadeNode,"color", Color(0,0,0,0), Color(0,0,0,1), time, Tween.TRANS_LINEAR, Tween.EASE_OUT);
 	tweenNode.start();
@@ -106,7 +106,9 @@ func _deferred_goto_scene(path):
 	get_tree().set_current_scene(currentScene);
 	
 	# Get and set the path of the Position2D node in the scene to warp to
-	var posNode = get_tree().get_current_scene().get_node(posPath)
+	var posNode = get_tree().get_current_scene().get_node(posPath);
+	assert(posNode != null, "warpPos needs to be a child of the scene root node!");
+	assert(posNode.get_class() == "Position2D", "warpPos needs a Position2D!");
 	
 	warpPos = posNode.get_position()
 	
