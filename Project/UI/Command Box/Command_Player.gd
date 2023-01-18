@@ -51,16 +51,17 @@ func _exit_tree():
 func _on_gui_input(event):
 	if (!Global.dialogOpen && !Global.fading && event is InputEventMouseButton && event.button_index == 1 && event.pressed == true):
 		Global.remove_commands();
-		if (warpScene != null && warpScene != ""):
-			Global.fadeto_scene(warpScene, warpPos);
-		elif (zoomImage && Global.imagesNode):
+		if (zoomImage && Global.imagesNode):
 			var imageBoxInstance = imageBox.instance();
 			Global.imagesNode.add_child(imageBoxInstance);
-			imageBoxInstance.dialog = dialog;
-			imageBoxInstance.get_node("ImageBox").texture = zoomImage; 
+			if (dialog != """""" && dialog != "" && dialog != null):
+				imageBoxInstance.dialog = dialog;
+			imageBoxInstance.imageTexture = zoomImage;
 		elif ((dialog != """""" && dialog != "" && dialog != null) && Global.dialogsNode):
 			var dialogBoxInstance = dialogBox.instance();
 			Global.dialogsNode.add_child(dialogBoxInstance);
 			dialogBoxInstance.dialog = dialog;
+		elif (warpScene != null && warpScene != ""):
+			Global.fadeto_scene(warpScene, warpPos);
 		else:
 			pass

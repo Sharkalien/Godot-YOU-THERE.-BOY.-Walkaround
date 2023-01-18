@@ -4,7 +4,14 @@ var dialog:String = """""";
 var selected:bool = false;
 var dialogBoxInstance;
 var dialogBox = load("res://UI/Dialog Box/Dialog_Player.tscn")
-	
+var imageTexture:Texture
+
+func _ready() -> void:
+	call_deferred("set_image_texture")
+
+func set_image_texture():
+	$ImageBox.texture = imageTexture
+
 func _on_mouse_entered()->void:
 	if (!Global.fading):
 		Global.hoverNodes.append(self);
@@ -21,9 +28,13 @@ func _exit_tree():
 func _process(_delta):
 	if (Global.dialogsNode && !Global.dialogOpen && !Global.fading && selected && Input.is_action_just_pressed("click")):
 		Global.remove_commands();
-		dialogBoxInstance = dialogBox.instance();
-		Global.dialogsNode.add_child(dialogBoxInstance);
-		dialogBoxInstance.dialog = dialog;
-		
+		if (dialog != """""" && dialog != "" && dialog != null):
+			dialogBoxInstance = dialogBox.instance();
+			Global.dialogsNode.add_child(dialogBoxInstance);
+			dialogBoxInstance.dialog = dialog;
 	if (Global.dialogClosing):
 		queue_free();
+
+func _on_ImageBox_gui_input(_event: InputEvent) -> void:
+	if ((dialog == """""" || dialog == "" || dialog == null) && Input.is_action_just_pressed("click") && Global.imageOpen):
+		queue_free()
