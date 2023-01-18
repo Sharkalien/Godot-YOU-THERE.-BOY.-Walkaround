@@ -59,7 +59,7 @@ func init_player():
 
 func fadeto_scene(path, pos):
 	fading = true;
-	fadeScene = path; assert(path != "", "warpScene needs a valid filepath!");
+	fadeScene = path;
 	posPath = pos; assert(pos != "", "warpPos needs a Position2D!");
 	var time = 0.3;
 	tweenNode.interpolate_property(fadeNode,"color", Color(0,0,0,0), Color(0,0,0,1), time, Tween.TRANS_LINEAR, Tween.EASE_OUT);
@@ -94,7 +94,7 @@ func _deferred_goto_scene(path):
 	currentScene.free();
 
 	# Load the new scene.
-	var s = ResourceLoader.load(path);
+	var s = ResourceLoader.load(path); assert(ResourceLoader.exists(path) != false, "warpScene needs a valid filepath!");
 
 	# Instance the new scene.
 	currentScene = s.instance(); # if you get an error here, make sure the file path to the scene exists and hasn't been changed
