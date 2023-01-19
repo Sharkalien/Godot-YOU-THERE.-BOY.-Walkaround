@@ -4,13 +4,13 @@
 [ext_resource path="res://Rooms/Balcony/balcony.png" type="Texture" id=2]
 [ext_resource path="res://Rooms/Balcony/balcAlchemiter.png" type="Texture" id=3]
 [ext_resource path="res://Rooms/Balcony/balcRail.png" type="Texture" id=4]
+[ext_resource path="res://Rooms/Zooms/studyView.jpg" type="Texture" id=5]
 [ext_resource path="res://Scripts/Interactable.gd" type="Script" id=6]
 [ext_resource path="res://Scripts/Room.gd" type="Script" id=7]
 [ext_resource path="res://Audio/Songs/wind.wav" type="AudioStream" id=8]
 [ext_resource path="res://Rooms/Balcony/balcCruxite.png" type="Texture" id=9]
 [ext_resource path="res://Scripts/Resources/InteractResourceExtra.gd" type="Script" id=10]
 [ext_resource path="res://Scripts/Resources/InteractResource.gd" type="Script" id=12]
-[ext_resource path="res://Rooms/Zooms/bathroomYard.jpg" type="Texture" id=13]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 10 )
@@ -39,7 +39,7 @@ command = "PEEK OVER THE RAILING."
 dialog = "Getting close to the railing makes you a little nervous. It's a long way down."
 warpScene = ""
 warpPos = ""
-zoomImage = ExtResource( 13 )
+zoomImage = ExtResource( 5 )
 
 [node name="Balcony" type="Node2D"]
 position = Vector2( 1, 0 )

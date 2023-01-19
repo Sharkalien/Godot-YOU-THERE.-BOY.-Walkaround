@@ -41,13 +41,13 @@ func _ready():
 	
 	var root = get_tree().get_root();
 	currentScene = root.get_child(root.get_child_count() - 1);
-	init_player();
+	init_nodes();
 
 func mute_audio(mute):
 	muteAudio = mute;
 	AudioServer.set_bus_mute(masterBus, mute);
 
-func init_player():
+func init_nodes():
 	playerNode = currentScene.get_node_or_null("Player");
 	if (!playerNode):
 		playerNode = currentScene.get_node_or_null("YSort/Player");
@@ -112,7 +112,7 @@ func _deferred_goto_scene(path):
 	
 	warpPos = posNode.get_position()
 	
-	init_player();
+	init_nodes();
 	if (playerNode):
 		playerNode.global_position = warpPos;
 

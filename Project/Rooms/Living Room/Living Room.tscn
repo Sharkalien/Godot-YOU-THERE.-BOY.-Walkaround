@@ -1,6 +1,7 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Rooms/Living Room/livingRoom.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/CameraHotspot.gd" type="Script" id=2]
 [ext_resource path="res://Rooms/Living Room/livingQuin1.png" type="Texture" id=3]
 [ext_resource path="res://Rooms/Living Room/livingQuin5.png" type="Texture" id=4]
 [ext_resource path="res://Rooms/Living Room/livingQuin3.png" type="Texture" id=5]
@@ -38,6 +39,7 @@ script = ExtResource( 13 )
 
 [node name="LivingRoom" type="StaticBody2D" parent="YSort"]
 position = Vector2( 210, -1292 )
+collision_layer = 0
 __meta__ = {
 "_edit_group_": true
 }
@@ -147,15 +149,28 @@ texture = ExtResource( 12 )
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/HarlequinHead"]
 polygon = PoolVector2Array( -37, 19, -25, 25, -13, 28, 8, 29, 23, 25, 34, 19, 36, 15, 36, 9, 25, 1, 12, -2, -16, -1, -30.5903, 3.65857, -37, 9 )
 
-[node name="BalconySteps" type="StaticBody2D" parent="YSort"]
+[node name="BalconySteps" type="Area2D" parent="YSort"]
 position = Vector2( -58, -406 )
+collision_layer = 0
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
+snapTo = NodePath("Position2D")
 
 [node name="Sprite" type="Sprite" parent="YSort/BalconySteps"]
+visible = false
 position = Vector2( 0, -40 )
 texture = ExtResource( 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/BalconySteps"]
+polygon = PoolVector2Array( 121, -8, 16, -61, -29, -46, 77, 12 )
+
+[node name="Position2D" type="Position2D" parent="YSort/BalconySteps"]
+position = Vector2( -209, -152 )
+__meta__ = {
+"_gizmo_extents_": 52.0
+}
 
 [node name="JohnsRoomDoor" type="Area2D" parent="YSort"]
 collision_layer = 4
