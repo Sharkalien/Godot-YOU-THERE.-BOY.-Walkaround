@@ -27,7 +27,11 @@ func set_command():
 	label.set_bbcode("> " + command)
 	commandBox.rect_size.x = label.get_font("normal_font").get_string_size(label.text).x + COMMAND_MARGIN
 	width = commandBox.rect_size.x
-	var click = get_global_mouse_position(); # uhhh just ignore any errors you might get here, it happens when two interactables overlap each other, but at least it doesn't cause the game to crash
+	var click; # uhhh just ignore any errors you might get here, it happens when two interactables overlap each other, but at least it doesn't cause the game to crash
+	if get_viewport():
+		click = get_global_mouse_position()
+	else:
+		click = Vector2.ZERO
 	var cTrans = Ui.get_transform();
 	var cScale = cTrans.get_scale();
 	var right = (-cTrans.get_origin() / cScale + root.size / cScale).x;
