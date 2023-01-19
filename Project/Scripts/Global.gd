@@ -51,6 +51,8 @@ func init_nodes():
 	playerNode = currentScene.get_node_or_null("Player");
 	if (!playerNode):
 		playerNode = currentScene.get_node_or_null("YSort/Player");
+		if (!playerNode):
+			playerNode = currentScene.get_node_or_null("%Player")
 	cameraNode = currentScene.get_node_or_null("Camera2D");
 	
 	if ("bgmTrack" in currentScene && audioNode.stream != currentScene.bgmTrack):

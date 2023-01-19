@@ -159,7 +159,6 @@ __meta__ = {
 snapTo = NodePath("Position2D")
 
 [node name="Sprite" type="Sprite" parent="YSort/BalconySteps"]
-visible = false
 position = Vector2( 0, -40 )
 texture = ExtResource( 16 )
 
@@ -182,6 +181,7 @@ interactDialog = [ SubResource( 1 ) ]
 polygon = PoolVector2Array( -113.625, -888, 14.875, -908.125, 15.4813, -575.107, -108.691, -535.821, -114.584, -537.645 )
 
 [node name="Player" parent="YSort" instance=ExtResource( 14 )]
+unique_name_in_owner = true
 position = Vector2( 70, -450 )
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Player"]
