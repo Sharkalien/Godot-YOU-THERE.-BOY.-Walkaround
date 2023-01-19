@@ -34,6 +34,9 @@ func check_interactable_dict(instance):
 		if key in interactDialog[clicks]:
 			instance.set(key, interactDialog[clicks].get(key))
 
+func set_command_width(instance):
+	width = instance.rect_size.x
+
 func _process(_delta):
 	if (Global.commandsNode && !Global.dialogOpen && !Global.imageOpen && !Global.fading && selected && Input.is_action_just_pressed("click")):
 		var commandBoxInstance = commandBox.instance();
@@ -44,7 +47,8 @@ func _process(_delta):
 		var cScale = cTrans.get_scale();
 		var right = (-cTrans.get_origin() / cScale + get_viewport().size / cScale).x;
 		check_interactable_dict(commandBoxInstance)
-		width = commandBoxInstance.rect_size.x
+		call_deferred("set_command_width", commandBoxInstance)
+#		width = commandBoxInstance.rect_size.x
 		if (click.x + width > right):
 			click.x = right - width;
 		print(clicks)
