@@ -40,15 +40,14 @@ func _process(_delta):
 		Global.remove_commands();
 		Global.commandsNode.add_child(commandBoxInstance);
 		var click = get_viewport().get_mouse_position();
-#		var cTrans = get_canvas_transform();
-		var cTrans = get_viewport_transform();
+		var cTrans = Ui.get_transform();
 		var cScale = cTrans.get_scale();
 		var right = (-cTrans.get_origin() / cScale + get_viewport().size / cScale).x;
 		check_interactable_dict(commandBoxInstance)
 		width = commandBoxInstance.rect_size.x
 		if (click.x + width > right):
 			click.x = right - width;
-		# OOPS I SORT OF BROKE THE MATHS FOR THIS ^ MY BAD G
 		print(clicks)
+		print(width)
 		commandBoxInstance.rect_global_position = Vector2(click.x, click.y - 9); # the flash has a particular offset
 #		clicks = interactDialog[clicks].clicks
