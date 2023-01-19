@@ -35,6 +35,9 @@ func set_command():
 	var cTrans = Ui.get_transform();
 	var cScale = cTrans.get_scale();
 	var right = (-cTrans.get_origin() / cScale + root.size / cScale).x;
+	if (width > root.size.x):
+		width = root.size.x
+		commandBox.rect_size.x = width
 	if (click.x + width > right):
 		click.x = right - width;
 	commandBox.rect_global_position = Vector2(click.x, click.y - 9); # the flash has a particular offset
