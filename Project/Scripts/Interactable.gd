@@ -1,6 +1,6 @@
 extends Area2D
 
-var width:int; # there's probably a better way to get the width of a command that's automagic
+ # there's probably a better way to get the width of a command that's automagic
 var dict:Dictionary = {"command": "", "dialog": """""", "warpScene": null, "warpPos": "", "zoomImage": null}
 
 export (Array, Resource) var interactDialog = [Resource] # be sure to load in InteractDialog or InteractExtra
@@ -34,24 +34,10 @@ func check_interactable_dict(instance):
 		if key in interactDialog[clicks]:
 			instance.set(key, interactDialog[clicks].get(key))
 
-func set_command_width(instance):
-	width = instance.rect_size.x
-
 func _process(_delta):
 	if (Global.commandsNode && !Global.dialogOpen && !Global.imageOpen && !Global.fading && selected && Input.is_action_just_pressed("click")):
 		var commandBoxInstance = commandBox.instance();
 		Global.remove_commands();
 		Global.commandsNode.add_child(commandBoxInstance);
-		var click = get_viewport().get_mouse_position();
-		var cTrans = Ui.get_transform();
-		var cScale = cTrans.get_scale();
-		var right = (-cTrans.get_origin() / cScale + get_viewport().size / cScale).x;
 		check_interactable_dict(commandBoxInstance)
-		call_deferred("set_command_width", commandBoxInstance)
-#		width = commandBoxInstance.rect_size.x
-		if (click.x + width > right):
-			click.x = right - width;
-		print(clicks)
-		print(width)
-		commandBoxInstance.rect_global_position = Vector2(click.x, click.y - 9); # the flash has a particular offset
 #		clicks = interactDialog[clicks].clicks
