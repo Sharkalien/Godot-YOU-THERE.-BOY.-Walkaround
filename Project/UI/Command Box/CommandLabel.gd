@@ -1,5 +1,7 @@
 extends RichTextLabel
 
+var label = self
+
 var command:String;
 var dialog:String = """""";
 var warpScene;
@@ -9,7 +11,6 @@ var zoomImage;
 var timer:int = 2; # to make "> " visible first
 var clicks:int = 0;
 var width:int;
-var color = "#ffffff";
 
 var imageBox = load("res://UI/Zoom Image/Zoom_Image.tscn")
 var dialogBox = load("res://UI/Dialog Box/Dialog_Player.tscn")
@@ -18,6 +19,10 @@ var dialogBox = load("res://UI/Dialog Box/Dialog_Player.tscn")
 func _ready() -> void:
 	pass
 
+func _process(_delta):
+	if (timer < command.length() + 2):
+		timer += 2;
+		label.visible_characters = timer;
 
 func _on_CommandLabel_mouse_entered() -> void:
 	if (!Global.fading):
