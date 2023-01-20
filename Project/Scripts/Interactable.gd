@@ -1,8 +1,5 @@
 extends Area2D
 
- # there's probably a better way to get the width of a command that's automagic
-var dict:Dictionary = {"command": "", "dialog": """""", "warpScene": null, "warpPos": "", "zoomImage": null}
-
 export (Array, Resource) var interactDialog = [Resource] # be sure to load in InteractDialog or InteractExtra
 export (bool) var multiCommand = false
 
@@ -29,15 +26,12 @@ func _on_mouse_exited()->void:
 func _exit_tree():
 	Global.hoverNodes.erase(self);
 
-func check_interactable_dict(instance):
-	for key in dict:
-		if key in interactDialog[clicks]:
-			instance.set(key, interactDialog[clicks].get(key))
-
 func _process(_delta):
 	if (Global.commandsNode && !Global.dialogOpen && !Global.imageOpen && !Global.fading && selected && Input.is_action_just_pressed("click")):
 		var commandBoxInstance = commandBox.instance();
 		Global.remove_commands();
 		Global.commandsNode.add_child(commandBoxInstance);
-		check_interactable_dict(commandBoxInstance)
+		if multiCommand:
+			commandBoxInstance.multiCommand = multiCommand
+		commandBoxInstance.interactDialog = interactDialog
 #		clicks = interactDialog[clicks].clicks

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/9patchrect_command1.png-724a83ebc841110c66090ee9a0a342f7.stex"
+path="res://.import/tricksterMode.svg-2f2af88a2f79da048c0f94ce89e4500b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/Command Box/9patchrect_command1.png"
-dest_files=[ "res://.import/9patchrect_command1.png-724a83ebc841110c66090ee9a0a342f7.stex" ]
+source_file="res://Kernelsprite/tricksterMode.svg"
+dest_files=[ "res://.import/tricksterMode.svg-2f2af88a2f79da048c0f94ce89e4500b.stex" ]
 
 [params]
 
@@ -28,6 +28,7 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=false
