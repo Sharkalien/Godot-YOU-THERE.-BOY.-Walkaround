@@ -137,16 +137,17 @@ position = Vector2( 0, -16 )
 polygon = PoolVector2Array( -38, 18, 0, 39, 38, 16, 0, -3 )
 
 [node name="HarlequinHead" type="StaticBody2D" parent="YSort"]
-position = Vector2( 499, 325 )
+position = Vector2( 499, 340 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Sprite" type="Sprite" parent="YSort/HarlequinHead"]
-position = Vector2( 0, -28 )
+position = Vector2( 0, -43 )
 texture = ExtResource( 12 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/HarlequinHead"]
+position = Vector2( 0, -15 )
 polygon = PoolVector2Array( -37, 19, -25, 25, -13, 28, 8, 29, 23, 25, 34, 19, 36, 15, 36, 9, 25, 1, 12, -2, -16, -1, -30.5903, 3.65857, -37, 9 )
 
 [node name="BalconySteps" type="Area2D" parent="YSort"]

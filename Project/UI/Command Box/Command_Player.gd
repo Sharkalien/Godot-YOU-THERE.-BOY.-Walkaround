@@ -27,7 +27,7 @@ func set_command():
 	label.set_bbcode("> " + command)
 	commandBox.rect_size.x = label.get_font("normal_font").get_string_size(label.text).x + COMMAND_MARGIN
 	width = commandBox.rect_size.x
-	var click; # uhhh just ignore any errors you might get here, it happens when two interactables overlap each other, but at least it doesn't cause the game to crash
+	var click; # uhhh just ignore any errors you might get here, it happens when two or more interactables overlap each other, but at least it doesn't cause the game to crash. I guess that's the problem with using overlapping Area2Ds, you can't limit the input to just one :P
 	if get_viewport():
 		click = get_global_mouse_position()
 	else:
