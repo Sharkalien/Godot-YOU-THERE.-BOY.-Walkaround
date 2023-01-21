@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Rooms/John's Room/room.png" type="Texture" id=1]
 [ext_resource path="res://Rooms/John's Room/roomBed.png" type="Texture" id=2]
@@ -11,6 +11,8 @@
 [ext_resource path="res://Scripts/Room.gd" type="Script" id=10]
 [ext_resource path="res://Rooms/John's Room/roomWiseguy.png" type="Texture" id=11]
 [ext_resource path="res://Scripts/Resources/InteractResourceExtra.gd" type="Script" id=12]
+[ext_resource path="res://Rooms/John's Room/roomConAir.png" type="Texture" id=13]
+[ext_resource path="res://Rooms/John's Room/roomNotif.png" type="Texture" id=14]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 12 )
@@ -19,20 +21,40 @@ dialog = ""
 warpScene = "res://Rooms/Living Room/Living Room.tscn"
 warpPos = "FromBedroomPos"
 
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 14 ), null ],
+"loop": true,
+"name": "blink",
+"speed": 1.0
+} ]
+
 [node name="John\'s Room" type="Node2D"]
 script = ExtResource( 10 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Room" type="StaticBody2D" parent="YSort"]
 position = Vector2( 511, -593 )
 __meta__ = {
-"_edit_group_": true
+"_edit_group_": true,
+"_edit_lock_": true
 }
 
-[node name="Sprite" type="Sprite" parent="YSort/Room"]
+[node name="Room" type="Sprite" parent="YSort/Room"]
 position = Vector2( 34, 653 )
 texture = ExtResource( 1 )
+
+[node name="Posters" type="Sprite" parent="YSort/Room"]
+position = Vector2( -441, 405 )
+texture = ExtResource( 6 )
+
+[node name="RoomConAir" type="Sprite" parent="YSort/Room"]
+position = Vector2( -380, 336 )
+texture = ExtResource( 13 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Room"]
 position = Vector2( 34, 653 )
@@ -41,10 +63,6 @@ polygon = PoolVector2Array( -956, 135, -654, 6, -311, -134, 161, 23, 367, -57, 6
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="YSort/Room"]
 position = Vector2( 34, 653 )
 polygon = PoolVector2Array( -955, 140, -808.446, 202.098, -472, 352, -332, 422, -230, 469, -53, 386, 78, 318, 180, 263, 500, 405, 699, 303, 944, 155, 1020, 154, 1036, 589, -1121, 626, -1025, 159 )
-
-[node name="Posters" type="Sprite" parent="YSort/Room"]
-position = Vector2( -443, 412 )
-texture = ExtResource( 6 )
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="YSort/Room"]
 polygon = PoolVector2Array( 445, 689, 312, 630, 303, 554, 1043, 673, 960, 887 )
@@ -60,7 +78,7 @@ position = Vector2( 26.1846, 9.72942 )
 polygon = PoolVector2Array( -15.6012, -329.544, -14.174, -0.971975, -69.7947, 21.5856, -70.4247, 10.5613, -139.98, -20.5646, -138.288, -280.703 )
 
 [node name="Bed" type="StaticBody2D" parent="YSort"]
-position = Vector2( 274, -153 )
+position = Vector2( 279, -154 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -72,7 +90,7 @@ texture = ExtResource( 2 )
 polygon = PoolVector2Array( -237, 164, 43, 271, 230, 178, -48, 72 )
 
 [node name="Lathe" type="StaticBody2D" parent="YSort"]
-position = Vector2( 1186, -23 )
+position = Vector2( 1181, -46 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -84,12 +102,12 @@ texture = ExtResource( 7 )
 polygon = PoolVector2Array( -234, 122, 172, 286, 220, 254, -169, 89 )
 
 [node name="Desk" type="StaticBody2D" parent="YSort"]
-position = Vector2( 244, 441 )
+position = Vector2( 257, 441 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Sprite" type="Sprite" parent="YSort/Desk"]
+[node name="Desk" type="Sprite" parent="YSort/Desk"]
 position = Vector2( -7, -64 )
 texture = ExtResource( 4 )
 offset = Vector2( 8, -69 )
@@ -98,8 +116,15 @@ offset = Vector2( 8, -69 )
 position = Vector2( 0, -133 )
 polygon = PoolVector2Array( -220.773, 69.4672, 68.2266, 206.467, 221.227, 131.467, -19.7734, 19.4672, -124.773, 69.4672, -167.773, 43.4672 )
 
+[node name="Notification" type="AnimatedSprite" parent="YSort/Desk"]
+position = Vector2( -40, -448 )
+frames = SubResource( 2 )
+animation = "blink"
+playing = true
+centered = false
+
 [node name="Dresser" type="StaticBody2D" parent="YSort"]
-position = Vector2( -186, 162 )
+position = Vector2( -224, 189 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -113,7 +138,7 @@ position = Vector2( 1, -62 )
 polygon = PoolVector2Array( -143.773, 72.4672, -14.7734, 137.467, -5.77344, 137.467, 142.227, 61.4672, 1, 4 )
 
 [node name="Wiseguy" type="StaticBody2D" parent="YSort"]
-position = Vector2( 821, 287 )
+position = Vector2( 807, 280 )
 __meta__ = {
 "_edit_group_": true
 }

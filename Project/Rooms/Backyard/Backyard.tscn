@@ -202,7 +202,7 @@ texture = ExtResource( 10 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="YSort/Powergauge/gauge/cables"]
 position = Vector2( -77, 159 )
 frames = SubResource( 4 )
-frame = 11
+frame = 14
 playing = true
 
 [node name="Player" parent="YSort" instance=ExtResource( 6 )]

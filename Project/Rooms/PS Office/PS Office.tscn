@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Rooms/PS Office/psDesk.png" type="Texture" id=1]
-[ext_resource path="res://Rooms/PS Office/psOffice.png" type="Texture" id=2]
+[ext_resource path="res://Rooms/PS Office/smallres/PSDesk.png" type="Texture" id=1]
 [ext_resource path="res://Rooms/Backyard/whatPumpkin.png" type="Texture" id=3]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Rooms/PS Office/smallres/PSRoom.png" type="Texture" id=5]
 
 [node name="PS Office" type="Node2D"]
 
@@ -15,22 +15,26 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Sprite" type="Sprite" parent="YSort/Room"]
-position = Vector2( 0, 464 )
-texture = ExtResource( 2 )
+[node name="PsRoom" type="Sprite" parent="YSort/Room"]
+position = Vector2( -593, -5 )
+scale = Vector2( 1.6976, 1.6976 )
+texture = ExtResource( 5 )
+centered = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Room"]
 polygon = PoolVector2Array( -545, 658, 113, 517, 549, 651, -18, 890, -544, 659, -558, 659, -563, 721, -46, 953, 601, 701, 583, 587, 87, 454, -571, 602, -558, 658 )
 
 [node name="Desk" type="StaticBody2D" parent="YSort"]
-position = Vector2( 436, 211 )
+position = Vector2( 347, 180 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Sprite" type="Sprite" parent="YSort/Desk"]
-position = Vector2( 150, -58 )
+[node name="PsDesk" type="Sprite" parent="YSort/Desk"]
+position = Vector2( -12, -206 )
+scale = Vector2( 1.64801, 1.64801 )
 texture = ExtResource( 1 )
+centered = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Desk"]
 position = Vector2( 0, -4 )
@@ -40,5 +44,7 @@ polygon = PoolVector2Array( -1, 2, 193, 93, 297, 57, 96, -26 )
 position = Vector2( 196, 340 )
 
 [node name="What Pumpkin" type="Sprite" parent="."]
-position = Vector2( 765, -74 )
+position = Vector2( 775, -164 )
+scale = Vector2( 0.797864, 0.797864 )
 texture = ExtResource( 3 )
+centered = false
