@@ -1,7 +1,5 @@
 extends RichTextLabel
 
-var label = self
-
 var command:String;
 var dialog:String = """""";
 var warpScene;
@@ -22,7 +20,7 @@ func _ready() -> void:
 func _process(_delta):
 	if (timer < command.length() + 2):
 		timer += 2;
-		label.visible_characters = timer;
+		visible_characters = timer;
 
 func _on_CommandLabel_mouse_entered() -> void:
 	if (!Global.fading):
@@ -44,14 +42,14 @@ func _on_CommandLabel_gui_input(event: InputEvent) -> void:
 		if (zoomImage && Global.imagesNode):
 			var imageBoxInstance = imageBox.instance();
 			Global.imagesNode.add_child(imageBoxInstance);
-			if (dialog != """""" && dialog != "" && dialog != null):
+			if (!dialog.empty() && dialog != null):
 				imageBoxInstance.dialog = dialog;
 			imageBoxInstance.imageTexture = zoomImage;
-		elif ((dialog != """""" && dialog != "" && dialog != null) && Global.dialogsNode):
+		elif ((!dialog.empty() && dialog != null) && Global.dialogsNode):
 			var dialogBoxInstance = dialogBox.instance();
 			Global.dialogsNode.add_child(dialogBoxInstance);
 			dialogBoxInstance.dialog = dialog;
-		elif (warpScene != null && warpScene != ""):
+		elif (warpScene != null && !warpScene.empty()):
 			Global.fadeto_scene(warpScene, warpPos);
 		else:
 			pass
