@@ -12,8 +12,8 @@ var timer:int = 2; # to make "> " visible first
 var clicks:int = 0;
 var width:int;
 
-var imageBox = load("res://UI/Zoom Image/Zoom_Image.tscn")
-var dialogBox = load("res://UI/Dialog Box/Dialog_Player.tscn")
+var imageBox = load("res://UI/Zoom Image/ZoomImage.tscn")
+var dialogBox = load("res://UI/Dialog Box/DialogPlayer.tscn")
 
 
 func _ready() -> void:

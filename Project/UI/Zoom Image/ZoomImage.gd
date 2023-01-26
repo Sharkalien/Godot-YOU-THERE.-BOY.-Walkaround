@@ -3,7 +3,7 @@ extends Control
 var dialog:String = """""";
 var selected:bool = false;
 var dialogBoxInstance;
-var dialogBox = load("res://UI/Dialog Box/Dialog_Player.tscn")
+var dialogBox = load("res://UI/Dialog Box/DialogPlayer.tscn")
 var imageTexture:Texture
 
 func _ready() -> void:

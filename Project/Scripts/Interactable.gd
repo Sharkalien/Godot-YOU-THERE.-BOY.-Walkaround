@@ -5,7 +5,7 @@ export (bool) var multiCommand = false
 
 var clicks:int = 0
 var selected:bool = false;
-var commandBox = load("res://UI/Command Box/Command_Player.tscn")
+var commandBox = load("res://UI/Command Box/CommandPlayer.tscn")
 
 func _ready():
 	var interactable = self

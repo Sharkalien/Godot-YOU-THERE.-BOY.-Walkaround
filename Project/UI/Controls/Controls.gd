@@ -5,7 +5,7 @@ var dialog = """To walk around, use the mouse, arrow keys, or WASD keys. Click o
 Godot programming by Sharkalien and Axollyon (abyssalLotl).
 Based on "[S] YOU THERE. BOY." from Homestuck (page 253).""";
 
-var dialogBox = load("res://UI/Dialog Box/Dialog_Player.tscn")
+var dialogBox = load("res://UI/Dialog Box/DialogPlayer.tscn")
 var selected:bool = false;
 var faded:bool = false;
 
