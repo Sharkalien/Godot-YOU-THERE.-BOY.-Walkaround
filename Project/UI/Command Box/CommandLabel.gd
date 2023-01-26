@@ -1,5 +1,7 @@
 extends RichTextLabel
 
+signal clicked
+
 var command:String;
 var dialog:String = """""";
 var warpScene;
@@ -38,6 +40,7 @@ func _exit_tree():
 
 func _on_CommandLabel_gui_input(event: InputEvent) -> void:
 	if (!Global.dialogOpen && !Global.fading && event is InputEventMouseButton && event.button_index == 1 && event.pressed == true):
+		emit_signal("clicked")
 		Global.remove_commands();
 		if (zoomImage && Global.imagesNode):
 			var imageBoxInstance = imageBox.instance();

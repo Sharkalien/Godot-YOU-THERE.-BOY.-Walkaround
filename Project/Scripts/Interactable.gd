@@ -26,6 +26,12 @@ func _on_mouse_exited()->void:
 func _exit_tree():
 	Global.hoverNodes.erase(self);
 
+func updateClicks():
+	if clicks < interactDialog.size() - 1:
+		clicks += 1
+	else:
+		clicks = 0
+
 func _process(_delta):
 	if (Global.commandsNode && !Global.dialogOpen && !Global.imageOpen && !Global.fading && selected && Input.is_action_just_pressed("click")):
 		var commandBoxInstance = commandBox.instance();
@@ -34,4 +40,6 @@ func _process(_delta):
 		if multiCommand:
 			commandBoxInstance.multiCommand = multiCommand
 		commandBoxInstance.interactDialog = interactDialog
+		commandBoxInstance.connect("clicked", self, "updateClicks")
+		commandBoxInstance.clicks = clicks
 #		clicks = interactDialog[clicks].clicks

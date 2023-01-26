@@ -1,5 +1,7 @@
 extends Control
 
+signal clicked
+
 onready var root = get_tree().get_root()
 onready var commandBox = self
 onready var commandContainer = get_node("MarginContainer/VBoxContainer")
@@ -18,8 +20,13 @@ var height:int;
 
 func _ready() -> void:
 	commandContainer.add_child(labelInstance)
+# warning-ignore:return_value_discarded
+	labelInstance.connect("clicked", self, "clicked")
 	call_deferred("check_interactable_dict", labelInstance)
 	call_deferred("set_command")
+
+func clicked():
+	emit_signal("clicked")
 
 func check_interactable_dict(instance):
 	for key in dict:
@@ -28,8 +35,9 @@ func check_interactable_dict(instance):
 
 func set_command():
 	if multiCommand:
-		print("true")
-		print(interactDialog.size())
+		pass
+#		print("true")
+#		print(interactDialog.size())
 	labelInstance.visible_characters = labelInstance.timer
 	labelInstance.set_bbcode("> " + labelInstance.command)
 	commandBox.rect_size.x = labelInstance.get_font("normal_font").get_string_size(labelInstance.text).x + COMMAND_MARGIN

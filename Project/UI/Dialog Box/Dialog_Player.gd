@@ -15,7 +15,7 @@ func _ready():
 
 func _process(_delta):
 	if (!Global.dialogClosing && !free && animDone):
-		if (timer < dialog.length()):
+		if (timer < dialog.length() + 3):
 			timer += 3;
 			label.visible_characters = timer;
 		elif (!Global.dialogDone):
