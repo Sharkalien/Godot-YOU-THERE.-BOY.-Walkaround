@@ -1,6 +1,6 @@
 # Godot Virtual Joystick
 
-<img src="/MarcoFazioRandom/Virtual-Joystick-Godot/raw/main/previews/icon.png" width="300">
+<img src="https://github.com//MarcoFazioRandom/Virtual-Joystick-Godot/raw/main/previews/icon.png" width="300">
 
 A simple virtual joystick for touchscreens, with useful options.
 
@@ -10,13 +10,13 @@ Godot Engine: https://godotengine.org
 
 ### PREVIEWS:
 
-<img src="/MarcoFazioRandom/Virtual-Joystick-Godot/raw/main/previews/preview1.png" width="500">
+<img src="https://github.com//MarcoFazioRandom/Virtual-Joystick-Godot/raw/main/previews/preview1.png" width="500">
 
 Easy to setup:  
-<img src="/MarcoFazioRandom/Virtual-Joystick-Godot/raw/main/previews/preview2.png" width="300">
+<img src="https://github.com//MarcoFazioRandom/Virtual-Joystick-Godot/raw/main/previews/preview2.png" width="300">
 
 Easy to use:  
-<img src="/MarcoFazioRandom/Virtual-Joystick-Godot/raw/main/previews/preview3.png" width="500">
+<img src="https://github.com//MarcoFazioRandom/Virtual-Joystick-Godot/raw/main/previews/preview3.png" width="500">
 
 ### OPTIONS:  
 
