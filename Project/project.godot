@@ -18,10 +18,16 @@ _global_script_classes=[ {
 "class": "InteractExtra",
 "language": "GDScript",
 "path": "res://Scripts/Resources/InteractResourceExtra.gd"
+}, {
+"base": "Control",
+"class": "VirtualJoystick",
+"language": "GDScript",
+"path": "res://addons/joystick/virtual_joystick.gd"
 } ]
 _global_script_class_icons={
 "InteractDialog": "",
-"InteractExtra": ""
+"InteractExtra": "",
+"VirtualJoystick": ""
 }
 
 [application]
