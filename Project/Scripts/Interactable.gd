@@ -35,11 +35,11 @@ func updateClicks():
 func _process(_delta):
 	if (Global.commandsNode && !Global.dialogOpen && !Global.imageOpen && !Global.fading && selected && Input.is_action_just_pressed("click")):
 		var commandBoxInstance = commandBox.instance();
-		Global.remove_commands();
-		Global.commandsNode.add_child(commandBoxInstance);
 		if multiCommand:
 			commandBoxInstance.multiCommand = multiCommand
 		commandBoxInstance.interactDialog = interactDialog
+		Global.remove_commands();
+		Global.commandsNode.add_child(commandBoxInstance);
 		commandBoxInstance.connect("clicked", self, "updateClicks")
 		commandBoxInstance.clicks = clicks
 #		clicks = interactDialog[clicks].clicks
