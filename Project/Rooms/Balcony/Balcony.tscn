@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Balcony/balcony.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Audio/Songs/wind.wav" type="AudioStream" id=8]
 [ext_resource path="res://Rooms/Balcony/balcCruxite.png" type="Texture" id=9]
 [ext_resource path="res://Scripts/Resources/InteractResourceExtra.gd" type="Script" id=10]
+[ext_resource path="res://Kernelsprite/Kernelsprite.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scripts/Resources/InteractResource.gd" type="Script" id=12]
 
 [sub_resource type="Resource" id=1]
@@ -107,6 +108,9 @@ texture = ExtResource( 9 )
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Alchemiter/CruxiteArea2D"]
 position = Vector2( 134, -140 )
 polygon = PoolVector2Array( 18.5, -51.3, 30.5, -42.6, 30.5, -34.2, 23.5, -14.1, 23.5, -11.2, 28.5, -5.2, 28.5, 2.7, 17, 23, 30.8, 40.2, 23, 47, 12.7, 50.5, -1, 52, -19, 50, -30, 43, -32, 37, -20, 26, -18.9, 23.1, -27, 11, -30, 2, -30, -5, -25, -13, -32, -35, -32, -43, -21.3, -50.5, -10.5, -53.5, 3, -54 )
+
+[node name="Kernelsprite" parent="." instance=ExtResource( 11 )]
+position = Vector2( 188, 315 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 300, 325 )

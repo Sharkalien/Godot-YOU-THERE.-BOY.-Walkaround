@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Kernelsprite/kernelSprite1.png" type="Texture" id=1]
 [ext_resource path="res://Kernelsprite/KS_Babble/kernelSpeech (4).png" type="Texture" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://Kernelsprite/KS_Babble/kernelSpeech (6).png" type="Texture" id=13]
 [ext_resource path="res://Scripts/Interactable.gd" type="Script" id=14]
 [ext_resource path="res://Scripts/Resources/InteractResource.gd" type="Script" id=15]
+[ext_resource path="res://Kernelsprite/Kernelsprite.gd" type="Script" id=16]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -51,7 +52,7 @@ script = ExtResource( 15 )
 command = "THE GHOST CLOWN. DO SOMETHING WITH IT."
 dialog = "The 'GHOST CLOWN' is called the KERNELSPRITE! Or, rather just the SPRITE now, I suppose.
 
-You can\\'t 'DO SOMETHING' with it at the moment! The only thing you can theoretically do with it is TIER 2 PROTOTYPE IT, assuming that's still possible..."
+You can't 'DO SOMETHING' with it at the moment! The only thing you can theoretically do with it is TIER 2 PROTOTYPE IT, assuming that's still possible..."
 
 [sub_resource type="Resource" id=5]
 script = ExtResource( 15 )
@@ -61,15 +62,19 @@ dialog = "You are not the one who is supposed to prototype it! The SBURB SERVER 
 [node name="Kernelsprite" type="KinematicBody2D"]
 collision_layer = 2
 collision_mask = 0
+script = ExtResource( 16 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -136 )
 frames = SubResource( 1 )
 animation = "idle"
+flip_h = true
 
 [node name="KS_Babble" type="AnimatedSprite" parent="."]
-position = Vector2( -282, -221 )
+visible = false
+position = Vector2( 278, -221 )
 frames = SubResource( 2 )
+flip_h = true
 
 [node name="Area2D" type="Area2D" parent="."]
 script = ExtResource( 14 )
@@ -80,5 +85,6 @@ __meta__ = {
 interactDialog = [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ]
 
 [node name="KernelSprite1" type="CollisionPolygon2D" parent="Area2D"]
-position = Vector2( -102, -303 )
+position = Vector2( 102, -303 )
+scale = Vector2( -1, 1 )
 polygon = PoolVector2Array( 111, 1.2, 115, 9, 111.4, 15, 95, 34.2, 90, 51.3, 91, 64, 112.2, 51, 133.5, 51, 140, 57, 142, 70.5, 119, 87.5, 115.6, 102.3, 121, 110, 122, 121, 110.7, 133.3, 124, 141, 136, 156, 151, 190, 159, 190, 164, 193.9, 164, 212.4, 161, 231, 156, 243.3, 158, 253, 156, 259, 148, 270.8, 148, 289, 144, 292, 139, 290.3, 138.4, 294.1, 140.7, 298, 151, 300, 164.1, 290, 177, 291, 181, 294, 186, 308, 190, 313, 203, 311, 200, 319, 192, 324, 184, 325, 173, 319, 166, 317, 138, 330, 115, 331, 93, 326.6, 79, 316.7, 74, 305, 73, 292, 80.5, 248.8, 72.5, 207.7, 43, 201.4, 34, 190, 27, 169, 27, 132, 21, 122.2, 21, 111, 28, 104, 28, 92.4, 21.4, 83, 16.6, 83, 6, 86, 0, 81, 0, 70.2, 7, 58, 19.8, 51, 34.4, 51, 46, 55, 63.1, 20, 80.8, 4, 93, 0 )
