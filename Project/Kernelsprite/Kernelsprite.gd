@@ -6,7 +6,7 @@ onready var playerScale = Global.playerNode.get_node("PlayerArea2D")
 
 
 #func _ready() -> void:
-#	pass
+#	$AnimatedSprite.playing = true
 
 func _physics_process(_delta: float) -> void:
 	spritePos.x = spritePos.x + (Global.playerNode.position.x - spritePos.x) / 60
