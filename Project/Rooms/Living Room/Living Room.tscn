@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Rooms/Living Room/livingRoom.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/CameraHotspot.gd" type="Script" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://Scripts/Interactable.gd" type="Script" id=15]
 [ext_resource path="res://Rooms/Living Room/livingSteps.png" type="Texture" id=16]
 [ext_resource path="res://Scripts/Resources/InteractResourceExtra.gd" type="Script" id=17]
+[ext_resource path="res://Kernelsprite/Kernelsprite.tscn" type="PackedScene" id=18]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 17 )
@@ -180,6 +181,8 @@ interactDialog = [ SubResource( 1 ) ]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/JohnsRoomDoor"]
 polygon = PoolVector2Array( -113.625, -888, 14.875, -908.125, 15.4813, -575.107, -108.691, -535.821, -114.584, -537.645 )
+
+[node name="Kernelsprite" parent="YSort" instance=ExtResource( 18 )]
 
 [node name="Player" parent="YSort" instance=ExtResource( 14 )]
 unique_name_in_owner = true
