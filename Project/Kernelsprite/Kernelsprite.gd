@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+#onready var spritePos:Vector2 = global_position
 var spritePos:Vector2
 var spriteFloat:float
 

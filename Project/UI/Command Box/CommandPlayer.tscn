@@ -38,5 +38,3 @@ margin_right = 152.0
 margin_bottom = 27.0
 mouse_filter = 2
 custom_constants/separation = 0
-
-[connection signal="gui_input" from="." to="." method="_on_gui_input"]

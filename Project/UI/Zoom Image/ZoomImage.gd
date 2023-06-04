@@ -26,7 +26,7 @@ func _exit_tree():
 	Global.hoverNodes.erase(self);
 
 func _process(_delta):
-	if (Global.dialogsNode && !Global.dialogOpen && !Global.fading && selected && Input.is_action_just_pressed("click")):
+	if (!Global.dialogOpen && !Global.fading && selected && Input.is_action_just_pressed("click")):
 		Global.remove_commands();
 		if (dialog != """""" && dialog != "" && dialog != null):
 			dialogBoxInstance = dialogBox.instance();

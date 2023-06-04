@@ -5,7 +5,6 @@ var currentScene = null;
 export var hoverNodes = [];
 
 var playerNode;
-var cameraNode;
 onready var commandsNode = Ui.get_node_or_null("Commands");
 onready var dialogsNode = Ui.get_node_or_null("Dialogs");
 onready var imagesNode = Ui.get_node_or_null("Images");
@@ -32,6 +31,9 @@ var muteAudio:bool = false;
 onready var masterBus = AudioServer.get_bus_index("Master");
 
 func _ready():
+	Input.set_custom_mouse_cursor(load("res://UI/cursor.png"),Input.CURSOR_ARROW)
+	Input.set_custom_mouse_cursor(load("res://UI/cursor_select.png"),Input.CURSOR_POINTING_HAND,Vector2(14, 0))
+	
 	tweenNode = Tween.new();
 	add_child(tweenNode);
 	tweenNode.connect("tween_completed", self, "_on_tween_completed");
@@ -53,7 +55,6 @@ func init_nodes():
 		playerNode = currentScene.get_node_or_null("YSort/Player");
 		if (!playerNode):
 			playerNode = currentScene.get_node_or_null("%Player")
-	cameraNode = currentScene.get_node_or_null("Camera2D");
 	
 	if ("bgmTrack" in currentScene && audioNode.stream != currentScene.bgmTrack):
 		audioNode.stream = currentScene.bgmTrack;
@@ -128,12 +129,14 @@ func _process(_delta):
 		if (imagesNode.get_child_count() > 0):
 			imageOpen = true;
 	
-	if ((hoverNodes.size() > 0 && mouseHover == false && !dialogOpen) || (dialogOpen && dialogDone)):
+	if ((hoverNodes.size() > 0 && mouseHover == false && !dialogOpen)):
 		mouseHover = true;
-		Input.set_custom_mouse_cursor(load("res://UI/cursor_select.png"),Input.CURSOR_ARROW,Vector2(14, 0))
-	elif (dialogOpen || (hoverNodes.size() == 0 && mouseHover == true)):
+		Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
+		print("pointing")
+	elif (hoverNodes.size() == 0 && mouseHover == true):
 		mouseHover = false;
-		Input.set_custom_mouse_cursor(load("res://UI/cursor.png"))
+		Input.set_default_cursor_shape(Input.CURSOR_ARROW)
+		print("arrow")
 	
 	mouseMove = !mouseHover && !dialogOpen && !fading;
 

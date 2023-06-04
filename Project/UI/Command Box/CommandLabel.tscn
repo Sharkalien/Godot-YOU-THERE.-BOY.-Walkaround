@@ -12,6 +12,7 @@ margin_right = 137.0
 margin_bottom = 18.0
 rect_min_size = Vector2( 0, 18 )
 mouse_filter = 1
+mouse_default_cursor_shape = 2
 custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
 bbcode_text = "> "

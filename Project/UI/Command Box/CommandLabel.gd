@@ -42,13 +42,13 @@ func _on_CommandLabel_gui_input(event: InputEvent) -> void:
 	if (!Global.dialogOpen && !Global.fading && event is InputEventMouseButton && event.button_index == 1 && event.pressed == true):
 		emit_signal("clicked")
 		Global.remove_commands();
-		if (zoomImage && Global.imagesNode):
+		if (zoomImage):
 			var imageBoxInstance = imageBox.instance();
 			Global.imagesNode.add_child(imageBoxInstance);
 			if (!dialog.empty() && dialog != null):
 				imageBoxInstance.dialog = dialog;
 			imageBoxInstance.imageTexture = zoomImage;
-		elif ((!dialog.empty() && dialog != null) && Global.dialogsNode):
+		elif (!dialog.empty() && dialog != null):
 			var dialogBoxInstance = dialogBox.instance();
 			Global.dialogsNode.add_child(dialogBoxInstance);
 			dialogBoxInstance.dialog = dialog;

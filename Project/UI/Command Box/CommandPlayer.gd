@@ -57,8 +57,3 @@ func set_command():
 	if (click.x + width > right):
 		click.x = right - width;
 	commandBox.rect_global_position = Vector2(click.x, click.y - 9); # the flash has a particular offset
-
-
-func _on_gui_input(event):
-	if (!Global.dialogOpen && !Global.fading && event is InputEventMouseButton && event.button_index == 1 && event.pressed == true):
-		Global.remove_commands();
