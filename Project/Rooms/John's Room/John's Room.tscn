@@ -147,6 +147,9 @@ __meta__ = {
 position = Vector2( 12, -4 )
 texture = ExtResource( 11 )
 
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Wiseguy"]
+polygon = PoolVector2Array( 0, 59, -26, 41, -59, 7, -64, -7, 20, -48, 90, -7, 91, 20 )
+
 [node name="Player" parent="YSort" instance=ExtResource( 3 )]
 position = Vector2( 4, 240 )
 
