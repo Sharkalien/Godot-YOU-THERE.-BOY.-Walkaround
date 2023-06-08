@@ -12,6 +12,8 @@ var last_mouse_pos = null
 func _physics_process(_delta):
 	movement()
 	velocity = move_and_slide(velocity)
+	if velocity != Vector2.ZERO:
+		global_position = global_position.round()
 
 func movement():
 	if (Global.fading || Global.imageOpen):
