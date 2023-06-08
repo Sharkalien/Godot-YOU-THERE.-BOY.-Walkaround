@@ -30,8 +30,8 @@ func updateClicks():
 	else:
 		clicks = 0
 
-func _process(_delta):
-	if (!Global.dialogOpen && !Global.imageOpen && !Global.fading && selected && Input.is_action_just_pressed("click")):
+func _input(event):
+	if (!Global.dialogOpen && !Global.imageOpen && !Global.fading && selected && event.is_action_released("click")):
 		var commandBoxInstance = commandBox.instance();
 		if multiCommand:
 			commandBoxInstance.multiCommand = multiCommand
@@ -40,3 +40,6 @@ func _process(_delta):
 		Global.commandsNode.add_child(commandBoxInstance);
 		commandBoxInstance.connect("clicked", self, "updateClicks")
 		commandBoxInstance.clicks = clicks
+#		print(self)
+		# Consume input and don't propagate it anymore. Keeps it from passing through one Area2D through another
+		get_tree().set_input_as_handled()

@@ -113,7 +113,7 @@ func _deferred_goto_scene(path):
 	assert(posNode != null, "warpPos needs to be a child of the scene root node!");
 	assert(posNode.get_class() == "Position2D", "warpPos needs a Position2D!");
 	
-	warpPos = posNode.get_position()
+	warpPos = posNode.get_global_position()
 	
 	init_nodes();
 	if (playerNode):

@@ -42,6 +42,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
+Signals="*res://Scripts/Signals.gd"
 Global="*res://Scripts/Global.gd"
 Ui="*res://UI/UI.tscn"
 

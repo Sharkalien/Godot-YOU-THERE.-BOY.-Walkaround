@@ -75,7 +75,7 @@ interactDialog = [ SubResource( 1 ) ]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/DoorArea2D"]
 position = Vector2( 26.1846, 9.72942 )
-polygon = PoolVector2Array( -15.6012, -329.544, -14.174, -0.971975, -69.7947, 21.5856, -70.4247, 10.5613, -139.98, -20.5646, -138.288, -280.703 )
+polygon = PoolVector2Array( -15.6012, -329.544, -14.174, -0.971975, -140.185, 47.2706, -138.288, -280.703 )
 
 [node name="Bed" type="StaticBody2D" parent="YSort"]
 position = Vector2( 279, -154 )
