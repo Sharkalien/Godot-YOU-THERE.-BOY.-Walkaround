@@ -11,16 +11,6 @@ func _ready():
 		pressed = false;
 
 
-func _on_mouse_entered()->void:
-	if (!Global.fading):
-		Global.hoverNodes.append(self);
-
-
-func _on_mouse_exited()->void:
-	if (!Global.fading):
-		Global.hoverNodes.erase(self);
-
-
 func _process(_delta):
 	if (Global.dialogOpen && !Global.dialogDone && !Global.dialogClosing && !faded):
 		faded = true;
