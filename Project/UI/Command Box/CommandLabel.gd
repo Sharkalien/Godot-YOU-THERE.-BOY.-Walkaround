@@ -39,7 +39,7 @@ func _exit_tree():
 
 
 func _on_CommandLabel_gui_input(event: InputEvent) -> void:
-	if (!Global.dialogOpen && !Global.fading && event is InputEventMouseButton && event.button_index == 1 && event.pressed == true):
+	if (!Global.dialogOpen && event.is_action_pressed("click")):
 		emit_signal("clicked")
 		Global.remove_commands();
 		if (zoomImage):

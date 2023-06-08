@@ -7,6 +7,7 @@ self_modulate = Color( 0, 0, 0, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
+mouse_default_cursor_shape = 2
 script = ExtResource( 2 )
 
 [node name="ImageBox" type="TextureRect" parent="."]

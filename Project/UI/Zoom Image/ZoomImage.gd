@@ -26,7 +26,7 @@ func _exit_tree():
 func _process(_delta):
 	if (!Global.dialogOpen && !Global.fading && selected && Input.is_action_just_pressed("click")):
 		Global.remove_commands();
-		if (dialog != """""" && dialog != "" && dialog != null):
+		if (!dialog.empty() && dialog != null):
 			dialogBoxInstance = dialogBox.instance();
 			Global.dialogsNode.add_child(dialogBoxInstance);
 			dialogBoxInstance.dialog = dialog;
@@ -34,5 +34,5 @@ func _process(_delta):
 		queue_free();
 
 func _on_ImageBox_gui_input(_event: InputEvent) -> void:
-	if ((dialog == """""" || dialog == "" || dialog == null) && Input.is_action_just_pressed("click") && Global.imageOpen):
+	if ((dialog.empty() || dialog == null) && Input.is_action_just_pressed("click") && Global.imageOpen):
 		queue_free()
