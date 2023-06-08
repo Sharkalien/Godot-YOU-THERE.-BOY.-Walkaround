@@ -13,7 +13,6 @@ onready var fadeNode = Ui.get_node_or_null("Fade")
 var tweenNode;
 var audioNode;
 
-var mouseMove:bool = true;
 var mouseHover:bool = false;
 
 var imageOpen:bool = false;
@@ -138,7 +137,6 @@ func _process(_delta):
 		Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 		print("arrow")
 	
-	mouseMove = !mouseHover && !dialogOpen && !fading;
 
 func remove_commands():
 	if (commandsNode):
