@@ -132,7 +132,7 @@ func _process(_delta):
 		mouseHover = true;
 		Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
 		print("pointing")
-	elif (hoverNodes.size() == 0 && mouseHover == true):
+	elif (hoverNodes.size() == 0 && mouseHover == true && !fading):
 		mouseHover = false;
 		Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 		print("arrow")

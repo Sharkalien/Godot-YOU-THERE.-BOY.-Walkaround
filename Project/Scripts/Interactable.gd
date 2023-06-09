@@ -40,6 +40,5 @@ func _input(event):
 		Global.commandsNode.add_child(commandBoxInstance);
 		commandBoxInstance.connect("clicked", self, "updateClicks")
 		commandBoxInstance.clicks = clicks
-#		print(self)
-		# Consume input and don't propagate it anymore. Keeps it from passing through one Area2D through another
+		# Consume input and don't propagate it anymore. Keeps it from passing through one Area2D to another
 		get_tree().set_input_as_handled()

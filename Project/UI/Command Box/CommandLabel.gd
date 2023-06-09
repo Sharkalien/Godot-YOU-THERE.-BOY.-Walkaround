@@ -1,6 +1,6 @@
 extends RichTextLabel
 
-signal clicked
+signal command_clicked
 
 var command:String;
 var dialog:String = """""";
@@ -40,7 +40,7 @@ func _exit_tree():
 
 func _on_CommandLabel_gui_input(event: InputEvent) -> void:
 	if (!Global.dialogOpen && event.is_action_pressed("click")):
-		emit_signal("clicked")
+		emit_signal("command_clicked")
 		Global.remove_commands();
 		if (zoomImage):
 			var imageBoxInstance = imageBox.instance();

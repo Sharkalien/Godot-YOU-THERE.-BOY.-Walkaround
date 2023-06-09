@@ -21,7 +21,7 @@ var height:int;
 func _ready() -> void:
 	commandContainer.add_child(labelInstance)
 # warning-ignore:return_value_discarded
-	labelInstance.connect("clicked", self, "clicked")
+	labelInstance.connect("command_clicked", self, "clicked")
 	call_deferred("check_interactable_dict", labelInstance)
 	call_deferred("set_command")
 
