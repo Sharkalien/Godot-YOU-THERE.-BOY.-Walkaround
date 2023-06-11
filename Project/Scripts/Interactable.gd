@@ -2,6 +2,7 @@ extends Area2D
 
 export (Array, Resource) var interactDialog = [Resource] # be sure to load in InteractDialog or InteractExtra
 export (bool) var multiCommand = false
+export (NodePath) var extraFunc
 
 var clicks:int = 0
 var selected:bool = false;
@@ -40,5 +41,9 @@ func _input(event):
 		Global.commandsNode.add_child(commandBoxInstance);
 		commandBoxInstance.connect("clicked", self, "updateClicks")
 		commandBoxInstance.clicks = clicks
+		if extraFunc:
+			var extraFunction = get_node(extraFunc)
+			if extraFunction.has_method("extraFunc"):
+				commandBoxInstance.connect("clicked", extraFunction, "extraFunc")
 		# Consume input and don't propagate it anymore. Keeps it from passing through one Area2D to another
 		get_tree().set_input_as_handled()

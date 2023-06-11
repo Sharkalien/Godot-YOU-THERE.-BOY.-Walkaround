@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Kernelsprite/kernelSprite1.png" type="Texture" id=1]
 [ext_resource path="res://Kernelsprite/KS_Babble/kernelSpeech (4).png" type="Texture" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://Scripts/Interactable.gd" type="Script" id=14]
 [ext_resource path="res://Scripts/Resources/InteractResource.gd" type="Script" id=15]
 [ext_resource path="res://Kernelsprite/Kernelsprite.gd" type="Script" id=16]
+[ext_resource path="res://Kernelsprite/KSExtraFunc.gd" type="Script" id=17]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -37,6 +38,35 @@ animations = [ {
 "name": "default",
 "speed": 20.0
 } ]
+
+[sub_resource type="Animation" id=9]
+resource_name = "babble"
+length = 1.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
 
 [sub_resource type="Resource" id=3]
 script = ExtResource( 15 )
@@ -252,6 +282,11 @@ animation = "idle"
 visible = false
 position = Vector2( -282, -221 )
 frames = SubResource( 2 )
+frame = 8
+playing = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="KS_Babble"]
+anims/babble = SubResource( 9 )
 
 [node name="KernelArea2D" type="Area2D" parent="."]
 script = ExtResource( 14 )
@@ -260,6 +295,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 interactDialog = [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ]
+extraFunc = NodePath("../KSExtraFunc")
 
 [node name="KernelSprite1" type="CollisionPolygon2D" parent="KernelArea2D"]
 visible = false
@@ -283,3 +319,7 @@ autoplay = "idle"
 anims/RESET = SubResource( 7 )
 anims/idle = SubResource( 6 )
 anims/tricksterMode = SubResource( 8 )
+
+[node name="KSExtraFunc" type="Node" parent="."]
+script = ExtResource( 17 )
+ksBabbleAnimPlayer = NodePath("../KS_Babble/AnimationPlayer")
