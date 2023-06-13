@@ -1,10 +1,9 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rooms/Balcony/balcony.png" type="Texture" id=2]
 [ext_resource path="res://Rooms/Balcony/balcAlchemiter.png" type="Texture" id=3]
 [ext_resource path="res://Rooms/Balcony/balcRail.png" type="Texture" id=4]
-[ext_resource path="res://Rooms/Zooms/studyView.jpg" type="Texture" id=5]
 [ext_resource path="res://Scripts/Interactable.gd" type="Script" id=6]
 [ext_resource path="res://Scripts/Room.gd" type="Script" id=7]
 [ext_resource path="res://Audio/Songs/wind.wav" type="AudioStream" id=8]
@@ -34,13 +33,10 @@ dialog = "It is the piece of CRUXITE you carved with the TOTEM LATHE.
 
 When its contours were scanned, the ALCHEMITER was able to produce that tree. How odd!"
 
-[sub_resource type="Resource" id=4]
-script = ExtResource( 10 )
+[sub_resource type="Resource" id=5]
+script = ExtResource( 12 )
 command = "PEEK OVER THE RAILING."
 dialog = "Getting close to the railing makes you a little nervous. It's a long way down."
-warpScene = ""
-warpPos = ""
-zoomImage = ExtResource( 5 )
 
 [node name="Balcony" type="Node2D"]
 position = Vector2( 1, 0 )
@@ -63,13 +59,13 @@ polygon = PoolVector2Array( 1080, 184, 351, 538, -352, 216, -280, 181, -229, 204
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="balcony"]
 polygon = PoolVector2Array( -50, 116, 56, 114, 360, -66, 818, 71, 1116, 207, 1549, 108, 1466, -753, 530, -802, -31, -802 )
 
-[node name="DoorArea2D" type="Area2D" parent="."]
+[node name="LivingRoomDoor" type="Area2D" parent="."]
 collision_layer = 4
 collision_mask = 4
 script = ExtResource( 6 )
 interactDialog = [ SubResource( 1 ) ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DoorArea2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LivingRoomDoor"]
 position = Vector2( 26.1846, 9.72942 )
 polygon = PoolVector2Array( 116.839, -404.849, 116.815, 64.2706, -55.5676, 149.337, -62.8719, 146.153, -63.9346, -315.729 )
 
@@ -84,28 +80,28 @@ __meta__ = {
 position = Vector2( 369, -132 )
 polygon = PoolVector2Array( 55, 421, 489, 199, 51, 79, -315, 247 )
 
-[node name="AlchemiterArea2D" type="Area2D" parent="Alchemiter"]
+[node name="AlchemiterInteractable" type="Area2D" parent="Alchemiter"]
 collision_layer = 4
 collision_mask = 4
 script = ExtResource( 6 )
 interactDialog = [ SubResource( 2 ) ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Alchemiter/AlchemiterArea2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Alchemiter/AlchemiterInteractable"]
 polygon = PoolVector2Array( 425, 288, 798, 99, 798, 2, 648, -72, 645, -113.148, 622, -145.148, 568, -182.148, 496, -203.148, 442, -208.148, 347, -204.148, 254, -169.148, 204, -118.148, 205, -554.266, 158, -555.266, 134, -538.266, 125, -519.266, 103, -527.266, 34.6, -532.266, 23.6, -517.266, 30.6, -503.266, 10.6, -501.266, -8.39999, -508.266, -19.4, -493.266, -6.39999, -482.266, -64.4, -480.266, -63.4, -473.266, 8.60001, -469.266, 18.6, -454.266, 38.6, -448.266, 43.6, -430.266, 51.6, -431.266, 59.6, -453.266, 61.6, -469.266, 70.6, -469.266, 67.6, -490.266, 73.6, -502.266, 94.6, -503.266, 92.6, -210.139, 101.6, -196.139, 114.6, -195.139, 159.6, -214.139, 158.6, -123.139, 120.6, -125.139, 92.6, -117.139, 84.6, -99.1388, 83.6, 4.86124, 52.6, 19.8612, 54.6, 115.861 )
 
-[node name="Sprite" type="Sprite" parent="Alchemiter/AlchemiterArea2D"]
+[node name="Sprite" type="Sprite" parent="Alchemiter/AlchemiterInteractable"]
 position = Vector2( 369, -132 )
 texture = ExtResource( 3 )
 
-[node name="CruxiteArea2D" type="Area2D" parent="Alchemiter"]
+[node name="CruxiteInteractable" type="Area2D" parent="Alchemiter"]
 script = ExtResource( 6 )
 interactDialog = [ SubResource( 3 ) ]
 
-[node name="BalcCruxite" type="Sprite" parent="Alchemiter/CruxiteArea2D"]
+[node name="BalcCruxite" type="Sprite" parent="Alchemiter/CruxiteInteractable"]
 position = Vector2( 134, -140 )
 texture = ExtResource( 9 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Alchemiter/CruxiteArea2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Alchemiter/CruxiteInteractable"]
 position = Vector2( 134, -140 )
 polygon = PoolVector2Array( 18.5, -51.3, 30.5, -42.6, 30.5, -34.2, 23.5, -14.1, 23.5, -11.2, 28.5, -5.2, 28.5, 2.7, 17, 23, 30.8, 40.2, 23, 47, 12.7, 50.5, -1, 52, -19, 50, -30, 43, -32, 37, -20, 26, -18.9, 23.1, -27, 11, -30, 2, -30, -5, -25, -13, -32, -35, -32, -43, -21.3, -50.5, -10.5, -53.5, 3, -54 )
 
@@ -120,15 +116,15 @@ collision_mask = 0
 position = Vector2( -5, -85 )
 remote_path = NodePath("../../Camera2D")
 
-[node name="RailArea2D" type="Area2D" parent="."]
+[node name="RailInteractable" type="Area2D" parent="."]
 position = Vector2( 602, 344 )
 script = ExtResource( 6 )
-interactDialog = [ SubResource( 4 ) ]
+interactDialog = [ SubResource( 5 ) ]
 
-[node name="rail" type="Sprite" parent="RailArea2D"]
+[node name="rail" type="Sprite" parent="RailInteractable"]
 texture = ExtResource( 4 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RailArea2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RailInteractable"]
 polygon = PoolVector2Array( 750, -247, 750, -238, 696.5, -210.8, 696.5, -114.8, 729, -130, 750, -119, 750, -109, -11.9, 258, -363, 95, -373.5, 78.2, -387, 85, -752, -82, -752, -92, -731, -103, -716, -97, -716, -193, -752, -210, -752, -220, -730, -231, -19.1, 98, -8.90002, 100.4, 729, -258 )
 
 [node name="Camera2D" type="Camera2D" parent="."]

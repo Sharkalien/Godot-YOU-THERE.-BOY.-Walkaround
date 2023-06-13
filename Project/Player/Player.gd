@@ -35,11 +35,11 @@ func movement():
 			if Input.is_action_pressed("ui_right") || (velocity.x > 0 && last_mouse_pos != null):
 				$AnimationPlayer.play("run" + facing)
 				$Sprite.flip_h = false
-				$PlayerArea2D.scale.x = 1;
+				$PlayerInteractable.scale.x = 1;
 			elif Input.is_action_pressed("ui_left") || (velocity.x < 0 && last_mouse_pos != null):
 				$AnimationPlayer.play("run" + facing)
 				$Sprite.flip_h = true
-				$PlayerArea2D.scale.x = -1;
+				$PlayerInteractable.scale.x = -1;
 		if !(Input.is_action_pressed("ui_up") && Input.is_action_pressed("ui_down")) || (velocity.y != 0 && last_mouse_pos != null):
 			if Input.is_action_pressed("ui_up") || (velocity.y < 0 && last_mouse_pos != null):
 				if facing != "Back":
