@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://Rooms/Living Room/livingRoom.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/CameraHotspot.gd" type="Script" id=2]
@@ -116,6 +116,13 @@ script = ExtResource( 17 )
 command = "HERE BOY. IN HERE."
 dialog = ""
 warpScene = "res://Rooms/Study/Study.tscn"
+warpPos = "FromLivingRoomPos"
+
+[sub_resource type="Resource" id=18]
+script = ExtResource( 17 )
+command = "THIS WAY. THROUGH THE DOORS LIKE YOU SEE IN A COWBOY SALOON."
+dialog = ""
+warpScene = "res://Rooms/Kitchen/Kitchen.tscn"
 warpPos = "FromLivingRoomPos"
 
 [sub_resource type="Resource" id=16]
@@ -373,6 +380,13 @@ interactDialog = [ SubResource( 17 ) ]
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/StudyDoor"]
 polygon = PoolVector2Array( 253, -58, 370, -48, 370, -269, 363, -312, 354, -336, 334, -358, 310, -368, 286, -364, 272, -354, 253, -318 )
 
+[node name="KitchenDoor" type="Area2D" parent="YSort"]
+script = ExtResource( 15 )
+interactDialog = [ SubResource( 18 ) ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/KitchenDoor"]
+polygon = PoolVector2Array( 47, -14, 170, -62, 169, -378, 47, -332 )
+
 [node name="Kernelsprite" parent="YSort" instance=ExtResource( 18 )]
 
 [node name="Player" parent="YSort" instance=ExtResource( 14 )]
@@ -438,6 +452,12 @@ __meta__ = {
 
 [node name="FromStudyPos" type="Position2D" parent="."]
 position = Vector2( 280, -33 )
+__meta__ = {
+"_gizmo_extents_": 30.0
+}
+
+[node name="FromKitchenPos" type="Position2D" parent="."]
+position = Vector2( 140, -21 )
 __meta__ = {
 "_gizmo_extents_": 30.0
 }
