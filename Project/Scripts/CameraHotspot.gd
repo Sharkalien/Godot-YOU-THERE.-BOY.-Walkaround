@@ -16,11 +16,11 @@ func _ready() -> void:
 	assert(Global.currentScene.get_node_or_null("%Player") != null, "Access Player as Scene Unique Name when using hotspots!")
 	remoteTransform = Global.currentScene.get_node_or_null("%Player").get_node_or_null("RemoteTransform2D")
 	old_position = remoteTransform.get_position()
-	new_position = snapTo.get_position()
+	new_position = snapTo.get_global_position()
 
 func _on_body_entered(body:PhysicsBody2D):
 	if body.get_class() == "KinematicBody2D":
-		remoteTransform.set_position(new_position)
+		remoteTransform.set_global_position(new_position)
 
 func _on_body_exited(body:PhysicsBody2D):
 	if body.get_class() == "KinematicBody2D":

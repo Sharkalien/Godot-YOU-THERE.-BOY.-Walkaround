@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Rooms/Living Room/livingRoom.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/CameraHotspot.gd" type="Script" id=2]
@@ -102,6 +102,13 @@ script = ExtResource( 17 )
 command = "BOY, GO IN HERE."
 dialog = ""
 warpScene = "res://Rooms/John's Room/John's Room.tscn"
+warpPos = "FromLivingRoomPos"
+
+[sub_resource type="Resource" id=19]
+script = ExtResource( 17 )
+command = "WHAT IS DOWN HERE. PROCEED, BOY."
+dialog = ""
+warpScene = "res://Rooms/Hallway/Hallway.tscn"
 warpPos = "FromLivingRoomPos"
 
 [sub_resource type="Resource" id=2]
@@ -363,6 +370,13 @@ interactDialog = [ SubResource( 1 ) ]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/JohnsRoomDoor"]
 polygon = PoolVector2Array( -113.625, -888, 14.875, -908.125, 15.4813, -575.107, -108.691, -535.821, -114.584, -537.645 )
+
+[node name="HallDoor" type="Area2D" parent="YSort"]
+script = ExtResource( 15 )
+interactDialog = [ SubResource( 19 ) ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/HallDoor"]
+polygon = PoolVector2Array( 177, -537, 312, -501, 311, -1030, 176, -1065 )
 
 [node name="BalconyDoor" type="Area2D" parent="YSort"]
 collision_layer = 4
