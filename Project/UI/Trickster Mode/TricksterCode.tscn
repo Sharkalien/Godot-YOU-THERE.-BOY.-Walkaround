@@ -1,0 +1,260 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://UI/Dialog Box/courbd.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://UI/Trickster Mode/TricksterCode.gd" type="Script" id=2]
+[ext_resource path="res://ui/Dialog Box/9patch_dialog.png" type="Texture" id=5]
+
+[sub_resource type="DynamicFont" id=16]
+size = 35
+extra_spacing_char = -1
+extra_spacing_space = 3
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0, 0, 0, 1 )
+shadow_color = Color( 0, 0, 0, 0 )
+
+[sub_resource type="StyleBoxFlat" id=14]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0, 0, 0, 1 )
+anti_aliasing = false
+
+[sub_resource type="Theme" id=7]
+LineEdit/colors/cursor_color = Color( 0, 0, 0, 1 )
+LineEdit/colors/font_color = Color( 0, 0, 0, 1 )
+LineEdit/colors/font_color_selected = Color( 1, 1, 1, 1 )
+LineEdit/colors/selection_color = Color( 0, 0, 0, 1 )
+LineEdit/icons/clear = null
+LineEdit/styles/focus = SubResource( 9 )
+LineEdit/styles/normal = SubResource( 14 )
+
+[sub_resource type="DynamicFont" id=15]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 24
+extra_spacing_char = -1
+extra_spacing_space = 2
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="Theme" id=6]
+Button/colors/font_color = Color( 1, 1, 1, 1 )
+Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+Button/colors/font_color_focus = Color( 1, 1, 1, 1 )
+Button/colors/font_color_hover = Color( 1, 1, 1, 1 )
+Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+Button/constants/hseparation = 2
+Button/fonts/font = SubResource( 10 )
+Button/styles/disabled = null
+Button/styles/focus = SubResource( 11 )
+Button/styles/hover = SubResource( 12 )
+Button/styles/normal = SubResource( 4 )
+Button/styles/pressed = SubResource( 5 )
+
+[sub_resource type="DynamicFont" id=13]
+size = 36
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "Open"
+length = 0.142857
+step = 0.0285714
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_min_size")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.0285714, 0.0571429, 0.0857143, 0.114286, 0.142857 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 60, 60 ), Vector2( 202, 89 ), Vector2( 355, 128 ), Vector2( 508, 168 ), Vector2( 661, 206 ), Vector2( 640, 191 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("NameLabel:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.114286, 0.142857 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ false, false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("GoButton:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.114286, 0.142857 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ false, false, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("TricksterCode:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.114286, 0.142857 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ false, false, true ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_min_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 60, 60 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("NameLabel:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("GoButton:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("TricksterCode:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[node name="TricksterCode" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+script = ExtResource( 2 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -320.0
+margin_top = -257.0
+margin_right = 320.0
+margin_bottom = -18.0
+grow_horizontal = 2
+
+[node name="Body_NinePatchRect" type="NinePatchRect" parent="CenterContainer"]
+margin_left = 290.0
+margin_top = 89.0
+margin_right = 350.0
+margin_bottom = 149.0
+rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 5 )
+patch_margin_left = 30
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 30
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NameLabel" type="Label" parent="CenterContainer/Body_NinePatchRect"]
+visible = false
+margin_left = 28.0
+margin_top = 34.0
+margin_right = 628.0
+margin_bottom = 75.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 16 )
+text = "Please insert trickster code:"
+
+[node name="TricksterCode" type="LineEdit" parent="CenterContainer/Body_NinePatchRect"]
+visible = false
+margin_left = 42.0
+margin_top = 101.0
+margin_right = 272.0
+margin_bottom = 144.0
+rect_min_size = Vector2( 227, 43 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = SubResource( 7 )
+custom_fonts/font = SubResource( 15 )
+max_length = 50
+context_menu_enabled = false
+placeholder_alpha = 0.4
+
+[node name="GoButton" type="Button" parent="CenterContainer/Body_NinePatchRect"]
+visible = false
+margin_left = 315.0
+margin_top = 86.0
+margin_right = 407.0
+margin_bottom = 158.0
+rect_min_size = Vector2( 92, 72 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = SubResource( 6 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 13 )
+text = "GO"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer/Body_NinePatchRect"]
+autoplay = "Open"
+playback_process_mode = 0
+anims/Open = SubResource( 2 )
+anims/RESET = SubResource( 3 )

@@ -3,21 +3,15 @@
 [ext_resource path="res://UI/Controls/Controls.gd" type="Script" id=1]
 [ext_resource path="res://UI/Controls/controls.png" type="Texture" id=2]
 
-[node name="Controls" type="Control"]
+[node name="Controls" type="TextureButton"]
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -56.0
 margin_bottom = 27.0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 2 )
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 28, 14 )
-texture = ExtResource( 2 )
 
 [node name="Tween" type="Tween" parent="."]
 
-[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_Controls_pressed"]

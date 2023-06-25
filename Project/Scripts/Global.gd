@@ -1,47 +1,49 @@
-extends CanvasModulate
+extends Node
 
 var currentScene = null;
 
 export var hoverNodes = [];
 
 var playerNode;
-var cameraNode;
-var commandsNode;
-var dialogsNode;
-var imagesNode;
+onready var commandsNode = Ui.get_node_or_null("Commands");
+onready var dialogsNode = Ui.get_node_or_null("Dialogs");
+onready var imagesNode = Ui.get_node_or_null("Images");
+onready var fadeNode = Ui.get_node_or_null("Fade")
 
 var tweenNode;
 var audioNode;
 
-var mouseMove = true;
-var mouseHover = false;
+var mouseHover:bool = false;
 
-var imageOpen = false;
-var dialogOpen = false;
-var dialogDone = false;
-var dialogClosing = false;
+var imageOpen:bool = false;
+var dialogOpen:bool = false;
+var dialogDone:bool = false;
+var dialogClosing:bool = false;
 
-var fadeScene = "";
-var fading = false;
-var fadedOut = false;
-var warpPos = Vector2.ZERO;
+var fadeScene:String = "";
+var fading:bool = false;
+var fadedOut:bool = false;
+var warpPos:Vector2 = Vector2.ZERO;
+var posPath:String
 
-var muteAudio = false;
-var masterBus;
+var muteAudio:bool = false;
+onready var masterBus = AudioServer.get_bus_index("Master");
 
 func _ready():
+	Input.set_custom_mouse_cursor(load("res://UI/cursor.png"),Input.CURSOR_ARROW)
+	Input.set_custom_mouse_cursor(load("res://UI/cursor_select.png"),Input.CURSOR_POINTING_HAND,Vector2(14, 0))
+	
 	tweenNode = Tween.new();
 	add_child(tweenNode);
 	tweenNode.connect("tween_completed", self, "_on_tween_completed");
 	
 	audioNode = AudioStreamPlayer.new();
 	add_child(audioNode);
-	masterBus = AudioServer.get_bus_index("Master");
 	
 	var root = get_tree().get_root();
 	currentScene = root.get_child(root.get_child_count() - 1);
 	init_nodes();
-	
+
 func mute_audio(mute):
 	muteAudio = mute;
 	AudioServer.set_bus_mute(masterBus, mute);
@@ -50,21 +52,19 @@ func init_nodes():
 	playerNode = currentScene.get_node_or_null("Player");
 	if (!playerNode):
 		playerNode = currentScene.get_node_or_null("YSort/Player");
-	cameraNode = currentScene.get_node_or_null("Camera2D");
-	commandsNode = currentScene.get_node_or_null("UI/Commands");
-	imagesNode = currentScene.get_node_or_null("UI/Images");
-	dialogsNode = currentScene.get_node_or_null("UI/Dialogs");
+		if (!playerNode):
+			playerNode = currentScene.get_node_or_null("%Player")
 	
 	if ("bgmTrack" in currentScene && audioNode.stream != currentScene.bgmTrack):
 		audioNode.stream = currentScene.bgmTrack;
 		audioNode.play();
-	
+
 func fadeto_scene(path, pos):
 	fading = true;
 	fadeScene = path;
-	warpPos = pos;
+	posPath = pos; assert(pos != "", "warpPos needs the name of a Position2D!");
 	var time = 0.3;
-	tweenNode.interpolate_property(self,"color", Color(1,1,1,1), Color(0,0,0,1), time, Tween.TRANS_LINEAR, Tween.EASE_OUT);
+	tweenNode.interpolate_property(fadeNode,"color", Color(0,0,0,0), Color(0,0,0,1), time, Tween.TRANS_LINEAR, Tween.EASE_OUT);
 	tweenNode.start();
 
 func _on_tween_completed(_object, _key):
@@ -76,9 +76,9 @@ func _on_tween_completed(_object, _key):
 			fadedOut = true;
 			goto_scene(fadeScene);
 			var time = 0.3;
-			tweenNode.interpolate_property(self,"color", Color(0,0,0,1), Color(1,1,1,1), time, Tween.TRANS_LINEAR, Tween.EASE_OUT);
+			tweenNode.interpolate_property(fadeNode,"color", Color(0,0,0,1), Color(0,0,0,0), time, Tween.TRANS_LINEAR, Tween.EASE_OUT);
 			tweenNode.start();
-	
+
 func goto_scene(path):
 	# This function will usually be called from a signal callback,
 	# or some other function in the current scene.
@@ -90,22 +90,29 @@ func goto_scene(path):
 	# we can be sure that no code from the current scene is running:
 
 	call_deferred("_deferred_goto_scene", path);
-	
+
 func _deferred_goto_scene(path):
 	# It is now safe to remove the current scene
 	currentScene.free();
 
 	# Load the new scene.
-	var s = ResourceLoader.load(path);
+	var s = ResourceLoader.load(path); assert(ResourceLoader.exists(path) != false, "warpScene needs a valid filepath!");
 
 	# Instance the new scene.
-	currentScene = s.instance();
+	currentScene = s.instance(); # if you get an error here, make sure the file path to the scene exists and hasn't been changed
 
 	# Add it to the active scene, as child of root.
 	get_tree().get_root().add_child(currentScene);
 
 	# Optionally, to make it compatible with the SceneTree.change_scene() API.
 	get_tree().set_current_scene(currentScene);
+	
+	# Get and set the path of the Position2D node in the scene to warp to
+	var posNode = get_tree().get_current_scene().get_node(posPath);
+	assert(posNode != null, "warpPos needs to be a child of the scene root node!");
+	assert(posNode.get_class() == "Position2D", "warpPos needs a Position2D!");
+	
+	warpPos = posNode.get_global_position()
 	
 	init_nodes();
 	if (playerNode):
@@ -114,9 +121,6 @@ func _deferred_goto_scene(path):
 func _process(_delta):
 	dialogOpen = false;
 	if (dialogsNode):
-#		var cTrans = get_canvas_transform()
-#		var pos = -cTrans.get_origin() / cTrans.get_scale()
-#		dialogsNode.global_position = pos;
 		if (dialogsNode.get_child_count() > 0 && dialogsNode.get_child(0).free == false):
 			dialogOpen = true;
 	imageOpen = false;
@@ -124,15 +128,16 @@ func _process(_delta):
 		if (imagesNode.get_child_count() > 0):
 			imageOpen = true;
 	
-	if ((hoverNodes.size() > 0 && mouseHover == false && !dialogOpen) || (dialogOpen && dialogDone)):
+	if ((hoverNodes.size() > 0 && mouseHover == false && !dialogOpen)):
 		mouseHover = true;
-		Input.set_custom_mouse_cursor(load("res://UI/cursor_select.png"),Input.CURSOR_ARROW,Vector2(14, 0))
-	elif (dialogOpen || (hoverNodes.size() == 0 && mouseHover == true)):
+		Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
+		print("pointing")
+	elif (hoverNodes.size() == 0 && mouseHover == true && !fading):
 		mouseHover = false;
-		Input.set_custom_mouse_cursor(load("res://UI/cursor.png"))
+		Input.set_default_cursor_shape(Input.CURSOR_ARROW)
+		print("arrow")
 	
-	mouseMove = !mouseHover && !dialogOpen && !fading;
-		
+
 func remove_commands():
 	if (commandsNode):
 		var count = commandsNode.get_child_count();

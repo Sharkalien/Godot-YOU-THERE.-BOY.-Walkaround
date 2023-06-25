@@ -12,6 +12,8 @@ var last_mouse_pos = null
 func _physics_process(_delta):
 	movement()
 	velocity = move_and_slide(velocity)
+	if velocity != Vector2.ZERO:
+		global_position = global_position.round()
 
 func movement():
 	if (Global.fading || Global.imageOpen):
@@ -33,11 +35,11 @@ func movement():
 			if Input.is_action_pressed("ui_right") || (velocity.x > 0 && last_mouse_pos != null):
 				$AnimationPlayer.play("run" + facing)
 				$Sprite.flip_h = false
-				$PlayerArea2D.scale.x = 1;
+				$PlayerInteractable.scale.x = 1;
 			elif Input.is_action_pressed("ui_left") || (velocity.x < 0 && last_mouse_pos != null):
 				$AnimationPlayer.play("run" + facing)
 				$Sprite.flip_h = true
-				$PlayerArea2D.scale.x = -1;
+				$PlayerInteractable.scale.x = -1;
 		if !(Input.is_action_pressed("ui_up") && Input.is_action_pressed("ui_down")) || (velocity.y != 0 && last_mouse_pos != null):
 			if Input.is_action_pressed("ui_up") || (velocity.y < 0 && last_mouse_pos != null):
 				if facing != "Back":
@@ -62,17 +64,17 @@ func keyMovement():
 # Moves character to where mouse clicked. 
 # Please refer to 
 # https://www.youtube.com/watch?v=5bxys-Zo_jk&list=PLllc6qRBTEefSTIsPZVqhhuGNMc-5kOS6&index=16
-func _input(event):
-	if Global.mouseMove && event.is_action_pressed("mouse_move"):
+func _unhandled_input(event):
+	if event.is_action_pressed("click"):
 		Global.remove_commands();
 		last_mouse_pos = get_global_mouse_position()
 
 func mouseMovement():
 	if last_mouse_pos:
 		var input_vector = (last_mouse_pos - global_position)
-
+		
 		if input_vector.length() < 5 || (get_slide_count() > 0 && velocity != Vector2.ZERO):
 			last_mouse_pos = null;
 			return 
-
+		
 		direction = input_vector.normalized();

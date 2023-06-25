@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://UI/Zoom Image/ZoomImage.gd" type="Script" id=2]
+
+[node name="ZoomImage" type="Panel"]
+self_modulate = Color( 0, 0, 0, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+mouse_default_cursor_shape = 2
+script = ExtResource( 2 )
+
+[node name="ImageBox" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+expand = true
+stretch_mode = 6
+
+[connection signal="gui_input" from="ImageBox" to="." method="_on_ImageBox_gui_input"]
+[connection signal="mouse_entered" from="ImageBox" to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ImageBox" to="." method="_on_mouse_exited"]

@@ -1,7 +1,7 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Rooms/Living Room/livingRoom.png" type="Texture" id=1]
-[ext_resource path="res://UI/UI.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/CameraHotspot.gd" type="Script" id=2]
 [ext_resource path="res://Rooms/Living Room/livingQuin1.png" type="Texture" id=3]
 [ext_resource path="res://Rooms/Living Room/livingQuin5.png" type="Texture" id=4]
 [ext_resource path="res://Rooms/Living Room/livingQuin3.png" type="Texture" id=5]
@@ -16,21 +16,139 @@
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Scripts/Interactable.gd" type="Script" id=15]
 [ext_resource path="res://Rooms/Living Room/livingSteps.png" type="Texture" id=16]
+[ext_resource path="res://Scripts/Resources/InteractResourceExtra.gd" type="Script" id=17]
+[ext_resource path="res://Kernelsprite/Kernelsprite.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Scripts/Resources/InteractResource.gd" type="Script" id=19]
+
+[sub_resource type="Resource" id=3]
+script = ExtResource( 19 )
+command = "THAT MAN WITH THE HUMOROUS SPECTACLES. ADMIRE HIM."
+dialog = "Oh, Michael Cera. Your warm smile is a shining beacon in these dark times."
+
+[sub_resource type="Resource" id=4]
+script = ExtResource( 19 )
+command = "I DETEST THIS! DISREGARD IT?"
+dialog = "The HARLEQUIN PAINTING?
+
+You have the sentiment in common with John then, I suppose."
+
+[sub_resource type="Resource" id=5]
+script = ExtResource( 19 )
+command = "NO NO NO NO NO. KEEP MOVING."
+dialog = "Believe me, you have no intention of turning your head to observe this dreadful thing."
+
+[sub_resource type="Resource" id=6]
+script = ExtResource( 19 )
+command = "VILE. PAY NO MIND TO THIS FILTH."
+dialog = "What is he even doing there? Playing with a ball or something?
+
+Clowns are stupid."
+
+[sub_resource type="Resource" id=7]
+script = ExtResource( 19 )
+command = "UGH, NO."
+dialog = "So coy. So mysterious."
+
+[sub_resource type="Resource" id=8]
+script = ExtResource( 19 )
+command = "WHY DOES THIS SMALL MAN STAND HERE?"
+dialog = "This HARLEQUIN is always ready to serve you with illumination, whether you're reading a book, or just enjoying a nice pipe."
+
+[sub_resource type="Resource" id=10]
+script = ExtResource( 19 )
+command = "A SMALL DESSERT TRAY? USELESS."
+dialog = "In retrospect, it was pretty funny when your DAD pied you like that. Gotcha'd again by the old man!"
+
+[sub_resource type="Resource" id=11]
+script = ExtResource( 19 )
+command = "DESTROY THESE DIMINUTIVE SOLDIERS OF MERRIMENT."
+dialog = "It hardly seems worth it to go to the bother.
+
+You doubt you could get much for them at a garage sale even. Maybe a grubby palm of pennies and a kick in the nuts for the whole lot of 'em."
+
+[sub_resource type="Resource" id=12]
+script = ExtResource( 19 )
+command = "WIELD THESE INSTRUMENTS OF COMBAT."
+dialog = "Any one of these things would make a fine weapon. If only your STRIFE SPECIBUS wasn't already allocated. Oh well."
+
+[sub_resource type="Resource" id=13]
+script = ExtResource( 19 )
+command = "STOW LUMP OF SOOT FOR FUTURE USE, BOY."
+dialog = "That stuff is really dirty and you don't want it!
+
+Besides, you have it on good authority that a significant portion of it is comprised of asbestos."
+
+[sub_resource type="Resource" id=14]
+script = ExtResource( 19 )
+command = "TOPPLE THIS URN IMMEDIATELY."
+dialog = "That would be disrespectful to your NANNA! You just won't do it!! Or not intentionally at least!!!
+
+You consider that it is fortunate she is no longer around to witness this sorrow. On the other hand, you would probably benefit from her elderly wisdom now..."
+
+[sub_resource type="Resource" id=15]
+script = ExtResource( 19 )
+command = "USE THIS TO RESEAL THAT OPENING THERE."
+dialog = "If only putting the lid back on the CRUXTRUDER would undo all it's done. Alas, Pandora's Tube has been opened."
+
+[sub_resource type="Resource" id=9]
+script = ExtResource( 19 )
+command = "WHAT IS THE MEANING OF THIS RUBBISH."
+dialog = "Ok, even YOU have to admit. This one's pretty funny!
+
+hehehehe!"
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 17 )
+command = "BOY, GO IN HERE."
+dialog = ""
+warpScene = "res://Rooms/John's Room/John's Room.tscn"
+warpPos = "FromLivingRoomPos"
+
+[sub_resource type="Resource" id=19]
+script = ExtResource( 17 )
+command = "WHAT IS DOWN HERE. PROCEED, BOY."
+dialog = ""
+warpScene = "res://Rooms/Hallway/Hallway.tscn"
+warpPos = "FromLivingRoomPos"
+
+[sub_resource type="Resource" id=2]
+script = ExtResource( 17 )
+command = "WAIT GO BACK OUT HERE BOY."
+dialog = ""
+warpScene = "res://Rooms/Balcony/Balcony.tscn"
+warpPos = "FromLivingRoomPos"
+
+[sub_resource type="Resource" id=17]
+script = ExtResource( 17 )
+command = "HERE BOY. IN HERE."
+dialog = ""
+warpScene = "res://Rooms/Study/Study.tscn"
+warpPos = "FromLivingRoomPos"
+
+[sub_resource type="Resource" id=18]
+script = ExtResource( 17 )
+command = "THIS WAY. THROUGH THE DOORS LIKE YOU SEE IN A COWBOY SALOON."
+dialog = ""
+warpScene = "res://Rooms/Kitchen/Kitchen.tscn"
+warpPos = "FromLivingRoomPos"
+
+[sub_resource type="Resource" id=16]
+script = ExtResource( 19 )
+command = "MOVE THIS ABSURD EDIFICE AND EXIT YOUR HOUSE, BOY."
+dialog = "This thing weighs a ton! You'd honestly be surprised if the game cursor could lift it, or at least not without a significant expense of GRIST.
+
+Of all the places for Rose to drop the infernal thing. More than ever you feel... what's the word you're looking for?
+
+Of course. Housetrapped."
 
 [node name="Living Room" type="Node2D"]
 script = ExtResource( 13 )
-
-[node name="Background" type="ColorRect" parent="."]
-margin_left = -1164.0
-margin_top = -1622.0
-margin_right = 1572.0
-margin_bottom = 816.0
-mouse_filter = 2
 
 [node name="YSort" type="YSort" parent="."]
 
 [node name="LivingRoom" type="StaticBody2D" parent="YSort"]
 position = Vector2( 210, -1292 )
+collision_layer = 0
 __meta__ = {
 "_edit_group_": true
 }
@@ -43,31 +161,69 @@ texture = ExtResource( 1 )
 position = Vector2( -109, 519 )
 texture = ExtResource( 3 )
 
+[node name="Interactable" type="Area2D" parent="YSort/LivingRoom/livingQuin1"]
+script = ExtResource( 15 )
+interactDialog = [ SubResource( 3 ) ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/LivingRoom/livingQuin1/Interactable"]
+polygon = PoolVector2Array( -52, -87, 52, -82, 52, 86, -52, 67 )
+
 [node name="livingQuin2" type="Sprite" parent="YSort/LivingRoom"]
 position = Vector2( 266, 570 )
 texture = ExtResource( 6 )
+
+[node name="Interactable" type="Area2D" parent="YSort/LivingRoom/livingQuin2"]
+script = ExtResource( 15 )
+interactDialog = [ SubResource( 4 ) ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/LivingRoom/livingQuin2/Interactable"]
+polygon = PoolVector2Array( -116, 120, 114, 180, 114, -160, -116, -178 )
 
 [node name="livingQuin3" type="Sprite" parent="YSort/LivingRoom"]
 position = Vector2( 731, 1071 )
 texture = ExtResource( 5 )
 
+[node name="Interactable" type="Area2D" parent="YSort/LivingRoom/livingQuin3"]
+script = ExtResource( 15 )
+interactDialog = [ SubResource( 5 ) ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/LivingRoom/livingQuin3/Interactable"]
+polygon = PoolVector2Array( -95, -106, 93, -54, 93, 104, -95, 52 )
+
 [node name="livingQuin4" type="Sprite" parent="YSort/LivingRoom"]
 position = Vector2( 266, 1085 )
 texture = ExtResource( 7 )
+
+[node name="Interactable" type="Area2D" parent="YSort/LivingRoom/livingQuin4"]
+script = ExtResource( 15 )
+interactDialog = [ SubResource( 6 ) ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/LivingRoom/livingQuin4/Interactable"]
+polygon = PoolVector2Array( 82, 112, 82, -59, -82, -112, -84, 55 )
 
 [node name="livingQuin5" type="Sprite" parent="YSort/LivingRoom"]
 position = Vector2( -441, 1111 )
 texture = ExtResource( 4 )
 
+[node name="Interactable" type="Area2D" parent="YSort/LivingRoom/livingQuin5"]
+script = ExtResource( 15 )
+interactDialog = [ SubResource( 7 ) ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/LivingRoom/livingQuin5/Interactable"]
+polygon = PoolVector2Array( -49, -54, 47, -88, 47, 54, -49, 88 )
+
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/LivingRoom"]
+visible = false
 position = Vector2( -210, 1292 )
 polygon = PoolVector2Array( -110, -536, 28, -579, 160, -541, 311, -499, 385, -478, 521, -443, 612, -422, 920, -18, 1065, 45, 1119, 43, 1124, -365, 711, -486, 746, -1175, -270, -1108 )
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="YSort/LivingRoom"]
+visible = false
 position = Vector2( -210, 1292 )
 polygon = PoolVector2Array( 1064, 44, 943, 104, 884, 223, 892, 227, 294, 525, 143, 453, 82, 482, -141, 377, -83, 346, -428, 196, 200, -76, 197, -461, 51, -408, -65, -459, 25, -489, -119, -539, -546, -409, -500, 382, -120, 561, 922, 657, 1168, 126 )
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="YSort/LivingRoom"]
+visible = false
 position = Vector2( -210, 1292 )
 polygon = PoolVector2Array( 200, -76, 756, 129, 793, 46, 811, 35, 504, -374, 197, -462 )
 
@@ -85,19 +241,19 @@ texture = ExtResource( 8 )
 position = Vector2( 0, -64 )
 polygon = PoolVector2Array( -8, 148, 76, 109, 165, 147, 205, 109, -116, -25, -223, 29, -222, 43, -217, 55 )
 
-[node name="Cruxtruder" type="StaticBody2D" parent="YSort"]
-position = Vector2( 76, 380 )
-__meta__ = {
-"_edit_group_": true
-}
+[node name="LampInteractable" type="Area2D" parent="YSort/Couch"]
+script = ExtResource( 15 )
+interactDialog = [ SubResource( 8 ) ]
 
-[node name="Sprite" type="Sprite" parent="YSort/Cruxtruder"]
-position = Vector2( 0, -104 )
-texture = ExtResource( 9 )
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Couch/LampInteractable"]
+polygon = PoolVector2Array( 172, -52, 187, -52, 198, -62, 208, -88, 207, -144, 217, -136, 225, -142, 216, -175, 191, -194, 185, -203, 180, -194, 158, -183, 145, -160, 146, -142 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Cruxtruder"]
-position = Vector2( 0, -104 )
-polygon = PoolVector2Array( 5, 202, 209, 96, -8, -5, -211, 100 )
+[node name="PieInteractable" type="Area2D" parent="YSort/Couch"]
+script = ExtResource( 15 )
+interactDialog = [ SubResource( 10 ) ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Couch/PieInteractable"]
+polygon = PoolVector2Array( -89, -25, -69, -21, -37, -22, -17, -30, -16, -51, -30, -54, -26, -87, -31, -88, -49, -74, -54, -53, -83, -52, -95, -47 )
 
 [node name="FireplaceShelf" type="StaticBody2D" parent="YSort"]
 position = Vector2( -179, 77 )
@@ -113,6 +269,34 @@ texture = ExtResource( 10 )
 position = Vector2( 0, -25 )
 polygon = PoolVector2Array( 225, 22, 43, 111, -4, 90, -161, 178, -227, 142, 115, -20 )
 
+[node name="ShelfHarlequins" type="Area2D" parent="YSort/FireplaceShelf"]
+script = ExtResource( 15 )
+interactDialog = [ SubResource( 11 ) ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/FireplaceShelf/ShelfHarlequins"]
+polygon = PoolVector2Array( -118, -306, -115, -283, -119, -280, -114, -260, -119, -256, -119, -233, -122, -225, -111, -221, -108, -207, -117, -205, -124, -51, -218, -51, -222, -252 )
+
+[node name="FirePokers" type="Area2D" parent="YSort/FireplaceShelf"]
+script = ExtResource( 15 )
+interactDialog = [ SubResource( 12 ) ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/FireplaceShelf/FirePokers"]
+polygon = PoolVector2Array( -76, 71, -32, 90, -16, 47, -20, -100, -45, -106, -68, -96 )
+
+[node name="FireplaceSoot" type="Area2D" parent="YSort/FireplaceShelf"]
+script = ExtResource( 15 )
+interactDialog = [ SubResource( 13 ) ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/FireplaceShelf/FireplaceSoot"]
+polygon = PoolVector2Array( 83, 44, 95, 50, 125, 43, 149, 30, 160, -3, 148, -25, 108, -22, 78, -3 )
+
+[node name="FireplaceUrn" type="Area2D" parent="YSort/FireplaceShelf"]
+script = ExtResource( 15 )
+interactDialog = [ SubResource( 14 ) ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/FireplaceShelf/FireplaceUrn"]
+polygon = PoolVector2Array( 105, -115, 112, -120, 115, -136, 122, -161, 101, -189, 78, -162, 85, -116 )
+
 [node name="ShipTable" type="StaticBody2D" parent="YSort"]
 position = Vector2( 255, 239 )
 __meta__ = {
@@ -127,59 +311,130 @@ texture = ExtResource( 11 )
 position = Vector2( 0, -16 )
 polygon = PoolVector2Array( -38, 18, 0, 39, 38, 16, 0, -3 )
 
+[node name="LidInteractable" type="Area2D" parent="YSort/ShipTable"]
+script = ExtResource( 15 )
+interactDialog = [ SubResource( 15 ) ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/ShipTable/LidInteractable"]
+polygon = PoolVector2Array( -52, -165, -40, -177, -17, -185, 9, -185, 35, -177, 46, -163, 46, -125, 21, -103, -22, -103, -52, -126 )
+
 [node name="HarlequinHead" type="StaticBody2D" parent="YSort"]
-position = Vector2( 499, 325 )
+position = Vector2( 499, 340 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Sprite" type="Sprite" parent="YSort/HarlequinHead"]
-position = Vector2( 0, -28 )
+position = Vector2( 0, -43 )
 texture = ExtResource( 12 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/HarlequinHead"]
+position = Vector2( 0, -15 )
 polygon = PoolVector2Array( -37, 19, -25, 25, -13, 28, 8, 29, 23, 25, 34, 19, 36, 15, 36, 9, 25, 1, 12, -2, -16, -1, -30.5903, 3.65857, -37, 9 )
 
-[node name="BalconySteps" type="StaticBody2D" parent="YSort"]
+[node name="Interactable" type="Area2D" parent="YSort/HarlequinHead"]
+script = ExtResource( 15 )
+interactDialog = [ SubResource( 9 ) ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/HarlequinHead/Interactable"]
+position = Vector2( 0, -15 )
+polygon = PoolVector2Array( -37, 19, -25, 25, -13, 28, 8, 29, 23, 25, 34, 19, 36, 15, 36, 9, 25, 1, 31, -16, 36, -78, 27, -80, 16, -70, 4, -82, -23, -88, -38, -67, -28, -38, -37, -35, -36, -18, -26, 1, -37, 9 )
+
+[node name="BalconySteps" type="Area2D" parent="YSort"]
 position = Vector2( -58, -406 )
+collision_layer = 0
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
+snapTo = NodePath("Position2D")
 
 [node name="Sprite" type="Sprite" parent="YSort/BalconySteps"]
 position = Vector2( 0, -40 )
 texture = ExtResource( 16 )
 
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/BalconySteps"]
+polygon = PoolVector2Array( 121, -8, 16, -61, -29, -46, 77, 12 )
+
+[node name="Position2D" type="Position2D" parent="YSort/BalconySteps"]
+position = Vector2( -209, -152 )
+__meta__ = {
+"_gizmo_extents_": 52.0
+}
+
 [node name="JohnsRoomDoor" type="Area2D" parent="YSort"]
 collision_layer = 4
 collision_mask = 4
 script = ExtResource( 15 )
-width = 200
-interactDialog = {
-"command": "> BOY, GO IN HERE.",
-"dialog": ""
-}
-interactMisc = {
-"isWarp": true,
-"warpPos": Vector2( 4, 240 ),
-"warpScene": "res://Rooms/John's Room/John's Room.tscn",
-"zoomImage": ""
-}
+interactDialog = [ SubResource( 1 ) ]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/JohnsRoomDoor"]
 polygon = PoolVector2Array( -113.625, -888, 14.875, -908.125, 15.4813, -575.107, -108.691, -535.821, -114.584, -537.645 )
 
+[node name="HallDoor" type="Area2D" parent="YSort"]
+script = ExtResource( 15 )
+interactDialog = [ SubResource( 19 ) ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/HallDoor"]
+polygon = PoolVector2Array( 177, -537, 312, -501, 311, -1030, 176, -1065 )
+
+[node name="BalconyDoor" type="Area2D" parent="YSort"]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource( 15 )
+interactDialog = [ SubResource( 2 ) ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/BalconyDoor"]
+polygon = PoolVector2Array( -346, -361, -183, -414, -183, -836, -346, -806 )
+
+[node name="StudyDoor" type="Area2D" parent="YSort"]
+script = ExtResource( 15 )
+interactDialog = [ SubResource( 17 ) ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/StudyDoor"]
+polygon = PoolVector2Array( 253, -58, 370, -48, 370, -269, 363, -312, 354, -336, 334, -358, 310, -368, 286, -364, 272, -354, 253, -318 )
+
+[node name="KitchenDoor" type="Area2D" parent="YSort"]
+script = ExtResource( 15 )
+interactDialog = [ SubResource( 18 ) ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/KitchenDoor"]
+polygon = PoolVector2Array( 47, -14, 170, -62, 169, -378, 47, -332 )
+
+[node name="Kernelsprite" parent="YSort" instance=ExtResource( 18 )]
+
 [node name="Player" parent="YSort" instance=ExtResource( 14 )]
-position = Vector2( 30, -527 )
+unique_name_in_owner = true
+position = Vector2( 70, -450 )
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Player"]
 position = Vector2( 90, -100 )
 remote_path = NodePath("../../../Camera2D")
 
-[node name="UI" parent="." instance=ExtResource( 2 )]
+[node name="Cruxtruder" type="StaticBody2D" parent="YSort"]
+position = Vector2( 76, 380 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="YSort/Cruxtruder"]
+position = Vector2( 0, -104 )
+texture = ExtResource( 9 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Cruxtruder"]
+position = Vector2( 0, -104 )
+polygon = PoolVector2Array( 5, 202, 209, 96, -8, -5, -211, 100 )
+
+[node name="CruxInteractable" type="Area2D" parent="YSort/Cruxtruder"]
+script = ExtResource( 15 )
+interactDialog = [ SubResource( 16 ) ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Cruxtruder/CruxInteractable"]
+position = Vector2( 0, -104 )
+polygon = PoolVector2Array( 5, 202, 209, 96, 209, 1, 122, -41, 122, -61, 116, -72, 56, -105, 63, -119, 61, -137, 50, -145, 50, -182, 42, -193, 27, -201, 2, -204, -22, -202, -40, -194, -48, -181, -49, -108, -104, -81, -120, -64, -126, -39, -211, 5, -211, 100 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 120, -627 )
+position = Vector2( 160, -550 )
 current = true
 limit_left = -450
 limit_top = -1000
@@ -193,22 +448,30 @@ drag_margin_left = 0.1
 drag_margin_top = 0.05
 drag_margin_right = 0.1
 drag_margin_bottom = 0.05
+editor_draw_limits = true
 
-[node name="BalconyDoor" type="Area2D" parent="."]
-collision_layer = 4
-collision_mask = 4
-script = ExtResource( 15 )
-width = 260
-interactDialog = {
-"command": "> WAIT GO BACK OUT HERE BOY.",
-"dialog": ""
-}
-interactMisc = {
-"isWarp": true,
-"warpPos": Vector2( 150, 250 ),
-"warpScene": "res://Rooms/Balcony/Balcony.tscn",
-"zoomImage": ""
+[node name="FromBalconyPos" type="Position2D" parent="."]
+position = Vector2( 70, -450 )
+__meta__ = {
+"_edit_lock_": true,
+"_gizmo_extents_": 30.0
 }
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BalconyDoor"]
-polygon = PoolVector2Array( -346, -361, -183, -414, -183, -836, -346, -806 )
+[node name="FromBedroomPos" type="Position2D" parent="."]
+position = Vector2( 110, -510 )
+__meta__ = {
+"_edit_lock_": true,
+"_gizmo_extents_": 30.0
+}
+
+[node name="FromStudyPos" type="Position2D" parent="."]
+position = Vector2( 280, -33 )
+__meta__ = {
+"_gizmo_extents_": 30.0
+}
+
+[node name="FromKitchenPos" type="Position2D" parent="."]
+position = Vector2( 140, -21 )
+__meta__ = {
+"_gizmo_extents_": 30.0
+}

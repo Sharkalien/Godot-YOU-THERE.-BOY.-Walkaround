@@ -1,19 +1,43 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Rooms/Hallway/hallwayRoom.png" type="Texture" id=1]
 [ext_resource path="res://UI/arrow.png" type="Texture" id=2]
 [ext_resource path="res://Rooms/Hallway/hallwayPoster.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/Resources/InteractResourceExtra.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/Interactable.gd" type="Script" id=5]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Kernelsprite/Kernelsprite.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scripts/Resources/InteractResource.gd" type="Script" id=8]
+
+[sub_resource type="Resource" id=2]
+script = ExtResource( 8 )
+command = "I AM NOT FOND OF THIS SMUG FELLOW."
+dialog = "THE MAN. THE MYTH. THE LEGEND.
+
+What do you have up your sleeve there, Anderson?
+
+Look at that poker face. He's not telling a soul!"
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 4 )
+command = "NO GO BACK."
+dialog = ""
+warpScene = "res://Rooms/Living Room/Living Room.tscn"
+warpPos = "FromBedroomPos"
+
+[sub_resource type="Resource" id=3]
+script = ExtResource( 4 )
+command = "GO IN THERE NOW."
+dialog = ""
+warpScene = "res://Rooms/Bathroom/Bathroom.tscn"
+warpPos = "FromHallPos"
+
+[sub_resource type="Resource" id=4]
+script = ExtResource( 8 )
+command = "OPEN THIS."
+dialog = "Your DAD'S room is still locked!!!"
 
 [node name="Hallway" type="Node2D"]
-
-[node name="Background" type="ColorRect" parent="."]
-margin_left = -1518.0
-margin_top = -1048.0
-margin_right = 2322.0
-margin_bottom = 1112.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Hall" type="StaticBody2D" parent="."]
 
@@ -23,12 +47,63 @@ texture = ExtResource( 1 )
 centered = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hall"]
+visible = false
 polygon = PoolVector2Array( 53, 402, 608, 403, 745, 521, -135, 526, -109, -514, 721, -516, 757, 515, 608, 403, 432, 86, 229, 85 )
 
 [node name="Anderson" type="Sprite" parent="Hall"]
 position = Vector2( 330, -99 )
 texture = ExtResource( 3 )
 
-[node name="Arrow" type="Sprite" parent="."]
+[node name="Interactable" type="Area2D" parent="Hall/Anderson"]
+script = ExtResource( 5 )
+interactDialog = [ SubResource( 2 ) ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hall/Anderson/Interactable"]
+polygon = PoolVector2Array( -70, 78, 69, 78, 69, -79, -70, -79 )
+
+[node name="LivingRoomArrow" type="Area2D" parent="."]
 position = Vector2( 321, 359 )
+script = ExtResource( 5 )
+interactDialog = [ SubResource( 1 ) ]
+
+[node name="Arrow" type="Sprite" parent="LivingRoomArrow"]
 texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LivingRoomArrow"]
+polygon = PoolVector2Array( 25, -18, 39, -27, 40, 29, -34, 30, -34, 13, -41, 9, -41, -9, 1, -29 )
+
+[node name="Kernelsprite" parent="." instance=ExtResource( 7 )]
+
+[node name="Player" parent="." instance=ExtResource( 6 )]
+position = Vector2( 278, 203 )
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+position = Vector2( 49, -131 )
+remote_path = NodePath("../../Camera2D")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 327, 72 )
+current = true
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+
+[node name="BathroomDoor" type="Area2D" parent="."]
+script = ExtResource( 5 )
+interactDialog = [ SubResource( 3 ) ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BathroomDoor"]
+polygon = PoolVector2Array( 132, 251, 185, 152, 187, -290, 133, -323 )
+
+[node name="DadRoomDoor" type="Area2D" parent="."]
+script = ExtResource( 5 )
+interactDialog = [ SubResource( 4 ) ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DadRoomDoor"]
+polygon = PoolVector2Array( 529, 252, 528, -322, 474, -289, 476, 153 )
+
+[node name="FromLivingRoomPos" type="Position2D" parent="."]
+position = Vector2( 278, 203 )
+__meta__ = {
+"_gizmo_extents_": 30.0
+}
