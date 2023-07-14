@@ -137,6 +137,10 @@ func _process(_delta):
 		Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 		print("arrow")
 	
+	if Input.is_action_just_pressed("trickster_mode"):
+		Signals.emit_signal("trickster")
+
+	
 
 func remove_commands():
 	if (commandsNode):

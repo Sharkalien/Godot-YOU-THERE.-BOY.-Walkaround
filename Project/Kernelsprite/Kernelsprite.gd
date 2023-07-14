@@ -4,6 +4,13 @@ extends KinematicBody2D
 var spritePos:Vector2
 var spriteFloat:float
 
+onready var animPlayer := $AnimationPlayer
+
+
+func _ready() -> void:
+# warning-ignore:return_value_discarded
+	Signals.connect("trickster", self, "tricksterMode")
+
 
 func _physics_process(_delta: float) -> void:
 	spritePos.x = spritePos.x + (Global.playerNode.position.x - spritePos.x) / 40
@@ -14,3 +21,10 @@ func _physics_process(_delta: float) -> void:
 	
 	if Global.playerNode.position.x != position.x:
 		scale.x = scale.y * (abs(position.x - Global.playerNode.position.x) / (position.x - Global.playerNode.position.x))
+
+
+func tricksterMode():
+	if animPlayer.assigned_animation == "idle":
+		animPlayer.play("tricksterMode")
+	else:
+		animPlayer.play("idle")

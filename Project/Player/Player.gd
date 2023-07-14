@@ -9,6 +9,12 @@ var velocity = Vector2.ZERO
 var facing = "Front";
 var last_mouse_pos = null
 
+var trickster := false
+
+func _ready() -> void:
+# warning-ignore:return_value_discarded
+	Signals.connect("trickster", self, "tricksterMode")
+
 func _physics_process(_delta):
 	movement()
 	velocity = move_and_slide(velocity)
@@ -78,3 +84,14 @@ func mouseMovement():
 			return 
 		
 		direction = input_vector.normalized();
+
+
+func tricksterMode():
+	if !trickster:
+		trickster = true
+		$Sprite.rotation_degrees = 180
+		set_collision_layer(0)
+	else:
+		trickster = false
+		$Sprite.rotation_degrees = 0
+		set_collision_layer(1)
