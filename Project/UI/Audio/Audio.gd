@@ -23,7 +23,4 @@ func _process(_delta):
 
 
 func _on_Audio_toggled(button_pressed: bool) -> void:
-	if button_pressed:
-		Global.mute_audio(true)
-	else:
-		Global.mute_audio(false)
+		Global.mute_audio(button_pressed)
