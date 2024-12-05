@@ -5,7 +5,6 @@ onready var animPlayer:AnimationPlayer = get_node("CenterContainer/Body_NinePatc
 
 var dialog:String = "";
 var timer:int = 0;
-var free:bool = false;
 var animDone:bool = false
 
 func _ready():
@@ -14,7 +13,7 @@ func _ready():
 	call_deferred("set_dialog")
 
 func _process(_delta):
-	if (!Global.dialogClosing && !free && animDone):
+	if (!Global.dialogClosing && animDone):
 		if (timer < dialog.length()):
 			timer += 3;
 			label.visible_characters = timer;
@@ -39,4 +38,3 @@ func _on_animation_finished(_anim):
 		Global.dialogDone = false;
 		Global.dialogClosing = false;
 		queue_free();
-		free = true;

@@ -122,7 +122,7 @@ func _deferred_goto_scene(path):
 func _process(_delta):
 	dialogOpen = false;
 	if (dialogsNode):
-		if (dialogsNode.get_child_count() > 0 && dialogsNode.get_child(0).free == false):
+		if (dialogsNode.get_child_count() > 0):
 			dialogOpen = true;
 	imageOpen = false;
 	if (imagesNode):
