@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://Rooms/Backyard/backYard.png" type="Texture" id=1]
 [ext_resource path="res://Rooms/Backyard/backyardTree.png" type="Texture" id=2]
@@ -24,6 +24,7 @@
 [ext_resource path="res://Scripts/Interactable.gd" type="Script" id=22]
 [ext_resource path="res://Kernelsprite/Kernelsprite.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Scripts/Resources/InteractResource.gd" type="Script" id=24]
+[ext_resource path="res://Rooms/Backyard/TricksterHint.gd" type="Script" id=25]
 
 [sub_resource type="DynamicFont" id=1]
 size = 22
@@ -122,16 +123,14 @@ anchor_right = 0.873
 anchor_bottom = 0.567
 margin_left = -2273.23
 margin_top = -1953.39
-margin_right = -2075.23
+margin_right = -2177.23
 margin_bottom = -1925.39
 rect_rotation = 89.9999
 custom_colors/default_color = Color( 0.356863, 0.227451, 0.0431373, 1 )
 custom_fonts/normal_font = SubResource( 1 )
 text = "Shift+T"
 fit_content_height = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
+script = ExtResource( 25 )
 
 [node name="MorseCode" type="RichTextLabel" parent="YSort/Yard/YardSprite"]
 anchor_left = 0.873
@@ -219,7 +218,7 @@ texture = ExtResource( 10 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="YSort/Yard/CablesInteractable/cables"]
 position = Vector2( -77, 159 )
 frames = SubResource( 4 )
-frame = 33
+frame = 23
 playing = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Yard/CablesInteractable"]
@@ -350,3 +349,5 @@ position = Vector2( 235, 476 )
 __meta__ = {
 "_gizmo_extents_": 30.0
 }
+
+[connection signal="gui_input" from="YSort/Yard/YardSprite/TricksterHint" to="YSort/Yard/YardSprite/TricksterHint" method="_on_TricksterHint_gui_input"]
