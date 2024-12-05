@@ -144,8 +144,5 @@ func _process(_delta):
 
 func remove_commands():
 	if (commandsNode):
-		var count = commandsNode.get_child_count();
-		for i in range(0, count):
-			var child = commandsNode.get_child(i);
-			commandsNode.remove_child(child);
+		for child in commandsNode.get_children():
 			child.queue_free();
