@@ -15,13 +15,13 @@ func _ready():
 
 func _process(_delta):
 	if (!Global.dialogClosing && !free && animDone):
-		if (timer < dialog.length() + 3): # add three because it otherwise this makes very short dialogs such as "...\n\nOk." freeze for some reason 
+		if (timer < dialog.length()):
 			timer += 3;
 			label.visible_characters = timer;
 		elif (!Global.dialogDone):
 			Global.dialogDone = true;
 			
-		if Input.is_action_just_pressed("click") && timer > 10:
+		if Input.is_action_just_pressed("click"):
 			if (!Global.dialogDone):
 				timer = dialog.length();
 				label.set_percent_visible(1.0);
