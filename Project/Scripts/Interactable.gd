@@ -31,8 +31,8 @@ func updateClicks():
 	else:
 		clicks = 0
 
-func _input(event):
-	if (!Global.dialogOpen && !Global.imageOpen && !Global.fading && selected && event.is_action_pressed("click")):
+func _process(_delta):
+	if (!Global.dialogOpen && !Global.imageOpen && !Global.fading && selected && Input.is_action_just_pressed("click")):
 		var commandBoxInstance = commandBox.instance();
 		if multiCommand:
 			commandBoxInstance.multiCommand = multiCommand
@@ -45,5 +45,3 @@ func _input(event):
 			var extraFunction = get_node(extraFunc)
 			if extraFunction.has_method("extraFunc"):
 				commandBoxInstance.connect("clicked", extraFunction, "extraFunc")
-		# Consume input and don't propagate it anymore. Keeps it from passing through one Area2D to another
-		get_tree().set_input_as_handled()

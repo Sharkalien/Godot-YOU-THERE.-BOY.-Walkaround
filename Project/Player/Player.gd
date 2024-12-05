@@ -71,7 +71,9 @@ func keyMovement():
 # Please refer to 
 # https://www.youtube.com/watch?v=5bxys-Zo_jk&list=PLllc6qRBTEefSTIsPZVqhhuGNMc-5kOS6&index=16
 func _unhandled_input(event):
-	if event.is_action_pressed("click"):
+	if OS.has_touchscreen_ui_hint():
+		return
+	elif Global.mouseMove && event.is_action_pressed("click"):
 		Global.remove_commands();
 		last_mouse_pos = get_global_mouse_position()
 
