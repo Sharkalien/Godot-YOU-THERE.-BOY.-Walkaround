@@ -5,9 +5,9 @@ signal clicked
 onready var root = get_tree().get_root()
 onready var commandBox = self
 onready var commandContainer = get_node("MarginContainer/VBoxContainer")
-const COMMAND_MARGIN = 30 # label's left and right margins are 15 each
 const label = preload("res://UI/Command Box/CommandLabel.tscn");
 var labelInstance:RichTextLabel = label.instance()
+onready var COMMAND_MARGIN = labelInstance.get("custom_styles/normal").get_margin(MARGIN_LEFT) * 2
 
 var dict:Dictionary = {"command": "", "dialog": """""", "warpScene": null, "warpPos": "", "zoomImage": null}
 var interactDialog:Array
