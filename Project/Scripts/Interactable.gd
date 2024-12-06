@@ -10,9 +10,8 @@ var commandBox = load("res://UI/Command Box/CommandPlayer.tscn")
 
 func _ready():
 	var interactable = self
-	if interactable is Area2D and not null:
-		interactable.connect("mouse_entered", self, "_on_mouse_entered")
-		interactable.connect("mouse_exited", self, "_on_mouse_exited")
+	interactable.connect("mouse_entered", self, "_on_mouse_entered")
+	interactable.connect("mouse_exited", self, "_on_mouse_exited")
 
 func _on_mouse_entered()->void:
 	Global.hoverNodes.append(self);

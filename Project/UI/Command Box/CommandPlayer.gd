@@ -5,7 +5,7 @@ signal clicked
 onready var root = get_tree().get_root()
 onready var commandBox = self
 onready var commandContainer = get_node("MarginContainer/VBoxContainer")
-onready var COMMAND_MARGIN = get_node("MarginContainer/VBoxContainer").margin_left * 2
+const COMMAND_MARGIN = 30 # label's left and right margins are 15 each
 const label = preload("res://UI/Command Box/CommandLabel.tscn");
 var labelInstance:RichTextLabel = label.instance()
 
@@ -49,6 +49,7 @@ func set_command():
 		click = get_global_mouse_position()
 	else:
 		click = Vector2.ZERO
+		push_warning("no viewport?")
 	var cTrans = Ui.get_transform();
 	var cScale = cTrans.get_scale();
 	var right = (-cTrans.get_origin() / cScale + root.size / cScale).x;
