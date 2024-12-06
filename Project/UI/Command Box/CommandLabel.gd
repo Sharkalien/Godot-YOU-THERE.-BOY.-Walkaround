@@ -17,7 +17,7 @@ var dialogBox = load("res://UI/Dialog Box/DialogPlayer.tscn")
 
 
 func _ready() -> void:
-	pass
+	visible_characters = timer
 
 func _process(_delta):
 	if (timer < command.length() + 2):

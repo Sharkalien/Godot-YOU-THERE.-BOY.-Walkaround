@@ -5,10 +5,7 @@ var faded = false;
 
 
 func _ready():
-	if (Global.muteAudio):
-		pressed = true;
-	else:
-		pressed = false;
+	pressed = Global.muteAudio
 
 
 func _process(_delta):

@@ -11,14 +11,17 @@ var last_mouse_pos = null
 
 var trickster := false
 
+
 func _ready() -> void:
 # warning-ignore:return_value_discarded
 	Signals.connect("trickster", self, "tricksterMode")
+
 
 func _physics_process(_delta):
 	movement()
 	velocity = move_and_slide(velocity)
 	global_position = global_position.round()
+
 
 func movement():
 	if (Global.fading || Global.imageOpen):
@@ -55,6 +58,7 @@ func movement():
 					facing = "Front";
 				$AnimationPlayer.play("run" + facing) 
 
+
 func keyMovement():
 	var input_vector = Vector2.ZERO
 	input_vector.x = Input.get_axis("ui_left", "ui_right");
@@ -66,6 +70,7 @@ func keyMovement():
 	if input_vector != Vector2.ZERO:
 		last_mouse_pos = null;
 
+
 # Moves character to where mouse clicked. 
 # Please refer to 
 # https://www.youtube.com/watch?v=5bxys-Zo_jk&list=PLllc6qRBTEefSTIsPZVqhhuGNMc-5kOS6&index=16
@@ -76,9 +81,10 @@ func _unhandled_input(event):
 		Global.remove_commands();
 		last_mouse_pos = get_global_mouse_position()
 
+
 func mouseMovement():
 	if last_mouse_pos:
-		var input_vector = (last_mouse_pos - global_position)
+		var input_vector:Vector2 = (last_mouse_pos - global_position)
 		
 		if input_vector.length() < 5 || (get_slide_count() > 0 && velocity != Vector2.ZERO):
 			last_mouse_pos = null;

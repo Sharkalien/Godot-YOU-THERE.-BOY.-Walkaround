@@ -30,6 +30,7 @@ var posPath:String
 var muteAudio:bool = false;
 onready var masterBus = AudioServer.get_bus_index("Master");
 
+
 func _ready():
 	Input.set_custom_mouse_cursor(load("res://UI/cursor.png"),Input.CURSOR_ARROW)
 	Input.set_custom_mouse_cursor(load("res://UI/cursor_select.png"),Input.CURSOR_POINTING_HAND,Vector2(14, 0))
@@ -42,12 +43,14 @@ func _ready():
 	add_child(audioNode);
 	
 	var root = get_tree().get_root();
-	currentScene = root.get_child(root.get_child_count() - 1);
+	currentScene = root.get_children().back()
 	init_nodes();
+
 
 func mute_audio(mute):
 	muteAudio = mute;
 	AudioServer.set_bus_mute(masterBus, mute);
+
 
 func init_nodes():
 	playerNode = currentScene.get_node_or_null("Player");
@@ -60,6 +63,7 @@ func init_nodes():
 		audioNode.stream = currentScene.bgmTrack;
 		audioNode.play();
 
+
 func fadeto_scene(path, pos):
 	fading = true;
 	fadeScene = path;
@@ -67,6 +71,7 @@ func fadeto_scene(path, pos):
 	var time = 0.3;
 	tweenNode.interpolate_property(fadeNode,"color", Color(0,0,0,0), Color(0,0,0,1), time, Tween.TRANS_LINEAR, Tween.EASE_OUT);
 	tweenNode.start();
+
 
 func _on_tween_completed(_object, _key):
 	if (fading):
@@ -80,6 +85,7 @@ func _on_tween_completed(_object, _key):
 			tweenNode.interpolate_property(fadeNode,"color", Color(0,0,0,1), Color(0,0,0,0), time, Tween.TRANS_LINEAR, Tween.EASE_OUT);
 			tweenNode.start();
 
+
 func goto_scene(path):
 	# This function will usually be called from a signal callback,
 	# or some other function in the current scene.
@@ -91,6 +97,7 @@ func goto_scene(path):
 	# we can be sure that no code from the current scene is running:
 
 	call_deferred("_deferred_goto_scene", path);
+
 
 func _deferred_goto_scene(path):
 	# It is now safe to remove the current scene
@@ -119,15 +126,14 @@ func _deferred_goto_scene(path):
 	if (playerNode):
 		playerNode.global_position = warpPos;
 
+
 func _process(_delta):
 	dialogOpen = false;
-	if (dialogsNode):
-		if (dialogsNode.get_child_count() > 0):
-			dialogOpen = true;
+	if (dialogsNode.get_child_count() > 0):
+		dialogOpen = true;
 	imageOpen = false;
-	if (imagesNode):
-		if (imagesNode.get_child_count() > 0):
-			imageOpen = true;
+	if (imagesNode.get_child_count() > 0):
+		imageOpen = true;
 	
 	if ((hoverNodes.size() > 0 && mouseHover == false && !dialogOpen)):
 		mouseHover = true;
@@ -143,6 +149,5 @@ func _process(_delta):
 
 
 func remove_commands():
-	if (commandsNode):
-		for child in commandsNode.get_children():
-			child.queue_free();
+	for child in commandsNode.get_children():
+		child.queue_free();

@@ -39,7 +39,6 @@ func set_command():
 #		print("true")
 #		print(interactDialog.size())
 	
-	labelInstance.visible_characters = labelInstance.timer
 	labelInstance.set_bbcode("> " + labelInstance.command)
 	commandBox.rect_size.x = labelInstance.get_font("normal_font").get_string_size(labelInstance.text).x + COMMAND_MARGIN
 	width = commandBox.rect_size.x
