@@ -38,8 +38,9 @@ func _process(_delta):
 		commandBoxInstance.interactDialog = interactDialog
 		Global.remove_commands();
 		Global.commandsNode.add_child(commandBoxInstance);
-		commandBoxInstance.connect("clicked", self, "updateClicks")
-		commandBoxInstance.clicks = clicks
+		if !multiCommand:
+			commandBoxInstance.connect("clicked", self, "updateClicks")
+			commandBoxInstance.clicks = clicks
 		if extraFunc:
 			var extraFunction = get_node(extraFunc)
 			if extraFunction.has_method("extraFunc"):

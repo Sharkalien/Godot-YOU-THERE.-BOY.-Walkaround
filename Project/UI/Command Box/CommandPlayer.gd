@@ -15,6 +15,7 @@ var multiCommand:bool = false
 
 var clicks:int = 0
 var width:int;
+var lastWidth:int
 var height:int;
 
 
@@ -23,7 +24,10 @@ func _ready() -> void:
 # warning-ignore:return_value_discarded
 	labelInstance.connect("command_clicked", self, "clicked")
 	call_deferred("check_interactable_dict", labelInstance)
-	call_deferred("set_command")
+	if !multiCommand:
+		call_deferred("set_command", labelInstance)
+	else:
+		call_deferred("set_multicommand")
 
 func clicked():
 	emit_signal("clicked")
@@ -33,15 +37,12 @@ func check_interactable_dict(instance):
 		if key in interactDialog[clicks]:
 			instance.set(key, interactDialog[clicks].get(key))
 
-func set_command():
-	if multiCommand:
-		pass
-#		print("true")
-#		print(interactDialog.size())
-	
-	labelInstance.set_bbcode("> " + labelInstance.command)
-	commandBox.rect_size.x = labelInstance.get_font("normal_font").get_string_size(labelInstance.text).x + COMMAND_MARGIN
-	width = commandBox.rect_size.x
+func set_command(labelInst):
+	labelInst.set_bbcode("> " + labelInst.command)
+	lastWidth = labelInst.get_font("normal_font").get_string_size(labelInst.text).x + COMMAND_MARGIN
+	if width < lastWidth:
+		width = lastWidth
+		commandBox.rect_size.x = width
 	height = commandBox.rect_size.y
 	
 	var click;
@@ -50,12 +51,21 @@ func set_command():
 	else:
 		click = Vector2.ZERO
 		push_warning("no viewport?")
-	var cTrans = Ui.get_transform();
-	var cScale = cTrans.get_scale();
-	var right = (-cTrans.get_origin() / cScale + root.size / cScale).x;
-	if (width > root.size.x):
-		width = root.size.x
+	var viewportWidth = root.get_visible_rect().size.x
+	if (width > viewportWidth):
+		width = viewportWidth
 		commandBox.rect_size.x = width
-	if (click.x + width > right):
-		click.x = right - width;
+	if (click.x + width > viewportWidth):
+		click.x = viewportWidth - width;
 	commandBox.rect_global_position = Vector2(click.x, click.y - 9); # the flash has a particular offset
+
+
+func set_multicommand():
+	for i in interactDialog:
+		yield(get_tree(), "idle_frame")
+		var lab  = label.instance()
+		commandContainer.add_child(lab)
+		for key in dict:
+			if key in i:
+				lab.set(key, i.get(key))
+		call_deferred("set_command", lab)
