@@ -16,6 +16,7 @@ var multiCommand:bool = false
 var clicks:int = 0
 var width:int;
 var lastWidth:int
+var lastHeight:int
 var height:int;
 
 
@@ -43,26 +44,36 @@ func set_command(labelInst):
 	if width < lastWidth:
 		width = lastWidth
 		commandBox.rect_size.x = width
-	height = commandBox.rect_size.y
+	lastHeight = commandBox.rect_size.y
+	if height < lastHeight:
+		height = lastHeight
+		
 	
 	var click;
 	if get_viewport():
-		click = get_global_mouse_position()
+		var mousePos := get_global_mouse_position()
+		click = Vector2(mousePos.x, mousePos.y - 16) # center the command where clicked
 	else:
 		click = Vector2.ZERO
 		push_warning("no viewport?")
 	var viewportWidth = root.get_visible_rect().size.x
+	var viewportHeight = root.get_visible_rect().size.y
 	if (width > viewportWidth):
 		width = viewportWidth
 		commandBox.rect_size.x = width
 	if (click.x + width > viewportWidth):
 		click.x = viewportWidth - width;
-	commandBox.rect_global_position = Vector2(click.x, click.y - 9); # the flash has a particular offset
+	if height > viewportHeight:
+		height = viewportHeight
+	if click.y + height > viewportHeight:
+		click.y = viewportHeight - height
+	commandBox.rect_global_position = Vector2(click.x, click.y);
 
 
 func set_multicommand():
+	commandContainer.get_child(0).queue_free()
 	for i in interactDialog:
-		yield(get_tree(), "idle_frame")
+#		yield(get_tree(), "idle_frame")
 		var lab  = label.instance()
 		commandContainer.add_child(lab)
 		for key in dict:
