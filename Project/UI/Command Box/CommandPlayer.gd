@@ -19,14 +19,15 @@ var lastWidth:int
 var lastHeight:int
 var height:int;
 
+var newLabel:RichTextLabel
 
 func _ready() -> void:
-	commandContainer.add_child(labelInstance)
-# warning-ignore:return_value_discarded
-	labelInstance.connect("command_clicked", self, "clicked")
-	call_deferred("check_interactable_dict", labelInstance)
 	if !multiCommand:
-		call_deferred("set_command", labelInstance)
+		add_label()
+	# warning-ignore:return_value_discarded
+		newLabel.connect("command_clicked", self, "clicked")
+		call_deferred("check_interactable_dict", newLabel)
+		call_deferred("set_command", newLabel)
 	else:
 		call_deferred("set_multicommand")
 
@@ -47,15 +48,10 @@ func set_command(labelInst):
 	lastHeight = commandBox.rect_size.y
 	if height < lastHeight:
 		height = lastHeight
-		
 	
-	var click;
-	if get_viewport():
-		var mousePos := get_global_mouse_position()
-		click = Vector2(mousePos.x, mousePos.y - 16) # center the command where clicked
-	else:
-		click = Vector2.ZERO
-		push_warning("no viewport?")
+	var mousePos := get_global_mouse_position()
+	var click = Vector2(mousePos.x, mousePos.y - 16) # center the command where clicked
+	
 	var viewportWidth = root.get_visible_rect().size.x
 	var viewportHeight = root.get_visible_rect().size.y
 	if (width > viewportWidth):
@@ -63,20 +59,26 @@ func set_command(labelInst):
 		commandBox.rect_size.x = width
 	if (click.x + width > viewportWidth):
 		click.x = viewportWidth - width;
+	
 	if height > viewportHeight:
 		height = viewportHeight
 	if click.y + height > viewportHeight:
 		click.y = viewportHeight - height
+	if click.y < 0:
+		click.y = 0
 	commandBox.rect_global_position = Vector2(click.x, click.y);
 
 
+func add_label():
+	var instance = label.instance()
+	commandContainer.add_child(instance)
+	newLabel = instance
+
+
 func set_multicommand():
-	commandContainer.get_child(0).queue_free()
 	for i in interactDialog:
-#		yield(get_tree(), "idle_frame")
-		var lab  = label.instance()
-		commandContainer.add_child(lab)
+		add_label()
 		for key in dict:
 			if key in i:
-				lab.set(key, i.get(key))
-		call_deferred("set_command", lab)
+				newLabel.set(key, i.get(key))
+		call_deferred("set_command", newLabel)
