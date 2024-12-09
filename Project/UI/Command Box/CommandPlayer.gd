@@ -59,7 +59,9 @@ func set_command(labelInst):
 		commandBox.rect_size.x = width
 	if (click.x + width > viewportWidth):
 		click.x = viewportWidth - width;
-	
+	if multiCommand:
+		yield(self, "resized")
+	height = commandBox.rect_size.y
 	if height > viewportHeight:
 		height = viewportHeight
 	if click.y + height > viewportHeight:
