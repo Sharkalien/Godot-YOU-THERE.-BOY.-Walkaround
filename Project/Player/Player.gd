@@ -97,8 +97,10 @@ func tricksterMode():
 	if !trickster:
 		trickster = true
 		$Sprite.rotation_degrees = 180
+		$PlayerInteractable.rotation_degrees = 180
 		set_collision_layer(0)
 	else:
 		trickster = false
 		$Sprite.rotation_degrees = 0
+		$PlayerInteractable.rotation_degrees = 0
 		set_collision_layer(1)
