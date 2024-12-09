@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://Rooms/Living Room/livingRoom.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/CameraHotspot.gd" type="Script" id=2]
@@ -12,7 +12,6 @@
 [ext_resource path="res://Rooms/Living Room/livingFireplace.png" type="Texture" id=10]
 [ext_resource path="res://Rooms/Living Room/livingLid.png" type="Texture" id=11]
 [ext_resource path="res://Rooms/Living Room/livingHead.png" type="Texture" id=12]
-[ext_resource path="res://Scripts/Room.gd" type="Script" id=13]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Scripts/Interactable.gd" type="Script" id=15]
 [ext_resource path="res://Rooms/Living Room/livingSteps.png" type="Texture" id=16]
@@ -142,7 +141,6 @@ Of all the places for Rose to drop the infernal thing. More than ever you feel..
 Of course. Housetrapped."
 
 [node name="Living Room" type="Node2D"]
-script = ExtResource( 13 )
 
 [node name="YSort" type="YSort" parent="."]
 

@@ -11,7 +11,7 @@ onready var imagesNode = Ui.get_node_or_null("Images");
 onready var fadeNode = Ui.get_node_or_null("Fade")
 
 var tweenNode;
-var audioNode;
+var audioNode:AudioStreamPlayer;
 
 var mouseMove:bool = true;
 var mouseHover:bool = false;
@@ -62,6 +62,9 @@ func init_nodes():
 	if ("bgmTrack" in currentScene && audioNode.stream != currentScene.bgmTrack):
 		audioNode.stream = currentScene.bgmTrack;
 		audioNode.play();
+	else:
+		audioNode.stop()
+		audioNode.stream = null
 
 
 func fadeto_scene(path, pos):

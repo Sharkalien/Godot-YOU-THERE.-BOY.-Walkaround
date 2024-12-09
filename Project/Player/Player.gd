@@ -10,6 +10,7 @@ var facing = "Front";
 var last_mouse_pos = null
 
 var trickster := false
+var trickSong := load("res://Audio/Songs/mspa_harlequin.mp3")
 
 
 func _ready() -> void:
@@ -99,8 +100,11 @@ func tricksterMode():
 		$Sprite.rotation_degrees = 180
 		$PlayerInteractable.rotation_degrees = 180
 		set_collision_layer(0)
+		Global.audioNode.stream = trickSong
+		Global.audioNode.play()
 	else:
 		trickster = false
 		$Sprite.rotation_degrees = 0
 		$PlayerInteractable.rotation_degrees = 0
 		set_collision_layer(1)
+		Global.audioNode.stop()
