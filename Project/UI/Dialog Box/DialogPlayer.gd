@@ -19,7 +19,7 @@ func _ready():
 
 func _process(_delta):
 	if (!Global.dialogClosing && animDone):
-		if (timer < dialog.length()): # should probably use label.text.length() instead, but then img bbcode won't work
+		if (timer < label.get_total_character_count()):
 			timer += 3;
 			label.visible_characters = timer;
 		elif (!Global.dialogDone):
@@ -27,7 +27,7 @@ func _process(_delta):
 			
 		if Input.is_action_just_pressed("click"):
 			if (!Global.dialogDone):
-				timer = dialog.length();
+				timer = label.get_total_character_count();
 				label.set_percent_visible(1.0);
 			elif (clicks < queuedDialog.size() - 1):
 				clicks += 1
