@@ -402,7 +402,6 @@ polygon = PoolVector2Array( 47, -14, 170, -62, 169, -378, 47, -332 )
 [node name="Kernelsprite" parent="YSort" instance=ExtResource( 18 )]
 
 [node name="Player" parent="YSort" instance=ExtResource( 14 )]
-unique_name_in_owner = true
 position = Vector2( 70, -450 )
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Player"]

@@ -4,7 +4,7 @@ var currentScene = null;
 
 export var hoverNodes = [];
 
-var playerNode;
+var playerNode; # player sets this as itself once it enters the tree
 onready var commandsNode = Ui.get_node_or_null("Commands");
 onready var dialogsNode = Ui.get_node_or_null("Dialogs");
 onready var imagesNode = Ui.get_node_or_null("Images");
@@ -53,12 +53,6 @@ func mute_audio(mute):
 
 
 func init_nodes():
-	playerNode = currentScene.get_node_or_null("Player");
-	if (!playerNode):
-		playerNode = currentScene.get_node_or_null("YSort/Player");
-		if (!playerNode):
-			playerNode = currentScene.get_node_or_null("%Player")
-	
 	if ("bgmTrack" in currentScene && audioNode.stream != currentScene.bgmTrack):
 		audioNode.stream = currentScene.bgmTrack;
 		audioNode.play();

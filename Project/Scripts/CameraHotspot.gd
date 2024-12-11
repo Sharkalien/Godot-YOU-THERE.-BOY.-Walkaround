@@ -9,12 +9,10 @@ var new_position:Vector2
 
 func _ready() -> void:
 	var hotspot = self
-	if hotspot is Area2D and not null:
-		hotspot.connect("body_entered", self, "_on_body_entered")
-		hotspot.connect("body_exited", self, "_on_body_exited")
+	hotspot.connect("body_entered", self, "_on_body_entered")
+	hotspot.connect("body_exited", self, "_on_body_exited")
 	
-	assert(Global.currentScene.get_node_or_null("%Player") != null, "Access Player as Scene Unique Name when using hotspots!")
-	remoteTransform = Global.currentScene.get_node_or_null("%Player").get_node_or_null("RemoteTransform2D")
+	remoteTransform = Global.playerNode.get_node_or_null("RemoteTransform2D")
 	old_position = remoteTransform.get_position()
 	new_position = snapTo.get_global_position()
 

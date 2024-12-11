@@ -14,6 +14,9 @@ var trickSong := load("res://Audio/Songs/mspa_harlequin.mp3")
 var trickTex := load("res://Player/tricksterJohn.png")
 
 
+func _enter_tree() -> void:
+	Global.playerNode = self
+
 func _ready() -> void:
 # warning-ignore:return_value_discarded
 	Signals.connect("trickster", self, "tricksterMode")
