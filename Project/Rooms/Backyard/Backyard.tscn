@@ -218,7 +218,7 @@ texture = ExtResource( 10 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="YSort/Yard/CablesInteractable/cables"]
 position = Vector2( -77, 159 )
 frames = SubResource( 4 )
-frame = 23
+frame = 45
 playing = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Yard/CablesInteractable"]
@@ -327,6 +327,7 @@ remote_path = NodePath("../../../Camera2D")
 position = Vector2( 349, 225 )
 current = true
 zoom = Vector2( 1.25, 1.25 )
+process_mode = 0
 limit_left = -1750
 limit_top = -2176
 limit_right = 2821

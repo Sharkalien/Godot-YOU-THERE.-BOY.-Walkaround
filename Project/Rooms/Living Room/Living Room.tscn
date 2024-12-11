@@ -434,6 +434,7 @@ polygon = PoolVector2Array( 5, 202, 209, 96, 209, 1, 122, -41, 122, -61, 116, -7
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 160, -550 )
 current = true
+process_mode = 0
 limit_left = -450
 limit_top = -1000
 limit_right = 1113
