@@ -4,17 +4,22 @@ onready var label:RichTextLabel = get_node("CenterContainer/Body_NinePatchRect/M
 onready var animPlayer:AnimationPlayer = get_node("CenterContainer/Body_NinePatchRect/AnimationPlayer");
 
 var dialog:String = "";
+var queuedDialog:PoolStringArray
 var timer:int = 0;
+var clicks:int = 0
 var animDone:bool = false
+
 
 func _ready():
 	label.set_percent_visible(0.0)
-	animPlayer.play("Open")
+	call_deferred("split_dialog")
 	call_deferred("set_dialog")
+	animPlayer.play("Open")
+
 
 func _process(_delta):
 	if (!Global.dialogClosing && animDone):
-		if (timer < dialog.length()):
+		if (timer < dialog.length()): # should probably use label.text.length() instead, but then img bbcode won't work
 			timer += 3;
 			label.visible_characters = timer;
 		elif (!Global.dialogDone):
@@ -24,13 +29,28 @@ func _process(_delta):
 			if (!Global.dialogDone):
 				timer = dialog.length();
 				label.set_percent_visible(1.0);
+			elif (clicks < queuedDialog.size() - 1):
+				clicks += 1
+				dialog = queuedDialog[clicks].strip_edges()
+				set_dialog()
 			else:
 				label.set_percent_visible(0.0);
 				animPlayer.play_backwards("Open");
 				Global.dialogClosing = true;
 
+
+func split_dialog():
+	if "{QUEUE_TEXT}" in dialog:
+		queuedDialog = dialog.split("{QUEUE_TEXT}")
+		dialog = queuedDialog[clicks].strip_edges()
+
+
 func set_dialog():
+	Global.dialogDone = false
+	label.set_percent_visible(0.0)
+	timer = 0
 	label.set_bbcode(dialog)
+
 
 func _on_animation_finished(_anim):
 	animDone = true

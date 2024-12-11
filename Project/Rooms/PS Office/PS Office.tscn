@@ -16,7 +16,12 @@ dialog = "No it's pumpkin shaped graffiti...
 
 GAME DEV FACTS:
 All Elements (but the pumpkin) drawn by Andrew Hussie in Photoshop, imported and subsequently vectorized, organized, named, and scripted by Aria 'Gankra' Beingessner... Who is a girl now...
-148 Objects, 538 lines, 140 bitmaps, 9 souls, 2 pumpkins, This line of code is 16732 characters..."
+148 Objects, 538 lines, 140 bitmaps, 9 souls, 2 pumpkins, This line of code is 16732 characters...
+{QUEUE_TEXT}
+PORT GAME DEV FACTS:
+Did You Know? Gankra often scales or ever-so-slightly rotates vector shapes like the Trickster John, making my life working on this A WAKING NIGHTMARE. Don't even get me STARTED on how long it took for me to decipher that 16732 character-long line of code alone...
+
+Also shoutout to Axollyon for really springboarding this project. I couldn't have done it without 'em!"
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 8 )
