@@ -2,7 +2,7 @@
 
 [ext_resource path="res://UI/Dialog Box/courbd.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://UI/Trickster Mode/TricksterCode.gd" type="Script" id=2]
-[ext_resource path="res://ui/Dialog Box/9patch_dialog.png" type="Texture" id=5]
+[ext_resource path="res://UI/Dialog Box/9patch_dialog.png" type="Texture" id=5]
 
 [sub_resource type="DynamicFont" id=16]
 size = 35
