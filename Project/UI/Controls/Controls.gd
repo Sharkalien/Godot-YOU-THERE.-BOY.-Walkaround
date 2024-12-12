@@ -9,6 +9,8 @@ var dialogBox = load("res://UI/Dialog Box/DialogPlayer.tscn")
 var faded:bool = false
 const transTime = 0.2
 
+onready var clickThis:Sprite = $ClickThis
+
 
 func _process(_delta):
 	if (Global.dialogOpen && !Global.dialogDone && !Global.dialogClosing && !faded):
@@ -27,3 +29,5 @@ func _on_Controls_pressed() -> void:
 		var dialogBoxInstance = dialogBox.instance()
 		Global.dialogsNode.add_child(dialogBoxInstance)
 		dialogBoxInstance.dialog = dialog
+	if is_instance_valid(clickThis):
+		clickThis.queue_free()
