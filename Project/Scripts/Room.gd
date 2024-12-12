@@ -1,3 +1,3 @@
 extends Node2D
 
-export (AudioStream) var bgmTrack;
+export (AudioStream) var bgmTrack

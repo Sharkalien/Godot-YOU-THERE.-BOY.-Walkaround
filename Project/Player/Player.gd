@@ -6,7 +6,7 @@ const FRICTION = 600
 
 var direction = Vector2.ZERO
 var velocity = Vector2.ZERO
-var facing = "Front";
+var facing = "Front"
 var last_mouse_pos = null
 
 var trickster := false
@@ -30,7 +30,7 @@ func _physics_process(_delta):
 
 func movement():
 	if (Global.fading || Global.imageOpen):
-		direction = Vector2.ZERO;
+		direction = Vector2.ZERO
 	else:
 		keyMovement()
 		mouseMovement()
@@ -48,32 +48,32 @@ func movement():
 			if Input.is_action_pressed("ui_right") || (velocity.x > 0 && last_mouse_pos != null):
 				$AnimationPlayer.play("run" + facing)
 				$Sprite.flip_h = false
-				$PlayerInteractable.scale.x = 1;
+				$PlayerInteractable.scale.x = 1
 			elif Input.is_action_pressed("ui_left") || (velocity.x < 0 && last_mouse_pos != null):
 				$AnimationPlayer.play("run" + facing)
 				$Sprite.flip_h = true
-				$PlayerInteractable.scale.x = -1;
+				$PlayerInteractable.scale.x = -1
 		if !(Input.is_action_pressed("ui_up") && Input.is_action_pressed("ui_down")) || (velocity.y != 0 && last_mouse_pos != null):
 			if Input.is_action_pressed("ui_up") || (velocity.y < 0 && last_mouse_pos != null):
 				if facing != "Back":
-					facing = "Back";
+					facing = "Back"
 				$AnimationPlayer.play("run" + facing)
 			elif Input.is_action_pressed("ui_down") || (velocity.y > 0 && last_mouse_pos != null):
 				if facing != "Front":
-					facing = "Front";
+					facing = "Front"
 				$AnimationPlayer.play("run" + facing) 
 
 
 func keyMovement():
 	var input_vector = Vector2.ZERO
-	input_vector.x = Input.get_axis("ui_left", "ui_right");
-	input_vector.y = Input.get_axis("ui_up", "ui_down");
-	input_vector = input_vector.normalized();
+	input_vector.x = Input.get_axis("ui_left", "ui_right")
+	input_vector.y = Input.get_axis("ui_up", "ui_down")
+	input_vector = input_vector.normalized()
 	
-	direction = input_vector;
+	direction = input_vector
 	
 	if input_vector != Vector2.ZERO:
-		last_mouse_pos = null;
+		last_mouse_pos = null
 
 
 # Moves character to where mouse clicked. 
@@ -83,7 +83,7 @@ func _unhandled_input(event):
 	if OS.has_touchscreen_ui_hint():
 		return
 	elif Global.mouseMove && event.is_action_pressed("click"):
-		Global.remove_commands();
+		Global.remove_commands()
 		last_mouse_pos = get_global_mouse_position()
 
 
@@ -92,10 +92,10 @@ func mouseMovement():
 		var input_vector:Vector2 = (last_mouse_pos - global_position)
 		
 		if input_vector.length() < 5 || (get_slide_count() > 0 && velocity != Vector2.ZERO):
-			last_mouse_pos = null;
+			last_mouse_pos = null
 			return 
 		
-		direction = input_vector.normalized();
+		direction = input_vector.normalized()
 
 
 func tricksterMode():

@@ -5,7 +5,7 @@ signal clicked
 onready var root = get_tree().get_root()
 onready var commandBox = self
 onready var commandContainer = get_node("MarginContainer/VBoxContainer")
-const label = preload("res://UI/Command Box/CommandLabel.tscn");
+const label = preload("res://UI/Command Box/CommandLabel.tscn")
 var labelInstance:RichTextLabel = label.instance()
 onready var COMMAND_MARGIN = labelInstance.get("custom_styles/normal").get_margin(MARGIN_LEFT) * 2
 
@@ -14,10 +14,10 @@ var interactDialog:Array
 var multiCommand:bool = false
 
 var clicks:int = 0
-var width:int;
+var width:int
 var lastWidth:int
 var lastHeight:int
-var height:int;
+var height:int
 
 var newLabel:RichTextLabel
 
@@ -59,7 +59,7 @@ func set_command(labelInst):
 		commandBox.rect_size.x = width
 		yield(self, "resized")
 	if (click.x + width > viewportWidth):
-		click.x = viewportWidth - width;
+		click.x = viewportWidth - width
 	height = commandBox.rect_size.y
 	if height > viewportHeight:
 		height = viewportHeight
@@ -67,7 +67,7 @@ func set_command(labelInst):
 		click.y = viewportHeight - height
 	if click.y < 0:
 		click.y = 0
-	commandBox.rect_global_position = Vector2(click.x, click.y);
+	commandBox.rect_global_position = Vector2(click.x, click.y)
 
 
 func add_label():
