@@ -5,6 +5,7 @@ var currentScene = null;
 export var hoverNodes = [];
 
 var playerNode; # player sets this as itself once it enters the tree
+var oldPlayer
 onready var commandsNode = Ui.get_node_or_null("Commands");
 onready var dialogsNode = Ui.get_node_or_null("Dialogs");
 onready var imagesNode = Ui.get_node_or_null("Images");
@@ -12,6 +13,8 @@ onready var fadeNode = Ui.get_node_or_null("Fade")
 
 var tweenNode;
 var audioNode:AudioStreamPlayer;
+
+var tricksterMode:bool = false
 
 var mouseMove:bool = true;
 var mouseHover:bool = false;
@@ -56,6 +59,8 @@ func init_nodes():
 	if ("bgmTrack" in currentScene && audioNode.stream != currentScene.bgmTrack):
 		audioNode.stream = currentScene.bgmTrack;
 		audioNode.play();
+	elif "bgmTrack" in currentScene && audioNode.stream == currentScene.bgmTrack:
+		pass
 	else:
 		audioNode.stop()
 		audioNode.stream = null
@@ -89,28 +94,35 @@ func goto_scene(path):
 	# Deleting the current scene at this point is
 	# a bad idea, because it may still be executing code.
 	# This will result in a crash or unexpected behavior.
-
+	
 	# The solution is to defer the load to a later time, when
 	# we can be sure that no code from the current scene is running:
-
+	
 	call_deferred("_deferred_goto_scene", path);
 
 
 func _deferred_goto_scene(path):
+#	oldPlayer = playerNode
+#	currentScene.remove_child(oldPlayer)
 	# It is now safe to remove the current scene
 	currentScene.free();
-
+	
 	# Load the new scene.
 	var s = ResourceLoader.load(path); assert(ResourceLoader.exists(path) != false, "warpScene needs a valid filepath!");
-
+	
 	# Instance the new scene.
 	currentScene = s.instance(); # if you get an error here, make sure the file path to the scene exists and hasn't been changed
-
+	
 	# Add it to the active scene, as child of root.
 	get_tree().get_root().add_child(currentScene);
-
+	
 	# Optionally, to make it compatible with the SceneTree.change_scene() API.
 	get_tree().set_current_scene(currentScene);
+	
+#	var newPlayer = playerNode
+#	var newPlayerParent = newPlayer.get_parent()
+#	currentScene.add_child_below_node(newPlayer,oldPlayer)
+#	newPlayer.free()
 	
 	# Get and set the path of the Position2D node in the scene to warp to
 	var posNode = get_tree().get_current_scene().get_node(posPath);
@@ -122,6 +134,8 @@ func _deferred_goto_scene(path):
 	init_nodes();
 	if (playerNode):
 		playerNode.global_position = warpPos;
+	if tricksterMode:
+		Signals.emit_signal("trickster")
 
 
 func _process(_delta):

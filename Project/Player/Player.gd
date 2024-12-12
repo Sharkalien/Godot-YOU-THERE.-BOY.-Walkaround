@@ -101,6 +101,7 @@ func mouseMovement():
 func tricksterMode():
 	if !trickster:
 		trickster = true
+		Global.tricksterMode = true
 		$Sprite.set_texture(trickTex)
 		$Sprite.self_modulate = Color(1,1,1,0.5)
 		$Sprite.rotation_degrees = 180
@@ -110,6 +111,7 @@ func tricksterMode():
 		Global.audioNode.play()
 	else:
 		trickster = false
+		Global.tricksterMode = false
 		$Sprite.set_texture(load("res://Player/johnWalk.png"))
 		$Sprite.self_modulate = Color(1,1,1,1)
 		$Sprite.rotation_degrees = 0
