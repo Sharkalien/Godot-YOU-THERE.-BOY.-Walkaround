@@ -20,17 +20,17 @@ func _ready() -> void:
 	visible_characters = timer
 
 func _process(_delta):
-	if (timer < command.length() + 2):
+	if timer < command.length() + 2:
 		timer += 2
 		visible_characters = timer
 
 func _on_CommandLabel_mouse_entered() -> void:
-	if (!Global.fading):
+	if !Global.fading:
 		Global.hoverNodes.append(self)
 	add_color_override("default_color",  Color(0.63, 0.63, 0.63))
 
 func _on_CommandLabel_mouse_exited() -> void:
-	if (!Global.fading):
+	if !Global.fading:
 		Global.hoverNodes.erase(self)
 	remove_color_override("default_color")
 
@@ -39,20 +39,20 @@ func _exit_tree():
 
 
 func _on_CommandLabel_gui_input(event: InputEvent) -> void:
-	if (!Global.dialogOpen && event.is_action_pressed("click")):
+	if !Global.dialogOpen && event.is_action_pressed("click"):
 		emit_signal("command_clicked")
 		Global.remove_commands()
-		if (zoomImage):
+		if zoomImage:
 			var imageBoxInstance = imageBox.instance()
 			Global.imagesNode.add_child(imageBoxInstance)
-			if (!dialog.empty() && dialog != null):
+			if !dialog.empty() && dialog != null:
 				imageBoxInstance.dialog = dialog
 			imageBoxInstance.imageTexture = zoomImage
-		elif (!dialog.empty() && dialog != null):
+		elif !dialog.empty() && dialog != null:
 			var dialogBoxInstance = dialogBox.instance()
 			Global.dialogsNode.add_child(dialogBoxInstance)
 			dialogBoxInstance.dialog = dialog
-		elif (warpScene != null && !warpScene.empty()):
+		elif warpScene != null && !warpScene.empty():
 			Global.fadeto_scene(warpScene, warpPos)
 		else:
 			pass

@@ -18,18 +18,18 @@ func _ready():
 
 
 func _process(_delta):
-	if (!Global.dialogClosing && animDone):
-		if (timer < label.get_total_character_count()):
+	if !Global.dialogClosing && animDone:
+		if timer < label.get_total_character_count():
 			timer += 3
 			label.visible_characters = timer
-		elif (!Global.dialogDone):
+		elif !Global.dialogDone:
 			Global.dialogDone = true
 			
 		if Input.is_action_just_pressed("click"):
-			if (!Global.dialogDone):
+			if !Global.dialogDone:
 				timer = label.get_total_character_count()
 				label.set_percent_visible(1.0)
-			elif (clicks < queuedDialog.size() - 1):
+			elif clicks < queuedDialog.size() - 1:
 				clicks += 1
 				dialog = queuedDialog[clicks].strip_edges()
 				set_dialog()
@@ -54,7 +54,7 @@ func set_dialog():
 
 func _on_animation_finished(_anim):
 	animDone = true
-	if (Global.dialogClosing):
+	if Global.dialogClosing:
 		Global.dialogDone = false
 		Global.dialogClosing = false
 		queue_free()

@@ -29,20 +29,20 @@ func _physics_process(_delta):
 
 
 func movement():
-	if (Global.fading || Global.imageOpen):
+	if Global.fading || Global.imageOpen:
 		direction = Vector2.ZERO
 	else:
 		keyMovement()
 		if !OS.has_touchscreen_ui_hint():
 			mouseMovement()
 	
-	if (direction != Vector2.ZERO):
+	if direction != Vector2.ZERO:
 		velocity = velocity.move_toward(direction * MAX_SPEED, ACCELERATION)
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION)
 	
 	# Controls player right and left animation sprites using velocity.
-	if (velocity == Vector2.ZERO):
+	if velocity == Vector2.ZERO:
 		$AnimationPlayer.play("still" + facing)
 	else:
 		if !(Input.is_action_pressed("ui_left") && Input.is_action_pressed("ui_right")) || (velocity.x != 0 && last_mouse_pos != null):

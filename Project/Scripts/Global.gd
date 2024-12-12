@@ -30,9 +30,6 @@ var fadedOut:bool = false
 var warpPos:Vector2 = Vector2.ZERO
 var posPath:String
 
-var muteAudio:bool = false
-onready var masterBus = AudioServer.get_bus_index("Master")
-
 
 func _ready():
 	Input.set_custom_mouse_cursor(load("res://UI/cursor.png"),Input.CURSOR_ARROW)
@@ -50,13 +47,8 @@ func _ready():
 	init_nodes()
 
 
-func mute_audio(mute):
-	muteAudio = mute
-	AudioServer.set_bus_mute(masterBus, mute)
-
-
 func init_nodes():
-	if ("bgmTrack" in currentScene && audioNode.stream != currentScene.bgmTrack):
+	if "bgmTrack" in currentScene && audioNode.stream != currentScene.bgmTrack:
 		audioNode.stream = currentScene.bgmTrack
 		audioNode.play()
 	elif "bgmTrack" in currentScene && audioNode.stream == currentScene.bgmTrack:
@@ -76,8 +68,8 @@ func fadeto_scene(path, pos):
 
 
 func _on_tween_completed(_object, _key):
-	if (fading):
-		if (fadedOut):
+	if fading:
+		if fadedOut:
 			fadedOut = false
 			fading = false
 		else:
@@ -132,7 +124,8 @@ func _deferred_goto_scene(path):
 	warpPos = posNode.get_global_position()
 	
 	init_nodes()
-	if (playerNode):
+	
+	if playerNode:
 		playerNode.global_position = warpPos
 	if tricksterMode:
 		Signals.emit_signal("trickster")
@@ -140,16 +133,16 @@ func _deferred_goto_scene(path):
 
 func _process(_delta):
 	dialogOpen = false
-	if (dialogsNode.get_child_count() > 0):
+	if dialogsNode.get_child_count() > 0:
 		dialogOpen = true
 	imageOpen = false
-	if (imagesNode.get_child_count() > 0):
+	if imagesNode.get_child_count() > 0:
 		imageOpen = true
 	
-	if ((hoverNodes.size() > 0 && mouseHover == false && !dialogOpen)):
+	if hoverNodes.size() > 0 && mouseHover == false && !dialogOpen:
 		mouseHover = true
 		Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
-	elif (hoverNodes.size() == 0 && mouseHover == true && !fading):
+	elif hoverNodes.size() == 0 && mouseHover == true && !fading:
 		mouseHover = false
 		Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 	

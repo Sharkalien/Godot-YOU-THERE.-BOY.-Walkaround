@@ -54,11 +54,11 @@ func set_command(labelInst):
 	
 	var viewportWidth = root.get_visible_rect().size.x
 	var viewportHeight = root.get_visible_rect().size.y
-	if (width > viewportWidth):
+	if width > viewportWidth:
 		width = viewportWidth
 		commandBox.rect_size.x = width
 		yield(self, "resized")
-	if (click.x + width > viewportWidth):
+	if click.x + width > viewportWidth:
 		click.x = viewportWidth - width
 	height = commandBox.rect_size.y
 	if height > viewportHeight:

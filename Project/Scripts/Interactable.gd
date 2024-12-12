@@ -31,7 +31,7 @@ func updateClicks():
 		clicks = 0
 
 func _process(_delta):
-	if (!Global.dialogOpen && !Global.imageOpen && !Global.fading && selected && Input.is_action_just_pressed("click")):
+	if !Global.dialogOpen && !Global.imageOpen && !Global.fading && selected && Input.is_action_just_pressed("click"):
 		var commandBoxInstance = commandBox.instance()
 		if multiCommand:
 			commandBoxInstance.multiCommand = multiCommand

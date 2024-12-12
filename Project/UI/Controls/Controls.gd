@@ -13,18 +13,18 @@ onready var clickThis:Sprite = $ClickThis
 
 
 func _process(_delta):
-	if (Global.dialogOpen && !Global.dialogDone && !Global.dialogClosing && !faded):
+	if Global.dialogOpen && !Global.dialogDone && !Global.dialogClosing && !faded:
 		faded = true
 		$Tween.interpolate_property(self, "modulate", Color(1,1,1,1), Color(1,1,1,0.5), transTime, Tween.TRANS_LINEAR, Tween.EASE_OUT)
 		$Tween.start()
-	elif (Global.dialogOpen && Global.dialogClosing && faded):
+	elif Global.dialogOpen && Global.dialogClosing && faded:
 		faded = false
 		$Tween.interpolate_property(self, "modulate", Color(1,1,1,0.5), Color(1,1,1,1), transTime, Tween.TRANS_LINEAR, Tween.EASE_OUT)
 		$Tween.start()
 
 
 func _on_Controls_pressed() -> void:
-	if (!Global.dialogOpen && !Global.imageOpen && !Global.fading):
+	if !Global.dialogOpen && !Global.imageOpen && !Global.fading:
 		Global.remove_commands()
 		var dialogBoxInstance = dialogBox.instance()
 		Global.dialogsNode.add_child(dialogBoxInstance)
