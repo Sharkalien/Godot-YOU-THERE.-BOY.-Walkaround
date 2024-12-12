@@ -102,7 +102,6 @@ interactDialog = [ SubResource( 2 ) ]
 polygon = PoolVector2Array( -173, 273, 163, 424, 209, 415, 216, 402, 272, 398, 281, 358, 306, 352, 305, 310, 299, 289, 280, 279, 280, 226, 338, 223, 337, 205, 371, 196, 371, 160, 363, 145, 368, 132, 320, 119, 307, 103, 294.141, 102.216, 293, 68, 323, 53, 327, 8, 301, -7, 238, -19, 252, -60, 248, -105, 232, -137, 196, -151, 158, -131, 147, -102, 109, -86, 113, 6, 156, 22, 166, 61, 160, 92, 146, 93, 120, 117, 121, 142, -21, 83, -56, 82, -184, 131 )
 
 [node name="ToiletHotspot" type="Area2D" parent="YSort"]
-collision_layer = 0
 script = ExtResource( 11 )
 snapTo = NodePath("Position2D")
 
@@ -116,7 +115,6 @@ __meta__ = {
 }
 
 [node name="Player" parent="YSort" instance=ExtResource( 6 )]
-unique_name_in_owner = true
 position = Vector2( 388, 362 )
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Player"]

@@ -146,7 +146,6 @@ Of course. Housetrapped."
 
 [node name="LivingRoom" type="StaticBody2D" parent="YSort"]
 position = Vector2( 210, -1292 )
-collision_layer = 0
 __meta__ = {
 "_edit_group_": true
 }
@@ -340,7 +339,6 @@ polygon = PoolVector2Array( -37, 19, -25, 25, -13, 28, 8, 29, 23, 25, 34, 19, 36
 
 [node name="BalconySteps" type="Area2D" parent="YSort"]
 position = Vector2( -58, -406 )
-collision_layer = 0
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
@@ -361,8 +359,6 @@ __meta__ = {
 }
 
 [node name="JohnsRoomDoor" type="Area2D" parent="YSort"]
-collision_layer = 4
-collision_mask = 4
 script = ExtResource( 15 )
 interactDialog = [ SubResource( 1 ) ]
 
@@ -377,8 +373,6 @@ interactDialog = [ SubResource( 19 ) ]
 polygon = PoolVector2Array( 177, -537, 312, -501, 311, -1030, 176, -1065 )
 
 [node name="BalconyDoor" type="Area2D" parent="YSort"]
-collision_layer = 4
-collision_mask = 4
 script = ExtResource( 15 )
 interactDialog = [ SubResource( 2 ) ]
 

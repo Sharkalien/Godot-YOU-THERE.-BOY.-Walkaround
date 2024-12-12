@@ -133,7 +133,7 @@ dialog = "Increasingly sophomoric.
 Also, you almost spelled 'SALAD' in there."
 
 [node name="Player" type="KinematicBody2D"]
-collision_mask = 5
+collision_mask = 0
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -154,8 +154,6 @@ anims/stillBack = SubResource( 4 )
 anims/stillFront = SubResource( 5 )
 
 [node name="PlayerInteractable" type="Area2D" parent="."]
-collision_layer = 5
-collision_mask = 4
 script = ExtResource( 3 )
 interactDialog = [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ) ]
 

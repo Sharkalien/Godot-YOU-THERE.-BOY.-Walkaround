@@ -271,6 +271,7 @@ polygon = PoolVector2Array( -220.773, 69.4672, 68.2266, 206.467, 221.227, 131.46
 position = Vector2( -40, -448 )
 frames = SubResource( 2 )
 animation = "blink"
+frame = 1
 playing = true
 centered = false
 
@@ -325,8 +326,6 @@ position = Vector2( 18, -100 )
 remote_path = NodePath("../../../Camera2D")
 
 [node name="LivingRoomDoor" type="Area2D" parent="."]
-collision_layer = 4
-collision_mask = 4
 script = ExtResource( 8 )
 interactDialog = [ SubResource( 1 ) ]
 

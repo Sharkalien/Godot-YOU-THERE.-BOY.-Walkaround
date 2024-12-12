@@ -90,7 +90,6 @@ warpPos = "FromKitchenPos"
 
 [node name="Room" type="StaticBody2D" parent="YSort"]
 position = Vector2( 19, -521 )
-collision_layer = 4
 __meta__ = {
 "_edit_group_": true
 }
@@ -122,7 +121,6 @@ polygon = PoolVector2Array( 194, 240, 196, 306, 208, 353, 218, 353, 234, 313, 23
 
 [node name="Fridge" type="StaticBody2D" parent="YSort"]
 position = Vector2( -63, -340 )
-collision_layer = 4
 __meta__ = {
 "_edit_group_": true
 }
@@ -143,7 +141,6 @@ polygon = PoolVector2Array( 16, 195, 59, 206, 70, 150, 36, 125, 18, 140 )
 
 [node name="Bowl" type="StaticBody2D" parent="YSort"]
 position = Vector2( -25, 19 )
-collision_layer = 4
 __meta__ = {
 "_edit_group_": true
 }
@@ -166,7 +163,6 @@ polygon = PoolVector2Array( -101, 2, -95, 38, -59, 53, -25, 40, 63, 44, 62, 31, 
 
 [node name="Hutch" type="StaticBody2D" parent="YSort"]
 position = Vector2( 585, 67 )
-collision_layer = 4
 __meta__ = {
 "_edit_group_": true
 }
@@ -193,7 +189,6 @@ texture = ExtResource( 3 )
 
 [node name="Counter" type="StaticBody2D" parent="YSort"]
 position = Vector2( -368, 7 )
-collision_layer = 4
 __meta__ = {
 "_edit_group_": true
 }
@@ -215,7 +210,6 @@ polygon = PoolVector2Array( -121, -29, -116, -23, -66, -30, -64, -94, -72, -97, 
 
 [node name="Table" type="StaticBody2D" parent="YSort"]
 position = Vector2( -151, 452 )
-collision_layer = 4
 __meta__ = {
 "_edit_group_": true
 }

@@ -71,7 +71,6 @@ polygon = PoolVector2Array( 116.839, -404.849, 116.815, 64.2706, -55.5676, 149.3
 
 [node name="Alchemiter" type="StaticBody2D" parent="."]
 position = Vector2( 188, 38 )
-collision_layer = 4
 __meta__ = {
 "_edit_group_": true
 }
@@ -110,7 +109,6 @@ position = Vector2( 188, 315 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 300, 325 )
-collision_mask = 0
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 position = Vector2( -5, -85 )
