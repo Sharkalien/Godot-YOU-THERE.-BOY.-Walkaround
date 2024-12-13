@@ -5,8 +5,7 @@ signal clicked
 onready var root = get_tree().get_root()
 onready var commandBox = self
 onready var commandContainer = get_node("MarginContainer/VBoxContainer")
-const label = preload("res://UI/Command Box/CommandLabel.tscn")
-var labelInstance:RichTextLabel = label.instance()
+var labelInstance:RichTextLabel = Ui.label.instance()
 onready var COMMAND_MARGIN = labelInstance.get("custom_styles/normal").get_margin(MARGIN_LEFT) * 2
 
 var dict:Dictionary = {"command": "", "dialog": """""", "warpScene": null, "warpPos": "", "zoomImage": null}
@@ -71,7 +70,7 @@ func set_command(labelInst):
 
 
 func add_label():
-	var instance = label.instance()
+	var instance = Ui.label.instance()
 	commandContainer.add_child(instance)
 	newLabel = instance
 

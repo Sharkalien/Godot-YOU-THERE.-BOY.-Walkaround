@@ -8,6 +8,7 @@ var direction = Vector2.ZERO
 var velocity = Vector2.ZERO
 var facing = "Front"
 var last_mouse_pos = null
+var mouseMove:bool = true
 
 var trickster := false
 var trickSong := load("res://Audio/Songs/mspa_harlequin.mp3")
@@ -26,10 +27,12 @@ func _physics_process(_delta):
 	movement()
 	velocity = move_and_slide(velocity)
 	global_position = global_position.round()
+	mouseMove = (!Ui.mouseHover && !Ui.dialogOpen && !Ui.fading)
+	
 
 
 func movement():
-	if Global.fading || Global.imageOpen:
+	if Ui.fading || Ui.imageOpen:
 		direction = Vector2.ZERO
 	else:
 		keyMovement()
@@ -81,9 +84,12 @@ func keyMovement():
 # Please refer to 
 # https://www.youtube.com/watch?v=5bxys-Zo_jk&list=PLllc6qRBTEefSTIsPZVqhhuGNMc-5kOS6&index=16
 func _unhandled_input(event):
-	if Global.mouseMove && event.is_action_pressed("click"):
-		Global.remove_commands()
+	if mouseMove && event.is_action_pressed("click"):
+		Ui.remove_commands()
 		last_mouse_pos = get_global_mouse_position()
+	
+	if event.is_action_pressed("trickster_mode"):
+		Signals.emit_signal("trickster")
 
 
 func mouseMovement():

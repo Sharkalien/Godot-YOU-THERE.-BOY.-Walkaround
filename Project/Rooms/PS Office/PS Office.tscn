@@ -142,7 +142,6 @@ polygon = PoolVector2Array( 164.441, 3.03396, 190.5, 13.4, 183.5, 55.5, 183.8, 6
 
 [node name="Player" parent="YSort" instance=ExtResource( 4 )]
 position = Vector2( -18, 273 )
-collision_mask = 0
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Player"]
 position = Vector2( 138, -163 )

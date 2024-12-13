@@ -12,9 +12,6 @@ var timer:int = 2 # to make "> " visible first
 var clicks:int = 0
 var width:int
 
-var imageBox = load("res://UI/Zoom Image/ZoomImage.tscn")
-var dialogBox = load("res://UI/Dialog Box/DialogPlayer.tscn")
-
 
 func _ready() -> void:
 	visible_characters = timer
@@ -25,33 +22,33 @@ func _process(_delta):
 		visible_characters = timer
 
 func _on_CommandLabel_mouse_entered() -> void:
-	if !Global.fading:
-		Global.hoverNodes.append(self)
+	if !Ui.fading:
+		Ui.hoverNodes.append(self)
 	add_color_override("default_color",  Color(0.63, 0.63, 0.63))
 
 func _on_CommandLabel_mouse_exited() -> void:
-	if !Global.fading:
-		Global.hoverNodes.erase(self)
+	if !Ui.fading:
+		Ui.hoverNodes.erase(self)
 	remove_color_override("default_color")
 
 func _exit_tree():
-	Global.hoverNodes.erase(self)
+	Ui.hoverNodes.erase(self)
 
 
 func _on_CommandLabel_gui_input(event: InputEvent) -> void:
-	if !Global.dialogOpen && event.is_action_pressed("click"):
+	if !Ui.dialogOpen && event.is_action_pressed("click"):
 		emit_signal("command_clicked")
-		Global.remove_commands()
+		Ui.remove_commands()
 		if zoomImage:
-			var imageBoxInstance = imageBox.instance()
-			Global.imagesNode.add_child(imageBoxInstance)
+			var imageBoxInstance = Ui.imageBox.instance()
 			if !dialog.empty() && dialog != null:
 				imageBoxInstance.dialog = dialog
 			imageBoxInstance.imageTexture = zoomImage
+			Ui.imagesNode.add_child(imageBoxInstance)
 		elif !dialog.empty() && dialog != null:
-			var dialogBoxInstance = dialogBox.instance()
-			Global.dialogsNode.add_child(dialogBoxInstance)
+			var dialogBoxInstance = Ui.dialogBox.instance()
 			dialogBoxInstance.dialog = dialog
+			Ui.dialogsNode.add_child(dialogBoxInstance)
 		elif warpScene != null && !warpScene.empty():
 			Global.fadeto_scene(warpScene, warpPos)
 		else:
