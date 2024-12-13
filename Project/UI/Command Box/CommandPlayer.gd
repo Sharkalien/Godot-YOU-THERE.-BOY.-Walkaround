@@ -41,6 +41,11 @@ func check_interactable_dict(instance):
 func set_command(labelInst):
 	labelInst.set_bbcode("> " + labelInst.command)
 	lastWidth = labelInst.get_font("normal_font").get_string_size(labelInst.text).x + COMMAND_MARGIN
+	var viewportWidth = root.get_visible_rect().size.x
+	var viewportHeight = root.get_visible_rect().size.y
+	var mousePos := get_global_mouse_position()
+	var click = Vector2(mousePos.x, mousePos.y - 16) # center the command where clicked
+	
 	if width < lastWidth:
 		width = lastWidth
 		commandBox.rect_size.x = width
@@ -48,20 +53,16 @@ func set_command(labelInst):
 	if height < lastHeight:
 		height = lastHeight
 	
-	var mousePos := get_global_mouse_position()
-	var click = Vector2(mousePos.x, mousePos.y - 16) # center the command where clicked
-	
-	var viewportWidth = root.get_visible_rect().size.x
-	var viewportHeight = root.get_visible_rect().size.y
 	if width > viewportWidth:
 		width = viewportWidth
 		commandBox.rect_size.x = width
 		yield(self, "resized")
-	if click.x + width > viewportWidth:
-		click.x = viewportWidth - width
 	height = commandBox.rect_size.y
 	if height > viewportHeight:
 		height = viewportHeight
+	
+	if click.x + width > viewportWidth:
+		click.x = viewportWidth - width
 	if click.y + height > viewportHeight:
 		click.y = viewportHeight - height
 	if click.y < 0:
