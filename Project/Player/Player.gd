@@ -28,7 +28,6 @@ func _physics_process(_delta):
 	velocity = move_and_slide(velocity)
 	global_position = global_position.round()
 	mouseMove = (!Ui.mouseHover && !Ui.dialogOpen && !Ui.fading)
-	
 
 
 func movement():

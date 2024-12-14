@@ -59,93 +59,91 @@ dialog = "Wow...
 
 [node name="PS Office" type="Node2D"]
 
-[node name="YSort" type="YSort" parent="."]
-
-[node name="Room" type="StaticBody2D" parent="YSort"]
+[node name="Room" type="StaticBody2D" parent="."]
 position = Vector2( 312, -388 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="PsRoom" type="Sprite" parent="YSort/Room"]
+[node name="PsRoom" type="Sprite" parent="Room"]
 position = Vector2( -593, -5 )
 scale = Vector2( 1.6976, 1.6976 )
 texture = ExtResource( 5 )
 centered = false
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Room"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Room"]
 visible = false
 polygon = PoolVector2Array( -545, 658, 113, 517, 549, 651, -18, 890, -544, 659, -558, 659, -563, 721, -46, 953, 601, 701, 583, 587, 87, 454, -571, 602, -558, 658 )
 
-[node name="What Pumpkin" type="Sprite" parent="YSort/Room"]
+[node name="What Pumpkin" type="Sprite" parent="Room"]
 position = Vector2( 463, 224 )
 scale = Vector2( 0.797864, 0.797864 )
 texture = ExtResource( 3 )
 centered = false
 
-[node name="Interactable" type="Area2D" parent="YSort/Room/What Pumpkin"]
+[node name="Interactable" type="Area2D" parent="Room/What Pumpkin"]
 script = ExtResource( 7 )
 interactDialog = [ SubResource( 4 ) ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Room/What Pumpkin/Interactable"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Room/What Pumpkin/Interactable"]
 polygon = PoolVector2Array( 0, 50.1339, 8.77344, 86.4809, 66.4274, 110.294, 106.534, 100.268, 120.321, 63.9207, 92.7477, -1.25336, 15.0402, 16.2935 )
 
-[node name="VaultInteractable" type="Area2D" parent="YSort/Room"]
+[node name="VaultInteractable" type="Area2D" parent="Room"]
 script = ExtResource( 7 )
 interactDialog = [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ) ]
 multiCommand = true
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Room/VaultInteractable"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Room/VaultInteractable"]
 polygon = PoolVector2Array( -492, 596, -319, 569, -314, 311, -505, 285 )
 
-[node name="WindowInteractable" type="Area2D" parent="YSort/Room"]
+[node name="WindowInteractable" type="Area2D" parent="Room"]
 script = ExtResource( 7 )
 interactDialog = [ SubResource( 5 ), SubResource( 6 ) ]
 multiCommand = true
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Room/WindowInteractable"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Room/WindowInteractable"]
 polygon = PoolVector2Array( 149, 433, 260, 458, 285, 458, 285, 422, 278, 417, 283, 214, 291, 214, 295, 173, 268, 168, 146, 183, 149, 214, 155, 215, 157, 400, 151, 404 )
 
-[node name="Desk" type="StaticBody2D" parent="YSort"]
+[node name="Desk" type="StaticBody2D" parent="."]
 position = Vector2( 347, 180 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="PsDesk" type="Sprite" parent="YSort/Desk"]
+[node name="PsDesk" type="Sprite" parent="Desk"]
 position = Vector2( -12, -206 )
 scale = Vector2( 1.64801, 1.64801 )
 texture = ExtResource( 1 )
 centered = false
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Desk"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Desk"]
 visible = false
 position = Vector2( 0, -4 )
 polygon = PoolVector2Array( -1, 2, 193, 93, 297, 57, 96, -26 )
 
-[node name="Interactable" type="Area2D" parent="YSort/Desk"]
+[node name="Interactable" type="Area2D" parent="Desk"]
 script = ExtResource( 7 )
 interactDialog = [ SubResource( 7 ) ]
 
-[node name="PsDesk" type="Sprite" parent="YSort/Desk/Interactable"]
+[node name="PsDesk" type="Sprite" parent="Desk/Interactable"]
 position = Vector2( -12, -206 )
 scale = Vector2( 1.64801, 1.64801 )
 texture = ExtResource( 1 )
 centered = false
 
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="YSort/Desk/Interactable"]
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Desk/Interactable"]
 position = Vector2( -12, -206 )
 scale = Vector2( 1.64801, 1.64801 )
 polygon = PoolVector2Array( 164.441, 3.03396, 190.5, 13.4, 183.5, 55.5, 183.8, 65.5, 177.79, 76.4558, 195.994, 83.7374, 186.9, 158.5, 124.392, 178.397, 7.28151, 124.999, 0, 51.5, 26.6989, 47.3298, 40.0483, 40.6551, 40.0483, 23.6649, 30.9464, 20.6309, 30.9464, 30.3396, 26.6989, 30.3396, 26.6989, 19.4174, 12.1358, 14.563, 23.6649, -1.21358, 46.723, 3.03396, 61.8928, 11.5291, 55.8249, 20.0242, 44.9026, 24.2717, 44.9026, 41.8687, 96.48, 55.2181, 97.9, 48.5, 124.999, 46.723, 134.708, 6.06792 )
 
-[node name="Kernelsprite" parent="YSort" instance=ExtResource( 2 )]
+[node name="Kernelsprite" parent="." instance=ExtResource( 2 )]
 
-[node name="Player" parent="YSort" instance=ExtResource( 4 )]
+[node name="Player" parent="." instance=ExtResource( 4 )]
 position = Vector2( -18, 273 )
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Player"]
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 position = Vector2( 138, -163 )
-remote_path = NodePath("../../../Camera2D")
+remote_path = NodePath("../../Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 120, 110 )

@@ -62,14 +62,16 @@ interactDialog = [ SubResource( 2 ) ]
 polygon = PoolVector2Array( -70, 78, 69, 78, 69, -79, -70, -79 )
 
 [node name="LivingRoomArrow" type="Area2D" parent="."]
-position = Vector2( 321, 359 )
+position = Vector2( 321, 329 )
 script = ExtResource( 5 )
 interactDialog = [ SubResource( 1 ) ]
 
 [node name="Arrow" type="Sprite" parent="LivingRoomArrow"]
+position = Vector2( 0, 30 )
 texture = ExtResource( 2 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LivingRoomArrow"]
+position = Vector2( 0, 30 )
 polygon = PoolVector2Array( 25, -18, 39, -27, 40, 29, -34, 30, -34, 13, -41, 9, -41, -9, 1, -29 )
 
 [node name="Kernelsprite" parent="." instance=ExtResource( 7 )]

@@ -43,20 +43,22 @@ position = Vector2( 1, 0 )
 script = ExtResource( 7 )
 bgmTrack = ExtResource( 8 )
 
-[node name="balcony" type="StaticBody2D" parent="."]
-position = Vector2( 242, 37 )
+[node name="Room" type="StaticBody2D" parent="."]
+position = Vector2( 0, -725 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Sprite" type="Sprite" parent="balcony"]
-position = Vector2( 392, -35 )
+[node name="Sprite" type="Sprite" parent="Room"]
+position = Vector2( 634, 727 )
 texture = ExtResource( 2 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="balcony"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Room"]
+position = Vector2( 242, 762 )
 polygon = PoolVector2Array( 1080, 184, 351, 538, -352, 216, -280, 181, -229, 204, -50, 116, -5, -776, -715, -795, -726, 889, 1480, 935, 1484, 93 )
 
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="balcony"]
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Room"]
+position = Vector2( 242, 762 )
 polygon = PoolVector2Array( -50, 116, 56, 114, 360, -66, 818, 71, 1116, 207, 1549, 108, 1466, -753, 530, -802, -31, -802 )
 
 [node name="LivingRoomDoor" type="Area2D" parent="."]
@@ -111,14 +113,16 @@ position = Vector2( -5, -85 )
 remote_path = NodePath("../../Camera2D")
 
 [node name="RailInteractable" type="Area2D" parent="."]
-position = Vector2( 602, 344 )
+position = Vector2( 602, 602 )
 script = ExtResource( 6 )
 interactDialog = [ SubResource( 5 ) ]
 
 [node name="rail" type="Sprite" parent="RailInteractable"]
+position = Vector2( 0, -258 )
 texture = ExtResource( 4 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RailInteractable"]
+position = Vector2( 0, -258 )
 polygon = PoolVector2Array( 750, -247, 750, -238, 696.5, -210.8, 696.5, -114.8, 729, -130, 750, -119, 750, -109, -11.9, 258, -363, 95, -373.5, 78.2, -387, 85, -752, -82, -752, -92, -731, -103, -716, -97, -716, -193, -752, -210, -752, -220, -730, -231, -19.1, 98, -8.90002, 100.4, 729, -258 )
 
 [node name="Camera2D" type="Camera2D" parent="."]

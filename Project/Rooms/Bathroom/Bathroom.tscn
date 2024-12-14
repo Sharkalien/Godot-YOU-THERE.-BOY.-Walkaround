@@ -39,90 +39,88 @@ warpPos = "FromLivingRoomPos"
 
 [node name="Bathroom" type="Node2D"]
 
-[node name="YSort" type="YSort" parent="."]
-
-[node name="Room" type="StaticBody2D" parent="YSort"]
+[node name="Room" type="StaticBody2D" parent="."]
 position = Vector2( -248, -332 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="RoomSprite" type="Sprite" parent="YSort/Room"]
+[node name="RoomSprite" type="Sprite" parent="Room"]
 texture = ExtResource( 1 )
 centered = false
 
-[node name="ClownRug" type="Sprite" parent="YSort/Room/RoomSprite"]
+[node name="ClownRug" type="Sprite" parent="Room/RoomSprite"]
 position = Vector2( 508, 604 )
 texture = ExtResource( 4 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Room"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Room"]
 visible = false
 polygon = PoolVector2Array( 44, 594, 524, 814, 854, 650, 615, 546, 495, 585, 139, 595, 190, 440, 397, 336, 740, 425, 1090, 550, 971, 872, 160, 921, -63, 590 )
 
-[node name="WindowInteractable" type="Area2D" parent="YSort/Room"]
+[node name="WindowInteractable" type="Area2D" parent="Room"]
 script = ExtResource( 8 )
 interactDialog = [ SubResource( 1 ) ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Room/WindowInteractable"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Room/WindowInteractable"]
 position = Vector2( 554, -169 )
 polygon = PoolVector2Array( 6, 542, 163, 592, 185, 582, 184, 302, 47, 263, 28, 268, 28, 507, 7, 514 )
 
-[node name="Toilet" type="StaticBody2D" parent="YSort"]
+[node name="Toilet" type="StaticBody2D" parent="."]
 position = Vector2( 240, 133 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Sprite" type="Sprite" parent="YSort/Toilet"]
+[node name="Sprite" type="Sprite" parent="Toilet"]
 position = Vector2( 0, -92 )
 texture = ExtResource( 5 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Toilet"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Toilet"]
 visible = false
 polygon = PoolVector2Array( 97, 90, 132, 64, 125, 7, -95, -36, -126, 20, -33, 103 )
 
-[node name="Bathtub" type="StaticBody2D" parent="YSort"]
+[node name="Bathtub" type="StaticBody2D" parent="."]
 position = Vector2( 269, 353 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Sprite" type="Sprite" parent="YSort/Bathtub"]
+[node name="Sprite" type="Sprite" parent="Bathtub"]
 position = Vector2( -207, -100 )
 texture = ExtResource( 3 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/Bathtub"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bathtub"]
 position = Vector2( -206.9, -4.10001 )
 polygon = PoolVector2Array( 93, 75, 147, 67, 210, 49, 244, 3, 244, -23, 218, -65, 183, -97, -98, -208, -243, -87 )
 
-[node name="PlumbingInteractable" type="Area2D" parent="YSort"]
+[node name="PlumbingInteractable" type="Area2D" parent="."]
 script = ExtResource( 8 )
 interactDialog = [ SubResource( 2 ) ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/PlumbingInteractable"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlumbingInteractable"]
 polygon = PoolVector2Array( -173, 273, 163, 424, 209, 415, 216, 402, 272, 398, 281, 358, 306, 352, 305, 310, 299, 289, 280, 279, 280, 226, 338, 223, 337, 205, 371, 196, 371, 160, 363, 145, 368, 132, 320, 119, 307, 103, 294.141, 102.216, 293, 68, 323, 53, 327, 8, 301, -7, 238, -19, 252, -60, 248, -105, 232, -137, 196, -151, 158, -131, 147, -102, 109, -86, 113, 6, 156, 22, 166, 61, 160, 92, 146, 93, 120, 117, 121, 142, -21, 83, -56, 82, -184, 131 )
 
-[node name="ToiletHotspot" type="Area2D" parent="YSort"]
+[node name="ToiletHotspot" type="Area2D" parent="."]
 script = ExtResource( 11 )
 snapTo = NodePath("Position2D")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/ToiletHotspot"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ToiletHotspot"]
 polygon = PoolVector2Array( 310, 309, 362, 261, 443, 245, 366, 205, 256, 249 )
 
-[node name="Position2D" type="Position2D" parent="YSort/ToiletHotspot"]
+[node name="Position2D" type="Position2D" parent="ToiletHotspot"]
 position = Vector2( 159, 105 )
 __meta__ = {
 "_gizmo_extents_": 52.0
 }
 
-[node name="Kernelsprite" parent="YSort" instance=ExtResource( 12 )]
+[node name="Kernelsprite" parent="." instance=ExtResource( 12 )]
 
-[node name="Player" parent="YSort" instance=ExtResource( 6 )]
+[node name="Player" parent="." instance=ExtResource( 6 )]
 position = Vector2( 388, 362 )
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Player"]
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 position = Vector2( -19, -59 )
-remote_path = NodePath("../../../Camera2D")
+remote_path = NodePath("../../Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 369, 303 )

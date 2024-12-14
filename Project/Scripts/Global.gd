@@ -28,6 +28,8 @@ func _ready():
 
 
 func init_nodes():
+	var currentSceneCanvasItem = currentScene.get_canvas_item()
+	VisualServer.canvas_item_set_sort_children_by_y(currentSceneCanvasItem,true)
 	if "bgmTrack" in currentScene && audioNode.stream != currentScene.bgmTrack:
 		audioNode.stream = currentScene.bgmTrack
 		audioNode.play()
@@ -75,8 +77,8 @@ func goto_scene(path):
 
 
 func _deferred_goto_scene(path):
-#	oldPlayer = playerNode
-#	currentScene.remove_child(oldPlayer)
+	oldPlayer = playerNode
+	currentScene.remove_child(oldPlayer)
 	# It is now safe to remove the current scene
 	currentScene.free()
 	
@@ -86,15 +88,16 @@ func _deferred_goto_scene(path):
 	# Instance the new scene.
 	currentScene = s.instance() # if you get an error here, make sure the file path to the scene exists and hasn't been changed
 	
+	var newPlayer = currentScene.get_node("Player")
+#	var newPlayerParent = newPlayer.get_parent()
+	currentScene.add_child_below_node(newPlayer,oldPlayer)
+	newPlayer.free()
+	playerNode = oldPlayer
+	
 	# Add it to the active scene, as child of root.
 	get_tree().get_root().add_child(currentScene)
 	
 	get_tree().set_current_scene(currentScene)
-	
-#	var newPlayer = playerNode
-#	var newPlayerParent = newPlayer.get_parent()
-#	currentScene.add_child_below_node(newPlayer,oldPlayer)
-#	newPlayer.free()
 	
 	# Get and set the path of the Position2D node in the scene to warp to
 	var posNode = get_tree().get_current_scene().get_node(posPath)
