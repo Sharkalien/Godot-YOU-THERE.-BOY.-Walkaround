@@ -10,7 +10,7 @@ var facing = "Front"
 var last_mouse_pos = null
 var mouseMove:bool = true
 
-var trickster := false
+onready var tricksterAudioPlayer:AudioStreamPlayer = AudioStreamPlayer.new()
 var trickSong := load("res://Audio/Songs/mspa_harlequin.mp3")
 var trickTex := load("res://Player/tricksterJohn.png")
 
@@ -103,8 +103,7 @@ func mouseMovement():
 
 
 func tricksterMode():
-	if !trickster:
-		trickster = true
+	if !Global.tricksterMode:
 		Global.tricksterMode = true
 		$Sprite.set_texture(trickTex)
 		$Sprite.self_modulate = Color(1,1,1,0.5)
@@ -114,7 +113,6 @@ func tricksterMode():
 		Global.audioNode.stream = trickSong
 		Global.audioNode.play()
 	else:
-		trickster = false
 		Global.tricksterMode = false
 		$Sprite.set_texture(load("res://Player/johnWalk.png"))
 		$Sprite.self_modulate = Color(1,1,1,1)

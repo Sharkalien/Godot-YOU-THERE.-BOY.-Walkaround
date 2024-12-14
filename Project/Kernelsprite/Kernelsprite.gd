@@ -11,6 +11,8 @@ onready var animPlayer := $AnimationPlayer
 func _ready() -> void:
 # warning-ignore:return_value_discarded
 	Signals.connect("trickster", self, "tricksterMode")
+	if Global.tricksterMode:
+		tricksterMode()
 
 
 func _physics_process(_delta: float) -> void:

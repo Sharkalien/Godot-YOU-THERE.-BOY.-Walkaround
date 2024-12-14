@@ -106,9 +106,11 @@ func _deferred_goto_scene(path):
 	
 	warpPos = posNode.get_global_position()
 	
-	init_nodes()
-	
 	if playerNode:
 		playerNode.global_position = warpPos
-	if tricksterMode:
-		Signals.emit_signal("trickster")
+		var cam:Camera2D = currentScene.get_node("Camera2D")
+		if cam:
+			cam.global_position = playerNode.get_node("RemoteTransform2D").global_position
+			cam.reset_smoothing()
+	
+	init_nodes()
