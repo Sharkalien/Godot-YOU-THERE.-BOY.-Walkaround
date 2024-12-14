@@ -24,7 +24,6 @@ func _exit_tree():
 
 func _process(_delta):
 	if !Ui.dialogOpen && !Ui.fading && selected && Input.is_action_just_pressed("click"):
-		Ui.remove_commands()
 		if !dialog.empty() && dialog != null:
 			var dialogBoxInstance = Ui.dialogBox.instance()
 			dialogBoxInstance.dialog = dialog
@@ -32,6 +31,6 @@ func _process(_delta):
 	if Ui.dialogClosing:
 		queue_free()
 
-func _on_ImageBox_gui_input(_event: InputEvent) -> void:
-	if (dialog.empty() || dialog == null) && Input.is_action_just_pressed("click") && Ui.imageOpen:
+func _on_ImageBox_gui_input(event: InputEvent) -> void:
+	if (dialog.empty() || dialog == null) && event.is_action_pressed("click") && Ui.imageOpen:
 		queue_free()

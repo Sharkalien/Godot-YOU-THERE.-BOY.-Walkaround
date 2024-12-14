@@ -21,12 +21,6 @@ var mouseHover:bool = false
 var fading:bool = false
 var fadedOut:bool = false
 
-
-func remove_commands():
-	for child in commandsNode.get_children():
-		child.queue_free()
-
-
 func _process(_delta):	
 	if hoverNodes.size() > 0 && mouseHover == false && !dialogOpen:
 		mouseHover = true
@@ -34,3 +28,12 @@ func _process(_delta):
 	elif hoverNodes.size() == 0 && mouseHover == true && !fading:
 		mouseHover = false
 		Input.set_default_cursor_shape(Input.CURSOR_ARROW)
+
+
+func remove_commands():
+	for child in commandsNode.get_children():
+		child.queue_free()
+
+
+func add_dialog():
+	pass

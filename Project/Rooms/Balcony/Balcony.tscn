@@ -60,8 +60,6 @@ polygon = PoolVector2Array( 1080, 184, 351, 538, -352, 216, -280, 181, -229, 204
 polygon = PoolVector2Array( -50, 116, 56, 114, 360, -66, 818, 71, 1116, 207, 1549, 108, 1466, -753, 530, -802, -31, -802 )
 
 [node name="LivingRoomDoor" type="Area2D" parent="."]
-collision_layer = 4
-collision_mask = 4
 script = ExtResource( 6 )
 interactDialog = [ SubResource( 1 ) ]
 
@@ -80,8 +78,6 @@ position = Vector2( 369, -132 )
 polygon = PoolVector2Array( 55, 421, 489, 199, 51, 79, -315, 247 )
 
 [node name="AlchemiterInteractable" type="Area2D" parent="Alchemiter"]
-collision_layer = 4
-collision_mask = 4
 script = ExtResource( 6 )
 interactDialog = [ SubResource( 2 ) ]
 
