@@ -22,14 +22,14 @@ Look at that poker face. He's not telling a soul!"
 script = ExtResource( 4 )
 command = "NO GO BACK."
 dialog = ""
-warpScene = "res://Rooms/Living Room/Living Room.tscn"
+warpScene = "res://Rooms/Living Room.tscn"
 warpPos = "FromBedroomPos"
 
 [sub_resource type="Resource" id=3]
 script = ExtResource( 4 )
 command = "GO IN THERE NOW."
 dialog = ""
-warpScene = "res://Rooms/Bathroom/Bathroom.tscn"
+warpScene = "res://Rooms/Bathroom.tscn"
 warpPos = "FromHallPos"
 
 [sub_resource type="Resource" id=4]
@@ -40,18 +40,19 @@ dialog = "Your DAD'S room is still locked!!!"
 [node name="Hallway" type="Node2D"]
 
 [node name="Hall" type="StaticBody2D" parent="."]
+position = Vector2( 0, -456 )
 
 [node name="HallSprite" type="Sprite" parent="Hall"]
-position = Vector2( 0, -456 )
 texture = ExtResource( 1 )
 centered = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hall"]
 visible = false
+position = Vector2( 0, 456 )
 polygon = PoolVector2Array( 53, 402, 608, 403, 745, 521, -135, 526, -109, -514, 721, -516, 757, 515, 608, 403, 432, 86, 229, 85 )
 
 [node name="Anderson" type="Sprite" parent="Hall"]
-position = Vector2( 330, -99 )
+position = Vector2( 330, 357 )
 texture = ExtResource( 3 )
 
 [node name="Interactable" type="Area2D" parent="Hall/Anderson"]

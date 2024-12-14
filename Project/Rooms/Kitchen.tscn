@@ -37,7 +37,7 @@ dialog = "The phone doesn't work!"
 script = ExtResource( 10 )
 command = "OPEN THIS DOOR NOW."
 dialog = ""
-warpScene = "res://Rooms/Utility Room/Utility Room.tscn"
+warpScene = "res://Rooms/Utility Room.tscn"
 warpPos = "FromKitchenPos"
 
 [sub_resource type="Resource" id=12]
@@ -81,7 +81,7 @@ dialog = "Doesn't smell like anything."
 script = ExtResource( 10 )
 command = "RETURN TO THE ROOM WITH THE DEAD HAG'S REMAINS."
 dialog = ""
-warpScene = "res://Rooms/Living Room/Living Room.tscn"
+warpScene = "res://Rooms/Living Room.tscn"
 warpPos = "FromKitchenPos"
 
 [node name="Kitchen" type="Node2D"]
@@ -202,20 +202,21 @@ position = Vector2( -12, -94 )
 remote_path = NodePath("../../Camera2D")
 
 [node name="Counter" type="StaticBody2D" parent="."]
-position = Vector2( -368, 7 )
+position = Vector2( -368, -177 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Sprite" type="Sprite" parent="Counter"]
-position = Vector2( 0, 40 )
+position = Vector2( 0, 224 )
 texture = ExtResource( 2 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Counter"]
-position = Vector2( 0, 40 )
+position = Vector2( 0, 224 )
 polygon = PoolVector2Array( 245, -48, 43.573, 45.5498, 12, 91, -24, 76, 131, 162, 13, 216, -246, 103, 139, -94 )
 
 [node name="BettyInteractable" type="Area2D" parent="Counter"]
+position = Vector2( 0, 184 )
 script = ExtResource( 11 )
 interactDialog = [ SubResource( 7 ) ]
 

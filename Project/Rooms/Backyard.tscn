@@ -48,7 +48,7 @@ font_data = ExtResource( 9 )
 script = ExtResource( 21 )
 command = "SHENANIGANS"
 dialog = ""
-warpScene = "res://Rooms/PS Office/PS Office.tscn"
+warpScene = "res://Rooms/PS Office.tscn"
 warpPos = "FromBackyardPos"
 
 [sub_resource type="Resource" id=8]
@@ -93,7 +93,7 @@ dialog = "Looks like your SWING SET is toast. You relive fond memories in a mome
 script = ExtResource( 21 )
 command = "BACK INTO THE HOUSE WITH YOU."
 dialog = ""
-warpScene = "res://Rooms/Utility Room/Utility Room.tscn"
+warpScene = "res://Rooms/Utility Room.tscn"
 warpPos = "FromBackyardPos"
 
 [node name="Backyard" type="Node2D"]
@@ -216,7 +216,7 @@ texture = ExtResource( 10 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Yard/CablesInteractable/cables"]
 position = Vector2( -77, 159 )
 frames = SubResource( 4 )
-frame = 1
+frame = 29
 playing = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Yard/CablesInteractable"]

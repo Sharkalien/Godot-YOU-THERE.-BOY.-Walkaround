@@ -34,7 +34,7 @@ You guess you could just go pee over the edge of the cliff..."
 script = ExtResource( 7 )
 command = "LEAVE AT ONCE."
 dialog = ""
-warpScene = "res://Rooms/Hallway/Hallway.tscn"
+warpScene = "res://Rooms/Hallway.tscn"
 warpPos = "FromLivingRoomPos"
 
 [node name="Bathroom" type="Node2D"]

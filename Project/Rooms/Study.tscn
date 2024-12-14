@@ -110,7 +110,7 @@ dialog = "Your DAD used this stuff sometimes to dazzle you with his silly vaudev
 script = ExtResource( 12 )
 command = "RETURN TO THE LARGE ROOM WITH THE GROSS PAINTINGS."
 dialog = ""
-warpScene = "res://Rooms/Living Room/Living Room.tscn"
+warpScene = "res://Rooms/Living Room.tscn"
 warpPos = "FromStudyPos"
 
 [node name="Study" type="Node2D"]

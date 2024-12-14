@@ -33,7 +33,7 @@ _global_script_class_icons={
 [application]
 
 config/name="YOU THERE. BOY."
-run/main_scene="res://Rooms/Balcony/Balcony.tscn"
+run/main_scene="res://Rooms/Balcony.tscn"
 boot_splash/image="res://sburb_splash.png"
 boot_splash/fullsize=false
 boot_splash/use_filter=false

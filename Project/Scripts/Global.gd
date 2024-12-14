@@ -83,13 +83,12 @@ func _deferred_goto_scene(path):
 	currentScene.free()
 	
 	# Load the new scene.
-	var s = ResourceLoader.load(path); assert(ResourceLoader.exists(path) != false, "warpScene needs a valid filepath!")
+	var s = ResourceLoader.load(path); assert(ResourceLoader.exists(path) != false, "warpScene needs a valid filepath!") # if you get an error here, make sure the file path to the scene exists and hasn't been changed
 	
 	# Instance the new scene.
-	currentScene = s.instance() # if you get an error here, make sure the file path to the scene exists and hasn't been changed
+	currentScene = s.instance()
 	
 	var newPlayer = currentScene.get_node("Player")
-#	var newPlayerParent = newPlayer.get_parent()
 	currentScene.add_child_below_node(newPlayer,oldPlayer)
 	var newPlayerRTPos:Vector2 = newPlayer.get_node("RemoteTransform2D").position
 	newPlayer.free()

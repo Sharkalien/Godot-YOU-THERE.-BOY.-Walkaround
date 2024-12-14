@@ -14,7 +14,7 @@
 script = ExtResource( 6 )
 command = "EXIT, BOY."
 dialog = ""
-warpScene = "res://Rooms/Backyard/Backyard.tscn"
+warpScene = "res://Rooms/Backyard.tscn"
 warpPos = "FromUtilityRoomPos"
 
 [sub_resource type="Resource" id=2]
@@ -31,7 +31,7 @@ dialog = "You don't give a shit about what's in there! Probably nothing you'd be
 script = ExtResource( 6 )
 command = "GO BACK INTO THE LUNCHEON PARLOR."
 dialog = ""
-warpScene = "res://Rooms/Kitchen/Kitchen.tscn"
+warpScene = "res://Rooms/Kitchen.tscn"
 warpPos = "FromUtilityRoomPos"
 
 [node name="Utility Room" type="Node2D"]

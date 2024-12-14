@@ -113,7 +113,7 @@ zoomImage = ExtResource( 16 )
 script = ExtResource( 12 )
 command = "GO OUT OF THE DOOR THAT IS NOT HERE."
 dialog = ""
-warpScene = "res://Rooms/Living Room/Living Room.tscn"
+warpScene = "res://Rooms/Living Room.tscn"
 warpPos = "FromBedroomPos"
 
 [node name="John\'s Room" type="Node2D"]
@@ -310,7 +310,6 @@ polygon = PoolVector2Array( -220.773, 69.4672, 68.2266, 206.467, 221.227, 131.46
 position = Vector2( -40, -448 )
 frames = SubResource( 2 )
 animation = "blink"
-frame = 1
 playing = true
 centered = false
 

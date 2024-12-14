@@ -100,35 +100,35 @@ hehehehe!"
 script = ExtResource( 17 )
 command = "BOY, GO IN HERE."
 dialog = ""
-warpScene = "res://Rooms/John's Room/John's Room.tscn"
+warpScene = "res://Rooms/John's Room.tscn"
 warpPos = "FromLivingRoomPos"
 
 [sub_resource type="Resource" id=19]
 script = ExtResource( 17 )
 command = "WHAT IS DOWN HERE. PROCEED, BOY."
 dialog = ""
-warpScene = "res://Rooms/Hallway/Hallway.tscn"
+warpScene = "res://Rooms/Hallway.tscn"
 warpPos = "FromLivingRoomPos"
 
 [sub_resource type="Resource" id=2]
 script = ExtResource( 17 )
 command = "WAIT GO BACK OUT HERE BOY."
 dialog = ""
-warpScene = "res://Rooms/Balcony/Balcony.tscn"
+warpScene = "res://Rooms/Balcony.tscn"
 warpPos = "FromLivingRoomPos"
 
 [sub_resource type="Resource" id=17]
 script = ExtResource( 17 )
 command = "HERE BOY. IN HERE."
 dialog = ""
-warpScene = "res://Rooms/Study/Study.tscn"
+warpScene = "res://Rooms/Study.tscn"
 warpPos = "FromLivingRoomPos"
 
 [sub_resource type="Resource" id=18]
 script = ExtResource( 17 )
 command = "THIS WAY. THROUGH THE DOORS LIKE YOU SEE IN A COWBOY SALOON."
 dialog = ""
-warpScene = "res://Rooms/Kitchen/Kitchen.tscn"
+warpScene = "res://Rooms/Kitchen.tscn"
 warpPos = "FromLivingRoomPos"
 
 [sub_resource type="Resource" id=16]

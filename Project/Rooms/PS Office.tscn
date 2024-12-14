@@ -37,7 +37,7 @@ dialog = "With what?"
 script = ExtResource( 6 )
 command = "Open safe"
 dialog = ""
-warpScene = "res://Rooms/Backyard/Backyard.tscn"
+warpScene = "res://Rooms/Backyard.tscn"
 warpPos = "FromUtilityRoomPos"
 
 [sub_resource type="Resource" id=5]
