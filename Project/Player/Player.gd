@@ -10,7 +10,6 @@ var facing = "Front"
 var last_mouse_pos = null
 var mouseMove:bool = true
 
-onready var tricksterAudioPlayer:AudioStreamPlayer = AudioStreamPlayer.new()
 var trickSong := load("res://Audio/Songs/mspa_harlequin.mp3")
 var trickTex := load("res://Player/tricksterJohn.png")
 
@@ -120,3 +119,4 @@ func tricksterMode():
 		$PlayerInteractable.rotation_degrees = 0
 		set_collision_layer(1)
 		Global.audioNode.stop()
+		Global.audioNode.stream = null

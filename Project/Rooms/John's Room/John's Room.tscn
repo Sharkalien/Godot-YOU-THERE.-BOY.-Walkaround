@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Rooms/John's Room/room.png" type="Texture" id=1]
 [ext_resource path="res://Rooms/John's Room/roomBed.png" type="Texture" id=2]
@@ -9,7 +9,6 @@
 [ext_resource path="res://Rooms/John's Room/roomLathe.png" type="Texture" id=7]
 [ext_resource path="res://Scripts/Interactable.gd" type="Script" id=8]
 [ext_resource path="res://Scripts/Resources/InteractResource.gd" type="Script" id=9]
-[ext_resource path="res://Scripts/Room.gd" type="Script" id=10]
 [ext_resource path="res://Rooms/John's Room/roomWiseguy.png" type="Texture" id=11]
 [ext_resource path="res://Scripts/Resources/InteractResourceExtra.gd" type="Script" id=12]
 [ext_resource path="res://Rooms/John's Room/roomConAir.png" type="Texture" id=13]
@@ -118,7 +117,6 @@ warpScene = "res://Rooms/Living Room/Living Room.tscn"
 warpPos = "FromBedroomPos"
 
 [node name="John\'s Room" type="Node2D"]
-script = ExtResource( 10 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -287,10 +285,10 @@ polygon = PoolVector2Array( 0, 59, -26, 41, -59, 7, -65, -7, -66, -27, 26, -70, 
 [node name="Kernelsprite" parent="." instance=ExtResource( 17 )]
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 4, 240 )
+position = Vector2( 27, 243 )
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
-position = Vector2( 18, -100 )
+position = Vector2( 119, -195 )
 remote_path = NodePath("../../Camera2D")
 
 [node name="Desk" type="StaticBody2D" parent="."]
@@ -332,7 +330,7 @@ position = Vector2( 26.1846, 9.72942 )
 polygon = PoolVector2Array( -15.6012, -329.544, -14.174, -0.971975, -140.185, 47.2706, -138.288, -280.703 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 22, 140 )
+position = Vector2( 146, 48 )
 current = true
 process_mode = 0
 limit_left = -450

@@ -30,11 +30,11 @@ func _ready():
 func init_nodes():
 	var currentSceneCanvasItem = currentScene.get_canvas_item()
 	VisualServer.canvas_item_set_sort_children_by_y(currentSceneCanvasItem,true)
-	if "bgmTrack" in currentScene && audioNode.stream != currentScene.bgmTrack:
+	if "bgmTrack" in currentScene && audioNode.stream == currentScene.bgmTrack || audioNode.stream == playerNode.trickSong:
+		pass
+	elif "bgmTrack" in currentScene && audioNode.stream != currentScene.bgmTrack:
 		audioNode.stream = currentScene.bgmTrack
 		audioNode.play()
-	elif "bgmTrack" in currentScene && audioNode.stream == currentScene.bgmTrack:
-		pass
 	else:
 		audioNode.stop()
 		audioNode.stream = null
@@ -91,6 +91,7 @@ func _deferred_goto_scene(path):
 	var newPlayer = currentScene.get_node("Player")
 #	var newPlayerParent = newPlayer.get_parent()
 	currentScene.add_child_below_node(newPlayer,oldPlayer)
+	var newPlayerRTPos:Vector2 = newPlayer.get_node("RemoteTransform2D").position
 	newPlayer.free()
 	playerNode = oldPlayer
 	
@@ -108,9 +109,10 @@ func _deferred_goto_scene(path):
 	
 	if playerNode:
 		playerNode.global_position = warpPos
+		var playerRT = playerNode.get_node("RemoteTransform2D")
+		playerRT.position = newPlayerRTPos
 		var cam:Camera2D = currentScene.get_node("Camera2D")
-		if cam:
-			cam.global_position = playerNode.get_node("RemoteTransform2D").global_position
-			cam.reset_smoothing()
+		cam.global_position = playerRT.global_position
+		cam.reset_smoothing()
 	
 	init_nodes()
