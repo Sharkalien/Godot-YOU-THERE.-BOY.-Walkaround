@@ -63,7 +63,6 @@ margin_right = 350.0
 margin_bottom = 149.0
 rect_min_size = Vector2( 60, 60 )
 mouse_filter = 0
-mouse_default_cursor_shape = 2
 texture = ExtResource( 1 )
 patch_margin_left = 30
 patch_margin_top = 30
@@ -96,4 +95,7 @@ playback_process_mode = 0
 anims/Open = SubResource( 2 )
 anims/RESET = SubResource( 3 )
 
+[connection signal="meta_clicked" from="CenterContainer/Body_NinePatchRect/MarginContainer/RichTextLabel" to="." method="_on_RichTextLabel_meta_clicked"]
+[connection signal="meta_hover_ended" from="CenterContainer/Body_NinePatchRect/MarginContainer/RichTextLabel" to="." method="_on_RichTextLabel_meta_hover_ended"]
+[connection signal="meta_hover_started" from="CenterContainer/Body_NinePatchRect/MarginContainer/RichTextLabel" to="." method="_on_RichTextLabel_meta_hover_started"]
 [connection signal="animation_finished" from="CenterContainer/Body_NinePatchRect/AnimationPlayer" to="." method="_on_animation_finished"]

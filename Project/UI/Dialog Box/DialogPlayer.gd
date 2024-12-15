@@ -8,6 +8,7 @@ var queuedDialog:PoolStringArray
 var timer:int = 0
 var clicks:int = 0
 var animDone:bool = false
+var metaHovered:bool = false
 
 
 func _ready():
@@ -25,7 +26,7 @@ func _process(_delta):
 		elif !Ui.dialogDone:
 			Ui.dialogDone = true
 			
-		if Input.is_action_just_pressed("click"):
+		if Input.is_action_just_pressed("click") && !metaHovered:
 			if !Ui.dialogDone:
 				timer = label.get_total_character_count()
 				label.set_percent_visible(1.0)
@@ -65,3 +66,15 @@ func _enter_tree() -> void:
 
 func _exit_tree() -> void:
 	Ui.dialogOpen = false
+
+
+func _on_RichTextLabel_meta_clicked(meta) -> void:
+# warning-ignore:return_value_discarded
+	if Ui.dialogDone:
+		OS.shell_open(str(meta))
+
+func _on_RichTextLabel_meta_hover_started(_meta) -> void:
+	metaHovered = true
+
+func _on_RichTextLabel_meta_hover_ended(_meta) -> void:
+	metaHovered = false

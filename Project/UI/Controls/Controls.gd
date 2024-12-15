@@ -2,8 +2,8 @@ extends TextureButton
 
 var dialog = """To walk around, use the mouse, arrow keys, or WASD keys. Click on various objects to open command menus for them!
 
-Godot programming by Sharkalien and Axollyon (abyssalLotl).
-Based on "[S] YOU THERE. BOY." from Homestuck (page 253)."""
+Programmed in Godot by Sharkalien and Axollyon (abyssalLotl).
+Based on [url=https://www.homestuck.com/story/253?fl=1]"[S] YOU THERE. BOY." from Homestuck[/url], made by Andrew Hussie and Aria 'Gankra' Beingessner."""
 
 var faded:bool = false
 const transTime = 0.2
@@ -25,8 +25,6 @@ func _process(_delta):
 func _on_Controls_pressed() -> void:
 	if !Ui.dialogOpen && !Ui.imageOpen && !Ui.fading:
 		Ui.remove_commands()
-		var dialogBoxInstance = Ui.dialogBox.instance()
-		dialogBoxInstance.dialog = dialog
-		Ui.dialogsNode.add_child(dialogBoxInstance)
+		Ui.add_dialog(dialog)
 	if is_instance_valid(clickThis):
 		clickThis.queue_free()

@@ -25,6 +25,9 @@ func _ready():
 	
 	currentScene = get_tree().current_scene
 	init_nodes()
+	
+	if !OS.has_feature("editor"):
+		print(Engine.get_license_text()) # to comply with godot's license terms
 
 
 func init_nodes():
