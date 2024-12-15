@@ -25,9 +25,7 @@ func _exit_tree():
 func _process(_delta):
 	if !Ui.dialogOpen && !Ui.fading && selected && Input.is_action_just_pressed("click"):
 		if !dialog.empty() && dialog != null:
-			var dialogBoxInstance = Ui.dialogBox.instance()
-			dialogBoxInstance.dialog = dialog
-			Ui.dialogsNode.add_child(dialogBoxInstance)
+			Ui.add_dialog(dialog)
 	if Ui.dialogClosing:
 		queue_free()
 

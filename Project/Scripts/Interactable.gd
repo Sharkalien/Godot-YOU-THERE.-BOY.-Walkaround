@@ -31,16 +31,4 @@ func updateClicks():
 
 func _process(_delta):
 	if !Ui.dialogOpen && !Ui.imageOpen && !Ui.fading && selected && Input.is_action_just_pressed("click"):
-		var commandBoxInstance = Ui.commandBox.instance()
-		commandBoxInstance.interactDialog = interactDialog
-		if multiCommand:
-			commandBoxInstance.multiCommand = multiCommand
-		else:
-			commandBoxInstance.connect("clicked", self, "updateClicks")
-			commandBoxInstance.clicks = clicks
-		if extraFunc:
-			var extraFunction = get_node(extraFunc)
-			if extraFunction.has_method("extraFunc"):
-				commandBoxInstance.connect("clicked", extraFunction, "extraFunc")
-		Ui.remove_commands()
-		Ui.commandsNode.add_child(commandBoxInstance)
+		Ui.add_commands(self)

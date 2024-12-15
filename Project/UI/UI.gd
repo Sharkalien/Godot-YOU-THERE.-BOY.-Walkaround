@@ -30,10 +30,36 @@ func _process(_delta):
 		Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 
 
+func add_dialog(dialog:String):
+	var dialogBoxInstance = Ui.dialogBox.instance()
+	dialogBoxInstance.dialog = dialog
+	Ui.dialogsNode.add_child(dialogBoxInstance)
+
+
+func add_image(texture:Texture, dialog:String):
+	var imageBoxInstance = imageBox.instance()
+	if !dialog.empty() && dialog != null:
+		imageBoxInstance.dialog = dialog
+	imageBoxInstance.imageTexture = texture
+	imagesNode.add_child(imageBoxInstance)
+
+
+func add_commands(interactable):
+	var commandBoxInstance = commandBox.instance()
+	commandBoxInstance.interactDialog = interactable.interactDialog
+	if interactable.multiCommand:
+		commandBoxInstance.multiCommand = interactable.multiCommand
+	else:
+		commandBoxInstance.connect("clicked", interactable, "updateClicks")
+		commandBoxInstance.clicks = interactable.clicks
+	if interactable.extraFunc:
+		var extraFunction = interactable.get_node(interactable.extraFunc)
+		if extraFunction.has_method("extraFunc"):
+			commandBoxInstance.connect("clicked", extraFunction, "extraFunc")
+	remove_commands()
+	commandsNode.add_child(commandBoxInstance)
+
+
 func remove_commands():
 	for child in commandsNode.get_children():
 		child.queue_free()
-
-
-func add_dialog():
-	pass

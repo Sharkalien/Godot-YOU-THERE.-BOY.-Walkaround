@@ -40,15 +40,9 @@ func _on_CommandLabel_gui_input(event: InputEvent) -> void:
 		emit_signal("command_clicked")
 		Ui.remove_commands()
 		if zoomImage:
-			var imageBoxInstance = Ui.imageBox.instance()
-			if !dialog.empty() && dialog != null:
-				imageBoxInstance.dialog = dialog
-			imageBoxInstance.imageTexture = zoomImage
-			Ui.imagesNode.add_child(imageBoxInstance)
+			Ui.add_image(zoomImage, dialog)
 		elif !dialog.empty() && dialog != null:
-			var dialogBoxInstance = Ui.dialogBox.instance()
-			dialogBoxInstance.dialog = dialog
-			Ui.dialogsNode.add_child(dialogBoxInstance)
+			Ui.add_dialog(dialog)
 		elif warpScene != null && !warpScene.empty():
 			Global.fadeto_scene(warpScene, warpPos)
 		else:

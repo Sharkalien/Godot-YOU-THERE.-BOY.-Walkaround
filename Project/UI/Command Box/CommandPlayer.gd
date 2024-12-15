@@ -56,7 +56,7 @@ func set_command(labelInst):
 	if width > viewportWidth:
 		width = viewportWidth
 		commandBox.rect_size.x = width
-		yield(self, "resized")
+		yield(self, "resized") # height could be taller now if the command label wraps around on a new line, so it needs to wait to update the size before setting the new height
 	height = commandBox.rect_size.y
 	if height > viewportHeight:
 		height = viewportHeight
