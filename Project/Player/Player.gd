@@ -70,9 +70,8 @@ func keyMovement():
 	var input_vector = Vector2.ZERO
 	input_vector.x = Input.get_axis("ui_left", "ui_right")
 	input_vector.y = Input.get_axis("ui_up", "ui_down")
-	input_vector = input_vector.normalized()
 	
-	direction = input_vector
+	direction = input_vector.normalized()
 	
 	if input_vector != Vector2.ZERO:
 		last_mouse_pos = null
@@ -96,7 +95,7 @@ func mouseMovement():
 		
 		if input_vector.length() < 5 || (get_slide_count() > 0 && velocity != Vector2.ZERO):
 			last_mouse_pos = null
-			return 
+			return
 		
 		direction = input_vector.normalized()
 

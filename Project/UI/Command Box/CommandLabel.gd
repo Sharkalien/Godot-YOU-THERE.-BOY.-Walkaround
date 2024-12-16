@@ -22,13 +22,11 @@ func _process(_delta):
 		visible_characters = timer
 
 func _on_CommandLabel_mouse_entered() -> void:
-	if !Ui.fading:
-		Ui.hoverNodes.append(self)
+	Ui.hoverNodes.append(self)
 	add_color_override("default_color",  Color(0.63, 0.63, 0.63))
 
 func _on_CommandLabel_mouse_exited() -> void:
-	if !Ui.fading:
-		Ui.hoverNodes.erase(self)
+	Ui.hoverNodes.erase(self)
 	remove_color_override("default_color")
 
 func _exit_tree():

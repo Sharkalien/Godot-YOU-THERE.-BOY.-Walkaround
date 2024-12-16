@@ -23,7 +23,7 @@ func _exit_tree():
 	Ui.hoverNodes.erase(self)
 
 func _process(_delta):
-	if !Ui.dialogOpen && !Ui.fading && selected && Input.is_action_just_pressed("click"):
+	if !Ui.dialogOpen && selected && Input.is_action_just_pressed("click"):
 		if !dialog.empty() && dialog != null:
 			Ui.add_dialog(dialog)
 	if Ui.dialogClosing:
