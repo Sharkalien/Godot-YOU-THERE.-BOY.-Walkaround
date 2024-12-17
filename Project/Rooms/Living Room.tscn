@@ -140,7 +140,7 @@ Of all the places for Rose to drop the infernal thing. More than ever you feel..
 
 Of course. Housetrapped."
 
-[node name="Living Room" type="Node2D"]
+[node name="Living Room" type="YSort"]
 
 [node name="LivingRoom" type="StaticBody2D" parent="."]
 position = Vector2( 210, -1292 )

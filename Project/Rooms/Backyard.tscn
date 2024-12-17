@@ -96,7 +96,7 @@ dialog = ""
 warpScene = "res://Rooms/Utility Room.tscn"
 warpPos = "FromBackyardPos"
 
-[node name="Backyard" type="Node2D"]
+[node name="Backyard" type="YSort"]
 script = ExtResource( 7 )
 bgmTrack = ExtResource( 20 )
 
@@ -216,7 +216,7 @@ texture = ExtResource( 10 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Yard/CablesInteractable/cables"]
 position = Vector2( -77, 159 )
 frames = SubResource( 4 )
-frame = 29
+frame = 32
 playing = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Yard/CablesInteractable"]

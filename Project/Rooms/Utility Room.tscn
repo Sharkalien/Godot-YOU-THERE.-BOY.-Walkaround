@@ -34,7 +34,7 @@ dialog = ""
 warpScene = "res://Rooms/Kitchen.tscn"
 warpPos = "FromUtilityRoomPos"
 
-[node name="Utility Room" type="Node2D"]
+[node name="Utility Room" type="YSort"]
 
 [node name="Room" type="StaticBody2D" parent="."]
 position = Vector2( 317, -302 )
@@ -117,6 +117,8 @@ limit_smoothed = true
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 smoothing_enabled = true
+editor_draw_limits = true
+editor_draw_drag_margin = true
 
 [node name="KitchenArrow" type="Area2D" parent="."]
 script = ExtResource( 7 )

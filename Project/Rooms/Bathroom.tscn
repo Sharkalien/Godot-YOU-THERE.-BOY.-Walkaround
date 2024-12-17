@@ -37,7 +37,7 @@ dialog = ""
 warpScene = "res://Rooms/Hallway.tscn"
 warpPos = "FromLivingRoomPos"
 
-[node name="Bathroom" type="Node2D"]
+[node name="Bathroom" type="YSort"]
 
 [node name="Room" type="StaticBody2D" parent="."]
 position = Vector2( -248, -332 )

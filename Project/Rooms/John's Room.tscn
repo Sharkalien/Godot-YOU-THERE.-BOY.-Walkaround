@@ -116,7 +116,7 @@ dialog = ""
 warpScene = "res://Rooms/Living Room.tscn"
 warpPos = "FromBedroomPos"
 
-[node name="John\'s Room" type="Node2D"]
+[node name="John\'s Room" type="YSort"]
 __meta__ = {
 "_edit_lock_": true
 }
@@ -260,7 +260,7 @@ texture = ExtResource( 5 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Dresser"]
 position = Vector2( 1, -62 )
-polygon = PoolVector2Array( -143.773, 72.4672, -14.7734, 137.467, -5.77344, 137.467, 142.227, 61.4672, 1, 4 )
+polygon = PoolVector2Array( -143.773, 72.4672, -14.7734, 137.467, -5.77344, 137.467, 142.227, 61.4672, 12, -11 )
 
 [node name="Wiseguy" type="StaticBody2D" parent="."]
 position = Vector2( 807, 280 )

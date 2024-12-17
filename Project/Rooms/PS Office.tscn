@@ -57,7 +57,7 @@ dialog = "Wow...
 
 ...So like... Where can I get some of YOUR drugs?"
 
-[node name="PS Office" type="Node2D"]
+[node name="PS Office" type="YSort"]
 
 [node name="Room" type="StaticBody2D" parent="."]
 position = Vector2( 312, -388 )
