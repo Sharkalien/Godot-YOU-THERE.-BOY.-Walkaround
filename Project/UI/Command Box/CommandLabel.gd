@@ -7,6 +7,7 @@ var dialog:String = """"""
 var warpScene
 var warpPos = ""
 var zoomImage
+var extraFunc
 
 var timer:int = 2 # to make "> " visible first
 var clicks:int = 0
@@ -45,3 +46,7 @@ func _on_CommandLabel_gui_input(event: InputEvent) -> void:
 			Global.fadeto_scene(warpScene, warpPos)
 		else:
 			pass
+		if extraFunc:
+			var extraFunction = Global.currentScene.get_node(extraFunc)
+			if extraFunction.has_method("extraFunc"):
+				extraFunction.extraFunc()

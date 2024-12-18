@@ -8,7 +8,7 @@ onready var commandContainer = get_node("MarginContainer/VBoxContainer")
 var labelInstance:RichTextLabel = Ui.label.instance()
 onready var COMMAND_MARGIN = labelInstance.get("custom_styles/normal").get_margin(MARGIN_LEFT) * 2
 
-var dict:Dictionary = {"command": "", "dialog": """""", "warpScene": null, "warpPos": "", "zoomImage": null}
+var dict:Dictionary = {"command": "", "dialog": """""", "warpScene": null, "warpPos": "", "zoomImage": null, "extraFunc": null}
 var interactDialog:Array
 var multiCommand:bool = false
 

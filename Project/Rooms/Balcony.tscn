@@ -18,6 +18,7 @@ command = "BOY, OPEN THIS DOOR AND WALK THROUGH IT."
 dialog = ""
 warpScene = "res://Rooms/Living Room.tscn"
 warpPos = "FromBalconyPos"
+extraFunc = ""
 
 [sub_resource type="Resource" id=2]
 script = ExtResource( 6 )
