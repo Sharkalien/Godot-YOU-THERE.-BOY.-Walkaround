@@ -62,6 +62,7 @@ Like a house without a surrounding neighborhood, you guess."
 warpScene = ""
 warpPos = ""
 zoomImage = ExtResource( 15 )
+extraFunc = ""
 
 [sub_resource type="Resource" id=7]
 script = ExtResource( 9 )
@@ -108,6 +109,7 @@ You will reply in a moment, once you have fully assessed your situation."
 warpScene = ""
 warpPos = ""
 zoomImage = ExtResource( 16 )
+extraFunc = ""
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 12 )
@@ -115,6 +117,7 @@ command = "GO OUT OF THE DOOR THAT IS NOT HERE."
 dialog = ""
 warpScene = "res://Rooms/Living Room.tscn"
 warpPos = "FromBedroomPos"
+extraFunc = ""
 
 [node name="John\'s Room" type="YSort"]
 __meta__ = {
@@ -133,18 +136,8 @@ position = Vector2( 34, 653 )
 texture = ExtResource( 1 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Room"]
-visible = false
-position = Vector2( 34, 653 )
-polygon = PoolVector2Array( -956, 135, -654, 6, -311, -134, 161, 23, 367, -57, 612, 23, 944, 154, 997, 170, 1018, -637, -1083, -604, -1038, 256 )
-
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Room"]
-visible = false
-position = Vector2( 34, 653 )
-polygon = PoolVector2Array( -955, 140, -808.446, 202.098, -472, 352, -332, 422, -230, 469, -53, 386, 78, 318, 180, 263, 500, 405, 699, 303, 944, 155, 1020, 154, 1036, 589, -1121, 626, -1025, 159 )
-
-[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Room"]
-visible = false
-polygon = PoolVector2Array( 445, 689, 312, 630, 303, 554, 1043, 673, 960, 887 )
+build_mode = 1
+polygon = PoolVector2Array( -918, 792, -620, 659, -277, 519, 195, 676, 401, 596, 646, 676, 978, 807, 733, 956, 534, 1058, 214, 916, -196, 1122, -557, 949 )
 
 [node name="Posters" type="Sprite" parent="Room"]
 position = Vector2( -441, 405 )
@@ -239,7 +232,13 @@ __meta__ = {
 texture = ExtResource( 7 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Lathe"]
+visible = false
 polygon = PoolVector2Array( -234, 122, 172, 286, 220, 254, -169, 89 )
+disabled = true
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Lathe"]
+position = Vector2( -670, -547 )
+polygon = PoolVector2Array( 445, 689, 312, 630, 303, 554, 1043, 673, 960, 887 )
 
 [node name="Interactable" type="Area2D" parent="Lathe"]
 script = ExtResource( 8 )

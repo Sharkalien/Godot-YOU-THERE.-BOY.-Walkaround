@@ -22,6 +22,7 @@ Sort of."
 warpScene = ""
 warpPos = ""
 zoomImage = ExtResource( 9 )
+extraFunc = ""
 
 [sub_resource type="Resource" id=2]
 script = ExtResource( 10 )
@@ -36,6 +37,7 @@ command = "LEAVE AT ONCE."
 dialog = ""
 warpScene = "res://Rooms/Hallway.tscn"
 warpPos = "FromLivingRoomPos"
+extraFunc = ""
 
 [node name="Bathroom" type="YSort"]
 
@@ -54,8 +56,8 @@ position = Vector2( 508, 604 )
 texture = ExtResource( 4 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Room"]
-visible = false
-polygon = PoolVector2Array( 44, 594, 524, 814, 854, 650, 615, 546, 495, 585, 139, 595, 190, 440, 397, 336, 740, 425, 1090, 550, 971, 872, 160, 921, -63, 590 )
+build_mode = 1
+polygon = PoolVector2Array( 44, 594, 524, 814, 854, 650, 615, 546, 495, 585, 139, 595 )
 
 [node name="WindowInteractable" type="Area2D" parent="Room"]
 script = ExtResource( 8 )

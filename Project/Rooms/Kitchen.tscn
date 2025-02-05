@@ -27,6 +27,7 @@ You wonder what happened in here. Where's your DAD?"
 warpScene = ""
 warpPos = ""
 zoomImage = ExtResource( 9 )
+extraFunc = ""
 
 [sub_resource type="Resource" id=4]
 script = ExtResource( 12 )
@@ -39,6 +40,7 @@ command = "OPEN THIS DOOR NOW."
 dialog = ""
 warpScene = "res://Rooms/Utility Room.tscn"
 warpPos = "FromKitchenPos"
+extraFunc = ""
 
 [sub_resource type="Resource" id=12]
 script = ExtResource( 10 )
@@ -49,6 +51,7 @@ That was one week ago."
 warpScene = ""
 warpPos = ""
 zoomImage = ExtResource( 14 )
+extraFunc = ""
 
 [sub_resource type="Resource" id=6]
 script = ExtResource( 12 )
@@ -83,6 +86,7 @@ command = "RETURN TO THE ROOM WITH THE DEAD HAG'S REMAINS."
 dialog = ""
 warpScene = "res://Rooms/Living Room.tscn"
 warpPos = "FromKitchenPos"
+extraFunc = ""
 
 [node name="Kitchen" type="YSort"]
 
@@ -97,8 +101,8 @@ position = Vector2( 63, 534 )
 texture = ExtResource( 1 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Room"]
-visible = false
-polygon = PoolVector2Array( 86, 1003, -259, 1018, -880, 1031, -895, 154, 13, -127, 1081, 156, 951, 877, 86, 1003, 289, 906, 750, 664, 350, 514, 143.709, 446.822, 82, 473, 41, 462, 45.7047, 414.907, 3, 401, -635, 673 )
+build_mode = 1
+polygon = PoolVector2Array( 86, 1003, 289, 906, 750, 664, 350, 514, 143.709, 446.822, 82, 473, 41, 462, 45.7047, 414.907, 3, 401, -635, 673 )
 
 [node name="SplatsInteractable" type="Area2D" parent="Room"]
 script = ExtResource( 11 )

@@ -102,6 +102,7 @@ command = "BOY, GO IN HERE."
 dialog = ""
 warpScene = "res://Rooms/John's Room.tscn"
 warpPos = "FromLivingRoomPos"
+extraFunc = ""
 
 [sub_resource type="Resource" id=19]
 script = ExtResource( 17 )
@@ -109,6 +110,7 @@ command = "WHAT IS DOWN HERE. PROCEED, BOY."
 dialog = ""
 warpScene = "res://Rooms/Hallway.tscn"
 warpPos = "FromLivingRoomPos"
+extraFunc = ""
 
 [sub_resource type="Resource" id=2]
 script = ExtResource( 17 )
@@ -116,6 +118,7 @@ command = "WAIT GO BACK OUT HERE BOY."
 dialog = ""
 warpScene = "res://Rooms/Balcony.tscn"
 warpPos = "FromLivingRoomPos"
+extraFunc = ""
 
 [sub_resource type="Resource" id=17]
 script = ExtResource( 17 )
@@ -123,6 +126,7 @@ command = "HERE BOY. IN HERE."
 dialog = ""
 warpScene = "res://Rooms/Study.tscn"
 warpPos = "FromLivingRoomPos"
+extraFunc = ""
 
 [sub_resource type="Resource" id=18]
 script = ExtResource( 17 )
@@ -130,6 +134,7 @@ command = "THIS WAY. THROUGH THE DOORS LIKE YOU SEE IN A COWBOY SALOON."
 dialog = ""
 warpScene = "res://Rooms/Kitchen.tscn"
 warpPos = "FromLivingRoomPos"
+extraFunc = ""
 
 [sub_resource type="Resource" id=16]
 script = ExtResource( 19 )
@@ -207,20 +212,9 @@ interactDialog = [ SubResource( 7 ) ]
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LivingRoom/livingQuin5/Interactable"]
 polygon = PoolVector2Array( -49, -54, 47, -88, 47, 54, -49, 88 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LivingRoom"]
-visible = false
-position = Vector2( -210, 1292 )
-polygon = PoolVector2Array( -110, -536, 28, -579, 160, -541, 311, -499, 385, -478, 521, -443, 612, -422, 920, -18, 1065, 45, 1119, 43, 1124, -365, 711, -486, 746, -1175, -270, -1108 )
-
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="LivingRoom"]
-visible = false
-position = Vector2( -210, 1292 )
-polygon = PoolVector2Array( 1064, 44, 943, 104, 884, 223, 892, 227, 294, 525, 143, 453, 82, 482, -141, 377, -83, 346, -428, 196, 200, -76, 197, -461, 51, -408, -65, -459, 25, -489, -119, -539, -546, -409, -500, 382, -120, 561, 922, 657, 1168, 126 )
-
-[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="LivingRoom"]
-visible = false
-position = Vector2( -210, 1292 )
-polygon = PoolVector2Array( 200, -76, 756, 129, 793, 46, 811, 35, 504, -374, 197, -462 )
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="LivingRoom"]
+build_mode = 1
+polygon = PoolVector2Array( -275, 833, -185, 803, -318, 756, -182, 713, 101, 793, 175, 814, 311, 849, 402, 870, 710, 1274, 853, 1336, 733, 1396, 674, 1515, 682, 1519, 84, 1817, -67, 1745, -128, 1774, -351, 1669, -293, 1638, -638, 1488, -10, 1216, 546, 1421, 583, 1338, 601, 1327, 294, 918, -13, 830, -159, 884 )
 
 [node name="Couch" type="StaticBody2D" parent="."]
 position = Vector2( 551, 95 )

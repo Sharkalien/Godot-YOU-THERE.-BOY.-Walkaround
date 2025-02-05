@@ -39,6 +39,7 @@ command = "Open safe"
 dialog = ""
 warpScene = "res://Rooms/Backyard.tscn"
 warpPos = "FromUtilityRoomPos"
+extraFunc = ""
 
 [sub_resource type="Resource" id=5]
 script = ExtResource( 8 )
@@ -72,8 +73,8 @@ texture = ExtResource( 5 )
 centered = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Room"]
-visible = false
-polygon = PoolVector2Array( -545, 658, 113, 517, 549, 651, -18, 890, -544, 659, -558, 659, -563, 721, -46, 953, 601, 701, 583, 587, 87, 454, -571, 602, -558, 658 )
+build_mode = 1
+polygon = PoolVector2Array( -545, 658, 113, 517, 549, 651, -18, 890 )
 
 [node name="What Pumpkin" type="Sprite" parent="Room"]
 position = Vector2( 463, 224 )

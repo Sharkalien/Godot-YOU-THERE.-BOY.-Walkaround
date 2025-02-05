@@ -55,12 +55,8 @@ position = Vector2( 634, 727 )
 texture = ExtResource( 9 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Room"]
-position = Vector2( 242, 762 )
-polygon = PoolVector2Array( 1080, 184, 351, 538, -352, 216, -280, 181, -229, 204, -50, 116, -5, -776, -715, -795, -726, 889, 1480, 935, 1484, 93 )
-
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Room"]
-position = Vector2( 242, 762 )
-polygon = PoolVector2Array( -50, 116, 56, 114, 360, -66, 818, 71, 1116, 207, 1549, 108, 1466, -753, 530, -802, -31, -802 )
+build_mode = 1
+polygon = PoolVector2Array( -110, 978, -38, 943, 13, 966, 192, 878, 298, 876, 602, 696, 1060, 833, 1315.03, 949.332, 593, 1300 )
 
 [node name="LivingRoomDoor" type="Area2D" parent="."]
 script = ExtResource( 1 )
