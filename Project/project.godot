@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Area2D",
+"class": "CameraHotspot",
+"language": "GDScript",
+"path": "res://Scripts/CameraHotspot.gd"
+}, {
 "base": "Resource",
 "class": "InteractDialog",
 "language": "GDScript",
@@ -19,14 +24,21 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scripts/Resources/InteractResourceExtra.gd"
 }, {
+"base": "Area2D",
+"class": "Interactable",
+"language": "GDScript",
+"path": "res://Scripts/Interactable.gd"
+}, {
 "base": "Control",
 "class": "VirtualJoystick",
 "language": "GDScript",
 "path": "res://addons/joystick/virtual_joystick.gd"
 } ]
 _global_script_class_icons={
+"CameraHotspot": "",
 "InteractDialog": "",
 "InteractExtra": "",
+"Interactable": "",
 "VirtualJoystick": ""
 }
 

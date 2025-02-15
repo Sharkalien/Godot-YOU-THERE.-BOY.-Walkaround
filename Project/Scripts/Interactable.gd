@@ -1,4 +1,5 @@
 extends Area2D
+class_name Interactable
 
 export (Array, Resource) var interactDialog = [Resource] # be sure to load in InteractDialog or InteractExtra
 export (bool) var multiCommand = false

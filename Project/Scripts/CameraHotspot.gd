@@ -1,4 +1,5 @@
 extends Area2D
+class_name CameraHotspot
 
 export (NodePath) onready var snapTo = get_node(snapTo) as Position2D
 onready var remoteTransform:RemoteTransform2D
